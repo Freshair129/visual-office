@@ -217,7 +217,8 @@ export function validateReleaseFiles(files, options = {}) {
     else if (filePath.endsWith('.js')) refs = javascriptResourceReferences(filePath, source, options);
     references.set(filePath, refs);
     for (const reference of refs) {
-      if (!files.has(reference)) throw new Error(`${filePath} references missing artifact file ${reference}`);
+      // A manifest-listed external asset that is absent is allowed: the client falls back.
+      if (!files.has(reference) && !options.optionalMissing?.has(reference)) throw new Error(`${filePath} references missing artifact file ${reference}`);
     }
   }
   return references;

@@ -249,11 +249,12 @@ for (const htmlPath of htmlInputs) {
   for (const reference of htmlResourceReferences(htmlPath, html).filter(path => path.endsWith('.css'))) await addCss(reference);
 }
 
-const references = validateReleaseFiles(files, {release: true});
+const optionalMissing = new Set(missingExternalAssets.map(asset => asset.sourcePath.replace(/^web\//, '')));
+const references = validateReleaseFiles(files, {release: true, optionalMissing});
 const unresolvedSourceFiles = [];
 for (const [fromPath, resourcePaths] of references) {
   for (const resourcePath of resourcePaths) {
-    if (!files.has(resourcePath)) unresolvedSourceFiles.push(`${fromPath} -> ${resourcePath}`);
+    if (!files.has(resourcePath) && !optionalMissing.has(resourcePath)) unresolvedSourceFiles.push(`${fromPath} -> ${resourcePath}`);
   }
 }
 if (unresolvedSourceFiles.length) throw new Error(`Release has unresolved local references: ${unresolvedSourceFiles.join(', ')}`);

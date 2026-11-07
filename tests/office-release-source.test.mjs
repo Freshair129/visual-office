@@ -1,3 +1,4 @@
+import {readFileSync, existsSync} from 'node:fs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readdir, readFile, stat} from 'node:fs/promises';
@@ -26,6 +27,15 @@ async function filesUnder(directory) {
   return files;
 }
 
+
+// Brand and ImageGen files are external (asset-store/manifest.json). A public
+// checkout may not have them; the client falls back, so a reference to a
+// listed-but-absent external file is allowed unless VO_REQUIRE_EXTERNAL_ASSETS=1.
+const externalWebPaths = new Set(JSON.parse(readFileSync(new URL('../asset-store/manifest.json', import.meta.url), 'utf8'))
+  .assets.map(asset => asset.path).filter(path => path.startsWith('web/')).map(path => path.slice(4)));
+const absentExternal = reference => process.env.VO_REQUIRE_EXTERNAL_ASSETS !== '1'
+  && externalWebPaths.has(reference) && !existsSync(new URL(`../web/${reference}`, import.meta.url));
+
 test('web HTML entries use external scripts and styles with local references', async () => {
   const htmlFiles = (await filesUnder(webRoot)).filter(path => path.endsWith('.html'));
   assert.ok(htmlFiles.includes(join(webRoot, 'index.html')));
@@ -37,6 +47,7 @@ test('web HTML entries use external scripts and styles with local references', a
     for (const reference of references) {
       const target = resolve(webRoot, reference);
       assert.ok(target.startsWith(webRoot + sep), `${relativePath} reference escaped web/: ${reference}`);
+      if (absentExternal(reference)) continue;
       assert.equal((await stat(target)).isFile(), true, `${relativePath} references missing ${reference}`);
     }
   }
@@ -67,6 +78,7 @@ test('web HTML, CSS and modules contain no inline CSP exceptions or remote modul
     else if (path.endsWith('.css')) references = cssResourceReferences(path, source);
     else if (path.endsWith('.js')) references = javascriptResourceReferences(path, source);
     for (const reference of references) {
+      if (absentExternal(reference)) continue;
       assert.ok(files.has(reference), `${path} references missing ${reference}`);
       pending.push(reference);
     }
