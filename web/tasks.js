@@ -1,7 +1,8 @@
 import {profiles,profileById} from './agent-profiles.js';
+import {officeApiUrl} from './office-api-base.js';
 const $=s=>document.querySelector(s);
 const el=(tag,text,cls)=>{const e=document.createElement(tag);e.textContent=text;if(cls)e.className=cls;return e;};
-async function api(path,method,body){const r=await fetch(path,{method,headers:{'content-type':'application/json'},body:JSON.stringify(body),signal:AbortSignal.timeout(20000)});const data=await r.json();if(!r.ok)throw new Error(data.error||'บันทึกไม่สำเร็จ');return data;}
+async function api(path,method,body){const r=await fetch(officeApiUrl(path),{method,headers:{'content-type':'application/json'},body:JSON.stringify(body),signal:AbortSignal.timeout(20000)});const data=await r.json();if(!r.ok)throw new Error(data.error||'บันทึกไม่สำเร็จ');return data;}
 export class TaskUI{
  #options;#requestId;#knowledgeVersions=[];#knowledgeLoad=null;#knowledgeError='';
  constructor(options){
@@ -24,7 +25,7 @@ export class TaskUI{
   $('#task-feedback').textContent='';this.#mode();this.#knowledgeLoad=this.#loadKnowledge();$('#task-dialog').showModal();}
  async #loadKnowledge(){
   const feedback=$('#task-knowledge-feedback');feedback.textContent='กำลังโหลดเอกสารที่อนุมัติไว้…';
-  try{const response=await fetch('/api/knowledge',{headers:{'accept':'application/json'},signal:AbortSignal.timeout(15000)});const data=await response.json();if(!response.ok)throw new Error(data.error||'โหลดเอกสารไม่สำเร็จ');this.#knowledgeVersions=Array.isArray(data.versions)?data.versions.filter(v=>v.status==='approved'):[];this.#knowledgeError='';this.#renderKnowledge();}
+  try{const response=await fetch(officeApiUrl('knowledge'),{headers:{'accept':'application/json'},signal:AbortSignal.timeout(15000)});const data=await response.json();if(!response.ok)throw new Error(data.error||'โหลดเอกสารไม่สำเร็จ');this.#knowledgeVersions=Array.isArray(data.versions)?data.versions.filter(v=>v.status==='approved'):[];this.#knowledgeError='';this.#renderKnowledge();}
   catch(error){this.#knowledgeError=error?.message||'โหลดเอกสารไม่สำเร็จ';feedback.textContent='โหลดรายการไม่สำเร็จ จึงไม่แนบเอกสารใดกับงานนี้ · '+this.#knowledgeError;this.#knowledgeVersions=[];this.#renderKnowledge();}
  }
  #renderKnowledge(){
@@ -46,7 +47,7 @@ export class TaskUI{
   const selected=this.#knowledgeVersions.filter(v=>knowledgeVersionIds.includes(v.id));if(selected.length!==knowledgeVersionIds.length||selected.length>5||selected.reduce((n,v)=>n+v.sizeBytes,0)>20*1024*1024){$('#task-feedback').textContent='รายการเอกสารเปลี่ยนหรือเกินขีดจำกัด กรุณาโหลดรายการใหม่ในความรู้ทีม';b.disabled=false;return;}
   this.#requestId??=crypto.randomUUID();
   try{
-   const {job}=await api('/api/jobs','POST',{id:this.#requestId,title:$('#task-title').value,brief:$('#task-brief').value,agentIds,team,knowledgeVersionIds});
+   const {job}=await api('jobs','POST',{id:this.#requestId,title:$('#task-title').value,brief:$('#task-brief').value,agentIds,team,knowledgeVersionIds});
    this.#requestId=null;$('#task-dialog').close();$('#task-title').value='';$('#task-brief').value='';this.#options.openWork(job.id);this.#options.toast(this.#options.queueNotice?.()||'ส่งงานเข้าคิวแล้ว เครื่องที่รัน T3 จะรับงานอัตโนมัติ');void this.#options.refresh();
   }catch(e){$('#task-feedback').textContent=e.message+' — ลองส่งอีกครั้งได้ ระบบใช้ ID เดิมป้องกันงานซ้ำ';}finally{b.disabled=false;}
  }

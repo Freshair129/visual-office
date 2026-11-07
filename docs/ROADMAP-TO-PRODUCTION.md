@@ -48,7 +48,7 @@ delivery record is the zuri.ai roadmap, PHASE-ZAI-04 (TASK-ZAI-019..023).
 
 | Item | Exit evidence | Owner |
 | --- | --- | --- |
-| Hosting/deploy target | Decided by zuri.ai ADR-116 (accepted 7 November 2026): Zuri serves a hash-pinned Visual Office release at `/office/` on its own origin, with a strict CSP and manifest-listed assets only; a separate origin is the fallback after the registered-client contract. Remaining: release artefact + provenance format, CSP test, staging environment, and where the Office Worker (T3 runner data only) runs | Visual Office + Zuri platform |
+| Hosting/deploy target | Decided by zuri.ai ADR-116 (accepted 7 November 2026): Zuri serves a hash-pinned Visual Office release at `/office/` on its own origin, with a strict CSP and manifest-listed assets only; a separate origin is the fallback after the registered-client contract. Remaining: [Visual Office release artifact, provenance and CSP check](OFFICE-RELEASE.md), staging environment, and where the Office Worker (T3 runner data only) runs | Visual Office + Zuri platform |
 | Shared scene state service (GAP-05) | ADR: storage, versioning, audit, conflict/offline rules, migration from local stores (see DATA-MODEL.md) | Visual Office + platform architecture |
 | Asset storage and delivery (GAP-06) | ADR: object store/CDN for GLB/preview/source, immutable revision + hash (extends asset-store/manifest.json), access and lifecycle; local-first + handoff RustFS remains for development | Visual Office asset owner |
 | Observability and operations | Error reporting, frontend performance telemetry, Worker logs, uptime checks; incident/rollback runbook | Visual Office |

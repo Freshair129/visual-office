@@ -286,7 +286,7 @@ export class HybridScene{
   }
   renderCalibrationReference(room){
     const host=this.root.querySelector('.hy-reference-props');host.replaceChildren();if(!this.calibrationMode||isOfficeSheet(room))return;
-    for(const o of room.objects){if(catalog[o.kind].renderType==='sprite')continue;const img=this.root.ownerDocument.createElement('img');img.alt='';img.draggable=false;this.watch(img);this.setImageSource(img,officeArtSource(room,o.kind));img.style.cssText=`position:absolute;left:${o.x}%;top:${o.y}%;width:${catalog[o.kind].width*o.scale}%;transform:translate(-50%,-90%) ${o.flip?'scaleX(-1)':''};z-index:${Math.round(o.y*10)}`;host.append(img);}
+    for(const o of room.objects){if(catalog[o.kind].renderType==='sprite')continue;const img=this.root.ownerDocument.createElement('img');img.alt='';img.draggable=false;this.watch(img);this.setImageSource(img,officeArtSource(room,o.kind));Object.assign(img.style,{position:'absolute',left:`${o.x}%`,top:`${o.y}%`,width:`${catalog[o.kind].width*o.scale}%`,transform:`translate(-50%,-90%) ${o.flip?'scaleX(-1)':''}`,zIndex:String(Math.round(o.y*10))});host.append(img);}
   }
   canInspectStructure(){return isOfficeSheet(this.room)||usesPaintedSkeleton(this.room,this.getFloor?.()?.key);}
   setGridPlacement(enabled){if(enabled&&!isOfficeSheet(this.room))return false;this.cancelDrag();if(!this.gridPlacement)this.gridPlacement=new OfficeGridEditor(this);this.gridPlacement.setEnabled(enabled);return true;}

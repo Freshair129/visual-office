@@ -183,7 +183,7 @@ export class KnowledgeView {
     this.libraryKind = 'info';
     this.#renderLibrary();
     try {
-      const response = await fetch('/api/knowledge', { headers: { accept: 'application/json' }, signal: AbortSignal.timeout(15000) });
+      const response = await fetch(officeApiUrl('knowledge'), { headers: { accept: 'application/json' }, signal: AbortSignal.timeout(15000) });
       const data = await response.json();
       if(isDemoMode(this.isDemo))return;
       if (!response.ok) throw new Error(data.error || `โหลดรายการไม่สำเร็จ (HTTP ${response.status})`);
@@ -220,7 +220,7 @@ export class KnowledgeView {
         const key = `${file.name}\u0000${file.size}\u0000${file.lastModified}`;
         const prior = this.uploadIds.get(key); if (prior?.done) continue;
         const fileId = prior?.id || crypto.randomUUID(); this.uploadIds.set(key, { id: fileId, done: false });
-        const response = await fetch('/api/knowledge/files/' + fileId, { method: 'POST', headers: { 'content-type': 'application/octet-stream', 'x-file-name': encodeURIComponent(file.name) }, body: file, signal: AbortSignal.timeout(60000) });
+        const response = await fetch(officeApiUrl('knowledge/files/' + fileId), { method: 'POST', headers: { 'content-type': 'application/octet-stream', 'x-file-name': encodeURIComponent(file.name) }, body: file, signal: AbortSignal.timeout(60000) });
         const data = await response.json();
       if(isDemoMode(this.isDemo))return; if (!response.ok) throw new Error(data.error || `อัปโหลดไม่สำเร็จ (HTTP ${response.status})`);
         this.uploadIds.set(key, { id: fileId, done: true });
@@ -238,7 +238,7 @@ export class KnowledgeView {
     if (action === 'purge' && !this.doc.defaultView.confirm('ลบไฟล์ต้นฉบับนี้ออกจาก workspace หรือไม่? สำเนาที่ส่งไป T3 อาจยังอยู่')) return;
     this.libraryBusy = true; this.libraryMessage = 'กำลังบันทึกการตัดสินใจ…'; this.libraryKind = 'info'; this.#renderLibrary();
     try {
-      const response = await fetch(`/api/knowledge/versions/${id}/${action}`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: '{}', signal: AbortSignal.timeout(20000) });
+      const response = await fetch(officeApiUrl(`knowledge/versions/${id}/${action}`), { method: 'POST', headers: { 'content-type': 'application/json' }, body: '{}', signal: AbortSignal.timeout(20000) });
       const data = await response.json();
       if(isDemoMode(this.isDemo))return; if (!response.ok) throw new Error(data.error || `บันทึกไม่สำเร็จ (HTTP ${response.status})`);
       this.libraryMessage = action === 'approve' ? 'อนุมัติเฉพาะไฟล์ฉบับนี้แล้ว' : action === 'revoke' ? 'ถอนอนุมัติแล้ว งานใหม่จะเลือกไฟล์ฉบับนี้ไม่ได้' : 'ลบไฟล์ต้นฉบับจาก workspace แล้ว'; this.libraryKind = 'success';
@@ -328,7 +328,7 @@ export class KnowledgeView {
     this.messageKind = '';
     this.#renderState();
     try {
-      const response = await fetch('/api/team', {
+      const response = await fetch(officeApiUrl('team'), {
         method: 'PUT',
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify({ context: submitted.trim() })
@@ -365,3 +365,4 @@ export class KnowledgeView {
 }
 
 export { MAX_CONTEXT_LENGTH };
+import {officeApiUrl} from './office-api-base.js';
