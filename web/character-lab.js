@@ -7,6 +7,7 @@ import {characterReference} from './characters/sheet-reference.js';
 import {HUMAN_DESK} from './characters/lab-furniture.js';
 import {createOfficeCharacter,updateOfficeCharacter,disposeOfficeCharacter} from './office-characters.js';
 import {optionalAssetPlaceholder,watchOptionalAssetImages} from './optional-assets.js';
+import {visibleAnimation,pauseOnReducedMotion} from './visible-animation.js';
 
 const $=s=>document.querySelector(s),canvas=$('#stage'),status=$('#status'),loader=new GLTFLoader();
 watchOptionalAssetImages(document);
@@ -33,8 +34,9 @@ const humanContext=new T.Group(),robotContext=new T.Group();for(const n of [...c
 box('robot-seat',.33,.05,.30,0,.175,-.03,0xa3b3a4,robotContext);box('robot-seat-base',.20,.15,.20,0,.075,-.03,0x706c61,robotContext);box('robot-work-surface',.52,.025,.28,0,.32,.31,0xc9ae7b,robotContext);
 for(const x of [-.21,.21])box('robot-desk-leg',.025,.31,.025,x,.155,.32,0x777d78,robotContext);
 const candidateMeta=new Map();
-const clock=new T.Clock();let actor=null,mixer=null,clips=[],current='zuri',version='current',action='idle',generation=0,paused=matchMedia('(prefers-reduced-motion: reduce)').matches,spin=false,manifest=null,beforeMeta=null,pilotMeta=null,headMeta=null,activeAction=null;
+const motionPreference=matchMedia('(prefers-reduced-motion: reduce)');let actor=null,mixer=null,clips=[],current='zuri',version='current',action='idle',generation=0,paused=motionPreference.matches,spin=false,manifest=null,beforeMeta=null,pilotMeta=null,headMeta=null,activeAction=null;
 $('#pause').setAttribute('aria-pressed',String(paused));$('#pause').textContent=paused?'เล่นแอนิเมชัน':'หยุดแอนิเมชัน';
+const stopPreference=pauseOnReducedMotion(motionPreference,()=>{paused=true;$('#pause').setAttribute('aria-pressed','true');$('#pause').textContent='เล่นแอนิเมชัน';});
 function dispose(root){if(root?.userData?.officeCharacter){disposeOfficeCharacter(root);return;}const gs=new Set(),ms=new Set(),ts=new Set(),sk=new Set();root?.traverse(n=>{if(n.geometry)gs.add(n.geometry);for(const m of(Array.isArray(n.material)?n.material:[n.material]))if(m){ms.add(m);for(const v of Object.values(m))if(v?.isTexture)ts.add(v);}if(n.skeleton)sk.add(n.skeleton);});for(const set of [sk,ts,ms,gs])set.forEach(x=>x.dispose());root?.removeFromParent();}
 function setView(view){
   const robot=current==='wangjai',h=robot?.9:isImportedCharacter(current)?1.65:current==='staff-b'?1.73:1.6;
@@ -100,10 +102,10 @@ $('#wire').onchange=()=>actor?.traverse(n=>{for(const m of(Array.isArray(n.mater
 $('#compare').onclick=()=>{const show=$('#reference').hidden;$('#reference').hidden=!show;$('.review-layout').classList.toggle('is-comparing',show);$('#compare').setAttribute('aria-pressed',String(show));};
 $('#reference-view').onchange=updateReference;
 const resize=new ResizeObserver(()=>{const {width,height}=canvas.getBoundingClientRect();renderer.setSize(width,height,false);camera.aspect=width/height;camera.updateProjectionMatrix();});resize.observe(canvas);
-let frame;function render(){const dt=Math.min(clock.getDelta(),.05);if(!document.hidden){if(!paused){mixer?.update(dt);if(actor?.userData?.officeCharacter)updateOfficeCharacter(actor,{action:'idle',time:clock.elapsedTime,dt});}controls.autoRotate=spin&&!paused;controls.autoRotateSpeed=1;controls.update();renderer.render(scene,camera);}frame=requestAnimationFrame(render);}render();
+let animationTime=0;const stopRender=visibleAnimation(document,cb=>requestAnimationFrame(cb),id=>cancelAnimationFrame(id),dt=>{if(!paused){animationTime+=dt;mixer?.update(dt);if(actor?.userData?.officeCharacter)updateOfficeCharacter(actor,{action:'idle',time:animationTime,dt});}controls.autoRotate=spin&&!paused;controls.autoRotateSpeed=1;controls.update();renderer.render(scene,camera);});
 const selection=initialCharacterSelection(new URLSearchParams(location.search).get('model'));
 const requestedModel=selection.version==='blender'?'blender':selection.id;
 const reviewHead=requestedModel==='blender'||isImportedCharacter(requestedModel);
 if(reviewHead){$('#reference-view').value='face';$('#reference').hidden=false;$('.review-layout').classList.add('is-comparing');$('#compare').setAttribute('aria-pressed','true');}
 Promise.all([...importedCharacterIds.map(id=>fetch(`./assets/models/characters/candidates/${id}.json`).then(r=>{if(!r.ok)throw Error('candidate metadata');return r.json();}).then(m=>candidateMeta.set(id,m)).catch(()=>{})),fetch('./assets/models/characters/reviews/zuri-head-revision.json').then(r=>{if(!r.ok)throw Error('head metadata');return r.json();}).then(m=>{headMeta=m;}).catch(()=>{}),fetch('./assets/models/characters/manifest.json').then(r=>{if(!r.ok)throw Error('manifest');return r.json();}).then(m=>{manifest=m;}).catch(()=>{}),fetch('./assets/models/characters/reviews/zuri-before-refinement.json').then(r=>{if(!r.ok)throw Error('before metadata');return r.json();}).then(m=>{beforeMeta=m;}).catch(()=>{}),fetch('./assets/models/characters/reviews/zuri-blender-pilot.json').then(r=>{if(!r.ok)throw Error('pilot metadata');return r.json();}).then(m=>{pilotMeta=m;}).catch(()=>{})]).finally(()=>load(selection.id,selection.version));
-window.addEventListener('pagehide',()=>{generation++;cancelAnimationFrame(frame);resize.disconnect();controls.dispose();mixer?.stopAllAction();if(actor)mixer?.uncacheRoot(actor);dispose(actor);dispose(context);dispose(ground);studioEnvironment.dispose();renderer.dispose();},{once:true});
+window.addEventListener('pagehide',()=>{generation++;stopRender();stopPreference();resize.disconnect();controls.dispose();mixer?.stopAllAction();if(actor)mixer?.uncacheRoot(actor);dispose(actor);dispose(context);dispose(ground);studioEnvironment.dispose();renderer.dispose();},{once:true});

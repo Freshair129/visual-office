@@ -72,7 +72,7 @@ export class BuildingView {
     this.world.append(studioEntry);
     const sceneHost=element('section','','office-panel');
     const canvasHost=element('div');canvasHost.id='scene';
-    const loading=element('p','กำลังเปิดฉาก 3D…','scene-loading');loading.id='scene-loading';
+    const loading=element('p','กำลังเปิดฉาก 3D…','scene-loading');loading.id='scene-loading';loading.setAttribute('role','status');
     const labels=element('div');labels.id='labels';canvasHost.append(loading,labels);sceneHost.append(canvasHost);
     this.world.querySelector('.world-scene').append(sceneHost);
     this.directory = this.world.querySelector('.world-directory');

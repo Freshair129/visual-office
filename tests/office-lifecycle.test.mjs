@@ -49,6 +49,27 @@ function assetScene(){
  const root=Geometry.group(),mesh=Geometry.mesh();globalThis.officeLifecycleMocks.watch(mesh.geometry);globalThis.officeLifecycleMocks.watch(mesh.material);root.add(mesh);return root;
 }
 
+test('Native renderer cancels hidden frames and resumes without advancing hidden time',async t=>{
+ const fixture=setupDOM();t.after(()=>fixture.restore());
+ let hidden=false;Object.defineProperty(document,'hidden',{configurable:true,get:()=>hidden});
+ const {Office}=await officeModule(),office=new Office(document.querySelector('#scene'));
+ const run=time=>{const [id,callback]=fixture.state.frames.entries().next().value;fixture.state.frames.delete(id);callback(time);};
+ run(100);run(150);const before=office.lastFrame;
+ hidden=true;document.dispatchEvent(new window.Event('visibilitychange'));assert.equal(fixture.state.frames.size,0);
+ hidden=false;document.dispatchEvent(new window.Event('visibilitychange'));run(100000);
+ assert.equal(office.lastFrame,before);run(100040);assert.ok(office.lastFrame-before<=50);
+ office.dispose();assert.equal(fixture.state.frames.size,0);
+});
+
+test('avatar preview redraws on changes without a continuous animation loop',async t=>{
+ const fixture=setupDOM();t.after(()=>fixture.restore());
+ const {avatarPreview}=await officeModule(),preview=avatarPreview(document.querySelector('#scene'),{});
+ const renderer=fixture.state.renderers.at(-1);
+ assert.equal(renderer.renders,1);assert.equal(fixture.state.frames.size,0);
+ preview.update({});assert.equal(renderer.renders,2);assert.equal(fixture.state.frames.size,0);
+ preview.dispose();preview.dispose();preview.update({});assert.equal(renderer.renders,2);assert.equal(renderer.disposes,1);
+});
+
 test('existing Office geometry round-trips native transforms; chairs anchor avatars and pointer drag cancels cleanly',async t=>{
  const fixture=setupDOM();t.after(()=>fixture.restore());const three=await import('three');
  fixture.state.assetGeometry={group:()=>new three.Group(),mesh:()=>new three.Mesh(new three.BoxGeometry(1,1,1),new three.MeshBasicMaterial())};

@@ -1,5 +1,7 @@
 # P1-B dynamic domain context — Office implementation plan
 
+Disposition (7 November 2026, lead under the owner's delegation): Completed: delivered by the synthetic Business-scoped dynamic context PRs (archived repo #4, #5); CI runs the pinned producer compatibility check on every change.
+
 > **For agentic workers:** Use superpowers:executing-plans task by task.
 
 **Goal:** Qualified synthetic Business-scoped dynamic floors without widening Zuri authority.

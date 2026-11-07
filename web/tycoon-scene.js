@@ -2,6 +2,7 @@ import {PoseTransaction,drainPoseSteps} from './tycoon-pose-transaction.js';
 // @tested tests/tycoon-scene-preparation.test.mjs, tests/tycoon-repair-cache.test.mjs, tests/tycoon-probe-budget.test.mjs, tests/tycoon-pose-resume.test.mjs, tests/tycoon-pose-parity.test.mjs
 import {customModels,inspectCustomGLB,verifyCustomMeasurement,normalizeCustomModel,disposeCustomModel} from './custom-assets.js';
 import * as THREE from 'three';
+import {visibleThreeLoop} from './visible-animation.js';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {clone as cloneSkeleton} from 'three/addons/utils/SkeletonUtils.js';
 import {officeCamera} from './office-projection.js';
@@ -86,7 +87,7 @@ export class TycoonScene{
     this.wheel=e=>{e.preventDefault();this.zoom(e.deltaY<0?.1:-.1);};
     this.cancel=()=>{this.editor?.cancel();this.press=null;this.dragged=false;};this.lost=e=>{e.preventDefault();this.contextLost=true;this.ready=false;this.cancel();this.activity?.stop();this.onError?.('การแสดงผล 3D หยุดทำงาน · ยังเลือกวัตถุจากเมนูด้านล่างได้');};
     canvas.addEventListener('pointerdown',this.down);canvas.addEventListener('pointermove',this.move);canvas.addEventListener('pointerup',this.up);canvas.addEventListener('pointercancel',this.cancel);canvas.addEventListener('wheel',this.wheel,{passive:false});canvas.addEventListener('webglcontextlost',this.lost);
-    this.framePacer=new FramePacer(frameRate);this.renderer.setAnimationLoop(ms=>this.renderFrame(ms));
+    this.framePacer=new FramePacer(frameRate);this.stopVisibleLoop=visibleThreeLoop(root.ownerDocument,this.renderer,this.framePacer,ms=>this.renderFrame(ms));
   }
   // @tested tests/tycoon-render-cadence.test.mjs
   renderFrame(ms){
@@ -365,5 +366,5 @@ export class TycoonScene{
   focusArea(id){const area=this.room?.blueprintPlan?.areas?.find(area=>area.id===id);if(!area)return {ok:false,message:'ไม่พบพื้นที่นี้ในฉากที่เปิดอยู่'};const r=this.root.getBoundingClientRect(),ratio=Math.max(.1,r.width/Math.max(1,r.height)),frame=tycoonCameraFrame(this.room,ratio,1,this.kind),plan=this.room.blueprintPlan;this.pan.set(plan.originX+area.x+area.width/2+2-frame.centerX,0,plan.originZ+area.z+area.depth/2+2-frame.centerZ);const needed=Math.max((area.width+area.depth)/Math.SQRT2*.52+4,(area.width+area.depth)/Math.SQRT2/ratio+2);this.scale=Math.max(1,Math.min(4,frame.height/needed));this.fit();return {ok:true,areaId:id};}
   zoom(delta){this.scale=Math.max(.6,Math.min(4,this.scale+delta));this.fit();}
   reset(){this.scale=1;this.pan.set(0,0,0);this.resize();}
-  dispose(){if(this.disposed)return;TycoonScene.prototype.cancelPoseSolve.call(this);this.cancelStationStart?.();this.disposed=true;this.probeClock=null;this.activity?.stop();this.editor?.dispose();this.assembly.dispose();this.resizeObserver.disconnect();const c=this.renderer.domElement;for(const [event,fn]of [['pointerdown',this.down],['pointermove',this.move],['pointerup',this.up],['pointercancel',this.cancel],['wheel',this.wheel],['webglcontextlost',this.lost]])c.removeEventListener(event,fn);this.renderer.setAnimationLoop(null);c.remove();const releases=[...this.cache.values()].map(pending=>pending.then(model=>{disposeCachedSkeletons(model);const gs=new Set(),ms=new Set(),ts=new Set();model.traverse(n=>{if(n.geometry)gs.add(n.geometry);for(const m of [].concat(n.material||[])){ms.add(m);for(const value of Object.values(m))if(value?.isTexture)ts.add(value);}});gs.forEach(g=>g.dispose());ms.forEach(m=>m.dispose());ts.forEach(t=>t.dispose());}).catch(()=>{}));this.cache.clear();this.disposal=Promise.all(releases).then(()=>this.renderer.dispose());}
+  dispose(){if(this.disposed)return;TycoonScene.prototype.cancelPoseSolve.call(this);this.cancelStationStart?.();this.disposed=true;this.probeClock=null;this.activity?.stop();this.editor?.dispose();this.assembly.dispose();this.resizeObserver.disconnect();const c=this.renderer.domElement;for(const [event,fn]of [['pointerdown',this.down],['pointermove',this.move],['pointerup',this.up],['pointercancel',this.cancel],['wheel',this.wheel],['webglcontextlost',this.lost]])c.removeEventListener(event,fn);if(this.stopVisibleLoop)this.stopVisibleLoop();else this.renderer.setAnimationLoop(null);c.remove();const releases=[...this.cache.values()].map(pending=>pending.then(model=>{disposeCachedSkeletons(model);const gs=new Set(),ms=new Set(),ts=new Set();model.traverse(n=>{if(n.geometry)gs.add(n.geometry);for(const m of [].concat(n.material||[])){ms.add(m);for(const value of Object.values(m))if(value?.isTexture)ts.add(value);}});gs.forEach(g=>g.dispose());ms.forEach(m=>m.dispose());ts.forEach(t=>t.dispose());}).catch(()=>{}));this.cache.clear();this.disposal=Promise.all(releases).then(()=>this.renderer.dispose());}
 }

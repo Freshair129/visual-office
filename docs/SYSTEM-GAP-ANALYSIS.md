@@ -153,7 +153,7 @@ indicative until physical devices are measured.
 | Desktop time to all characters ready, 4 avatars | ≤ 2,000 ms | Batched: 2,761 / 2,428 ms (originals 2,826 / 2,811 ms in the same runs; earlier quiet run 1,013 ms) | **Not re-confirmed** — host was shared with other workloads; re-measure on an idle host |
 | 4× CPU proxy, 4 avatars | p95 ≤ 40 ms (25 fps floor) | Batched 50.1 ms (was 66.8) | **Fail** (improved) |
 | 6× CPU proxy, 4 avatars | p95 ≤ 66.7 ms (15 fps floor) | Batched 116.6 ms (was 216.7) | **Fail** (improved) |
-| Physical mid-range phone, 4 avatars | p95 ≤ 40 ms | not measured | Open |
+| Physical mid-range phone, 4 avatars | p95 ≤ 40 ms | not measured | Deferred (owner, 7 November 2026) |
 
 The ceiling tests check bytes, hashes, triangles, meshes and instantiated
 draw-call primitives in the actual LOD1 GLBs. The frame/load measurements above
@@ -192,10 +192,56 @@ system, mobile, live, hosted CI or release acceptance. No merge/deployment.
 | G1: Lab/runtime model mismatch | Closed locally / Office | Stable `zuri` selects unchanged R4 file/metadata. Saved IDs, roster, geometry, brand and historical R3 are unchanged. The owner approved R4 and the other three specified full-detail/LOD1 appearances on 7 November 2026, as relayed by the lead. |
 | G2: stale review form overwrite | Closed locally / Office | UI now sends `baseUpdatedAt`; Worker rejects different stale edits before writes/outbox. Draft and explicit reload remain available. Identical retries and ETag CAS retain their separate protections. Legacy callers omitting the optional base retain prior behavior. |
 | G3: nested HTML/base URL audit omission | Closed locally / Office | Recursive discovery resolves local bases, excludes external-base scripts and traces asset-builder inputs separately. Final static audit: 5 HTML documents, 4 module entries, 224 reachable modules, 3 build-only modules, 0 unclassified authored modules, 27 route families. |
-| G4: accessibility/lifecycle evidence remains partial | P1 QA | Existing DOM/unit and bounded browser observations do not close actual document-hidden/focus, physical-device, screen-reader or every edition's mobile acceptance. Recheck reachable flows in source and Worker; record unsupported tool/device checks as open. |
+| G4: accessibility/lifecycle evidence remains partial | P1 QA / lead | 7 November work adds focused DOM/unit checks for hidden-tab scheduling and reduced-motion changes, names the storage-recovery confirmation, and exposes the Building loading message as a status. This is partial source/test evidence, not a completed WCAG audit or browser/device acceptance; the remaining checks and known lifecycle gaps are below. |
 | G5: business contracts and durable shared scenes remain unavailable | Zuri owner | No published Office auth/client registration, authorized roster/actions, shared scene/version/audit or asset service contract. Do not invent endpoints or enable live. |
-| G6: asset/performance quality | Art approved; batching implemented / Office; browser remeasurement and mobile performance open | Owner approved R4, Wangjai and Staff A/B originals and LOD1 on 7 November 2026; candidates/review metadata excluded. Batched LOD1 passes the [G6 inventory budget](#g6-performance-budget--accepted-7-november-2026), including ≤30 meshes/primitives per character; catalog/UI labels are updated. The earlier 491-call floor and failed CPU proxies describe pre-batching assets. Lead must repeat browser/build checks and measure a physical phone. |
+| G6: asset/performance quality | Art approved; mesh budget met; desktop frame time qualified / Office; mobile performance open | Owner approved R4, Wangjai and Staff A/B originals and LOD1 on 7 November 2026; candidates/review metadata excluded and catalog/UI labels updated. Batched LOD1 meets the [G6 budget](#g6-performance-budget--accepted-7-november-2026) for bytes, triangles and ≤30 meshes per character; scene calls fell 491→273 (4 avatars). Desktop frame time passes; desktop ready time is to be re-confirmed on an idle host; 4×/6× CPU proxies improved but still fail. Next: scene-side batching, then a physical-phone measurement (deferred by the owner on 7 November 2026). |
 | G7: reserved-floor board/actions imply an active department | Closed locally / Office | Browser reproduced empty feed and creation actions despite RESERVED. Board now states preparation without a feed read, refresh or Work link; object menus omit Chat/create. Role inspection, illustrative actors and navigation remain. |
+
+G4 disposition: **ACTIVE / handoff; browser and device acceptance open.**
+`tests/g4-accessibility-lifecycle.test.mjs` exercises the shared frame scheduler,
+Tycoon loop/pacer, dynamic Lab reduced-motion listener, CloudClient polling,
+recovery dialog name, safe initial-focus markup and status updates, plus language
+attributes on the five HTML entries. `tests/office-lifecycle.test.mjs` adds a Native integration
+case; it still requires an environment where esbuild can start. DOM simulation
+does not verify native dialog focus trapping, Escape or focus return. Existing
+Hybrid activity and Studio scene source already listen for visibility changes;
+these findings do not establish every editor, timer or route as covered.
+
+The Native avatar preview now redraws only when its appearance changes; its
+integration test requires esbuild. CloudClient pauses its scheduled polling while
+hidden and refreshes an active connection on return. A known remaining source
+gap is that the Zuri panel interval does not pause on document visibility. The
+handoff popup close watcher also runs while
+hidden; its interruption and retry semantics must be preserved when addressing
+it. Focus/blur behavior and state retention need an edition-by-edition audit.
+The complete keyboard, canvas alternative, language-of-parts, contrast and touch
+target audit remains open; a language attribute alone is not WCAG conformance.
+
+Lead acceptance checks, using a real browser and a separate physical phone:
+
+- Keyboard-only: visit Building, Lobby, each saved Hybrid and Native floor,
+  Design/Hybrid/Native/GLB Studio, and Character Lab. Tab and Shift+Tab through
+  every control; verify a visible focus indicator, meaningful names and states,
+  and a keyboard alternative for every canvas-only operation. Open and close
+  each dialog, including storage recovery and the Office handoff flow; verify
+  focus enters it, stays inside, Escape closes it where appropriate, and focus
+  returns to the invoking control. Check popup behavior in both origins.
+- Reduced motion: enable the OS/browser preference before opening each edition,
+  then change it while the Lab and scenes are open. Verify ambient movement stops,
+  controls and status remain available, and deliberate user playback is clear.
+- Hidden tab and focus: begin an activity or draft in each edition; switch tabs
+  for at least 30 seconds and return, then blur/refocus the browser without
+  hiding the document. Inspect render callbacks and polling in developer tools;
+  expect no hidden animation work, no elapsed-time jump or lost draft, and
+  correctly refreshed status. Record any continuing timer separately.
+- Screen reader: with NVDA or VoiceOver, walk the same routes, announce dialog
+  titles, controls, selected/disabled states, loading and save/recovery failures,
+  and verify that a meaningful scene summary or equivalent actions exist without
+  seeing the canvas. Verify Thai/English pronunciation for language changes.
+- Physical phone: at 100% and enlarged text, walk the same flows using touch;
+  measure primary controls against the project's 44 CSS px target and inspect
+  clipping, focus visibility and portrait/landscape behavior. Measure text and
+  non-text contrast against WCAG 2.2 AA thresholds in each actual state/theme.
 
 ## Requirement and feature coverage
 

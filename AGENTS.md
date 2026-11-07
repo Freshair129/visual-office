@@ -51,7 +51,7 @@ MVP desk/chair variants belong in `web/tycoon-furniture-models.js`; preserve
 
 The owner accepted the current human models for temporary use and deferred final art
 polish. Start functional follow-ups at [system gaps](docs/SYSTEM-GAP-ANALYSIS.md)
-and [closure plan](docs/superpowers/plans/review/2026-10-27-system-gap-closure.md).
+and [closure plan](docs/superpowers/plans/historical/2026-10-27-system-gap-closure.md).
 Stable appearance `zuri` now uses the unchanged R4 GLB; historical R3 remains a
 Lab comparison. Do not resume sculpting or change Agent counts/roles implicitly.
 Work review UI sends `baseUpdatedAt`; Worker checks stale edit bases and ETag
@@ -260,7 +260,7 @@ ownership; `officeArt` is an explicit per-floor versioned art choice. Never appl
 transform to original artwork or Agent records. Preserve all existing source image and brand bytes.
 
 For **P1-B / dynamic Business domains / candidate context**, read
-[the dynamic-context plan](docs/superpowers/plans/review/2026-10-24-marketing-dynamic-context.md).
+[the dynamic-context plan](docs/superpowers/plans/historical/2026-10-24-marketing-dynamic-context.md).
 Run the existing app harness with `--dynamic` (or `--worker --dynamic` after build).
 This explicit synthetic profile uses `office-context-data.js`, `office-domain-context.js`,
 `office-context-route.js` and `tycoon-domain-view.js`; default static pilot is unchanged.

@@ -203,6 +203,8 @@ that action. A long-running Agent run needs its own durable operation/receipt co
 
 ## 7. Scene state model and persistence lifecycle
 
+Full code-derived storage and entity inventory: [DATA-MODEL.md](DATA-MODEL.md).
+
 ```mermaid
 classDiagram
   class FloorSnapshot {
