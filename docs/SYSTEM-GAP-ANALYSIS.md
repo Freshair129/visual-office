@@ -154,7 +154,7 @@ indicative until physical devices are measured.
 | Desktop time to all characters ready, 4 avatars | ≤ 2,000 ms | 1,013 ms | Pass |
 | 4× CPU proxy, 4 avatars | p95 ≤ 40 ms (25 fps floor) | 66.8 ms | **Fail** |
 | 6× CPU proxy, 4 avatars | p95 ≤ 66.7 ms (15 fps floor) | 216.7 ms | **Fail** |
-| Physical mid-range phone, 4 avatars | p95 ≤ 40 ms | not measured | Open |
+| Physical mid-range phone, 4 avatars | p95 ≤ 40 ms | not measured | Deferred (owner, 7 November 2026) |
 
 The ceiling test checks bytes, hashes and triangles in the actual LOD1 GLBs. The
 draw-call and frame-time rows are measured with `npm run perf:hybrid`; they are
@@ -191,7 +191,7 @@ system, mobile, live, hosted CI or release acceptance. No merge/deployment.
 | G3: nested HTML/base URL audit omission | Closed locally / Office | Recursive discovery resolves local bases, excludes external-base scripts and traces asset-builder inputs separately. Final static audit: 5 HTML documents, 4 module entries, 224 reachable modules, 3 build-only modules, 0 unclassified authored modules, 27 route families. |
 | G4: accessibility/lifecycle evidence remains partial | P1 QA | Existing DOM/unit and bounded browser observations do not close actual document-hidden/focus, physical-device, screen-reader or every edition's mobile acceptance. Recheck reachable flows in source and Worker; record unsupported tool/device checks as open. |
 | G5: business contracts and durable shared scenes remain unavailable | Zuri owner | No published Office auth/client registration, authorized roster/actions, shared scene/version/audit or asset service contract. Do not invent endpoints or enable live. |
-| G6: asset/performance quality | Art approved; desktop qualified / Office; mobile performance open | Owner approved R4, Wangjai and Staff A/B originals and LOD1 on 7 November 2026, relayed by the lead; other candidates/review assets excluded. Lead-set [G6 budget](#g6-performance-budget--accepted-7-november-2026): LOD1 bytes/triangles and desktop frame/load targets pass on an RTX 3060; 4×/6× CPU proxies fail because draw calls (491 for four avatars) are unchanged by LOD1. Next: per-character draw-call reduction, a physical-phone measurement, and catalog/UI art labels. |
+| G6: asset/performance quality | Art approved; desktop qualified / Office; mobile performance open | Owner approved R4, Wangjai and Staff A/B originals and LOD1 on 7 November 2026, relayed by the lead; other candidates/review assets excluded. Lead-set [G6 budget](#g6-performance-budget--accepted-7-november-2026): LOD1 bytes/triangles and desktop frame/load targets pass on an RTX 3060; 4×/6× CPU proxies fail because draw calls (491 for four avatars) are unchanged by LOD1. Next: per-character draw-call reduction, a physical-phone measurement (deferred by the owner on 7 November 2026), and catalog/UI art labels. |
 | G7: reserved-floor board/actions imply an active department | Closed locally / Office | Browser reproduced empty feed and creation actions despite RESERVED. Board now states preparation without a feed read, refresh or Work link; object menus omit Chat/create. Role inspection, illustrative actors and navigation remain. |
 
 ## Requirement and feature coverage

@@ -33,7 +33,7 @@ group/layer/texture, prefab และ custom GLB library แล้ว แต่�
 Independent builder review ของ design v0.2 ผ่านการทบทวนซ้ำวันที่23ตุลาคม:
 ปิดประเด็น Lobby3D/ไฟล์เก่า และ local sceneคู่กับข้อมูลสดในdesign§9.1–9.2แล้ว
 ไม่มีคำถามสำคัญที่ค้างสำหรับผู้พัฒนา; เจ้าของอนุมัติให้เดินตาม workflow แล้ว
-ดู [implementation plan และสถานะรายงาน](../superpowers/plans/review/2026-10-23-office-tycoon.md)
+ดู [implementation plan และสถานะรายงาน](../superpowers/plans/historical/2026-10-23-office-tycoon.md)
 และผลต้นแบบรอบแรกในเอกสาร Integration ด้านล่าง
 
 เป้าหมายที่เจ้าของเลือกคือ **หน้าอาคาร + Lobby + Projects** ที่ใช้งานเหมือนเกม
@@ -47,7 +47,7 @@ Office Tycoon: เข้าอาคาร เลือกชั้น แตะ
 3. [Asset list: ต้องปั้นอะไร จำนวนเท่าไร กี่มุม และ animate อย่างไร](TYCOON-ASSET-LIST.md)
 4. [Integration และ acceptance: สิ่งที่มีจริง สิ่งที่รอ และวิธีตรวจรับ](TYCOON-INTEGRATION-AND-ACCEPTANCE.md)
 5. [Wireframes](tycoon-wireframes.svg) — ภาพโครง UI สำหรับสื่อสาร ไม่ใช่ final art หรือหน้าที่รันแล้ว
-6. [Implementation plan](../superpowers/plans/review/2026-10-23-office-tycoon.md) — ไฟล์ที่รับผิดชอบ ลำดับทดสอบ และงานที่ยังค้าง
+6. [Implementation plan](../superpowers/plans/historical/2026-10-23-office-tycoon.md) — ไฟล์ที่รับผิดชอบ ลำดับทดสอบ และงานที่ยังค้าง
 
 ## การใช้เครื่องมือที่ยังรองรับ
 
