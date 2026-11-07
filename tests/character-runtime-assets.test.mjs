@@ -6,6 +6,34 @@ import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {CharacterLibrary,updateCharacter} from '../web/characters/runtime.js';
 import {characterAsset,characterLegs} from '../web/characters/runtime-catalog.js';
 import {externalAssetTest} from './external-assets-helper.mjs';
+const lodManifest=JSON.parse(await readFile(new URL('../web/assets/models/characters/lod/manifest.json',import.meta.url),'utf8'));
+// Batching preserves named transform nodes; geometry now lives in shared
+// meshes. Use the generated source-part ranges to keep testing actual contact
+// vertices rather than empty transform-node bounding boxes.
+function partBounds(actor,id,surface,matches){
+ const box=new Box3(),point=new Vector3();let vertices=0;
+ actor.updateMatrixWorld(true);
+ if(surface==='hybrid'){
+  const entry=lodManifest.assets.find(a=>a.id===id),model=actor.userData.runtimeCharacter.model;
+  for(const part of entry.batching.parts){
+   // The runtime scene retains the original node names; source ordering is
+   // recorded on load below, avoiding a dependency on Three traversal order.
+   if(!matches(model.userData.sourceNodeNames[part.node]))continue;
+   const mesh=model.getObjectByName('LOD_batch_'+part.mesh);assert.ok(mesh?.isMesh);
+   mesh.skeleton?.update();
+   for(let i=part.vertexOffset;i<part.vertexOffset+part.vertexCount;i++){
+    mesh.getVertexPosition(i,point).applyMatrix4(mesh.matrixWorld);box.expandByPoint(point);vertices++;
+   }
+  }
+ }else actor.traverse(mesh=>{
+  if(!mesh.isMesh)return;let owner=mesh,selected=false;
+  while(owner){if(matches(owner.name))selected=true;owner=owner.parent;}if(!selected)return;
+  mesh.skeleton?.update();for(let i=0;i<mesh.geometry.attributes.position.count;i++){
+   mesh.getVertexPosition(i,point).applyMatrix4(mesh.matrixWorld);box.expandByPoint(point);vertices++;
+  }
+ });
+ assert.ok(vertices>0,'contact check must measure real geometry');return box;
+}
 async function loadGeometry(path){
   const file=await readFile(new URL('../web/'+path.replace('./',''),import.meta.url));
   const size=file.readUInt32LE(12),doc=JSON.parse(file.subarray(20,20+size));
@@ -15,7 +43,8 @@ async function loadGeometry(path){
   for(const m of doc.meshes)for(const p of m.primitives)delete p.material;
   let json=Buffer.from(JSON.stringify(doc));json=Buffer.concat([json,Buffer.alloc((4-json.length%4)%4,32)]);
   const tail=file.subarray(20+size),h=Buffer.alloc(20);h.writeUInt32LE(0x46546c67,0);h.writeUInt32LE(2,4);h.writeUInt32LE(20+json.length+tail.length,8);h.writeUInt32LE(json.length,12);h.writeUInt32LE(0x4e4f534a,16);
-  const b=Buffer.concat([h,json,tail]);return new GLTFLoader().parseAsync(b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength),'');
+  const b=Buffer.concat([h,json,tail]),loaded=await new GLTFLoader().parseAsync(b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength),'');
+  loaded.scene.userData.sourceNodeNames=doc.nodes.map(n=>n.name);return loaded;
 }
 
 for(const surface of ['lab','hybrid'])externalAssetTest(`${surface}: short Wangjai rests its body on the seat with unchanged rigid legs and naturally dangling feet`,[`web/${characterAsset('wangjai',surface).path.replace(/^\.\//,'')}`],async()=>{
@@ -25,12 +54,12 @@ for(const surface of ['lab','hybrid'])externalAssetTest(`${surface}: short Wangj
  assert.ok(shell&&sole&&hip&&ankle);const sourceLength=ankle.position.length();
  for(const scale of [.8,1,1.12])for(const heading of [0,Math.PI/2,Math.PI])for(const height of [.34,.41,.50,.57]){
   actor.scale.setScalar(scale);updateCharacter(actor,{action:'seated',seatHeight:height/scale,heading,time:1,dt:0});actor.updateMatrixWorld(true);
-  assert.ok(Math.abs(new Box3().setFromObject(shell,true).min.y-height)<.002,'mascot body touches seat instead of sinking below it');
-  const foot=new Box3().setFromObject(sole,true);assert.ok(foot.min.y>0&&foot.min.y<height,'short rigid feet dangle naturally below the seated body');
+  assert.ok(Math.abs(partBounds(actor,'wangjai',surface,n=>n==='wangjai-shell').min.y-height)<.002,'mascot body touches seat instead of sinking below it');
+  const foot=partBounds(actor,'wangjai',surface,n=>n==='wangjai-left-sole');assert.ok(foot.min.y>0&&foot.min.y<height,'short rigid feet dangle naturally below the seated body');
   assert.ok(Math.abs(hip.getWorldPosition(new Vector3()).distanceTo(ankle.getWorldPosition(new Vector3()))-sourceLength*scale)<1e-5,'do not stretch short mascot legs');
   assert.deepEqual(actor.position.toArray(),[2,0,3]);
  }
- updateCharacter(actor,{action:'idle',time:0,dt:0});assert.ok(Math.abs(new Box3().setFromObject(sole,true).min.y)<.002,'standing resets seat translation');
+ updateCharacter(actor,{action:'idle',time:0,dt:0});assert.ok(Math.abs(partBounds(actor,'wangjai',surface,n=>n==='wangjai-left-sole').min.y)<.002,'standing resets seat translation');
  await library.dispose();
 });
 
@@ -46,8 +75,8 @@ for(const surface of ['lab','hybrid'])for(const id of ['staff-a','staff-b','zuri
   for(const height of [.34,.41,.5,.57]){
    for(let frame=0;frame<3;frame++)updateCharacter(actor,{action:'seated',seatHeight:height,heading,time:1,dt:0});
    feet.forEach((foot,i)=>{assert.ok(foot.getWorldPosition(new Vector3()).distanceTo(targets[i].p)<.002,`${id} height ${height}: ankle moved`);assert.ok(foot.getWorldQuaternion(new Quaternion()).normalize().angleTo(targets[i].q)<.002,`${id} height ${height} heading ${heading}: sole orientation ${foot.getWorldQuaternion(new Quaternion()).normalize().angleTo(targets[i].q)}`);});
-   let sole=Infinity,vertices=0;actor.updateMatrixWorld(true);actor.traverse(mesh=>{if(!mesh.isMesh)return;let owner=mesh,shoe=false;while(owner){if(owner.name.startsWith('Shoes')||owner.name.endsWith('-shoe-sole'))shoe=true;owner=owner.parent;}if(!shoe)return;mesh.skeleton?.update();for(let i=0;i<mesh.geometry.attributes.position.count;i++){const p=mesh.getVertexPosition(i,new Vector3()).applyMatrix4(mesh.matrixWorld);sole=Math.min(sole,p.y);vertices++;}});
-   assert.ok(vertices>0);assert.ok(Math.abs(sole)<.003,`${id} fitted sole must touch ground: ${sole}`);
+   const sole=partBounds(actor,id,surface,n=>n?.startsWith('Shoes')||n?.endsWith('-shoe-sole')).min.y;
+   assert.ok(Math.abs(sole)<.003,`${id} fitted sole must touch ground: ${sole}`);
    assert.deepEqual(actor.position.toArray(),[2,0,3]);
   }
  }

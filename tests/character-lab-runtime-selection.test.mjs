@@ -8,9 +8,9 @@ test('Lab defaults to the current face review and keeps explicit historical/runt
  assert.deepEqual(initialCharacterSelection('blender'),{id:'zuri',version:'blender'});
 });
 
-test('Lab describes runtime-eligible appearances truthfully without approving old models or art',()=>{
+test('Lab describes approved appearances truthfully without approving historical candidates',()=>{
  for(const id of ['zuri-face-r4','wangjai','staff-a','staff-b']){
-  assert.match(characterReviewScope(id),/ชั่วคราว/);assert.match(characterReviewScope(id),/ยังไม่อนุมัติ/);
+  assert.match(characterReviewScope(id),/อนุมัติงานภาพ 7 พฤศจิกายน 2026/);assert.doesNotMatch(characterReviewScope(id),/ยังไม่อนุมัติ/);
   assert.doesNotMatch(characterReviewScope(id),/ยังไม่ใช้ในชั้นจริง/);
  }
  for(const id of ['zuri-anime','zuri','anime','rain','../../private'])assert.match(characterReviewScope(id),/ไม่ใช้ในชั้นจริง/);

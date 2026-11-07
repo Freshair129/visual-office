@@ -16,7 +16,8 @@ test('Hybrid selects LOD1 while Lab resolves the original R4 and other full-deta
   const hybrid=characterAsset(id),lab=characterAsset(id,'lab');
   assert.equal(hybrid.path,assetRoot+`lod/${id}-lod1.glb`);
   assert.equal(hybrid.manifest,assetRoot+'lod/manifest.json');assert.equal(hybrid.lod,1);
-  assert.equal(lab.path,path);assert.equal(hybrid.id,lab.id);assert.equal(hybrid.artApproved,false);
+  assert.equal(lab.path,path);assert.equal(hybrid.id,lab.id);assert.equal(hybrid.artApproved,true);
+  assert.equal(lab.artApproved,true);assert.equal(hybrid.artApprovedAt,'2026-11-07');
   assert.equal(characterModelPath(id==='zuri'?'zuri-face-r4':id),path);
   assert.equal(resolveAppearance({kind:'avatar-01',appearance:id}),id);
   assert.equal(characterAsset(id,'unregistered'),null);
