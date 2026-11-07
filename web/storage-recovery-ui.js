@@ -5,7 +5,7 @@ export class StorageRecoveryUI {
     this.panel = doc.createElement('section');this.panel.className = 'office-storage-recovery';this.panel.hidden = true;
     this.panel.innerHTML = '<p data-storage-recovery-status role="status"></p><button type="button" data-storage-backup>ดาวน์โหลดข้อมูลสำรอง</button> <button type="button" data-storage-remove disabled>นำรายการที่อ่านไม่ได้ออก…</button>';
     this.dialog = doc.createElement('dialog');this.dialog.className = 'office-storage-recovery-dialog';
-    this.dialog.innerHTML = '<h2 data-storage-recovery-title>ยืนยันการนำข้อมูลที่อ่านไม่ได้ออก</h2><p data-storage-recovery-details></p><button type="button" data-storage-confirm>ยืนยันนำออก</button> <button type="button" data-storage-cancel>เก็บข้อมูลไว้ก่อน</button>';
+    this.dialog.innerHTML = '<h2 data-storage-recovery-title>ยืนยันการนำข้อมูลที่อ่านไม่ได้ออก</h2><p data-storage-recovery-details></p><button type="button" data-storage-confirm>ยืนยันนำออก</button> <button type="button" data-storage-cancel autofocus>เก็บข้อมูลไว้ก่อน</button>';
     root.append(this.panel, this.dialog);
     this.status = this.panel.querySelector('[data-storage-recovery-status]');
     this.removeButton = this.panel.querySelector('[data-storage-remove]');
@@ -27,6 +27,7 @@ export class StorageRecoveryUI {
     this.dialog.querySelector('[data-storage-recovery-title]').textContent=envelope
       ? this.canDiscard?'ยืนยันนำคลังที่อ่านไม่ได้ออกทั้งหมด':'คลังเวอร์ชันที่ไม่รองรับ'
       : this.canDiscard?`ยืนยันนำ${issue.label||'รายการที่อ่านไม่ได้'}ออก`:'ตรวจสอบสำเนารายการ';
+    this.dialog.setAttribute('aria-label', this.dialog.querySelector('[data-storage-recovery-title]').textContent);
     this.details.textContent=envelope
       ? this.canDiscard?'การยืนยันจะนำ storage key ของคลังออกทั้งหมด รวมถึงรายการอื่นที่อาจยังอ่านได้ไม่ครบ':'ไฟล์ JSON parse ได้แต่โครงสร้างหรือเวอร์ชันไม่รองรับ · จะไม่มีตัวเลือกลบ และจะเก็บคลังเดิมไว้'
       : this.canDiscard?'การยืนยันจะนำเฉพาะรายการที่อ่านไม่ได้ออก ข้อมูลรายการอื่นจะคงเดิม':'ระบบจะไม่ลบสำเนารายการที่ยังอ่านได้';

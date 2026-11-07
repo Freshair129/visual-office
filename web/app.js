@@ -172,7 +172,8 @@ function navigate(destination,record=true,id=null,leaveConfirmed=false){
 function restoreView(){const route=workspaceRoute(location.hash);navigate(route.view,false,route.id);}
 window.addEventListener('popstate',restoreView);
 window.addEventListener('hashchange',restoreView);
-document.addEventListener('visibilitychange',()=>chatUI.setVisible(currentView==='chat'&&!document.hidden&&workspaceGate().allowed));
+client.setVisible(!document.hidden);
+document.addEventListener('visibilitychange',()=>{chatUI.setVisible(currentView==='chat'&&!document.hidden&&workspaceGate().allowed);void client.setVisible(!document.hidden);});
 $('#task-open-knowledge').onclick=()=>{$('#task-dialog').close();navigate('knowledge');};
 $('#workspace-more').onclick=()=>openDialog('#more-dialog');
 $('#workspace-retry').onclick=()=>buildingUI?.zuriEnabled&&!syntheticWorkspace?openConnect():client.refresh();

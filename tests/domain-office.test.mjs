@@ -54,6 +54,7 @@ function setup(t, {loadStudio,url='about:blank'} = {}) {
 
 test('cold native floor binds late renderer touch controls and restores them on leaving',async t=>{
  const {view}=setup(t,{url:'https://office.test'});await view.zuriReady;
+ assert.equal(view.world.querySelector('#scene-loading').getAttribute('role'),'status');
  view.zuriEnabled=false;
  new RoomStore(view.root.ownerDocument.defaultView.localStorage).applyNative('projects',defaultNativeRoom());
  view.office=null;view.show('projects');assert.equal(view.appliedScene,null);
