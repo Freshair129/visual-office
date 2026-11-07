@@ -185,6 +185,20 @@ off states and thought-bubble positions match `main` in the same toggle sequence
 On both `main` and the branch the first frame after loading looks washed out
 until the skin is toggled once; that predates this pass.
 
+Known issue — washed-out first render (open, 8 November 2026). On
+`#office/projects` the Hybrid floor renders pale (flat floor, lighter
+furniture) after load while the control and the stage dataset report the 2.5D
+skin as on and ready; one off→on toggle fixes it for the session. It was seen
+before the static shadow cache existed (`467d33b6`). It is cosmetic and has a
+one-click workaround. A Node harness in `tests/hybrid-office-3d.test.mjs` loads
+the skin atlas and surfaces in both orders and finds no difference in material
+identity, maps, uniforms, visibility, layers, tone mapping, colour space,
+lights or sheet state before and after the toggle, so the cause is not visible
+to a mocked renderer. The lead's working hypothesis is GPU-side: a shader
+program or texture upload made before the skin textures are fully configured
+and only rebuilt by the toggle. Confirming it needs a real-browser experiment
+(for example forcing a material recompile while washed out).
+
 Disposition: **desktop qualified (frame time and ready time); 4× CPU proxy
 qualified; 6× CPU proxy provisionally passes after the per-frame cost pass,
 pending a 120 s re-measure on a quiet host; mobile not qualified until a physical

@@ -33,13 +33,14 @@ function fixture(){
   return {dom,root,layer,room,close(){layer.dispose();dom.window.close();}};
 }
 
-function sheetFixture(){
+function sheetFixture(SkinLayerOverride=null,configureLayer=null){
   const dom=new JSDOM('<div id="scene"><div class="hy-objects"></div></div>'),root=dom.window.document.querySelector('#scene');
+  root.getBoundingClientRect=()=>({left:0,top:0,right:1024,bottom:768,width:1024,height:768});
   dom.window.WebGLRenderingContext=function WebGLRenderingContext(){};
-  dom.window.HTMLCanvasElement.prototype.getContext=function(type){return type==='2d'?{fillRect(){},strokeRect(){},fillText(){},beginPath(){},moveTo(){},lineTo(){},stroke(){}}:null;};
+  dom.window.HTMLCanvasElement.prototype.getContext=function(type){return type==='2d'?{fillRect(){},strokeRect(){},fillText(){},beginPath(){},moveTo(){},lineTo(){},stroke(){},drawImage(){}}:null;};
   class Renderer{
-    constructor(){this.domElement=dom.window.document.createElement('canvas');this.shadowMap={};this.rendered=[];this.passes=[];this.target=null;}
-    setClearColor(){} setPixelRatio(){} setSize(){}
+    constructor(){this.domElement=dom.window.document.createElement('canvas');this.shadowMap={};this.rendered=[];this.passes=[];this.target=null;this.pixelRatio=1;this.size={width:0,height:0};}
+    setClearColor(color,alpha){this.clearColor={color,alpha};} setPixelRatio(value){this.pixelRatio=value;} setSize(width,height){this.size={width,height};this.domElement.width=Math.round(width*this.pixelRatio);this.domElement.height=Math.round(height*this.pixelRatio);}
     setRenderTarget(target){this.target=target;}
     getRenderTarget(){return this.target;}
     clear(){} clearDepth(){}
@@ -51,7 +52,8 @@ function sheetFixture(){
         const materials=Array.isArray(object.material)?object.material:[object.material];
         if(visible&&materials.some(material=>material?.visible!==false))objects.push(object);
       });
-      this.passes.push({scene,target:this.target,objects});
+      const materials=objects.map(object=>({object,materials:[].concat(object.material).map(material=>({material,map:material?.map,art:material?.uniforms?.art?.value}))}));
+      this.passes.push({scene,target:this.target,objects,materials});
     }
     dispose(){}
   }
@@ -59,11 +61,125 @@ function sheetFixture(){
     constructor(layer){super(layer,{loader:{load(_src,onLoad){const texture=new THREE.Texture();onLoad?.(texture);return texture;}}});}
     loadSurfaces(){}
   }
-  const layer=new HybridOffice3D(root,{Renderer,SkinLayer:LoadedSkinLayer});
+  const layer=new HybridOffice3D(root,{Renderer,SkinLayer:SkinLayerOverride||LoadedSkinLayer});configureLayer?.(layer);
   const room=defaultOfficeRoom({key:'projects',number:1,label:'Projects',roles:[{id:'a'},{id:'b'},{id:'c'},{id:'d'}]});
+  root.dataset.unifiedSheet='true';
   layer.sync(room,true);
   return {dom,root,layer,room,close(){layer.dispose();dom.window.close();}};
 }
+
+test('late skin and surface atlas completion updates the active static materials',()=>{
+  const pending=new Map(),loader={load(url,onLoad){const texture=new THREE.Texture();texture.image={width:1024,height:512};pending.set(url,{texture,onLoad});return texture;}};
+  class DeferredSkinLayer extends OfficeObjectSkins{
+    constructor(layer){super(layer,{loader});}
+    loadSurfaces(){return super.loadSurfaces(loader);}
+  }
+  const f=sheetFixture(DeferredSkinLayer);
+  try{
+    const {layer}=f,skin=layer.skinLayer,renderCount=()=>layer.renderer.passes.filter(pass=>pass.scene===layer.scene&&pass.target===null).length;
+    assert.ok(renderCount()>0,'the source scene has its initial render before textures resolve');
+    const atlas=pending.get('./assets/office-world/skins/projects-painted-atlas-v1.png'),beforeAtlas=renderCount();
+    assert.ok(atlas,'the object-skin atlas is still loading after the first sync');atlas.onLoad(atlas.texture);
+    assert.ok(renderCount()>beforeAtlas,'atlas completion redraws the source scene');
+    const desk=layer.models.get('role-1-desk');let deskMesh;desk.traverse(node=>{if(!deskMesh&&node.isMesh)deskMesh=node;});
+    const deskRecord=skin.records.get(deskMesh),atlasPass=layer.renderer.passes.filter(pass=>pass.scene===layer.scene&&pass.target===null).at(-1);
+    assert.equal(deskMesh.material,deskRecord.skin,'the first settled render uses the projected desk skin');
+    assert.equal(deskMesh.material.uniforms.art.value,atlas.texture,'the projected material samples the resolved atlas');
+    assert.ok(atlasPass.materials.some(entry=>entry.object===deskMesh&&entry.materials.some(material=>material.art===atlas.texture)),'the rendered mesh carries the resolved atlas');
+    const surfaces=pending.get('./assets/office-world/skins/projects-surfaces-v1.png'),beforeSurfaces=renderCount();
+    assert.ok(surfaces,'the oak/plaster surface atlas is still loading after the first sync');surfaces.onLoad(surfaces.texture);
+    assert.ok(renderCount()>beforeSurfaces,'surface completion redraws the source scene');
+    const work=layer.architecture.userData.officeArchitecture.floorMeshes.work,workRecord=skin.records.get(work);
+    assert.equal(work.material,workRecord.skin,'the floor mesh uses its painted skin');
+    assert.equal(work.material.map,skin.oak,'the floor skin uses the resolved oak crop');
+    const wallRecord=[...skin.records.values()].find(record=>record.skin?.map===skin.plaster);
+    assert.ok(wallRecord,'a wall skin uses the resolved plaster crop');
+    const surfacesPass=layer.renderer.passes.filter(pass=>pass.scene===layer.scene&&pass.target===null).at(-1);
+    assert.ok(surfacesPass.materials.some(entry=>entry.materials.some(material=>material.map===skin.oak)),'the rendered static floor carries the oak map');
+    assert.ok(surfacesPass.materials.some(entry=>entry.materials.some(material=>material.map===skin.plaster)),'the rendered static wall carries the plaster map');
+  }finally{f.close();}
+});
+
+function renderSnapshot(layer){
+  const texture=value=>value?.isTexture?{uuid:value.uuid,colorSpace:value.colorSpace,imageSize:value.image?{width:value.image.width,height:value.image.height}:null}:null;
+  const uniformValue=value=>value?.isTexture?texture(value):value?.isColor?value.toArray():value?.isVector2||value?.isVector3||value?.isVector4||value?.isMatrix3||value?.isMatrix4?value.toArray():value??null;
+  const materialSnapshot=material=>material?{
+    uuid:material.uuid,type:material.type,map:texture(material.map),color:material.color?.toArray()||null,
+    opacity:material.opacity,transparent:material.transparent,depthWrite:material.depthWrite,depthTest:material.depthTest,
+    visible:material.visible,colorWrite:material.colorWrite,wireframe:material.wireframe,toneMapped:material.toneMapped,side:material.side,alphaTest:material.alphaTest,version:material.version,
+    emissive:material.emissive?.toArray()||null,programKey:material.customProgramCacheKey?.()||null,
+    uniforms:Object.fromEntries(Object.entries(material.uniforms||{}).sort(([a],[b])=>a.localeCompare(b)).map(([key,uniform])=>[key,uniformValue(uniform.value)])),
+    combinedShadow:material.userData?.hybridCombinedShadowReceiver===true,
+  }:null;
+  const lastPass=layer.renderer.passes.filter(pass=>pass.scene===layer.scene&&pass.target===null).at(-1),rendered=new Set(lastPass?.objects||[]),meshes=[];
+  layer.scene.traverse(object=>{
+    if(!object.isMesh)return;let effectiveVisible=object.visible;for(let parent=object.parent;parent&&effectiveVisible;parent=parent.parent)effectiveVisible=parent.visible;
+    meshes.push({uuid:object.uuid,name:object.name,visible:object.visible,effectiveVisible,rendered:rendered.has(object),layers:object.layers.mask,renderOrder:object.renderOrder,castShadow:object.castShadow,receiveShadow:object.receiveShadow,
+      materials:[].concat(object.material||[]).map(materialSnapshot),customDepthMaterial:materialSnapshot(object.customDepthMaterial)});
+  });
+  meshes.sort((a,b)=>a.uuid.localeCompare(b.uuid));
+  const lights=[];
+  layer.scene.traverse(object=>{if(!object.isLight)return;lights.push({uuid:object.uuid,name:object.name,type:object.type,visible:object.visible,intensity:object.intensity,color:object.color?.toArray()||null,position:object.position.toArray(),target:object.target?.position.toArray()||null,layers:object.layers.mask,castShadow:object.castShadow,shadow:object.shadow?{autoUpdate:object.shadow.autoUpdate,needsUpdate:object.shadow.needsUpdate,mapSize:object.shadow.mapSize.toArray(),normalBias:object.shadow.normalBias,bias:object.shadow.bias,radius:object.shadow.radius,cameraLayers:object.shadow.camera.layers.mask,map:texture(object.shadow.map?.texture)}:null});});
+  lights.sort((a,b)=>a.uuid.localeCompare(b.uuid));
+  const sheet=layer.sheetLayer;
+  return {
+    meshes,lights,
+    renderer:{outputColorSpace:layer.renderer.outputColorSpace,toneMapping:layer.renderer.toneMapping,toneMappingExposure:layer.renderer.toneMappingExposure,pixelRatio:layer.renderer.pixelRatio,size:layer.renderer.size,canvasSize:{width:layer.renderer.domElement.width,height:layer.renderer.domElement.height},clearColor:layer.renderer.clearColor,shadowMap:{enabled:layer.renderer.shadowMap.enabled,type:layer.renderer.shadowMap.type,autoUpdate:layer.renderer.shadowMap.autoUpdate},autoClear:layer.renderer.autoClear,target:layer.renderer.getRenderTarget?.()?.texture?.uuid||null},
+    scene:{background:layer.scene.background?.isColor?layer.scene.background.toArray():texture(layer.scene.background),environment:texture(layer.scene.environment),environmentIntensity:layer.scene.environmentIntensity,backgroundBlurriness:layer.scene.backgroundBlurriness,backgroundIntensity:layer.scene.backgroundIntensity},
+    sheetLayer:sheet?{mode:sheet.mode,dirty:sheet.dirty,imageVisible:sheet.image.visible,imageOpacity:sheet.image.material.opacity,imageMap:texture(sheet.image.material.map),imageRenderOrder:sheet.image.renderOrder,imageLayers:sheet.image.layers.mask}:null,
+    skinLayer:{ready:layer.skinLayer.ready,status:layer.skinLayer.status,surfaceReady:layer.skinLayer.surfaceReady===true,surfaceError:layer.skinLayer.surfaceError===true,visibility:{...layer.skinLayer.visibility},loadedAngles:[...layer.skinLayer.loadedAngles].sort((a,b)=>a-b),requiredAngles:[...layer.skinLayer.requiredAngles].sort((a,b)=>a-b)},
+    dataset:{skinStatus:layer.root.dataset.skinStatus,skinVisible:layer.root.dataset.skinVisible,sheetImageVisible:layer.root.dataset.sheetImageVisible,modelVisible:layer.root.dataset.modelVisible,wireframeVisible:layer.root.dataset.wireframeVisible,unifiedSheet:layer.root.dataset.unifiedSheet,characterLoad:layer.root.dataset.characterLoad},
+  };
+}
+
+function snapshotDiff(before,after,path='$'){
+  if(Object.is(before,after))return [];
+  if(before&&after&&typeof before==='object'&&typeof after==='object'){
+    const keys=new Set([...Object.keys(before),...Object.keys(after)]);return [...keys].sort().flatMap(key=>snapshotDiff(before[key],after[key],`${path}.${key}`));
+  }
+  return [{path,before,after}];
+}
+
+test('settled color-pass inputs match after the applied-scene skin off/on toggle',async()=>{
+  const differences=[];
+  for(const order of [['atlas','surfaces'],['surfaces','atlas']]){
+    const pending=new Map(),loader={load(url,onLoad){const texture=new THREE.Texture();texture.image={width:1024,height:512};pending.set(url,{texture,onLoad});return texture;}};
+    class DeferredSkinLayer extends OfficeObjectSkins{
+      constructor(layer){super(layer,{loader});this.surfaceStateAtSync=[];}
+      sync(){this.surfaceStateAtSync.push(this.surfaceReady===true);return super.sync();}
+      loadSurfaces(){return super.loadSurfaces(loader);}
+    }
+    const characterSource=new THREE.Group(),characterMesh=new THREE.Mesh(new THREE.BoxGeometry(.4,1,.3),new THREE.MeshStandardMaterial({color:'#b78d68'}));characterMesh.castShadow=true;characterMesh.receiveShadow=true;characterSource.add(characterMesh);
+    const f=sheetFixture(DeferredSkinLayer,layer=>{layer.characters.load=async()=>({scene:characterSource,animations:[]});});
+    try{
+      const {layer,room}=f,skin=layer.skinLayer;
+      assert.deepEqual(skin.surfaceStateAtSync,[false],`${order.join(' then ')}: initial room sync precedes surface crops`);
+      assert.equal(layer.sheetLayer.mode,'art','the unified sheet image mode initializes to art');
+      layer.setImageLayerMode('art');layer.sync(room,true);
+      assert.deepEqual(skin.surfaceStateAtSync,[false,false],`${order.join(' then ')}: applied-room resync also precedes surfaces`);
+      await Promise.all([...layer.characters.actors].map(actor=>actor.userData.runtimeCharacter.ready));
+      assert.deepEqual(layer.root.dataset.characterLoad.split(','),['ready','ready','ready','ready'],`${order.join(' then ')}: character glTF loads settle before the snapshots`);
+      for(const asset of order){
+        const url=asset==='atlas'?'./assets/office-world/skins/projects-painted-atlas-v1.png':'./assets/office-world/skins/projects-surfaces-v1.png';
+        const request=pending.get(url);assert.ok(request,`${asset} remains pending after room sync`);request.onLoad(request.texture);
+      }
+      assert.equal(skin.status,'ready');assert.equal(skin.surfaceReady,true);
+      assert.deepEqual(skin.surfaceStateAtSync,[false,false,true],`${order.join(' then ')}: the surface callback rebuilds skins after readiness`);
+      layer.setAgentStates(room.objects.filter(object=>object.kind.startsWith('avatar-')).map(object=>({avatarId:object.id,state:'unknown'})));
+      layer.step(0,{staticPose:true});
+      const appliedScene={modelLayer:layer};
+
+      const settled=renderSnapshot(layer);
+      assert.equal(HybridScene.prototype.setPresentationVisibility.call(appliedScene,{skin:false}).skin,false,'the applied-scene public API turns skin off');
+      assert.equal(HybridScene.prototype.setPresentationVisibility.call(appliedScene,{skin:true}).skin,true,'the applied-scene public API turns skin back on');
+      const toggled=renderSnapshot(layer),diff=snapshotDiff(settled,toggled),resourceDiff=diff.filter(item=>/\.customDepthMaterial\.uuid$|\.materials\.\d+\.version$/.test(item.path)),renderDiff=diff.filter(item=>!resourceDiff.includes(item)),summary=new Map();
+      for(const item of diff){const path=item.path.replace(/\.meshes\.\d+/g,'.meshes.*').replace(/\.materials\.\d+/g,'.materials.*'),entry=summary.get(path)||{path,count:0,before:item.before,after:item.after};entry.count++;summary.set(path,entry);}
+      if(renderDiff.length)differences.push({order:order.join(' then '),fields:renderDiff});
+      assert.deepEqual([...summary.keys()].sort(),['$.meshes.*.customDepthMaterial.uuid','$.meshes.*.materials.*.version'],`${order.join(' then ')}: only the known shadow resource identities and shader versions change`);
+    }finally{f.close();}
+  }
+  assert.deepEqual(differences,[],`settled render state changed across skin off/on:\n${JSON.stringify(differences,null,2)}`);
+});
 
 function legacyProjectedBounds(layer,model){
   model.updateWorldMatrix(true,true);const box=new THREE.Box3().setFromObject(model),min=new THREE.Vector2(Infinity,Infinity),max=new THREE.Vector2(-Infinity,-Infinity);
