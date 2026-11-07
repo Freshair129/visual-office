@@ -70,9 +70,8 @@ including their full-detail originals and Hybrid LOD1 files, on 7 November 2026,
 as relayed by the lead. The `anime`, `rain`, and `zuri-anime` candidates and
 rejected or review assets are excluded. This decision approves the specified
 art; it does not certify performance, accessibility, all animations or live
-roster integration. Existing Studio/Lab copy and the runtime catalog still carry
-older unapproved-art labels; those need a separate UI/catalog update. The LOD
-manifest records generation-time provenance and is unchanged.
+roster integration. Studio/Lab copy, the runtime catalog and the LOD manifest
+now reflect this approval. Historical candidate/review metadata remains false.
 
 The worker built a repeatable, loopback-only Hybrid browser measurement
 (`npm run perf:hybrid`). Its sandbox could not launch Chrome, so the lead fixed a
@@ -146,26 +145,30 @@ indicative until physical devices are measured.
 
 | Budget item | Limit | Current LOD1 | Result |
 | --- | --- | --- | --- |
-| Bytes per character file | ≤ 6,000,000 | max 5,515,484 (Zuri) | Pass |
+| Bytes per character file | ≤ 6,000,000 | max 5,250,548 (Zuri, batched) | Pass |
 | Triangles per character | ≤ 85,000 | max 81,438 (Zuri) | Pass |
-| Distinct character bytes per floor | ≤ 11,000,000 | 10,781,168 | Pass |
-| Meshes per character (each skinned mesh is at least one draw call) | ≤ 30 | Staff A 113, Staff B 110, Wangjai 39, Zuri 21 | **Fail** (Staff A/B, Wangjai) |
-| Desktop, 4 and 12 avatars | p95 ≤ 20 ms, p99 ≤ 34 ms, no frame > 100 ms | 12 avatars: 16.8 / 33.4 / max 33.5 | Pass |
-| Desktop time to all characters ready, 4 avatars | ≤ 2,000 ms | 1,013 ms | Pass |
-| 4× CPU proxy, 4 avatars | p95 ≤ 40 ms (25 fps floor) | 66.8 ms | **Fail** |
-| 6× CPU proxy, 4 avatars | p95 ≤ 66.7 ms (15 fps floor) | 216.7 ms | **Fail** |
+| Distinct character bytes per floor | ≤ 11,000,000 | 10,809,160 (batched) | Pass |
+| Meshes and draw-call primitives per character | ≤ 30 | Staff A 24, Staff B 25, Wangjai 7, Zuri 12 | Pass, actual GLB tests |
+| Desktop, 4 and 12 avatars | p95 ≤ 20 ms, p99 ≤ 34 ms, no frame > 100 ms | Batched, 120 s run: 4 avatars 16.8 / 16.8 / max 33.2; 12 avatars 16.8 / 16.8 / max 33.5 | Pass |
+| Desktop time to all characters ready, 4 avatars | ≤ 2,000 ms | Batched: 2,761 / 2,428 ms (originals 2,826 / 2,811 ms in the same runs; earlier quiet run 1,013 ms) | **Not re-confirmed** — host was shared with other workloads; re-measure on an idle host |
+| 4× CPU proxy, 4 avatars | p95 ≤ 40 ms (25 fps floor) | Batched 50.1 ms (was 66.8) | **Fail** (improved) |
+| 6× CPU proxy, 4 avatars | p95 ≤ 66.7 ms (15 fps floor) | Batched 116.6 ms (was 216.7) | **Fail** (improved) |
 | Physical mid-range phone, 4 avatars | p95 ≤ 40 ms | not measured | Deferred (owner, 7 November 2026) |
 
-The ceiling test checks bytes, hashes and triangles in the actual LOD1 GLBs. The
-draw-call and frame-time rows are measured with `npm run perf:hybrid`; they are
-not yet enforced by a test.
+The ceiling tests check bytes, hashes, triangles, meshes and instantiated
+draw-call primitives in the actual LOD1 GLBs. The frame/load measurements above
+were re-measured by the lead on 7 November 2026 with `npm run perf:hybrid` on the
+batched files (RTX 3060, hardware ANGLE, 0 errors). Scene draw calls fell from
+491 to 273 (4 avatars) and from 1,223 to 569 (12 avatars). Of the remaining
+calls, about 205 belong to the room, not the characters, so further proxy gains
+need scene-side batching. Per-file primitives are not full-scene renderer calls.
 
-Disposition: **desktop qualified; mobile not qualified.** Remaining G6 work, in
-order: (1) reduce per-character draw calls by merging meshes/materials in an LOD
-pass and re-measure the proxies; (2) measure a physical mid-range phone;
-(3) update Studio/Lab copy and the runtime catalog `artApproved` labels to match
-the 7 November art approval. Accessibility and the complete activity lifecycle
-remain separate gaps.
+Disposition: **mesh budget met; desktop frame time qualified; desktop ready time
+to re-confirm on an idle host; mobile not qualified.** Next: scene-side batching
+for the CPU proxies, then a physical mid-range phone (deferred by the owner on
+7 November 2026). See the
+[batching evidence](game-design/characters/TEMPORARY-RUNTIME.md#g6-draw-call-batching--7-november-2026).
+Accessibility and the complete activity lifecycle remain separate gaps.
 
 ## Integration verification — 6 November 2026
 
@@ -191,7 +194,7 @@ system, mobile, live, hosted CI or release acceptance. No merge/deployment.
 | G3: nested HTML/base URL audit omission | Closed locally / Office | Recursive discovery resolves local bases, excludes external-base scripts and traces asset-builder inputs separately. Final static audit: 5 HTML documents, 4 module entries, 224 reachable modules, 3 build-only modules, 0 unclassified authored modules, 27 route families. |
 | G4: accessibility/lifecycle evidence remains partial | P1 QA / lead | 7 November work adds focused DOM/unit checks for hidden-tab scheduling and reduced-motion changes, names the storage-recovery confirmation, and exposes the Building loading message as a status. This is partial source/test evidence, not a completed WCAG audit or browser/device acceptance; the remaining checks and known lifecycle gaps are below. |
 | G5: business contracts and durable shared scenes remain unavailable | Zuri owner | No published Office auth/client registration, authorized roster/actions, shared scene/version/audit or asset service contract. Do not invent endpoints or enable live. |
-| G6: asset/performance quality | Art approved; desktop qualified / Office; mobile performance open | Owner approved R4, Wangjai and Staff A/B originals and LOD1 on 7 November 2026, relayed by the lead; other candidates/review assets excluded. Lead-set [G6 budget](#g6-performance-budget--accepted-7-november-2026): LOD1 bytes/triangles and desktop frame/load targets pass on an RTX 3060; 4×/6× CPU proxies fail because draw calls (491 for four avatars) are unchanged by LOD1. Next: per-character draw-call reduction, a physical-phone measurement (deferred by the owner on 7 November 2026), and catalog/UI art labels. |
+| G6: asset/performance quality | Art approved; mesh budget met; desktop frame time qualified / Office; mobile performance open | Owner approved R4, Wangjai and Staff A/B originals and LOD1 on 7 November 2026; candidates/review metadata excluded and catalog/UI labels updated. Batched LOD1 meets the [G6 budget](#g6-performance-budget--accepted-7-november-2026) for bytes, triangles and ≤30 meshes per character; scene calls fell 491→273 (4 avatars). Desktop frame time passes; desktop ready time is to be re-confirmed on an idle host; 4×/6× CPU proxies improved but still fail. Next: scene-side batching, then a physical-phone measurement (deferred by the owner on 7 November 2026). |
 | G7: reserved-floor board/actions imply an active department | Closed locally / Office | Browser reproduced empty feed and creation actions despite RESERVED. Board now states preparation without a feed read, refresh or Work link; object menus omit Chat/create. Role inspection, illustrative actors and navigation remain. |
 
 G4 disposition: **ACTIVE / handoff; browser and device acceptance open.**

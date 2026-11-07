@@ -11,7 +11,7 @@ import {externalAssetTest} from './external-assets-helper.mjs';
 test('accepted temporary face uses stable appearance while historical R3 remains Lab comparison',()=>{
  assert.equal(characterModelPath('zuri-face-r4'),'./assets/models/characters/candidates/zuri-face-r4.glb');
  assert.deepEqual(initialCharacterSelection(null),{id:'zuri-face-r4',version:'current'});
- assert.equal(characterAppearance('zuri-face-r4'),null);assert.match(characterReviewScope('zuri-face-r4'),/ชั่วคราว/);
+ assert.equal(characterAppearance('zuri-face-r4'),null);assert.match(characterReviewScope('zuri-face-r4'),/อนุมัติงานภาพ 7 พฤศจิกายน 2026/);
  assert.match(characterReviewScope('zuri-anime'),/ไม่ใช้ในชั้นจริง/);
  assert.equal(characterModelPath('zuri-face-r4/../zuri'),null);
 });

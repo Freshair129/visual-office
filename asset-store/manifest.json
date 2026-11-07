@@ -235,32 +235,32 @@
     },
     {
       "path": "web/assets/models/characters/lod/staff-a-lod1.glb",
-      "bytes": 2133460,
-      "sha256": "8ba881aa77ffcfca622023859d5b88a0790bcde616f025f849cf8456e452e5c2",
+      "bytes": 2233852,
+      "sha256": "f431e866ca45aebabd39282d071cd38d0509ce8072b39b224d0e74928dfc7e75",
       "contentType": "model/gltf-binary",
       "class": "brand-character",
       "licenseNote": "Zuri, Wangjai, Staff A/B or Zuri-derived character review asset; brand identity is Zuri-owned and has no open redistribution license."
     },
     {
       "path": "web/assets/models/characters/lod/staff-b-lod1.glb",
-      "bytes": 2066940,
-      "sha256": "433fc7ffc98adacc46d98bb76971bad1fe3da30596a3e323c0010cd2c150d8c0",
+      "bytes": 2158136,
+      "sha256": "e98a6951e9f17a560aee13e944e6ec3776d78b029e1417e20fb40e6f49fbd0db",
       "contentType": "model/gltf-binary",
       "class": "brand-character",
       "licenseNote": "Zuri, Wangjai, Staff A/B or Zuri-derived character review asset; brand identity is Zuri-owned and has no open redistribution license."
     },
     {
       "path": "web/assets/models/characters/lod/wangjai-lod1.glb",
-      "bytes": 1065284,
-      "sha256": "028c0371d725512e87f3518bbdf1610717bdfabda2ab86ee33411d8de541f371",
+      "bytes": 1166624,
+      "sha256": "773c371f6e54bbe019918040ab3e5ba5ab58c39653b054d412e2c43962205039",
       "contentType": "model/gltf-binary",
       "class": "brand-character",
       "licenseNote": "Zuri, Wangjai, Staff A/B or Zuri-derived character review asset; brand identity is Zuri-owned and has no open redistribution license."
     },
     {
       "path": "web/assets/models/characters/lod/zuri-lod1.glb",
-      "bytes": 5515484,
-      "sha256": "cbc2fc0743cd42cafee7901733666bf856436b6e9b07482b17a50e0cd4da823e",
+      "bytes": 5250548,
+      "sha256": "12053d53f2d196e7b9b42909f3ffb8d3f5a2a8df1cc1bfb547546a87b2ba74dd",
       "contentType": "model/gltf-binary",
       "class": "brand-character",
       "licenseNote": "Zuri, Wangjai, Staff A/B or Zuri-derived character review asset; brand identity is Zuri-owned and has no open redistribution license."

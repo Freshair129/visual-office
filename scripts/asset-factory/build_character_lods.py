@@ -1,16 +1,17 @@
-"""Build additive temporary-character LOD candidates; never re-export a source.
+"""Build and batch approved character LOD1 derivatives; never re-export a source.
 
 Blender 5.2.2, in a separate process after storage admission:
   blender -b --factory-startup --python-exit-code 1 -P THIS.py -- --output DIR
 Read-only inventory (ordinary Python; no bpy dependency):
   python -B THIS.py --inspect
 
-The GLB scene, skins, materials and animation samples are copied, not round-
-tripped through Blender's scene importer/exporter. Blender's Decimate modifier
-only processes individual mesh primitives. This preserves rigid node animation
-(Wangjai), shared joints (Staff), exact bind matrices and all original clips.
-No Draco, Meshopt, WebP or KTX2 decoder is added or required. Outputs are review
-candidates, NOT art approval, device qualification or automatic runtime adoption.
+The original transform graph, skins and animation samples are copied, not
+round-tripped through Blender's importer/exporter. Decimate processes individual
+primitives; the final batching pass shares a skin palette and compatible shaders.
+Existing rigid animation nodes become joint references without changing their
+names, hierarchy or animation. No new decoder or runtime special case is needed.
+Art approval dated 7 November applies to the four named appearances; regenerated
+geometry still requires before/after review and does not qualify device performance.
 """
 import argparse
 import copy
@@ -33,6 +34,201 @@ SOURCES = {
 COMPONENTS = {5120: ('b', 1), 5121: ('B', 1), 5122: ('h', 2), 5123: ('H', 2), 5125: ('I', 4), 5126: ('f', 4)}
 WIDTHS = {'SCALAR': 1, 'VEC2': 2, 'VEC3': 3, 'VEC4': 4, 'MAT4': 16}
 MAX_DROPPED_SKIN_WEIGHT = .02
+
+
+def batch_meshes(doc, binary):
+    """Batch opaque surfaces without changing the transform/animation graph.
+
+    Rigid attachments use their existing animated transform as a joint; static
+    transforms are baked into vertices. Animated nonuniform scales (eyelids)
+    remain rigid so their inverse-transpose normals stay correct. No bone or
+    animation target is removed, renamed or reparented. Original skin palettes
+    remain in the document; the shared palette references those same nodes.
+    Only identical shaders are combined. Base-color factors may be folded into
+    linear vertex colors; textures, roughness and every other shader field stay
+    exact. This is lossless batching, not another decimation/art pass.
+    """
+    from mathutils import Matrix, Quaternion, Vector
+    out, writer = copy.deepcopy(doc), Repack(doc, binary)
+    if len(doc.get('scenes', [])) != 1 or len(doc['scenes'][0].get('nodes', [])) != 1:
+        raise ValueError('batching requires one character scene/root')
+    scene_root = doc['scenes'][0]['nodes'][0]
+    parents = {child: i for i, node in enumerate(doc['nodes']) for child in node.get('children', [])}
+    animated, scaled = set(), set()
+    for clip in doc.get('animations', []):
+        for channel in clip['channels']:
+            values = accessor_values(doc, binary, clip['samplers'][channel['sampler']]['output'])
+            node, path = channel['target']['node'], channel['target']['path']
+            rest = doc['nodes'][node].get(path, {'translation': [0, 0, 0], 'rotation': [0, 0, 0, 1], 'scale': [1, 1, 1]}.get(path))
+            if rest is None:
+                raise ValueError('unsupported animated property')
+            if len(set(values)) > 1 or any(abs(a - b) > 1e-6 for row in values for a, b in zip(row, rest)):
+                animated.add(node)
+                if path == 'scale':
+                    scaled.add(node)
+
+    def local(node):
+        n = doc['nodes'][node]
+        if 'matrix' in n:
+            return Matrix([n['matrix'][i:i + 4] for i in range(0, 16, 4)]).transposed()
+        x, y, z, w = n.get('rotation', (0, 0, 0, 1))
+        return Matrix.LocRotScale(Vector(n.get('translation', (0, 0, 0))),
+                                  Quaternion((w, x, y, z)), Vector(n.get('scale', (1, 1, 1))))
+
+    def flatten(matrix):
+        return [matrix[row][column] for column in range(4) for row in range(4)]
+
+    def world(node):
+        return world(parents[node]) @ local(node) if node in parents else local(node)
+
+    joints, binds, palette = [], [], {}
+    for skin in doc.get('skins', []):
+        matrices = accessor_values(doc, binary, skin['inverseBindMatrices'])
+        for node, values in zip(skin['joints'], matrices):
+            if node in palette:
+                if binds[palette[node]] != values:
+                    raise ValueError('incompatible bind matrices for a shared joint')
+            else:
+                palette[node] = len(joints)
+                joints.append(node)
+                binds.append(values)
+
+    materials, material_map, shaders, colors = [], {}, {}, {}
+    for i, material in enumerate(doc['materials']):
+        if material.get('alphaMode', 'OPAQUE') != 'OPAQUE':
+            raise ValueError('transparent batching needs a separate sorting review')
+        shader = copy.deepcopy(material)
+        shader.pop('name', None)
+        factor = shader.get('pbrMetallicRoughness', {}).pop('baseColorFactor', [1, 1, 1, 1])
+        key = json.dumps(shader, sort_keys=True)
+        shaders.setdefault(key, []).append(i)
+        colors[i] = factor
+    for indices in shaders.values():
+        material = copy.deepcopy(doc['materials'][indices[0]])
+        fold = len(indices) > 1
+        if fold:
+            material.setdefault('pbrMetallicRoughness', {})['baseColorFactor'] = [1, 1, 1, 1]
+        for i in indices:
+            material_map[i] = (len(materials), fold)
+        materials.append(material)
+
+    groups, parts = {}, []
+    for node_index, node in enumerate(doc['nodes']):
+        if 'mesh' not in node:
+            continue
+        anchor, transform, rigid = node_index, Matrix.Identity(4), 'skin' not in node
+        if rigid:
+            while anchor not in animated and anchor in parents:
+                transform = local(anchor) @ transform
+                anchor = parents[anchor]
+            # Keep the complete subtree of any animated scale in ordinary mesh
+            # space. glTF linear skinning does not implement normal matrices.
+            cursor, keep_rigid = anchor, False
+            while True:
+                keep_rigid |= cursor in scaled
+                if cursor not in parents:
+                    break
+                cursor = parents[cursor]
+            if not keep_rigid and anchor not in palette:
+                palette[anchor] = len(joints)
+                joints.append(anchor)
+                # Bind to the actual rest transform. Identity binds would work
+                # while animated in glTF, but redefine Blender's rest skeleton.
+                binds.append(tuple(flatten(world(anchor).inverted())))
+        else:
+            keep_rigid = False
+        if rigid and not keep_rigid:
+            bind = Matrix([binds[palette[anchor]][i:i + 4] for i in range(0, 16, 4)]).transposed()
+            position_transform = bind.inverted() @ transform
+            normal_transform = bind.inverted().to_3x3() @ transform.to_3x3().inverted().transposed()
+        else:
+            position_transform = transform
+            normal_transform = transform.to_3x3().inverted().transposed()
+        for primitive_index, primitive in enumerate(doc['meshes'][node['mesh']]['primitives']):
+            if primitive.get('targets') or primitive.get('extensions') or primitive.get('mode', 4) != 4:
+                raise ValueError('unsupported batching geometry contract')
+            attrs = {key: accessor_values(doc, binary, index) for key, index in primitive['attributes'].items()}
+            if set(attrs) - {'POSITION', 'NORMAL', 'TEXCOORD_0', 'COLOR_0', 'JOINTS_0', 'WEIGHTS_0'}:
+                raise ValueError('unknown batching attribute')
+            count = len(attrs['POSITION'])
+            material, fold_color = material_map[primitive['material']]
+            if rigid:
+                attrs['POSITION'] = [tuple(position_transform @ Vector(v)) for v in attrs['POSITION']]
+                attrs['NORMAL'] = [tuple((normal_transform @ Vector(v)).normalized()) for v in attrs['NORMAL']]
+                if not keep_rigid:
+                    attrs['JOINTS_0'] = [(palette[anchor], 0, 0, 0)] * count
+                    attrs['WEIGHTS_0'] = [(1., 0., 0., 0.)] * count
+            else:
+                remap = [palette[j] for j in doc['skins'][node['skin']]['joints']]
+                attrs['JOINTS_0'] = [tuple(remap[j] for j in row) for row in attrs['JOINTS_0']]
+            if fold_color:
+                factor = colors[primitive['material']]
+                attrs['COLOR_0'] = [tuple(x * y for x, y in zip(tuple(row) + (1,) * (4 - len(row)), factor))
+                                    for row in attrs.get('COLOR_0', [(1, 1, 1, 1)] * count)]
+            key = (anchor if keep_rigid else None, material, tuple(sorted(attrs)))
+            group = groups.setdefault(key, {'attributes': {k: [] for k in attrs}, 'indices': [], 'parts': []})
+            offset = len(group['attributes']['POSITION'])
+            indices = ([v[0] for v in accessor_values(doc, binary, primitive['indices'])]
+                       if 'indices' in primitive else list(range(count)))
+            part = {'node': node_index, 'primitive': primitive_index, 'vertexOffset': offset,
+                    'vertexCount': count, 'indexOffset': len(group['indices']), 'indexCount': len(indices),
+                    'positionTransform': flatten(position_transform), 'rigid': rigid,
+                    'anchor': anchor if rigid else None, 'foldColor': fold_color}
+            group['parts'].append(part)
+            parts.append(part)
+            for k, values in attrs.items():
+                group['attributes'][k].extend(values)
+            group['indices'].extend(i + offset for i in indices)
+        out['nodes'][node_index].pop('mesh', None)
+        out['nodes'][node_index].pop('skin', None)
+    out['meshes'], out['materials'] = [], materials
+    skin_index = len(out.get('skins', []))
+    # Preserve original skin records, including exact joint order/bind samples.
+    for skin in out.get('skins', []):
+        skin['inverseBindMatrices'] = writer.old_accessor(skin['inverseBindMatrices'])
+    out.setdefault('skins', []).append({'name': 'LOD_shared_palette', 'joints': joints,
+                                       'inverseBindMatrices': writer.add_accessor(binds, 'MAT4')})
+    for (anchor, material, _), group in groups.items():
+        mesh_index = len(out['meshes'])
+        attrs = group['attributes']
+        accessors = {}
+        for k, values in attrs.items():
+            component = 5121 if k == 'JOINTS_0' and len(joints) <= 256 else 5123 if k == 'JOINTS_0' else 5126
+            # Rigid weights are exactly zero/one: normalized u8 represents them
+            # exactly, saving 12 bytes/vertex without quantizing soft weights.
+            normalized = k == 'WEIGHTS_0' and all(x in (0, 1) for row in values for x in row)
+            if normalized:
+                component = 5121
+                values = [tuple(int(x * 255) for x in row) for row in values]
+            accessors[k] = writer.add_accessor(values, 'VEC' + str(len(values[0])), component)
+            if normalized:
+                writer.accessors[accessors[k]]['normalized'] = True
+        primitive = {'attributes': accessors, 'material': material}
+        primitive['indices'] = writer.add_accessor([(i,) for i in group['indices']], 'SCALAR',
+                                                   5123 if len(attrs['POSITION']) <= 65536 else 5125)
+        out['meshes'].append({'name': 'LOD_batch_' + str(mesh_index), 'primitives': [primitive]})
+        new_node = {'name': 'LOD_batch_' + str(mesh_index), 'mesh': mesh_index}
+        new_index = len(out['nodes'])
+        if anchor is None:
+            new_node['skin'] = skin_index
+            # Keep the same character root as the source skinned surfaces.
+            # glTF skin matrices cancel mesh transforms; this does not bake an
+            # outer character scale into the existing skin a second time.
+            out['nodes'][scene_root].setdefault('children', []).append(new_index)
+        else:
+            out['nodes'][anchor].setdefault('children', []).append(new_index)
+        out['nodes'].append(new_node)
+        for part in group['parts']:
+            part['mesh'] = mesh_index
+    for animation in out.get('animations', []):
+        for sampler in animation['samplers']:
+            for k in ('input', 'output'):
+                sampler[k] = writer.old_accessor(sampler[k])
+    for image in out.get('images', []):
+        image['bufferView'] = writer.old_view(image['bufferView'])
+    data = writer.encode(out)
+    return out, bytes(writer.chunks), data, {'parts': parts, 'addedSkinInfluenceLoss': 0,
+                                           'originalNodeCount': len(doc['nodes']), 'paletteJoints': len(joints)}
 
 
 class SkinInfluenceLoss(ValueError):
@@ -424,18 +620,44 @@ def build_one(id, source, expected_hash, destination):
                 sampler[key] = writer.old_accessor(sampler[key])
     for image in out.get('images', []):
         image['bufferView'] = writer.old_view(image['bufferView'])
-    data = writer.encode(out)
+    unbatched = writer.encode(out)
+    before_batch = stats(out, bytes(writer.chunks), unbatched)
+    verify_preserved(doc, binary, out, bytes(writer.chunks))
+    out, packed, data, batching = batch_meshes(out, bytes(writer.chunks))
+    verify_batched_graph(doc, binary, out, packed)
     # Exclusive creation prevents overwriting any existing GLB, including a LOD.
     with destination.open('xb') as handle:
         handle.write(data)
     reread, new_binary, output = read_glb(destination)
-    verify_preserved(doc, binary, reread, new_binary)
+    verify_batched_graph(doc, binary, reread, new_binary)
     if source.read_bytes() != original:
         raise RuntimeError('source changed during generation')
     return {'id': id, 'file': destination.name, **stats(reread, new_binary, output),
             'source': str(source.relative_to(ROOT)).replace('\\', '/'),
             'sourceSha256': expected_hash, 'before': stats(doc, binary, original),
-            'changes': changes}
+            'changes': changes, 'beforeBatch': before_batch, 'batching': batching}
+
+
+def verify_batched_graph(before, old_binary, after, new_binary):
+    """Compare the original transform graph and animation/skin/texture samples."""
+    restored = copy.deepcopy(after)
+    original_count = len(before['nodes'])
+    restored['nodes'] = restored['nodes'][:original_count]
+    for old, new in zip(before['nodes'], restored['nodes']):
+        for key in ('mesh', 'skin'):
+            new.pop(key, None)
+            if key in old:
+                new[key] = old[key]
+        if 'children' in new:
+            new['children'] = [i for i in new['children'] if i < original_count]
+            if not new['children'] and 'children' not in old:
+                del new['children']
+    restored['scenes'] = copy.deepcopy(before['scenes'])
+    restored['materials'] = copy.deepcopy(before['materials'])
+    restored['skins'] = restored['skins'][:len(before.get('skins', []))]
+    if not restored['skins'] and 'skins' not in before:
+        del restored['skins']
+    verify_preserved(before, old_binary, restored, new_binary)
 
 
 def verify_preserved(before, old_binary, after, new_binary):
@@ -500,20 +722,26 @@ def run(output=None, inspect=False):
     assets = []
     for id, (file, expected, triangles, bytes_limit) in SOURCES.items():
         result = build_one(id, ASSETS / file, expected, destination / (id + '-lod1.glb'))
-        result.update(lod=1, artApproved=False, targets={'triangles': triangles, 'bytes': bytes_limit})
-        result['targetMet'] = result['triangles'] <= triangles and result['bytes'] <= bytes_limit
-        result['limitations'] = ['Candidate requires multi-angle, animation and browser review.',
-                                'Faces, contact soles and original textures are protected; budgets are guidance.',
-                                'Physical-device performance is unmeasured; art remains unapproved.']
+        result.update(lod=1, artApproved=True, artApprovedAt='2026-11-07',
+                      targets={'triangles': 85000, 'bytes': 6000000})
+        result['targetMet'] = result['triangles'] <= result['targets']['triangles'] and result['bytes'] <= result['targets']['bytes']
+        if not result['targetMet'] or result['meshes'] > 30 or result['primitives'] > 30:
+            raise ValueError('generated character exceeds the accepted G6 budget: ' + id)
+        result['limitations'] = ['Approved LOD1 art; batching requires before/after visual and runtime verification.',
+                                'Original transform graph, clips, textures and shader parameters are preserved.',
+                                'Physical-device performance is unmeasured.']
         assets.append(result)
         print('@@CHARACTER_LOD@@' + json.dumps({key: result[key] for key in ('id', 'triangles', 'bytes', 'sha256', 'targetMet')}), flush=True)
-    report = {'schemaVersion': 'brand-character-lods/v1', 'quality': 'candidate-unreviewed',
+    if sum(a['bytes'] for a in assets) > 11000000:
+        raise ValueError('generated distinct character files exceed the 11 MB floor budget')
+    report = {'schemaVersion': 'brand-character-lods/v1', 'quality': 'approved-lod1-batched',
               'units': 'metres', 'blender': bpy.app.version_string,
               'blenderBuild': bpy.app.build_hash.decode(),
               'pipelineSha256': sha(Path(__file__).read_bytes()),
               'skinInfluenceGuard': MAX_DROPPED_SKIN_WEIGHT,
               'sourceManifest': 'web/assets/models/characters/manifest.json',
-              'artApproved': False, 'physicalDevicePerformance': 'unmeasured', 'assets': assets}
+              'artApproved': True, 'artApprovedAt': '2026-11-07',
+              'physicalDevicePerformance': 'unmeasured', 'assets': assets}
     with (destination / 'manifest.json').open('x', encoding='utf-8', newline='\n') as handle:
         handle.write(json.dumps(report, indent=2) + '\n')
     return report
