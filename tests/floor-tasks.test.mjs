@@ -310,3 +310,35 @@ test('openFloorTasks ignores a late response after the floor object changes scop
   assert.doesNotMatch(dialog.textContent, /late leak/);
   dom.window.close();
 });
+
+test('openFloorTasks returns focus to its opener when closed or cancelled', async () => {
+  const dom = new JSDOM('<main><button id="board">board</button></main>');
+  const document = dom.window.document;
+  const root = document.querySelector('main'), opener = document.getElementById('board');
+  dom.window.HTMLDialogElement.prototype.showModal = function () { this.open = true; };
+  for (const close of [
+    dialog => dialog.querySelector('.floor-tasks-close').click(),
+    dialog => dialog.dispatchEvent(new dom.window.Event('cancel', {cancelable: true})),
+  ]) {
+    opener.focus();
+    const dialog = openFloorTasks(root, {floor, getTasks: () => new Promise(() => {})});
+    dialog.querySelector('.floor-tasks-close').focus();
+    assert.equal(document.activeElement, dialog.querySelector('.floor-tasks-close'));
+    close(dialog);
+    assert.equal(dialog.parentNode, null);
+    assert.equal(document.activeElement, opener);
+  }
+  dom.window.close();
+});
+
+test('openFloorTasks leaves focus alone when it already moved elsewhere', () => {
+  const dom = new JSDOM('<main><button id="board">board</button><input id="other"></main>');
+  const document = dom.window.document;
+  const root = document.querySelector('main');
+  document.getElementById('board').focus();
+  const dialog = openFloorTasks(root, {floor, getTasks: () => new Promise(() => {})});
+  document.getElementById('other').focus();
+  dialog.dispose();
+  assert.equal(document.activeElement.id, 'other');
+  dom.window.close();
+});
