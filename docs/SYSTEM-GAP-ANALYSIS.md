@@ -192,12 +192,20 @@ system, mobile, live, hosted CI or release acceptance. No merge/deployment.
 | G1: Lab/runtime model mismatch | Closed locally / Office | Stable `zuri` selects unchanged R4 file/metadata. Saved IDs, roster, geometry, brand and historical R3 are unchanged. The owner approved R4 and the other three specified full-detail/LOD1 appearances on 7 November 2026, as relayed by the lead. |
 | G2: stale review form overwrite | Closed locally / Office | UI now sends `baseUpdatedAt`; Worker rejects different stale edits before writes/outbox. Draft and explicit reload remain available. Identical retries and ETag CAS retain their separate protections. Legacy callers omitting the optional base retain prior behavior. |
 | G3: nested HTML/base URL audit omission | Closed locally / Office | Recursive discovery resolves local bases, excludes external-base scripts and traces asset-builder inputs separately. Final static audit: 5 HTML documents, 4 module entries, 224 reachable modules, 3 build-only modules, 0 unclassified authored modules, 27 route families. |
-| G4: accessibility/lifecycle evidence remains partial | P1 QA / lead | 7 November work adds focused DOM/unit checks for hidden-tab scheduling and reduced-motion changes, names the storage-recovery confirmation, and exposes the Building loading message as a status. This is partial source/test evidence, not a completed WCAG audit or browser/device acceptance; the remaining checks and known lifecycle gaps are below. |
+| G4: accessibility/lifecycle evidence remains partial | P1 QA / lead | 7 November rounds add focused hidden-tab and reduced-motion checks, named recovery, Zuri and Native dialogs, and a limited static HTML/template audit. Zuri panel polling and the handoff popup watcher now pause while hidden. This is partial source/test evidence, not a completed WCAG audit or browser/device acceptance; the remaining checks are below. |
 | G5: business contracts and durable shared scenes remain unavailable | Zuri owner | No published Office auth/client registration, authorized roster/actions, shared scene/version/audit or asset service contract. Do not invent endpoints or enable live. |
 | G6: asset/performance quality | Art approved; mesh budget met; desktop frame time qualified / Office; mobile performance open | Owner approved R4, Wangjai and Staff A/B originals and LOD1 on 7 November 2026; candidates/review metadata excluded and catalog/UI labels updated. Batched LOD1 meets the [G6 budget](#g6-performance-budget--accepted-7-november-2026) for bytes, triangles and ≤30 meshes per character; scene calls fell 491→273 (4 avatars). Desktop frame time passes; desktop ready time is to be re-confirmed on an idle host; 4×/6× CPU proxies improved but still fail. Next: scene-side batching, then a physical-phone measurement (deferred by the owner on 7 November 2026). |
 | G7: reserved-floor board/actions imply an active department | Closed locally / Office | Browser reproduced empty feed and creation actions despite RESERVED. Board now states preparation without a feed read, refresh or Work link; object menus omit Chat/create. Role inspection, illustrative actors and navigation remain. |
 
 G4 disposition: **ACTIVE / handoff; browser and device acceptance open.**
+Lead browser walk-through, 7 November 2026 (Chrome, desktop 1024×768, built round-2
+candidate): the home view exposes 16 focusable controls and the Lobby 17, all
+named, with no positive `tabindex` and `lang="th"`. The connection dialog opens
+from the keyboard as a named modal `<dialog>`; focus moves inside, stays inside
+across 12 Tab presses, Escape closes it and focus returns to the opener. Every
+Lobby hotspot (elevator, board, chat corner, knowledge, exit) is a named button,
+so the canvas scene has a keyboard path. Not covered by this walk-through: other
+editions' dialogs, screen readers and physical devices.
 `tests/g4-accessibility-lifecycle.test.mjs` exercises the shared frame scheduler,
 Tycoon loop/pacer, dynamic Lab reduced-motion listener, CloudClient polling,
 recovery dialog name, safe initial-focus markup and status updates, plus language
@@ -208,14 +216,22 @@ Hybrid activity and Studio scene source already listen for visibility changes;
 these findings do not establish every editor, timer or route as covered.
 
 The Native avatar preview now redraws only when its appearance changes; its
-integration test requires esbuild. CloudClient pauses its scheduled polling while
-hidden and refreshes an active connection on return. A known remaining source
-gap is that the Zuri panel interval does not pause on document visibility. The
-handoff popup close watcher also runs while
-hidden; its interruption and retry semantics must be preserved when addressing
-it. Focus/blur behavior and state retention need an edition-by-edition audit.
-The complete keyboard, canvas alternative, language-of-parts, contrast and touch
-target audit remains open; a language attribute alone is not WCAG conformance.
+integration test requires esbuild. CloudClient and the Zuri panel pause scheduled
+polling while hidden; the panel refreshes an active floor on return. The handoff
+popup watcher pauses while hidden, checks closure on return and keeps the existing
+indeterminate result and no-answer behavior. Tests cover a panel read and package
+preparation finishing after hiding. `tests/g4-static-entry.test.mjs` checks names,
+symbol-only labels and tabindex in five static HTML entries, names in selected
+literal dialog templates, the Lab canvas description and a limited set of
+workspace token pairs. Native Studio has named symbol controls and dialogs; Lab
+has a scene description and a mobile 44 px minimum for buttons, selects and its
+download link. Workspace primary-button text and selected control boundaries use
+higher-contrast existing tokens. These checks do not cover generated DOM in every
+state, the CSS cascade and all color pairs, focus containment, keyboard access to
+every scene operation, or actual target sizes. Focus/blur and draft retention need
+an edition-by-edition audit. Complete language-of-parts, status-region, keyboard,
+canvas alternative, contrast and touch-target audits remain open; a language
+attribute alone is not WCAG conformance.
 
 Lead acceptance checks, using a real browser and a separate physical phone:
 

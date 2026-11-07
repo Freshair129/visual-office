@@ -4,3 +4,5 @@
 #revision-control[hidden]{display:none}
 .candidate-credit{font-size:12px;line-height:1.6;color:#657268;margin:6px 0 12px}.candidate-credit a{text-decoration:underline}button:disabled{opacity:.45;cursor:not-allowed}.candidate-choices{flex-wrap:wrap}
 .review-tools+.view-controls{position:static;flex-direction:row;flex-wrap:wrap;margin:0 0 12px;gap:6px}.review-tools+.view-controls button{background:#fffdf8}
+@media(max-width:650px){button,#download,select{min-width:44px;min-height:44px}}
+input:focus-visible,select:focus-visible{outline:3px solid #3d7a9e;outline-offset:2px}

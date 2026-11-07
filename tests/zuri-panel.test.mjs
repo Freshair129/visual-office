@@ -66,7 +66,7 @@ class FakeConnector {
 }
 
 function setup(t, connector = new FakeConnector()) {
-  const dom = new JSDOM('<main id="world"></main>', {url: 'http://127.0.0.1:4400/'});
+  const dom = new JSDOM('<main id="world"></main>', {url: 'http://127.0.0.1:4400/', pretendToBeVisual: true});
   const saved = {document: globalThis.document, localStorage: globalThis.localStorage};
   globalThis.document = dom.window.document;
   globalThis.localStorage = dom.window.localStorage;
@@ -101,6 +101,35 @@ function chooseBusiness(panel, window, id = BUSINESS_A) {
   select.value = id;
   select.dispatchEvent(new window.Event('change', {bubbles: true}));
 }
+
+test('floor polling pauses while hidden even when a pending read completes', async t => {
+  t.mock.timers.enable({apis: ['setInterval']});
+  const connector = new FakeConnector({businesses: [{id: BUSINESS_A, name: 'Alpha'}]});
+  const pending = deferred();
+  connector.onDomain = () => pending.promise;
+  const {panel, dom} = setup(t, connector);
+  await panel.ready;
+  assert.equal(panel.dialog.getAttribute('aria-labelledby'), panel.dialog.querySelector('h2').id);
+  let hidden = false;
+  Object.defineProperty(dom.window.document, 'hidden', {get: () => hidden});
+  panel.showFloor(floorByKey('growth'));
+  assert.equal(connector.domainCalls.length, 1);
+  hidden = true;
+  dom.window.document.dispatchEvent(new dom.window.Event('visibilitychange'));
+  pending.resolve(domainResult('growth'));
+  await Promise.resolve(); await Promise.resolve();
+  t.mock.timers.tick(90000);
+  assert.equal(connector.domainCalls.length, 1);
+  hidden = false;
+  dom.window.document.dispatchEvent(new dom.window.Event('visibilitychange'));
+  assert.equal(connector.domainCalls.length, 2);
+  t.mock.timers.tick(30000);
+  assert.equal(connector.domainCalls.length, 3);
+  panel.hideFloor();
+  dom.window.document.dispatchEvent(new dom.window.Event('visibilitychange'));
+  t.mock.timers.tick(30000);
+  assert.equal(connector.domainCalls.length, 3);
+});
 
 test('connector pins routes, same-origin credentials, target allowlist, and knowledge query topK', async () => {
   const calls = [];
@@ -188,7 +217,7 @@ test('one available Business can be selected automatically', async t => {
 });
 
 test('delayed Zuri activation exposes the read panel first and labels T3 actions separately', async t => {
-  const dom = new JSDOM('<main id="office-view"><section class="office-panel"><div class="office-topline"><span class="mono"></span><button id="toggle-labels"><span></span><span></span></button></div><div id="scene"></div><div class="room-label"></div></section></main>', {url: 'http://127.0.0.1:4400/'});
+  const dom = new JSDOM('<main id="office-view"><section class="office-panel"><div class="office-topline"><span class="mono"></span><button id="toggle-labels"><span></span><span></span></button></div><div id="scene"></div><div class="room-label"></div></section></main>', {url: 'http://127.0.0.1:4400/', pretendToBeVisual: true});
   const saved = {document: globalThis.document, Option: globalThis.Option, localStorage: globalThis.localStorage};
   globalThis.document = dom.window.document;
   globalThis.Option = dom.window.Option;

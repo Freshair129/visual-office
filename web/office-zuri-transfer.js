@@ -13,8 +13,16 @@ export function openOfficeTransfer(win,value,buildZip,trustedOrigins,onProgress=
  const popup=win.open(url.toString(),'_blank');if(!popup)throw Error('เปิดหน้าต่าง Zuri ไม่สำเร็จ โปรดอนุญาต popup');
  return new Promise((resolve,reject)=>{
   let sent=false,done=false,zipPromise,readyToResend=false;
-  const timer=setInterval(()=>{if(popup.closed)finish(new Error('ปิดหน้าต่าง Zuri แล้ว ผลอาจยังไม่แน่ชัด โปรดตรวจ Zuri ก่อนลองใหม่'))},1000);
-  function finish(error,result){if(done)return;done=true;clearInterval(timer);win.removeEventListener('message',onMessage);error?reject(error):resolve(result)}
+  let timer=null;
+  const doc=win.document;
+  const checkClosed=()=>{if(popup.closed)finish(new Error('ปิดหน้าต่าง Zuri แล้ว ผลอาจยังไม่แน่ชัด โปรดตรวจ Zuri ก่อนลองใหม่'))};
+  function visibilityChange(){
+   if(timer!==null)clearInterval(timer);timer=null;
+   if(done||doc?.hidden)return;
+   checkClosed();
+   if(!done)timer=setInterval(checkClosed,1000);
+  }
+  function finish(error,result){if(done)return;done=true;if(timer!==null)clearInterval(timer);doc?.removeEventListener('visibilitychange',visibilityChange);win.removeEventListener('message',onMessage);error?reject(error):resolve(result)}
   async function onMessage(event){
    if(event.origin!==origin||event.source!==popup||event.data?.nonce!==nonce)return;
    if(event.data.type==='office-ready'){try{if(!sent){sent=true;onProgress('กำลังเตรียมแพ็กจากฉากที่บันทึกไว้');zipPromise=Promise.resolve().then(buildZip)}else if(!readyToResend)return;const bytes=await zipPromise;if(done)return;if(!(bytes instanceof Uint8Array)||bytes.byteLength>100000000)throw Error('แพ็กมีขนาดไม่ถูกต้อง');readyToResend=true;popup.postMessage({type:'office-package',nonce,bytes},origin);onProgress('ส่งแพ็กไปหน้าต่าง Zuri แล้ว')}catch(error){finish(error)}}
@@ -23,5 +31,7 @@ export function openOfficeTransfer(win,value,buildZip,trustedOrigins,onProgress=
    if(event.data.type==='office-error')finish(new Error(String(event.data.message||'Zuri ปฏิเสธการส่ง').slice(0,300)));
   }
   win.addEventListener('message',onMessage);
+  doc?.addEventListener('visibilitychange',visibilityChange);
+  visibilityChange();
  });
 }

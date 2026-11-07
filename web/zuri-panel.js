@@ -169,6 +169,7 @@ export class ZuriPanel {
     const heading = node('header', 'zuri-connect-heading');
     const titleWrap = node('div');
     titleWrap.append(node('span', 'zuri-eyebrow', 'ZURI CONNECTION'), node('h2', '', 'เชื่อมต่อข้อมูล Zuri'));
+    titleWrap.querySelector('h2').id = 'zuri-connect-title';
     const close = node('button', 'zuri-icon-close', 'ปิด');
     close.type = 'button'; close.setAttribute('aria-label', 'ปิดหน้าต่างเชื่อมต่อ');
     close.dataset.zuriClose = '';
@@ -341,19 +342,28 @@ export class ZuriPanel {
       this.commandController?.abort(); this.commandController = null;
     }
     this.clearTimer();
+    this.stopFloorVisibility();
     this.domainController?.abort(); this.domainController = null;
     this.currentDomain = domain || null;
     this.floorVisible = Boolean(domain && visible);
     this.floorView.hidden = !this.enabled || !visible || !domain;
     if (!domain || !visible || !this.enabled) return;
     this.renderFloorShell(domain);
-    void this.syncCurrentDomain();
-    this.interval = globalThis.setInterval?.(() => { if (!this.dialog.open) void this.syncCurrentDomain(); }, 30000) || null;
+    const doc = this.world.ownerDocument;
+    this.floorVisibilityChange = (initial = false) => {
+      this.clearTimer();
+      if (doc.hidden || !this.floorVisible || !this.enabled) return;
+      if (initial === true || !this.dialog.open) void this.syncCurrentDomain();
+      this.interval = globalThis.setInterval?.(() => { if (!doc.hidden && !this.dialog.open) void this.syncCurrentDomain(); }, 30000) || null;
+    };
+    doc.addEventListener('visibilitychange', this.floorVisibilityChange);
+    this.floorVisibilityChange(true);
   }
 
   hideFloor() {
     this.contextRevision++;
     this.clearTimer();
+    this.stopFloorVisibility();
     this.domainController?.abort(); this.domainController = null;
     this.commandController?.abort(); this.commandController = null;
     this.currentDomain = null;
@@ -364,6 +374,11 @@ export class ZuriPanel {
   clearTimer() {
     if (this.interval !== null) globalThis.clearInterval?.(this.interval);
     this.interval = null;
+  }
+
+  stopFloorVisibility() {
+    if (this.floorVisibilityChange) this.world.ownerDocument.removeEventListener('visibilitychange', this.floorVisibilityChange);
+    this.floorVisibilityChange = null;
   }
 
   renderFloorShell(domain) {
