@@ -1,5 +1,7 @@
 # Office Tycoon space functions
 
+SSOT: External dependencies and acceptance gates are in [TYCOON-INTEGRATION-AND-ACCEPTANCE.md](TYCOON-INTEGRATION-AND-ACCEPTANCE.md); platform authority is in [ZURI-PLATFORM-INTEGRATION-BOUNDARY.md](../ZURI-PLATFORM-INTEGRATION-BOUNDARY.md).
+
 **Status:** local presentation proposal  
 **Scope:** read-only purpose guide for the 15 local Tycoon floors
 

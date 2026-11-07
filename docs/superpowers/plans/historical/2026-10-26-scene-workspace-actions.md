@@ -1,6 +1,6 @@
 # Scene to workspace actions — synthetic completion
 
-Authority: owner request on 2026-10-26 to finish Chat, Work and character/desk/board interactions, using temporary characters. This is a bounded continuation of [Office experience gaps](../specs/2026-10-25-office-experience-gaps-design.md), not a Zuri API contract or visual approval.
+Authority: owner request on 2026-10-26 to finish Chat, Work and character/desk/board interactions, using temporary characters. This is a bounded continuation of [Office experience gaps](../../specs/historical/2026-10-25-office-experience-gaps-design.md), not a Zuri API contract or visual approval.
 
 ## Audit and design
 

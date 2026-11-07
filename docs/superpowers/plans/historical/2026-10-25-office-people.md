@@ -1,6 +1,6 @@
 # Office people implementation and evidence
 
-Design: [bounded actor/layout specification](../specs/2026-10-25-office-people-design.md).
+Design: [bounded actor/layout specification](../../specs/historical/2026-10-25-office-people-design.md).
 
 1. Add failing regression coverage for status provenance, quiet idle, cushion
    seats and fixed-length floor-contact poses.

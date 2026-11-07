@@ -1,5 +1,7 @@
 # Frame deadlines and Studio first use — 30 October 2026
 
+SSOT: Accepted scope and retained limits are in [OFFICE-MVP-ACCEPTANCE-20261031.md](OFFICE-MVP-ACCEPTANCE-20261031.md).
+
 **The frame-time objective remains open.** Final source passes 721/721 Node tests,
 96/96 hardware GPU lifecycle cases and build, but only 6/7 unchanged 120 s timing
 assessments. Rounded-back still reaches 83.4 ms; the full styled Studio capture

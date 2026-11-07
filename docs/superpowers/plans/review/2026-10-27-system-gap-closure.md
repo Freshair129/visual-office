@@ -1,5 +1,7 @@
 # System gap closure implementation plan
 
+SSOT: Current functional gap status is maintained in [SYSTEM-GAP-ANALYSIS.md](../../../SYSTEM-GAP-ANALYSIS.md).
+
 > **For agentic workers:** Use superpowers:executing-plans for this bounded continuation.
 
 **Goal:** Freeze art, use accepted temporary R4, close stale Work review writes and
@@ -12,7 +14,7 @@ and idempotent handoff retry. No new Zuri transport or data authority.
 
 **Tech stack:** Existing JavaScript, Node tests, Three.js, JSDOM and Worker.
 
-**Spec:** [System gap analysis](../../SYSTEM-GAP-ANALYSIS.md), executing the owner's
+**Spec:** [System gap analysis](../../../SYSTEM-GAP-ANALYSIS.md), executing the owner's
 continuation of the approved Office experience/workspace workflow.
 
 ## Constraints and review focus

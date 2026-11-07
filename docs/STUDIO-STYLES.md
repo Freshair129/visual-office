@@ -43,6 +43,6 @@ Prompt specification used per component: isolate one complete component on a tra
 - Desktop viewport 1440×1024, mobile 390×844 and 320×780. At 320, content width and scroll width both measured 305px after the scrollbar; no horizontal overflow.
 - Console review at final runtime returned no error/warning entries.
 
-Evidence: `reports/studio-styles-20261020/` contains `soft3d-desktop.png`, `painted-desktop.png`, `anime-desktop.png`, `anime-mobile.png`, `tests.log`, `build.log`. See root `design-qa.md` for visual comparison and remaining polish limits.
+Evidence: `reports/studio-styles-20261020/` contains `soft3d-desktop.png`, `painted-desktop.png`, `anime-desktop.png`, `anime-mobile.png`, `tests.log`, `build.log`. See root docs/records/design-qa.md` for visual comparison and remaining polish limits.
 
 Local work only; no hosted deployment, PR or commit.

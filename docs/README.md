@@ -38,7 +38,7 @@ second requirements registry. Start at the [repository guide](../README.md).
 
 | Index or record | Responsibility |
 | --- | --- |
-| [Blender inspection and QA evidence](../asset-source/blender/README.md) | Derived Blender imports and local geometry/runtime evidence |
+| [Blender inspection and QA evidence](../assets-source/blender/README.md) | Derived Blender imports and local geometry/runtime evidence |
 | [Editable character sources](../assets-source/characters/README.md) | Character source models, revisions and build references |
 | [Character Lab model licenses](../web/assets/models/characters/candidates/LICENSES.md) | Third-party candidate attribution and license boundaries |
 | [Bundled font sources and licenses](../web/assets/fonts/README.md) | Local font package and license references |
@@ -54,8 +54,8 @@ second requirements registry. Start at the [repository guide](../README.md).
 
 - [Dated designs and implementation plans](superpowers/README.md), with separate
   [plan index](superpowers/plans/README.md) and [design index](superpowers/specs/README.md).
-- [Historical local design QA](../design-qa.md): dated observations, not a current
-  production sign-off. Its root path is retained for existing citations.
+- [Historical local QA records](records/README.md): dated observations, not current
+  production sign-off.
 - [Pinned Marketing fixtures](../tests/fixtures/marketing-office/README.md) and
   [execution parity acceptance](../tests/golden-e2e-parity.md).
 - Latest delivered runtime baseline: [PR #10](https://github.com/Freshair129/zuri-visual-office/pull/10),

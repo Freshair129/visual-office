@@ -51,7 +51,7 @@ MVP desk/chair variants belong in `web/tycoon-furniture-models.js`; preserve
 
 The owner accepted the current human models for temporary use and deferred final art
 polish. Start functional follow-ups at [system gaps](docs/SYSTEM-GAP-ANALYSIS.md)
-and [closure plan](docs/superpowers/plans/2026-10-27-system-gap-closure.md).
+and [closure plan](docs/superpowers/plans/review/2026-10-27-system-gap-closure.md).
 Stable appearance `zuri` now uses the unchanged R4 GLB; historical R3 remains a
 Lab comparison. Do not resume sculpting or change Agent counts/roles implicitly.
 Work review UI sends `baseUpdatedAt`; Worker checks stale edit bases and ETag
@@ -64,7 +64,7 @@ Zuri, shared saves, mobile use, native lifecycle or final art.
 The owner rejected revision3's head, cheeks, mouth and nose, then clarified that
 the 3D profile needs a natural human nasal bridge, philtrum, lips and chin.
 Read [face revision4](docs/game-design/characters/2026-10-25-brand-study/FACE-R4-REVIEW.md)
-and [its plan](docs/superpowers/plans/2026-10-26-zuri-face-r4.md).
+and [its plan](docs/superpowers/plans/historical/2026-10-26-zuri-face-r4.md).
 `build-zuri-face-r4.py` / `review-zuri-face-r4.py` under `scripts/blender/`
 produce and inspect the separate `candidates/zuri-face-r4` Blend/GLB/metadata.
 Lab defaults to this review; revision3 is the explicit before choice. The flat
@@ -76,8 +76,8 @@ treat temporary use as final art approval.
 
 The owner authorized using the current models while deferring final art polish.
 Read [temporary runtime](docs/game-design/characters/TEMPORARY-RUNTIME.md),
-[its plan](docs/superpowers/plans/2026-10-26-temporary-character-runtime.md) and
-[main reconciliation](docs/superpowers/plans/2026-10-26-character-runtime-reconciliation.md).
+[its plan](docs/superpowers/plans/historical/2026-10-26-temporary-character-runtime.md) and
+[main reconciliation](docs/superpowers/plans/historical/2026-10-26-character-runtime-reconciliation.md).
 `web/characters/runtime-catalog.js` allowlists Zuri face revision 4, Wangjai and
 Staff A/B. `runtime.js` owns hashed loading/independent instances; `seat-fit.js`
 owns leg fitting. Hybrid avatar `appearance` is floor-scoped presentation data;
@@ -97,7 +97,7 @@ navigation and family placement; [SRS](docs/VISUAL-OFFICE-SRS.md) owns Office
 requirement status. Run `npm run docs:check` after a document addition, move or
 link/heading change. The checker validates portable targets and family coverage;
 ignored `reports/` evidence and external design checkouts are separate locators.
-See [this reconciliation plan](docs/superpowers/plans/2026-10-26-documentation-reconciliation.md).
+See [this reconciliation plan](docs/superpowers/plans/historical/2026-10-26-documentation-reconciliation.md).
 
 The current default shell retains the canonical illustrated campus/Lobby. The
 synthetic dynamic-domain surface uses `OfficeArtScene` with the same artwork;
@@ -117,7 +117,7 @@ its nearest index in the same change. `npm run docs:check` enforces reachability
 
 For **old UI / wrong preview / unused code / hard-coded data / endpoint audit**,
 read [the audit](docs/API-ENDPOINT-AUDIT.md) and
-[cleanup plan](docs/superpowers/plans/2026-10-26-runtime-cleanup.md).
+[cleanup plan](docs/superpowers/plans/historical/2026-10-26-runtime-cleanup.md).
 `shared/office-api-routes.js` owns Office transport methods/consumers;
 `scripts/office-proxy.mjs` forwards browser routes only, preserving binary files.
 Payload/auth rules remain in Worker handlers. `web/office-art-scene.js` reuses
@@ -130,7 +130,7 @@ synthetic browser verification. No fixture proves a live Zuri contract.
 ## Scene → workspace actions (26 October 2026)
 
 For **character/desk/board clicks, Chat refresh, or missing Work links**, read
-[the scoped audit and plan](docs/superpowers/plans/2026-10-26-scene-workspace-actions.md).
+[the scoped audit and plan](docs/superpowers/plans/historical/2026-10-26-scene-workspace-actions.md).
 Entry points: `scene-workspace-actions.js`, `HybridScene`, `BuildingView`,
 `floor-tasks.js`, `chat-selection.js`, `app.js`, and `work-view.js` under `web/`.
 Exact floor slots may identify a proposed role; appearances/copies never assign
@@ -141,9 +141,9 @@ Keep simulation actions separate, retain Zuri unavailable gates and temporary ar
 ## Workspace readiness and grounded people (25 October 2026)
 
 For **Chat/Work/menu gaps, synthetic workspace, status bubbles, routines, sofa
-seats or recommended layout**, read [experience design](docs/superpowers/specs/2026-10-25-office-experience-gaps-design.md),
-[experience plan](docs/superpowers/plans/2026-10-25-office-experience-gaps.md),
-and [people design](docs/superpowers/specs/2026-10-25-office-people-design.md).
+seats or recommended layout**, read [experience design](docs/superpowers/specs/historical/2026-10-25-office-experience-gaps-design.md),
+[experience plan](docs/superpowers/plans/historical/2026-10-25-office-experience-gaps.md),
+and [people design](docs/superpowers/specs/historical/2026-10-25-office-people-design.md).
 `workspace-context.js` owns source readiness and safe presentation-only return
 routes. Unavailable Zuri workspace contracts must not appear as empty legacy data
 or offer legacy writes. `--workspace` on the loopback harness supplies isolated
@@ -157,8 +157,8 @@ automatic rewrite of saved floors. Preserve all Agent IDs/count/roles and art.
 ## Retired dashboard / workspace shell (25 October 2026)
 
 For **sidebar / old UI / refresh flash / แชท / งาน / เมนูเพิ่มเติม**, read
-[shell retirement](docs/superpowers/specs/2026-10-25-retire-legacy-shell-design.md)
-and [plan/evidence](docs/superpowers/plans/2026-10-25-retire-legacy-shell.md).
+[shell retirement](docs/superpowers/specs/historical/2026-10-25-retire-legacy-shell-design.md)
+and [plan/evidence](docs/superpowers/plans/historical/2026-10-25-retire-legacy-shell.md).
 `index.html` starts with an empty Office host; do not reintroduce the Marketing/CRM
 dashboard, rail, quick-chat slot or duplicate task list. `office-workspace.css`
 owns the shared warm HUD-style page shell; `conversation-content.css` owns rich
@@ -171,8 +171,8 @@ reload acceptance is synthetic, not live Zuri qualification.
 ## Quarter-turn furniture (25 October 2026)
 
 For **หมุน 90 / rotate / มุมหมุน / preview cells**, read
-[quarter-turn design](docs/superpowers/specs/2026-10-25-quarter-turn-design.md)
-and [plan/evidence](docs/superpowers/plans/2026-10-25-quarter-turn.md).
+[quarter-turn design](docs/superpowers/specs/historical/2026-10-25-quarter-turn-design.md)
+and [plan/evidence](docs/superpowers/plans/historical/2026-10-25-quarter-turn.md).
 `office-rotation.js` owns allowed angles/kinds and metric anchor transforms.
 Optional object `rotation` is 0/90/180/270 degrees; `sheetYaw` composes it with
 the original orientation and legacy flip. Placement measures the turned mesh.
@@ -185,8 +185,8 @@ actual measured bounds, retaining legacy non-sheet footprint interpretation.
 ## Sims-style grid placement (25 October 2026)
 
 For **จัดห้อง / ช่องกริด / snap / คลิกวาง / occupied cells / Sims**, read
-[the grid design](docs/superpowers/specs/2026-10-25-grid-placement-design.md)
-and [plan/evidence](docs/superpowers/plans/2026-10-25-grid-placement.md).
+[the grid design](docs/superpowers/specs/historical/2026-10-25-grid-placement-design.md)
+and [plan/evidence](docs/superpowers/plans/historical/2026-10-25-grid-placement.md).
 `office-placement-grid.js` owns measured 0.5 m cells, candidate checks and anchor
 translation; `office-grid-editor.js` owns transient SVG/drag/click previews;
 `office-grid-build.js` and `office-grid-save.js` own applied-floor local drafts
@@ -199,8 +199,8 @@ grid, move Agent records, make signage block walking or auto-save on drag.
 
 The Projects top visual layer must be illustrated 2.5D artwork over individual
 physical objects, not just another beauty render of the solid models. Read
-[the skin design](docs/superpowers/specs/2026-10-25-projects-object-skins-design.md)
-and [plan](docs/superpowers/plans/2026-10-25-projects-object-skins.md).
+[the skin design](docs/superpowers/specs/historical/2026-10-25-projects-object-skins-design.md)
+and [plan](docs/superpowers/plans/historical/2026-10-25-projects-object-skins.md).
 `office-object-skins.js` owns projected skins and transient skin/model/wireframe
 visibility; `office-skin-frame.js` is the shared reference/runtime projection.
 Art and provenance live in `web/assets/office-world/skins/`. The actual geometry
@@ -211,8 +211,8 @@ whole-scene beauty-bake interpretation below for the active Projects view.
 ## Latest owner correction — one Scene Sheet (24 October 2026)
 
 The independent generated-picture vs greybox approach is rejected for Projects.
-Read [the unified-sheet design](docs/superpowers/specs/2026-10-24-unified-scene-sheet-design.md)
-and [plan/evidence](docs/superpowers/plans/2026-10-24-unified-scene-sheet.md).
+Read [the unified-sheet design](docs/superpowers/specs/historical/2026-10-24-unified-scene-sheet-design.md)
+and [plan/evidence](docs/superpowers/plans/historical/2026-10-24-unified-scene-sheet.md).
 `office-scene-sheet.js` owns the measured rebuild/compiler. Shared
 `defaultOfficeRoom` is the Projects default in both Studio and BuildingView.
 `office-prop-models.js` is the shared geometry factory; `office-sheet-bounds.js`
@@ -242,25 +242,25 @@ separate from `--dynamic` qualification and cannot be combined with it. Its stat
 floor directory is not an authorized domain list. No storage migration or live
 connection is enabled by this preview. Projects now has a scoped painted/depth
 adapter in `web/painted-office-skeleton.js` through HybridScene/HybridOffice3D;
-read [its design](docs/superpowers/specs/2026-10-24-projects-painted-skeleton-design.md)
-and [plan/evidence](docs/superpowers/plans/2026-10-24-projects-painted-skeleton.md).
+read [its design](docs/superpowers/specs/historical/2026-10-24-projects-painted-skeleton-design.md)
+and [plan/evidence](docs/superpowers/plans/historical/2026-10-24-projects-painted-skeleton.md).
 Explicit custom blueprints keep the geometry renderer. Other floors have not been
 converted to the painted skeleton. Internal floors use the frameless shell in
 `web/office-floor-viewport.js` / `.css`: a large pannable scene, fixed HUD and
 contextual Team dialog rather than a permanent sidebar. Mobile keeps 1,728 px
 minimum scene width. Wheel/pinch zoom, Fit/Reset and transient Projects Dev structure
-inspection are documented in [the zoom plan](docs/superpowers/plans/2026-10-24-floor-zoom.md).
+inspection are documented in [the zoom plan](docs/superpowers/plans/historical/2026-10-24-floor-zoom.md).
 For **Studio Dev alignment / ปรับแนวโครง / เทียบภาพเดิม**, read
-[the alignment plan](docs/superpowers/plans/2026-10-24-skeleton-alignment.md).
+[the alignment plan](docs/superpowers/plans/historical/2026-10-24-skeleton-alignment.md).
 `office-skeleton-alignment.js` owns bounded reference-pixel calibration;
 `office-skeleton-editor.js` owns transient overlay/drag UI. For **รายชิ้น / ผนัง โต๊ะ เก้าอี้ / perspective art v5**, also read
-[the per-piece plan](docs/superpowers/plans/2026-10-24-skeleton-parts.md).
+[the per-piece plan](docs/superpowers/plans/historical/2026-10-24-skeleton-parts.md).
 `office-skeleton-parts.js` owns target validation, physical-room derivation and seat
 ownership; `officeArt` is an explicit per-floor versioned art choice. Never apply the physical
 transform to original artwork or Agent records. Preserve all existing source image and brand bytes.
 
 For **P1-B / dynamic Business domains / candidate context**, read
-[the dynamic-context plan](docs/superpowers/plans/2026-10-24-marketing-dynamic-context.md).
+[the dynamic-context plan](docs/superpowers/plans/review/2026-10-24-marketing-dynamic-context.md).
 Run the existing app harness with `--dynamic` (or `--worker --dynamic` after build).
 This explicit synthetic profile uses `office-context-data.js`, `office-domain-context.js`,
 `office-context-route.js` and `tycoon-domain-view.js`; default static pilot is unchanged.
@@ -268,20 +268,20 @@ Never persist authorization context or treat fixture hints as live grants. Dynam
 is disabled pending a scope-safe scene contract. Keep producer compatibility, local
 app/Worker acceptance, hosted CI and live acceptance separate.
 
-For **GLB recovery / context loss / local gap audit**, read [the recovery plan](docs/superpowers/plans/2026-10-24-local-scene-recovery.md). Synthetic fault controls are harness-only; never use them as live acceptance.
+For **GLB recovery / context loss / local gap audit**, read [the recovery plan](docs/superpowers/plans/historical/2026-10-24-local-scene-recovery.md). Synthetic fault controls are harness-only; never use them as live acceptance.
 
 For **Marketing main-app / Worker synthetic integration**, read
-[the integration plan](docs/superpowers/plans/2026-10-24-marketing-app-worker.md) and
+[the integration plan](docs/superpowers/plans/historical/2026-10-24-marketing-app-worker.md) and
 [dependency scope](docs/game-design/MARKETING-INTEGRATION-SCOPE.md). Use
 `node scripts/serve-marketing-app.mjs` (:4184) or append `--worker` (:4185, after build).
 These exercise the actual app and built Worker locally; they do not qualify deployment/live.
 
 For **Marketing blank overview / P1 browser / synthetic playtest**, read
-[the P1 plan](docs/superpowers/plans/2026-10-24-marketing-p1.md). Use the isolated
+[the P1 plan](docs/superpowers/plans/historical/2026-10-24-marketing-p1.md). Use the isolated
 `:4183` fixture server; preserve P0 evidence. Never launch this harness as live auth.
 
 For **Marketing read pilot / Campaign board / AskMarketing**, read
-[the Office execution plan](docs/superpowers/plans/2026-10-24-marketing-read-pilot.md)
+[the Office execution plan](docs/superpowers/plans/historical/2026-10-24-marketing-read-pilot.md)
 and the latest refinement in TYCOON-INTEGRATION-AND-ACCEPTANCE. The `growth` Tycoon
 floor is a labeled pilot, not a dynamically authorized domain directory. Existing
 entry/Campaign/Ask reads only; no generic Agent dispatch or new auth. Keep producer
@@ -364,7 +364,7 @@ Bump the codec's geometry contract when coordinate/anchor interpretation changes
 silently substitute models, import Agent bindings, or apply a set to a floor during import.
 
 For **own GLB / custom model / นำเข้าโมเดลของเรา / จุดนั่งของโมเดล**, read the Custom GLB
-library section in OFFICE-BLUEPRINTS and `docs/superpowers/specs/2026-10-24-custom-glb-design.md`.
+library section in OFFICE-BLUEPRINTS and `docs/superpowers/specs/historical/2026-10-24-custom-glb-design.md`.
 Start with `web/custom-assets.js` and `web/custom-asset-panel.js`. Model bytes live in IndexedDB;
 custom objects carry immutable descriptors and actual metric dimensions. Never substitute a
 built-in footprint or trust imported descriptor bounds without measuring the GLB. V2 bundles

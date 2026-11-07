@@ -56,7 +56,7 @@ Blender-imported bone-display widgets are excluded from measured asset bounds.
 
 Evidence directory: `reports/free-character-candidates/`. Tests distinguish
 portable GLB/hash/credit/identity isolation from visual review and motion quality.
-See the trial plan at `docs/superpowers/plans/2026-10-25-free-character-candidates.md`.
+See the trial plan at `docs/superpowers/plans/historical/2026-10-25-free-character-candidates.md`.
 
 ## Verified result — 25 October 2026
 

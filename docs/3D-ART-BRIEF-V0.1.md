@@ -1,5 +1,7 @@
 # Visual Office — 3D art brief v0.1
 
+SSOT: Current art direction is [DESIGN-SOURCES.md](DESIGN-SOURCES.md).
+
 Art-direction refinement (20 October 2026): follow [design sources and the hybrid application profile](DESIGN-SOURCES.md) for the current mixed Painted / Soft 3D / Anime direction. This earlier brief remains a model-construction reference; its camera proposal and procedural model are not the final hybrid visual target.
 
 วันที่: 20 ตุลาคม 2026

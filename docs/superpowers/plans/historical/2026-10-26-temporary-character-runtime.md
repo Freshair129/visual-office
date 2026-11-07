@@ -2,7 +2,7 @@
 
 > **Superseded in part (6 November 2026):** the Tycoon/GLB Studio probe no longer
 > uses the character runtime. Main's rig-v3 factory actor is authoritative there;
-> see [system gap analysis](../../SYSTEM-GAP-ANALYSIS.md#main-branch-reconciliation--6-november-2026).
+> see [system gap analysis](../../../SYSTEM-GAP-ANALYSIS.md#main-branch-reconciliation--6-november-2026).
 > Statements below about the GLB probe are historical checkpoint evidence.
 
 > **For agentic workers:** Use superpowers:executing-plans for inline implementation and a final independent review.

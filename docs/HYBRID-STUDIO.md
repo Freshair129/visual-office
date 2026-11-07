@@ -13,7 +13,7 @@ bubbles consume separately sourced transient states; ambient movement never
 invents working/thinking. Unknown stays unknown, idle stays idle. Auto idle breaks
 have named destinations and dwell/return phases. Sofa cushions have independent
 reservations and anchors transformed with scale/yaw. Without the 3D navigation
-adapter, fallback walking is disabled. See [people design](superpowers/specs/2026-10-25-office-people-design.md).
+adapter, fallback walking is disabled. See [people design](superpowers/specs/historical/2026-10-25-office-people-design.md).
 
 The Studio button **ใช้แปลนแนะนำ · โต๊ะคู่ + มุมพัก** applies the measured recommended
 layout as an undoable draft, preserving item/Agent IDs and counts. Save is still
@@ -33,8 +33,8 @@ while depth-only wall geometry and alpha-tested original furniture art share the
 Three.js buffer with people. The shared renderer selects this only for Projects
 Office rooms without explicit custom blueprints. Studio previews use their actual
 floor context; imported custom geometry keeps its own renderer. See the
-[design](superpowers/specs/2026-10-24-projects-painted-skeleton-design.md) and
-[implementation/evidence plan](superpowers/plans/2026-10-24-projects-painted-skeleton.md).
+[design](superpowers/specs/historical/2026-10-24-projects-painted-skeleton-design.md) and
+[implementation/evidence plan](superpowers/plans/historical/2026-10-24-projects-painted-skeleton.md).
 Painted actor artwork scale is 1.5 times the procedural edition to fit the larger
 illustrated furniture; character IDs/count/roles and stored transforms are unchanged.
 The existing navigation ground footprints and 0.3 m foot clearance remain authoritative.
@@ -46,7 +46,7 @@ overflow, preserving proportions. Mobile retains at least 1,440 px of room width
 with native scrolling, blank-ground drag and arrow keys. Studio itself remains an
 editor; its room state, validation and explicit per-floor save are unchanged.
 
-**Proposed Tycoon extension (23 October):** [Tycoon design §9.1–9.2](superpowers/specs/2026-10-23-office-tycoon-design.md) specifies a new GLB `tycoon3d` edition including Lobby, a separate local store and v2 floor files. Existing Lobby/Hybrid/native snapshots and v1 readers remain intact. Only the new edition may render context-isolated local presentation drafts alongside live Zuri data; the connected-mode suppression described below remains the legacy behavior. These are reviewed design targets, not current implementation or runtime evidence.
+**Proposed Tycoon extension (23 October):** [Tycoon design §9.1–9.2](superpowers/specs/historical/2026-10-23-office-tycoon-design.md) specifies a new GLB `tycoon3d` edition including Lobby, a separate local store and v2 floor files. Existing Lobby/Hybrid/native snapshots and v1 readers remain intact. Only the new edition may render context-isolated local presentation drafts alongside live Zuri data; the connected-mode suppression described below remains the legacy behavior. These are reviewed design targets, not current implementation or runtime evidence.
 
 Latest 23 October refinement: [Measured Office blueprints](OFFICE-BLUEPRINTS.md) adds orthogonal metric S/M/L templates, shared plan/Three.js/navigation dimensions and explicit per-floor draft application. Legacy saved shells remain readable until a template is deliberately applied. Lobby retains its existing scene.
 
@@ -239,7 +239,7 @@ Rendering baseline: the Office Idle domain preset uses an approximately 35-degre
 - Real pointer input moved the chair from x53/y65 to x46.3929/y48.6605 through the desk's transparent region; Undo restored it. Character drag also changed x32/y79 to x24.6786/y91.0537 and was undone.
 - Desktop 1440×1060; mobile 390×844 and 320×780. At 320: body client/scroll width 305; editor child bounds x10..295. Full-page screenshots can reflow scrollbar width; the viewport capture confirms actual fit.
 - Final browser error/warning query returned no entries. This does not certify physical-device performance.
-- Evidence: `reports/hybrid-studio-20261020/` (screenshots, tests and build logs). Visual review in root `design-qa.md`.
+- Evidence: `reports/hybrid-studio-20261020/` (screenshots, tests and build logs). Visual review in root docs/records/design-qa.md`.
 
 ## Remaining boundaries
 
@@ -304,8 +304,8 @@ zoom; native mouse orbit remains available. All view settings are transient.
 Projects painted baseline exposes Dev structure inspection; it swaps painted art
 for existing procedural geometry and preserves actor activity and hitboxes.
 Other scene editions do not advertise this toggle. See
-[design](superpowers/specs/2026-10-24-floor-zoom-design.md) and
-[verification](superpowers/plans/2026-10-24-floor-zoom.md).
+[design](superpowers/specs/historical/2026-10-24-floor-zoom-design.md) and
+[verification](superpowers/plans/historical/2026-10-24-floor-zoom.md).
 
 
 ### Dev skeleton alignment per floor (24 October 2026)
@@ -321,8 +321,8 @@ authoring converts displayed pointer positions back into local planning coordina
 This is global alignment; individual wall/prop authoring remains separate.
 Baseline Office rooms on each floor can author alignment; operational painted art
 remains Projects-only. Blueprint rooms keep their existing structural tools.
-See [design](superpowers/specs/2026-10-24-skeleton-alignment-design.md) and
-[plan/evidence](superpowers/plans/2026-10-24-skeleton-alignment.md).
+See [design](superpowers/specs/historical/2026-10-24-skeleton-alignment-design.md) and
+[plan/evidence](superpowers/plans/historical/2026-10-24-skeleton-alignment.md).
 
 
 ### Per-piece skeleton calibration and new perspective art
@@ -340,9 +340,9 @@ physical transform. Nav authoring inversely maps pointer coordinates through it.
 per floor as `officeArt`; old floors/assets are not silently replaced. The new pack
 contains one background and two transparent desk/chair images. Image generation is
 camera-guided artwork; per-piece calibration handles remaining raster/mesh mismatch.
-See [design](superpowers/specs/2026-10-24-skeleton-parts-design.md),
-[plan/evidence](superpowers/plans/2026-10-24-skeleton-parts.md) and
-[production prompts](superpowers/specs/2026-10-24-skeleton-parts-art-prompts.md).
+See [design](superpowers/specs/historical/2026-10-24-skeleton-parts-design.md),
+[plan/evidence](superpowers/plans/historical/2026-10-24-skeleton-parts.md) and
+[production prompts](superpowers/specs/historical/2026-10-24-skeleton-parts-art-prompts.md).
 
 
 ### Current Projects reset: one Scene Sheet
@@ -364,8 +364,8 @@ edit the common source and invalidate its image bake. Independent background/
 prop PNGs and legacy image-match controls are not used for this edition.
 Navigation/editor footprints come from the same asset factory/model bounds.
 
-[Design](superpowers/specs/2026-10-24-unified-scene-sheet-design.md) and
-[verification](superpowers/plans/2026-10-24-unified-scene-sheet.md) separate
+[Design](superpowers/specs/historical/2026-10-24-unified-scene-sheet-design.md) and
+[verification](superpowers/plans/historical/2026-10-24-unified-scene-sheet.md) separate
 structural acceptance from future art polish and live integration. Only the
 explicit local preview marker admits local saved presentation alongside the
 synthetic connector; non-preview connected storage isolation is unchanged.
@@ -387,8 +387,8 @@ an explicit warning and fallback model surfaces. The geometry-reference atlas,
 generated art, manifest hashes and prompts are under
 `web/assets/office-world/skins/`. Fixed isometric camera; no free orbit claim.
 
-See [design](superpowers/specs/2026-10-25-projects-object-skins-design.md) and
-[implementation/evidence](superpowers/plans/2026-10-25-projects-object-skins.md).
+See [design](superpowers/specs/historical/2026-10-25-projects-object-skins-design.md) and
+[implementation/evidence](superpowers/plans/historical/2026-10-25-projects-object-skins.md).
 # Projects grid placement — 25 October 2026
 
 In Projects, **จัดห้อง · ช่องกริด** enters a paused local furniture draft.

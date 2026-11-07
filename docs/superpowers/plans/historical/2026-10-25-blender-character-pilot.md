@@ -4,7 +4,7 @@ Status: approved for tool installation and a local Zuri pilot by the owner on 25
 
 ## Scope and sources
 
-Use the approved [Zuri sheet](../../game-design/characters/2026-10-25-brand-study/zuri-sheet-v1.png) and the recorded Tripo preview pixels. Keep Zuri, Wangjai and staff identities separate. The existing GLBs, agent records, floor scenes, logo and business integration are unchanged. No provider generation, cache extraction or credit use is part of this work.
+Use the approved [Zuri sheet](../../../game-design/characters/2026-10-25-brand-study/zuri-sheet-v1.png) and the recorded Tripo preview pixels. Keep Zuri, Wangjai and staff identities separate. The existing GLBs, agent records, floor scenes, logo and business integration are unchanged. No provider generation, cache extraction or credit use is part of this work.
 
 The owner approved an editable Blender workflow: MPFB human base → character shape/material work → topology/UV → rig/animation → game validation → GLB in Character Lab. MPFB is a base, not an approved branded face. Wangjai needs its own mascot pipeline.
 
@@ -28,7 +28,7 @@ The owner approved an editable Blender workflow: MPFB human base → character s
 ## Verification and evidence
 
 Tool installation and the static face-fitting pilot are implemented. See
-[the execution record](../../game-design/characters/2026-10-25-brand-study/blender-pilot/README.md)
+[the execution record](../../../game-design/characters/2026-10-25-brand-study/blender-pilot/README.md)
 and ignored `reports/blender-character-pilot/`. Blender/MPFB creation, MCP scene
 read, source reopen, GLB reimport, new face QA, repository tests and application
 build passed. The candidate remains a static art study: full rig/motion and

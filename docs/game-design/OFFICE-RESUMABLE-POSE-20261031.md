@@ -1,5 +1,7 @@
 # Resumable pose solve — 31 October 2026
 
+SSOT: Accepted scope and retained limits are in [OFFICE-MVP-ACCEPTANCE-20261031.md](OFFICE-MVP-ACCEPTANCE-20261031.md).
+
 Pose solving now resumes across render frames and publishes completed poses only.
 Rounded-back's two new 120-second captures peak at 34.0/34.1 ms, compared with
 83.4 ms in the previous report. The full styled Studio still peaks at 100.0 ms

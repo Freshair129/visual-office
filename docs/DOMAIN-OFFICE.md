@@ -99,6 +99,6 @@ completed action, or cross-Business guarantee from art, a local floor map, or fi
 
 ## Historical evidence
 
-The dated lobby and elevator observations remain in [Design QA](../design-qa.md). Their test
+The dated lobby and elevator observations remain in [Design QA](records/design-qa.md). Their test
 counts, build results, and browser observations are evidence for their recorded dates and
 revisions only; they are not current-main validation or hosted/live acceptance.

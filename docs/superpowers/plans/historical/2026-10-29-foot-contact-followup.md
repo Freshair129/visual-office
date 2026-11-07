@@ -9,7 +9,7 @@ Goal: measure and improve foot grounding and seat contact in the existing scene 
 
 ## Investigation outcome
 
-A temporary CCD contact correction passed narrow static samples but failed the actual walking-to-seat-to-standing lifecycle near full leg extension. It was removed after independent review. The current runtime is unchanged and contact at turns, endpoints and custom-height seats remains unresolved. The repeatable Projects-scene GPU baseline and numeric limitations are recorded in `asset-source/blender/README.md` and `contact-scene-diagnostic-20261029.json`; no acceptance or approval is implied. A redesigned reachable motion system and scaled built-in chair/sofa anchors are required before implementing another candidate.
+A temporary CCD contact correction passed narrow static samples but failed the actual walking-to-seat-to-standing lifecycle near full leg extension. It was removed after independent review. The current runtime is unchanged and contact at turns, endpoints and custom-height seats remains unresolved. The repeatable Projects-scene GPU baseline and numeric limitations are recorded in `assets-source/blender/README.md` and `contact-scene-diagnostic-20261029.json`; no acceptance or approval is implied. A redesigned reachable motion system and scaled built-in chair/sofa anchors are required before implementing another candidate.
 
 ## Redesigned runtime (owner requested continuation)
 
@@ -21,4 +21,4 @@ Files: web/tycoon-contact.js (step planning and IK), tycoon-seat-contact.js (sur
 
 ## Redesign verification outcome
 
-The new world-space step planner and analytic IK implementation replaces the discarded CCD experiment. Final hardware scene evidence: `asset-source/blender/contact-runtime-v1/report.json` (10 cases, full lifecycle and settled endpoint, exact source hashes). Actual bundled/custom seat surfaces are measured before admission. Full tests 460/460 and isolated build passed. Independent reviewer confirmed no remaining blocker after fail-closed rig, readiness timeout and swing-envelope fixes. See the asset handoff for supported seat bounds and open articulated collision, external-model, hardware and live-platform limits; this is local slice evidence only.
+The new world-space step planner and analytic IK implementation replaces the discarded CCD experiment. Final hardware scene evidence: `assets-source/blender/contact-runtime-v1/report.json` (10 cases, full lifecycle and settled endpoint, exact source hashes). Actual bundled/custom seat surfaces are measured before admission. Full tests 460/460 and isolated build passed. Independent reviewer confirmed no remaining blocker after fail-closed rig, readiness timeout and swing-envelope fixes. See the asset handoff for supported seat bounds and open articulated collision, external-model, hardware and live-platform limits; this is local slice evidence only.

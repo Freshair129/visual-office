@@ -30,6 +30,6 @@ staff edits or Wangjai edits. Body/clothing remain fitting references this round
 ## Execution evidence
 
 The separate corrected head is implemented in Character Lab. See
-[the correction record](../../game-design/characters/2026-10-25-brand-study/blender-pilot/HEAD-CORRECTION.md)
+[the correction record](../../../game-design/characters/2026-10-25-brand-study/blender-pilot/HEAD-CORRECTION.md)
 for measured files, visual checks, passing geometry checks and remaining art/rig
 limits. The rejected pilot and previous model remain untouched.

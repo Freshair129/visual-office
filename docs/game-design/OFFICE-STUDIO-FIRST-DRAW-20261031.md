@@ -1,5 +1,7 @@
 # Studio first-draw trace — 31 October 2026
 
+SSOT: Accepted scope and retained limits are in [OFFICE-MVP-ACCEPTANCE-20261031.md](OFFICE-MVP-ACCEPTANCE-20261031.md).
+
 The actual default-framebuffer draw is now prepared behind the hidden scene-load
 gate, cleared before yielding, and followed by a nonblocking GPU completion fence.
 Final fresh Studio captures peak at **33.5 / 33.6 / 34.0 ms**

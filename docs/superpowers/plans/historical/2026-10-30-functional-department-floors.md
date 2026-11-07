@@ -52,7 +52,7 @@ it does not instantiate agents or execute a business workflow.
 - [x] Rebuild the offline handoff from the final composition and record actual
   results, review findings and remaining unsupported cases.
 
-Execution evidence is in the [30 October report](../../game-design/OFFICE-WORLD-VERIFICATION-20261030.md).
+Execution evidence is in the [30 October report](../../../game-design/OFFICE-WORLD-VERIFICATION-20261030.md).
 The completed steps record work and tests performed, not blanket acceptance:
 584 local tests/build passed; the 96-case hardware matrix completed 86 and
 refused ten incompatible variants, retaining overall acceptance false. The

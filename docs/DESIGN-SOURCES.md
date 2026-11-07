@@ -13,7 +13,7 @@ original illustrated assets and logo. The synthetic dynamic-domain view uses
 and the editors remain supported; the green GLB prototype is not the default theme.
 Building-only Fit/zoom-out now covers the viewport with 25% overscan; floor/editor
 Fit is unchanged. See [runtime audit](API-ENDPOINT-AUDIT.md) and
-[campus framing](superpowers/plans/2026-10-26-campus-overscan.md).
+[campus framing](superpowers/plans/historical/2026-10-26-campus-overscan.md).
 Current character meshes are temporary usable assets; they have not received final
 visual approval. Older dated refinements below preserve the design history rather
 than authorizing another theme or branding change.
@@ -23,14 +23,14 @@ Scene Sheet. The beauty image is rendered from the actual room/prop geometry;
 Dev hides that layer and exposes the same meshes without camera/renderer swaps.
 Independent whole-room PNG plus separately authored greybox matching is rejected
 for this rebuilt edition. Preserve the logo and warm office palette. See
-[unified sheet](superpowers/specs/2026-10-24-unified-scene-sheet-design.md).
+[unified sheet](superpowers/specs/historical/2026-10-24-unified-scene-sheet-design.md).
 Older generated assets and saved imports remain provenance/compatibility, not
 active image sources for a sheet-tagged room.
 
 **Owner correction — 24 October 2026:** preserve the original illustrated campus,
 Lobby, logo, palette and furniture artwork. 3D supports the image through depth,
 collision and walking. Projects is the first scoped adapter; see
-[painted skeleton design](superpowers/specs/2026-10-24-projects-painted-skeleton-design.md).
+[painted skeleton design](superpowers/specs/historical/2026-10-24-projects-painted-skeleton-design.md).
 Internal floors use a fullscreen, frameless scene with HUD and contextual details;
 portrait screens pan through a large room instead of shrinking it. This direction
 supersedes earlier interpretations below that made the GLB greybox a visual replacement.
@@ -67,7 +67,7 @@ The hybrid sprite room editor and local preview-floor assignment are implemented
 
 Owner approved an additional illustrated 2.5D skin layer over each measured
 object. The latest source is
-[Projects object skins](superpowers/specs/2026-10-25-projects-object-skins-design.md).
+[Projects object skins](superpowers/specs/historical/2026-10-25-projects-object-skins-design.md).
 The single physical sheet remains authoritative; its solid model beauty image
 alone is no longer the requested final art. Keep the established warm Office
 illustration, original brand and separate transient skin/model/wire controls.

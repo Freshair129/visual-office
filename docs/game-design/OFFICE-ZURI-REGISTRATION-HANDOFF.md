@@ -1,5 +1,7 @@
 # Office world: identity and registration handoff
 
+SSOT: External dependencies and acceptance gates are in [TYCOON-INTEGRATION-AND-ACCEPTANCE.md](TYCOON-INTEGRATION-AND-ACCEPTANCE.md); platform authority is in [ZURI-PLATFORM-INTEGRATION-BOUNDARY.md](../ZURI-PLATFORM-INTEGRATION-BOUNDARY.md).
+
 This package is a **design registration proposal**. It contains all fifteen local floor designs (Lobby plus fourteen department keys), proposed role-based agent teams and main workflows, referenced geometry and stable external design UUIDs. A package alone does not claim any record has been registered or stored in Zuri's database.
 
 ## What the receiver gets
@@ -39,7 +41,7 @@ instance override in `room.navigation.stations` is binding: an unreachable
 override is rejected instead of silently replaced. The exported station
 contains the selected placed-scene approach, while the asset descriptor and
 snapshot preserve their respective inputs. See the custom GLB design's
-[model contract](../superpowers/specs/2026-10-24-custom-glb-design.md).
+[model contract](../superpowers/specs/historical/2026-10-24-custom-glb-design.md).
 
 Derived geometry and projected interaction coordinates use eight decimal places to avoid browser/Node math rounding differences during verification. Original authored scene snapshots are preserved. The content digest still hashes the exact canonical JSON values in the package; it is not a tolerant hash.
 

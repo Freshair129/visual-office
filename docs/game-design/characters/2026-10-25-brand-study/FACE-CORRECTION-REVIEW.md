@@ -1,5 +1,7 @@
 # Human face correction and Tripo handoff
 
+SSOT: The later face review is [FACE-R4-REVIEW.md](FACE-R4-REVIEW.md).
+
 Date: 25 October 2026. Scope: Zuri + Staff A/B in Character Lab only.
 
 The owner rejected the previous procedural faces. A further local correction

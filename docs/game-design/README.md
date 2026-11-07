@@ -22,7 +22,7 @@ GLB/Native/Hybrid เป็น editor และ edition ที่ยังรอ
 PR #1 รวมที่ `6de3a4540189837c0f376969f1e07193d93b50e4` ผ่าน 427 tests,
 build และ 57 pinned fixtures พร้อมทดสอบแอปหลักและ built Worker ในเครื่อง
 ดู [ขอบเขต integration](MARKETING-INTEGRATION-SCOPE.md) และ
-[แผนทดสอบจอเล็กต่อจาก P1](../superpowers/plans/2026-10-24-marketing-responsive-acceptance.md)
+[แผนทดสอบจอเล็กต่อจาก P1](../superpowers/plans/historical/2026-10-24-marketing-responsive-acceptance.md)
 สถานะ connected slice และการสั่ง Agent จริงยังไม่ผ่าน; รายงานต้นแบบรอบแรกด้านล่างเป็นประวัติ
 
 ต้นแบบ GLB รุ่น23ตุลาคมมีหน้าอาคาร, G Lobby และ Projects พร้อม HUD/dock และแผ่นรายละเอียด
@@ -33,7 +33,7 @@ group/layer/texture, prefab และ custom GLB library แล้ว แต่�
 Independent builder review ของ design v0.2 ผ่านการทบทวนซ้ำวันที่23ตุลาคม:
 ปิดประเด็น Lobby3D/ไฟล์เก่า และ local sceneคู่กับข้อมูลสดในdesign§9.1–9.2แล้ว
 ไม่มีคำถามสำคัญที่ค้างสำหรับผู้พัฒนา; เจ้าของอนุมัติให้เดินตาม workflow แล้ว
-ดู [implementation plan และสถานะรายงาน](../superpowers/plans/2026-10-23-office-tycoon.md)
+ดู [implementation plan และสถานะรายงาน](../superpowers/plans/review/2026-10-23-office-tycoon.md)
 และผลต้นแบบรอบแรกในเอกสาร Integration ด้านล่าง
 
 เป้าหมายที่เจ้าของเลือกคือ **หน้าอาคาร + Lobby + Projects** ที่ใช้งานเหมือนเกม
@@ -42,12 +42,12 @@ Office Tycoon: เข้าอาคาร เลือกชั้น แตะ
 
 ## อ่านตามลำดับ
 
-1. [Design: หน้าจอ, กติกา, มุมกล้อง และการทำงาน](../superpowers/specs/2026-10-23-office-tycoon-design.md)
+1. [Design: หน้าจอ, กติกา, มุมกล้อง และการทำงาน](../superpowers/specs/historical/2026-10-23-office-tycoon-design.md)
 2. [Workflow: ลำดับการผลิตแบบเกม ตั้งแต่แปลนถึงทดลองใช้จริง](TYCOON-PRODUCTION-WORKFLOW.md)
 3. [Asset list: ต้องปั้นอะไร จำนวนเท่าไร กี่มุม และ animate อย่างไร](TYCOON-ASSET-LIST.md)
 4. [Integration และ acceptance: สิ่งที่มีจริง สิ่งที่รอ และวิธีตรวจรับ](TYCOON-INTEGRATION-AND-ACCEPTANCE.md)
 5. [Wireframes](tycoon-wireframes.svg) — ภาพโครง UI สำหรับสื่อสาร ไม่ใช่ final art หรือหน้าที่รันแล้ว
-6. [Implementation plan](../superpowers/plans/2026-10-23-office-tycoon.md) — ไฟล์ที่รับผิดชอบ ลำดับทดสอบ และงานที่ยังค้าง
+6. [Implementation plan](../superpowers/plans/review/2026-10-23-office-tycoon.md) — ไฟล์ที่รับผิดชอบ ลำดับทดสอบ และงานที่ยังค้าง
 
 ## การใช้เครื่องมือที่ยังรองรับ
 

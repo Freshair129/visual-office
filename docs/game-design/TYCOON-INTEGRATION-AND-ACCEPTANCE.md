@@ -24,7 +24,7 @@ historical evidence; they must not override [the current SRS](../VISUAL-OFFICE-S
 
 ## Local recovery refinement — 24 October 2026
 
-[Recovery plan and current gap audit](../superpowers/plans/2026-10-24-local-scene-recovery.md)
+[Recovery plan and current gap audit](../superpowers/plans/historical/2026-10-24-local-scene-recovery.md)
 adds explicit 3D reload in Office and Studio. It recreates renderer resources without
 reloading the page, reconnecting Business, saving or replacing an unsaved draft.
 Context loss stops local probes; stale renderer errors cannot replace current feedback.
@@ -46,7 +46,7 @@ The actual app and local built-Worker handler passed the synthetic Campaign/Ask
 matrix. B10 keyboard recovery/focus/Escape was checked separately, with a fresh
 merged-Worker scope/board/blank-overview smoke. This is not a deployed Worker or live acceptance.
 
-The follow-up [responsive plan](../superpowers/plans/2026-10-24-marketing-responsive-acceptance.md)
+The follow-up [responsive plan](../superpowers/plans/historical/2026-10-24-marketing-responsive-acceptance.md)
 checks 360x800 and 390x844 browser viewports. It found the Business control only
 39.6px high and close control 41.7px wide; the stylesheet now preserves a 44px
 minimum on both axes and prevents the close button shrinking. Browser remeasurement
@@ -64,7 +64,7 @@ the current inventory of implemented Studio tools.
 
 ## P1 UI refinement — 24 October 2026
 
-[Marketing P1](../superpowers/plans/2026-10-24-marketing-p1.md) adds blank overview,
+[Marketing P1](../superpowers/plans/historical/2026-10-24-marketing-p1.md) adds blank overview,
 trimmed400 validation/counter, Campaign ID/displayed count, null/date-window labels
 and recovery/focus fixes to the existing GLB Marketing pilot. Synthetic browser
 qualification uses pinned producer payloads through the actual Node sanitizer on
@@ -87,7 +87,7 @@ normalized to identical complete denial envelopes for Entry and Marketing, inclu
 source.status=403 and omission of sourceCode; HTTP 401 remains distinct. Scope/floor changes
 invalidate pending reads; authorization denial clears cached scope and projections.
 
-Implementation plan: [Marketing Office execution](../superpowers/plans/2026-10-24-marketing-read-pilot.md).
+Implementation plan: [Marketing Office execution](../superpowers/plans/historical/2026-10-24-marketing-read-pilot.md).
 Consumer fixture tests and preview browser checks are local evidence only. Shared
 producer-generated fixture qualification passed all 57 vectors on the pinned file
 (hash and exact dirty-source evidence in the shared-vector plan). Authenticated live
@@ -97,7 +97,7 @@ implementation is outside this phase.
 
 เอกสารนี้รวมหลักฐานสำรวจ source, test plan และผลต้นแบบเฉพาะส่วนใน §7
 ยังไม่ใช่ผลตรวจรับ connected slice หรือ production
-ใช้คู่กับ [Design](../superpowers/specs/2026-10-23-office-tycoon-design.md)
+ใช้คู่กับ [Design](../superpowers/specs/historical/2026-10-23-office-tycoon-design.md)
 และ [integration boundary](../ZURI-PLATFORM-INTEGRATION-BOUNDARY.md)
 
 ## 1. Baseline ที่ตรวจจริง

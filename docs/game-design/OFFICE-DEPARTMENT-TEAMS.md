@@ -1,5 +1,7 @@
 # Office department teams and workflow designs
 
+SSOT: External dependencies and acceptance gates are in [TYCOON-INTEGRATION-AND-ACCEPTANCE.md](TYCOON-INTEGRATION-AND-ACCEPTANCE.md); platform authority is in [ZURI-PLATFORM-INTEGRATION-BOUNDARY.md](../ZURI-PLATFORM-INTEGRATION-BOUNDARY.md).
+
 **Status:** design proposal for the Visual Office Zuri registration handoff. It
 defines semantic team, role, workflow, and step keys for fourteen operational
 department floors plus the `lobby` service floor. It does not register or run

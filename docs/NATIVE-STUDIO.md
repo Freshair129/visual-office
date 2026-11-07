@@ -61,7 +61,7 @@ Connected Zuri Business views suppress local preview layouts and reset to origin
 
 - Tests: native schema/file round-trip, floor isolation, atomic denied writes, conflict checks, draft guards, interaction/HTML exclusion, numeric input before blur, late renderer disposal, and original Three geometry transforms/seat positions/pointer cancellation.
 - Actual browser: dragged desk 1 and chair 5 separately; set desk 1 to X -3/Z -2.8 and chair 5 to X 1.2/Z 3.1/rotation 30; saved, switched floors, returned from actual Office and verified values. Popup rendered in Studio and actual Projects after reload.
-- Evidence: `reports/native-studio-20261020/`; final commands/results recorded in `design-qa.md`.
+- Evidence: `reports/native-studio-20261020/`; final commands/results recorded in docs/records/design-qa.md`.
 
 This is a local catalog-based furniture editor, not a general mesh modeller. Walls, floor and windows support finish editing with fixed geometry. The eight original decor pieces support transforms, duplication and deletion as described below. There is no collision solver, automatic walking/pathfinding, seat-to-desk alignment, arbitrary external mesh import, server synchronization or multi-user revision history. Moving a chair can separate its character from the desk; the editor does not claim to resolve that arrangement automatically.
 

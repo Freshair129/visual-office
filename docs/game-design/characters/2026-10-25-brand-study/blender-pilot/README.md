@@ -3,7 +3,7 @@
 **Owner rejected this candidate after inspecting the comparison.** Bulging eyes,
 heavy lips, long neck and helmet-like hair do not match the approved sheet.
 The structural/toolchain results below are historical evidence, not art approval.
-Continue from [head correction](../../../../superpowers/plans/2026-10-25-zuri-head-correction.md).
+Continue from [head correction](../../../../superpowers/plans/historical/2026-10-25-zuri-head-correction.md).
 The Lab now labels this preserved file **MPFB เดิม · ไม่ผ่านรีวิว**; `?model=blender`
 opens the separate corrected head revision instead.
 

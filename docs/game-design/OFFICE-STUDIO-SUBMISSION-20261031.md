@@ -1,12 +1,14 @@
 # Studio submission cadence and hidden draw — 31 October 2026
 
+SSOT: Accepted scope and retained limits are in [OFFICE-MVP-ACCEPTANCE-20261031.md](OFFICE-MVP-ACCEPTANCE-20261031.md).
+
 The 30 FPS loop now submits its last committed, validated pose before solving the next pose. Hidden draw preparation uses a scissor rectangle of 1 × 1 logical pixels on the default framebuffer while keeping the actual camera, geometry, output-color programs and full shadow targets. These captures use devicePixelRatio 1; physical pixels scale with the renderer's ratio. This removes variable solve work from the start of the draw and reduces rehearsal raster work. **It adds one rendered interval of visual latency at 30 FPS.** Native-display ordering, fixed-step physics, solver allowances, collision thresholds and assets remain unchanged.
 
 This is local engineering evidence under the continuing user request, not product acceptance, business status, approval, Agent activation or DB registration. No commit, push, deployment or hosted CI is claimed. Work remains in the existing dirty Visual Office checkout, HEAD a6fdc7e7; unrelated work is preserved. The [previous report](OFFICE-STUDIO-FIRST-DRAW-20261031.md) and sealed archives are retained.
 
 ## Evidence and diagnosis
 
-[Source-bound summary](C:/Users/suanr/workspace/visual-office/.local/studio-submission-20261031/summary.json), [implementation plan](../superpowers/plans/2026-10-31-studio-submission-jitter.md), [review](C:/Users/suanr/workspace/visual-office/.local/studio-submission-20261031/review.md) and [current GPU draw-state check](C:/Users/suanr/workspace/visual-office/.local/studio-submission-20261031/final-draw-gpu.json) retain commands, byte hashes and raw measurements. This task's evidence has a fresh prefix and does not replace previous sealed results.
+[Source-bound summary](C:/Users/suanr/workspace/visual-office/.local/studio-submission-20261031/summary.json), [implementation plan](../superpowers/plans/historical/2026-10-31-studio-submission-jitter.md), [review](C:/Users/suanr/workspace/visual-office/.local/studio-submission-20261031/review.md) and [current GPU draw-state check](C:/Users/suanr/workspace/visual-office/.local/studio-submission-20261031/final-draw-gpu.json) retain commands, byte hashes and raw measurements. This task's evidence has a fresh prefix and does not replace previous sealed results.
 
 The previous 45.3 ms CPU draw-entry interval consists of 33.6 ms between callbacks plus 11.7 ms of pose work before the next draw; the previous frame had no pose work. Other 43/41.8/41.4 ms intervals similarly follow increases in solve cost. A fresh baseline records 44.7 ms. The isolated ordering change records 36.4 ms; the browser-only scissor control keeps the old order and still records 44.1 ms. That separation supports the scheduling diagnosis. The control's transformed JS response is labeled and hashed; it is not represented as unmodified production source.
 
