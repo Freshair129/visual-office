@@ -4,9 +4,19 @@ import {JSDOM} from 'jsdom';
 import {openFloorTasks, projectFloorTasks} from '../web/floor-tasks.js';
 
 const fresh = () => new Date().toISOString();
-const live = {connectionStatus: 'live', lastSync: fresh(), mode: 'live'};
+const live = () => ({connectionStatus: 'live', lastSync: fresh(), mode: 'live'});
 const floor = {key: 'projects', label: 'ทีมโครงการ', number: 4};
 const tick = () => new Promise(resolve => setImmediate(resolve));
+
+test('a live fixture built after an import delay remains fresh', t => {
+  t.mock.timers.enable({apis: ['Date'], now: Date.now() + 10 * 60_000});
+  const result = projectFloorTasks(floor.key, {
+    ...live(),
+    jobs: [{id: 'fresh', title: 'Fresh work', status: 'running', domainKey: floor.key}],
+  });
+  assert.equal(result.state, 'READY');
+  assert.equal(result.items[0].id, 'fresh');
+});
 
 test('reserved floor board never reads an operational feed or offers a work action',async t=>{
  const dom=new JSDOM('<main></main>');t.after(()=>dom.window.close());const root=dom.window.document.querySelector('main');
@@ -16,9 +26,9 @@ test('reserved floor board never reads an operational feed or offers a work acti
 });
 
 test('synthetic floor board includes waiting and preserves source without inferring unscoped jobs',()=>{
- const result=projectFloorTasks('projects',{...live,source:'Synthetic',jobs:[{id:'wait',title:'Need input',status:'waiting',domainKey:'projects'},{id:'other',title:'Other',status:'running',domainKey:'growth'}]});
+ const result=projectFloorTasks('projects',{...live(),source:'Synthetic',jobs:[{id:'wait',title:'Need input',status:'waiting',domainKey:'projects'},{id:'other',title:'Other',status:'running',domainKey:'growth'}]});
  assert.equal(result.source,'Synthetic');assert.deepEqual(result.items,[{id:'wait',title:'Need input',status:'รอข้อมูล'}]);
- assert.equal(projectFloorTasks('projects',{...live,source:'Synthetic',jobs:[{id:'x',title:'Unknown floor',status:'running'}]}).state,'UNAVAILABLE');
+ assert.equal(projectFloorTasks('projects',{...live(),source:'Synthetic',jobs:[{id:'x',title:'Unknown floor',status:'running'}]}).state,'UNAVAILABLE');
 });
 
 test('board releases its modal before navigating to an exact work item or list',async t=>{
@@ -37,8 +47,9 @@ const deferred = () => {
 };
 
 test('projectFloorTasks includes only jobs explicitly scoped to the exact floor and active statuses', () => {
+  const input = live();
   const result = projectFloorTasks(floor.key, {
-    ...live,
+    ...input,
     jobs: [
       {id: 'running', title: 'ตรวจยอดขาย', status: 'running', domainKey: floor.key},
       {id: 'queued', title: 'จัดชุดข้อมูล', status: 'queued', domain: floor.key},
@@ -60,13 +71,13 @@ test('projectFloorTasks includes only jobs explicitly scoped to the exact floor 
     {id: 'blocked', title: 'รอข้อมูล', status: 'ติดขัด'},
     {id: 'review', title: 'ตรวจร่าง', status: 'รอตรวจ'},
   ]);
-  assert.equal(result.checkedAt, live.lastSync);
+  assert.equal(result.checkedAt, input.lastSync);
   assert.doesNotMatch(JSON.stringify(result.items), /ห้ามแสดง|role-guess|nested-guess|เสร็จแล้ว/);
 });
 
 test('projectFloorTasks reports unavailable when T3 jobs have no floor mapping', () => {
   const result = projectFloorTasks(floor.key, {
-    ...live,
+    ...live(),
     jobs: [{id: 'unmapped', title: 'งานที่ยังจับคู่ไม่ได้', status: 'running'}],
   });
 
@@ -77,7 +88,7 @@ test('projectFloorTasks reports unavailable when T3 jobs have no floor mapping',
 
 test('projectFloorTasks treats blank floor fields as missing mapping', () => {
   const result = projectFloorTasks(floor.key, {
-    ...live,
+    ...live(),
     jobs: [{id: 'blank-scope', title: 'งานไม่มีชั้น', status: 'running', domainKey: ' '}],
   });
 
@@ -87,7 +98,7 @@ test('projectFloorTasks treats blank floor fields as missing mapping', () => {
 
 test('projectFloorTasks reports an empty floor when jobs are scoped elsewhere', () => {
   const result = projectFloorTasks(floor.key, {
-    ...live,
+    ...live(),
     jobs: [{id: 'other', title: 'งานทีมอื่น', status: 'running', domainKey: 'marketing'}],
   });
 
@@ -97,9 +108,9 @@ test('projectFloorTasks reports an empty floor when jobs are scoped elsewhere', 
 
 test('projectFloorTasks returns unavailable for demo, disconnected, and stale data', () => {
   for (const options of [
-    {...live, mode: 'demo'},
-    {...live, connectionStatus: 'offline'},
-    {...live, lastSync: '2000-01-01T00:00:00.000Z'},
+    {...live(), mode: 'demo'},
+    {...live(), connectionStatus: 'offline'},
+    {...live(), lastSync: '2000-01-01T00:00:00.000Z'},
   ]) {
     const result = projectFloorTasks(floor.key, {
       ...options,
@@ -121,7 +132,7 @@ test('projectFloorTasks tolerates malformed records and caps bounded text and it
     });
   }
 
-  const result = projectFloorTasks(floor.key, {...live, jobs});
+  const result = projectFloorTasks(floor.key, {...live(), jobs});
   assert.equal(result.state, 'READY');
   assert.equal(result.items.length, 100);
   assert.ok(result.items.every(item => item.title.length <= 160));
@@ -142,7 +153,7 @@ test('openFloorTasks shows loading then renders the scoped projection in an unat
   assert.match(dialog.querySelector('.floor-tasks-source').textContent, /ยังไม่ยืนยัน/);
 
   pending.resolve(projectFloorTasks(floor.key, {
-    ...live,
+    ...live(),
     jobs: [{id: 'p1', title: 'เตรียมแผน', status: 'pending', domainKey: floor.key}],
   }));
   await tick();
@@ -235,7 +246,7 @@ test('openFloorTasks invokes task and work callbacks only after explicit button 
   const dialog = openFloorTasks(root, {
     floor,
     getTasks: () => projectFloorTasks(floor.key, {
-      ...live,
+      ...live(),
       jobs: [{id: 'job-7', title: 'ส่งรายงาน', status: 'running', domainKey: floor.key}],
     }),
     onOpenTask: (id, item) => openedTasks.push([id, item.title]),
@@ -261,7 +272,7 @@ test('openFloorTasks ignores a late response after dispose', async () => {
 
   dialog.dispose();
   pending.resolve(projectFloorTasks(floor.key, {
-    ...live,
+    ...live(),
     jobs: [{id: 'late', title: 'late leak', status: 'running', domainKey: floor.key}],
   }));
   await tick();
@@ -281,7 +292,7 @@ test('openFloorTasks ignores a late response after removal from the root', async
 
   dialog.remove();
   pending.resolve(projectFloorTasks(floor.key, {
-    ...live,
+    ...live(),
     jobs: [{id: 'late', title: 'late leak', status: 'running', domainKey: floor.key}],
   }));
   await tick();
@@ -301,7 +312,7 @@ test('openFloorTasks ignores a late response after the floor object changes scop
 
   mutableFloor.key = 'marketing';
   pending.resolve(projectFloorTasks(floor.key, {
-    ...live,
+    ...live(),
     jobs: [{id: 'late', title: 'late leak', status: 'running', domainKey: floor.key}],
   }));
   await tick();
