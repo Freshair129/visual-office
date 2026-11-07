@@ -149,10 +149,10 @@ indicative until physical devices are measured.
 | Triangles per character | ≤ 85,000 | max 81,438 (Zuri) | Pass |
 | Distinct character bytes per floor | ≤ 11,000,000 | 10,809,160 (batched) | Pass |
 | Meshes and draw-call primitives per character | ≤ 30 | Staff A 24, Staff B 25, Wangjai 7, Zuri 12 | Pass, actual GLB tests |
-| Desktop, 4 and 12 avatars | p95 ≤ 20 ms, p99 ≤ 34 ms, no frame > 100 ms | Batched, 120 s run: 4 avatars 16.8 / 16.8 / max 33.2; 12 avatars 16.8 / 16.8 / max 33.5 | Pass |
-| Desktop time to all characters ready, 4 avatars | ≤ 2,000 ms | Batched: 2,761 / 2,428 ms (originals 2,826 / 2,811 ms in the same runs; earlier quiet run 1,013 ms) | **Not re-confirmed** — host was shared with other workloads; re-measure on an idle host |
-| 4× CPU proxy, 4 avatars | p95 ≤ 40 ms (25 fps floor) | Batched 50.1 ms (was 66.8) | **Fail** (improved) |
-| 6× CPU proxy, 4 avatars | p95 ≤ 66.7 ms (15 fps floor) | Batched 116.6 ms (was 216.7) | **Fail** (improved) |
+| Desktop, 4 and 12 avatars | p95 ≤ 20 ms, p99 ≤ 34 ms, no frame > 100 ms | Scene-batched, 120 s: 4 avatars 18.2 / 18.5 / max 19.0; 12 avatars 18.2 / 18.6 / max 19.0 | Pass |
+| Desktop time to all characters ready, 4 avatars | ≤ 2,000 ms | Scene-batched: 1,592 ms (original files 2,415 ms in the same run) | Pass |
+| 4× CPU proxy, 4 avatars | p95 ≤ 40 ms (25 fps floor) | Scene-batched 36.0 ms (character batching only 50.1; LOD1 before batching 66.8) | Pass |
+| 6× CPU proxy, 4 avatars | p95 ≤ 66.7 ms (15 fps floor) | Scene-batched 70.6 ms (116.6; 216.7) | **Fail** (3.9 ms over) |
 | Physical mid-range phone, 4 avatars | p95 ≤ 40 ms | not measured | Deferred (owner, 7 November 2026) |
 
 The ceiling tests check bytes, hashes, triangles, meshes and instantiated
@@ -162,11 +162,19 @@ batched files (RTX 3060, hardware ANGLE, 0 errors). Scene draw calls fell from
 491 to 273 (4 avatars) and from 1,223 to 569 (12 avatars). Of the remaining
 calls, about 205 belong to the room, not the characters, so further proxy gains
 need scene-side batching. Per-file primitives are not full-scene renderer calls.
+Scene-side batching (7 November 2026) merges opaque static architecture by
+shared material and instances repeated desks and chairs, keeping per-object
+pick/edit geometry; doors and transparent surfaces stay individual. The lead
+re-measured it with a full 120 s `npm run perf:hybrid` run (RTX 3060, hardware
+ANGLE, 0 errors, no software-renderer cases): renderer calls fell from 273 to
+136 (4 avatars, LOD1) and from 569 to 272 (12 avatars). The lead also checked
+in Chrome that object clicks open the same menus as on `main`.
 
-Disposition: **mesh budget met; desktop frame time qualified; desktop ready time
-to re-confirm on an idle host; mobile not qualified.** Next: scene-side batching
-for the CPU proxies, then a physical mid-range phone (deferred by the owner on
-7 November 2026). See the
+Disposition: **desktop qualified (frame time and ready time); 4× CPU proxy
+qualified; 6× CPU proxy fails by 3.9 ms; mobile not qualified until a physical
+phone is measured** (deferred by the owner on 7 November 2026). Twelve-avatar
+proxies remain well over budget (4×: 71.9 ms, 6×: 140.3 ms) and are outside the
+four-avatar budget rows. See the
 [batching evidence](game-design/characters/TEMPORARY-RUNTIME.md#g6-draw-call-batching--7-november-2026).
 Accessibility and the complete activity lifecycle remain separate gaps.
 
@@ -194,7 +202,7 @@ system, mobile, live, hosted CI or release acceptance. No merge/deployment.
 | G3: nested HTML/base URL audit omission | Closed locally / Office | Recursive discovery resolves local bases, excludes external-base scripts and traces asset-builder inputs separately. Final static audit: 5 HTML documents, 4 module entries, 224 reachable modules, 3 build-only modules, 0 unclassified authored modules, 27 route families. |
 | G4: accessibility/lifecycle evidence remains partial | P1 QA / lead | 7 November rounds add focused hidden-tab and reduced-motion checks, named recovery, Zuri and Native dialogs, and a limited static HTML/template audit. Zuri panel polling and the handoff popup watcher now pause while hidden. This is partial source/test evidence, not a completed WCAG audit or browser/device acceptance; the remaining checks are below. |
 | G5: business contracts and durable shared scenes remain unavailable | Zuri owner | No published Office auth/client registration, authorized roster/actions, shared scene/version/audit or asset service contract. Do not invent endpoints or enable live. |
-| G6: asset/performance quality | Art approved; mesh budget met; desktop frame time qualified / Office; mobile performance open | Owner approved R4, Wangjai and Staff A/B originals and LOD1 on 7 November 2026; candidates/review metadata excluded and catalog/UI labels updated. Batched LOD1 meets the [G6 budget](#g6-performance-budget--accepted-7-november-2026) for bytes, triangles and ≤30 meshes per character; scene calls fell 491→273 (4 avatars). Desktop frame time passes; desktop ready time is to be re-confirmed on an idle host; 4×/6× CPU proxies improved but still fail. Next: scene-side batching, then a physical-phone measurement (deferred by the owner on 7 November 2026). |
+| G6: asset/performance quality | Art approved; desktop and 4× proxy qualified / Office; 6× proxy and physical phone open | Owner approved R4, Wangjai and Staff A/B originals and LOD1 on 7 November 2026; candidates/review metadata excluded and catalog/UI labels updated. Character and scene batching cut renderer calls 491→136 (4 avatars). Against the [G6 budget](#g6-performance-budget--accepted-7-november-2026): desktop frame/ready time and the 4× CPU proxy pass; the 6× proxy is 70.6 ms against 66.7 ms. Physical-phone measurement deferred by the owner on 7 November 2026. |
 | G7: reserved-floor board/actions imply an active department | Closed locally / Office | Browser reproduced empty feed and creation actions despite RESERVED. Board now states preparation without a feed read, refresh or Work link; object menus omit Chat/create. Role inspection, illustrative actors and navigation remain. |
 
 G4 disposition: **ACTIVE / handoff; browser and device acceptance open.**

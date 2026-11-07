@@ -17,8 +17,9 @@
 .hy-viewport{width:100%;overflow:auto;background:#eae4d5;max-height:660px;scrollbar-width:thin;overscroll-behavior:contain}
 .hy-scene{position:relative;isolation:isolate;aspect-ratio:3/2;min-width:100%;container-type:inline-size;overflow:hidden}
 .hy-background{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;pointer-events:none;user-select:none}
-.hy-objects{position:absolute;inset:0}
-.hy-model-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
+.hy-objects{position:absolute;inset:0;pointer-events:none}
+.hy-model-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:auto;touch-action:none}
+.hy-object{pointer-events:auto}
 .hy-scene[data-renderer="3d"] .hy-objects{z-index:2}
 .hy-scene[data-renderer="3d"]{background:linear-gradient(145deg,#eaf0e8,#f8efdf 72%,#e8dfcc)}
 .hy-scene[data-renderer="3d"] .hy-background{display:none}
@@ -119,6 +120,8 @@
 .hy-interaction-popup p{white-space:pre-wrap;overflow-wrap:anywhere;font:14px/1.8 'IBM Plex Sans Thai',sans-serif}
 .hy-object[data-hover=lift]:is(:hover,:focus-visible){translate:0 -5px}
 .hy-object[data-hover=highlight]:is(:hover,:focus-visible){outline:2px solid #e8b962;outline-offset:3px}
+.hy-object[data-pointer-hover=true][data-hover=lift]{translate:0 -5px}
+.hy-object[data-pointer-hover=true][data-hover=highlight]{outline:2px solid #e8b962;outline-offset:3px}
 @media(prefers-reduced-motion:reduce){.hy-object[data-hover=lift]:is(:hover,:focus-visible){translate:none;outline:2px solid #e8b962}}
 @media(max-width:760px){.hy-floor-workspace{padding:12px;gap:8px}.hy-floor-workspace label{min-width:100%;flex-basis:100%}.hy-floor-workspace button{flex:1}.hy-original-frame iframe{height:480px}}
 .ns-canvas{height:580px;position:relative;overflow:hidden;touch-action:none;background:linear-gradient(145deg,#f8f7ec,#e1e9dc)}

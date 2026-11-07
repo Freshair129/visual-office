@@ -17,6 +17,7 @@ import {createOfficeNavigation} from './office-navigation.js';
 import {createOfficeArchitecture,disposeOfficeArchitecture} from './office-architecture.js';
 import {blueprintDoorOccupied} from './office-blueprints.js';
 import {createPaintedFurniture,createPaintedWallMasks,disposePaintedFurniture} from './painted-office-skeleton.js';
+import {HybridSceneBatching} from './hybrid-scene-batching.js';
 
 export const isOfficeModel=kind=>['work-desk','task-chair','team-sofa','water-cooler','whiteboard','plant','wayfinding-arrow'].includes(kind)||/^avatar-\d\d$/.test(kind);
 const point=p=>({x:p.x,y:p.y});
@@ -44,6 +45,7 @@ export class HybridOffice3D{
     this.lost=e=>{e.preventDefault();this.unavailable=true;root.dispatchEvent(new this.win.CustomEvent('office-3d-unavailable'));};this.renderer.domElement.addEventListener('webglcontextlost',this.lost);
   }
   sync(room,playing){
+    this.sceneBatches?.clear();
     this.skinLayer?.clear();
     this.sheetLayer?.restoreStatic();const unified=isOfficeSheet(room);if(unified&&!this.sheetLayer)this.sheetLayer=new OfficeSheetLayer(this);if(!unified&&this.sheetLayer){this.sheetLayer.dispose();this.sheetLayer=null;}if(this.sheetLayer){const key=JSON.stringify(room);if(this.sheetKey!==key){this.sheetKey=key;this.sheetLayer.invalidate();}this.compiledSheet=compileOfficeSheet(room);}
     const architectureKey=JSON.stringify({plan:room.blueprintPlan||room.blueprint,walls:room.skeletonParts?.filter(p=>p.id.startsWith('wall:'))});
@@ -77,6 +79,8 @@ export class HybridOffice3D{
     applySkeletonAlignment(this.structureGroup,skeletonAlignment(room));
     if(unified){this.modelBlockers=sheetModelBlockers(this.models,this.structureGroup);this.navigation=createOfficeNavigation(room,{objectBlockers:this.modelBlockers,includeObjectStations:true});this.styleSheetSurfaces();}
     if(unified&&this.SkinLayer){if(!this.skinLayer){this.skinLayer=new this.SkinLayer(this);this.skinLayer.loadSurfaces();}this.skinLayer.sync();}else if(this.skinLayer){this.skinLayer.dispose();this.skinLayer=null;}
+    if(!this.painted&&!unified){this.sceneBatches??=new HybridSceneBatching(this.structureGroup);this.structureGroup.updateWorldMatrix(true,true);this.sceneBatches.rebuild(this.architecture,this.models);}
+    else if(this.sceneBatches){this.sceneBatches.dispose();this.sceneBatches=null;}
     this.characterStatus();this.drawNavigation();this.step(0,{staticPose:!playing});this.resize();
   }
   characterStatus(){
@@ -230,7 +234,7 @@ export class HybridOffice3D{
     for(const x of [box.min.x,box.max.x])for(const y of [box.min.y,box.max.y])for(const z of [box.min.z,box.max.z]){const p=new THREE.Vector3(x,y,z).project(this.camera);min.min(new THREE.Vector2((p.x+1)*50,(1-p.y)*50));max.max(new THREE.Vector2((p.x+1)*50,(1-p.y)*50));}
     return {left:min.x,top:min.y,width:max.x-min.x,height:max.y-min.y};
   }
-  previewMove(id,object){if(this.disposed)return;const model=this.models.get(id);if(!model)return;if(!this.painted&&this.authoredRoom)object=physicalSkeletonRoom({...this.authoredRoom,objects:this.authoredRoom.objects.map(o=>o.id===id?{...o,...object}:o)}).objects.find(o=>o.id===id)||object;const actor=this.actors.get(id);if(actor){actor.position=point(object);model.position.copy(groundToWorld(object));}else{model.position.copy(groundToWorld(object));if(isOfficeSheet(this.authoredRoom)){model.rotation.y=sheetYaw(object);const angle=((Math.round((sheetYaw(object)-(object.kind==='team-sofa'?-Math.PI/2:0))*180/Math.PI)%360)+360)%360;this.skinLayer?.setModelRotation(model,angle);}}this.draw();}
+  previewMove(id,object){if(this.disposed)return;const model=this.models.get(id);if(!model)return;if(!this.painted&&this.authoredRoom)object=physicalSkeletonRoom({...this.authoredRoom,objects:this.authoredRoom.objects.map(o=>o.id===id?{...o,...object}:o)}).objects.find(o=>o.id===id)||object;const actor=this.actors.get(id);if(actor){actor.position=point(object);model.position.copy(groundToWorld(object));}else{model.position.copy(groundToWorld(object));if(isOfficeSheet(this.authoredRoom)){model.rotation.y=sheetYaw(object);const angle=((Math.round((sheetYaw(object)-(object.kind==='team-sofa'?-Math.PI/2:0))*180/Math.PI)%360)+360)%360;this.skinLayer?.setModelRotation(model,angle);}}this.sceneBatches?.updateObject(id,this.camera);this.draw();}
   groundPointAt(x,y){const r=this.root.getBoundingClientRect();if(!r.width||!r.height)return null;this.raycaster.setFromCamera(new THREE.Vector2((x-r.left)/r.width*2-1,-(y-r.top)/r.height*2+1),this.camera);const p=this.raycaster.ray.intersectPlane(new THREE.Plane(new THREE.Vector3(0,1,0),0),new THREE.Vector3());return p?worldToGround(p):null;}
   pickDoor(x,y){
     const r=this.root.getBoundingClientRect();if(!r.width||!r.height)return null;
@@ -269,7 +273,7 @@ export class HybridOffice3D{
   }
   setImageLayerMode(mode){if(!this.sheetLayer)return false;if(this.skinLayer){this.sheetLayer.mode=mode;this.sheetLayer.image.visible=mode!=='structure';this.skinLayer.setVisibility(mode==='structure'?{skin:false,model:false,wireframe:true}:{skin:true,model:true,wireframe:false});}else this.sheetLayer.setMode(mode);return true;}
   setPresentationVisibility(next){if(!this.skinLayer)return false;return this.skinLayer.setVisibility(next);}
-  draw(){if(!this.disposed&&!this.unavailable){if(this.skinLayer)this.skinLayer.render();else if(this.sheetLayer)this.sheetLayer.render();else this.renderer.render(this.scene,this.camera);}}
+  draw(){if(!this.disposed&&!this.unavailable){if(this.skinLayer)this.skinLayer.render();else if(this.sheetLayer)this.sheetLayer.render();else{this.sceneBatches?.syncVisibility(this.camera);this.renderer.render(this.scene,this.camera);}}}
   toggleNavigation(){this.showNavigation=!this.showNavigation;this.navSvg.toggleAttribute('hidden',!this.showNavigation);this.drawNavigation();return this.showNavigation;}
   drawNavigation(){
     if(!this.navigation)return;this.navSvg.replaceChildren();this.navHost=this.doc.createElementNS('http://www.w3.org/2000/svg','g');this.navHost.setAttribute('transform',alignmentSvgTransform(skeletonAlignment(this.room)));this.navSvg.append(this.navHost);const add=(tag,attrs)=>{const el=this.doc.createElementNS('http://www.w3.org/2000/svg',tag);for(const[k,v]of Object.entries(attrs))el.setAttribute(k,String(v));this.navHost.append(el);return el;};
@@ -281,7 +285,7 @@ export class HybridOffice3D{
   }
   updatePaths(){if(!this.pathHost)return;this.pathHost.replaceChildren();for(const actor of this.actors.values())if(actor.path.length){const el=this.doc.createElementNS('http://www.w3.org/2000/svg','polyline');el.setAttribute('points',[actor.position,...actor.path].map(p=>`${p.x},${p.y}`).join(' '));el.setAttribute('fill','none');el.setAttribute('stroke','#e8820c');el.setAttribute('stroke-width','.45');this.pathHost.append(el);}}
   dispose(){
-    this.highlightSkeleton(null);this.skinLayer?.dispose();this.sheetLayer?.dispose();this.disposed=true;this.observer?.disconnect();this.renderer.domElement.removeEventListener('webglcontextlost',this.lost);
+    this.highlightSkeleton(null);this.sceneBatches?.dispose();this.sceneBatches=null;this.skinLayer?.dispose();this.sheetLayer?.dispose();this.disposed=true;this.observer?.disconnect();this.renderer.domElement.removeEventListener('webglcontextlost',this.lost);
     for(const model of this.models.values())this.disposeModel(model);
     this.characters.dispose();this.characterNotice.remove();
     if(this.wallMasks)disposePaintedFurniture(this.wallMasks);
