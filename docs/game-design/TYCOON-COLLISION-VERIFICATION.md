@@ -12,7 +12,7 @@ New default Lobby, Projects and Growth rooms have a shared lift core, enclosed s
 
 ## Current evidence
 
-The [GPU report](../../asset-source/blender/contact-runtime-v2/report.json) hashes the runner, runtime modules, actual factory desk/rig, bundled models and external fixtures before and after the run. `sourceUnchanged` is true. The renderer is Chrome with ANGLE / NVIDIA GeForce RTX 3060 / D3D11, at 1440 × 1000, DPR 1. Each deterministic simulation frame is rendered; 30/60 Hz here are timestep tests, not measured FPS.
+The [GPU report](../../assets-source/blender/contact-runtime-v2/report.json) hashes the runner, runtime modules, actual factory desk/rig, bundled models and external fixtures before and after the run. `sourceUnchanged` is true. The renderer is Chrome with ANGLE / NVIDIA GeForce RTX 3060 / D3D11, at 1440 × 1000, DPR 1. Each deterministic simulation frame is rendered; 30/60 Hz here are timestep tests, not measured FPS.
 
 | Production-scene case | Variants | 30 Hz | 60 Hz |
 |---|---|---|---|
@@ -24,12 +24,12 @@ All eighteen seat runs exercised walking → entering → sit → working → st
 
 The measured nearby-triangle clearance minimum was **4.51 mm**, excluding permitted seat support. This is not a global nearest-surface distance: broad-phase culled frames have `null` clearance. Foot-floor gap and planted-frame movement stayed below 0.001 mm in these flat-floor numerical samples, within acceptance limits of 3 mm and 4 mm respectively. These values are software-coordinate measurements, not physical metrology.
 
-- `npm test`: **487/487 passed**, zero skipped/cancelled — [test output](../../asset-source/blender/contact-runtime-v2/tests.txt).
-- `npm run build`: passed in `.local/collision-build-20261029`; 492 embedded assets — [build output](../../asset-source/blender/contact-runtime-v2/build.txt). Generated primary-checkout assets were not overwritten by the build.
+- `npm test`: **487/487 passed**, zero skipped/cancelled — [test output](../../assets-source/blender/contact-runtime-v2/tests.txt).
+- `npm run build`: passed in `.local/collision-build-20261029`; 492 embedded assets — [build output](../../assets-source/blender/contact-runtime-v2/build.txt). Generated primary-checkout assets were not overwritten by the build.
 - Focused regressions cover thin obstacles between clear endpoints, excessive sweep rejection, transformed furniture, narrow seat support, collision/IK rollback, renderer-independent activity, actual external GLBs, stored legacy rooms and Studio draft/Undo.
 - Independent read-only review found no remaining source blocker after the explicit respawn correction. The subsequent durable GPU run covers that correction.
 
-The separate [real-time profile](../../asset-source/blender/contact-runtime-v2/profile-rtx3060.json) ran each mode for 60 seconds on the same RTX 3060, Chrome 156.0.8078.48, at 1280 × 800 DPR 1. It continuously repeated the route/desk lifecycle instead of measuring an idle actor:
+The separate [real-time profile](../../assets-source/blender/contact-runtime-v2/profile-rtx3060.json) ran each mode for 60 seconds on the same RTX 3060, Chrome 156.0.8078.48, at 1280 × 800 DPR 1. It continuously repeated the route/desk lifecycle instead of measuring an idle actor:
 
 | Mode | Measured render FPS | Frame interval p95 | Motion failures |
 |---|---:|---:|---:|
@@ -38,13 +38,13 @@ The separate [real-time profile](../../asset-source/blender/contact-runtime-v2/p
 
 Both completed seven sequences (the initial route plus repeated station lifecycles); maximum draw calls were 199 and triangles 59,798. These are rendered-frame throughput observations from hardware-backed headless Chrome, not isolated GPU execution-time measurements or a universal device performance guarantee.
 
-The earlier [failed diagnostic](../../asset-source/blender/contact-runtime-v2/prior-failed-diagnostic-4.json) is retained: normal-chair 30 Hz final settling and enlarged-chair entry hit the actual desk. Those failures prompted the approach-distance correction; that older report is not a current passing result. Node tests were also corrected to use the factory desk rather than the older procedural desk.
+The earlier [failed diagnostic](../../assets-source/blender/contact-runtime-v2/prior-failed-diagnostic-4.json) is retained: normal-chair 30 Hz final settling and enlarged-chair entry hit the actual desk. Those failures prompted the approach-distance correction; that older report is not a current passing result. Node tests were also corrected to use the factory desk rather than the older procedural desk.
 
 ## Evidence images
 
-![Projects with rooms, circulation and lift core](../../asset-source/blender/contact-runtime-v2/floor-projects.png)
+![Projects with rooms, circulation and lift core](../../assets-source/blender/contact-runtime-v2/floor-projects.png)
 
-![External rounded chair during the working phase](../../asset-source/blender/contact-runtime-v2/kenney-chair-rounded-back-1.1.png)
+![External rounded chair during the working phase](../../assets-source/blender/contact-runtime-v2/kenney-chair-rounded-back-1.1.png)
 
 The evidence directory also contains Lobby/Growth overview images and captured entry, sit, standing, leaving and final poses where those phases lasted long enough for a capture.
 

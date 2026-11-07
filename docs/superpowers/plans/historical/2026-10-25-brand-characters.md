@@ -3,9 +3,9 @@
 **Latest owner direction:** after the Tripo pilot's export gate, the owner
 requested [local Zuri reconstruction](2026-10-25-zuri-local-rebuild.md) from the
 visible preview and approved source image. No provider cache is extracted.
-The [Tripo pilot](../../game-design/characters/2026-10-25-brand-study/tripo/README.md)
+The [Tripo pilot](../../../game-design/characters/2026-10-25-brand-study/tripo/README.md)
 remains a completed provider preview, not an imported model. The earlier local correction and
-its verification are recorded in [face review](../../game-design/characters/2026-10-25-brand-study/FACE-CORRECTION-REVIEW.md);
+its verification are recorded in [face review](../../../game-design/characters/2026-10-25-brand-study/FACE-CORRECTION-REVIEW.md);
 they do not establish art acceptance. The earlier tasks below describe the local
 candidate pipeline; the linked reconstruction plan owns this latest Zuri pass.
 
@@ -17,7 +17,7 @@ candidate pipeline; the linked reconstruction plan owns this latest Zuri pass.
 
 **Tech stack:** existing Three.js 0.180.0, GLTFExporter/Loader, local Node asset builder, browser WebGL. Local `game-dev` and Blender executables are unavailable. Use the existing direct Three.js asset-authoring pipeline; no paid provider invoked.
 
-**Spec:** [approved sheets](../../game-design/characters/2026-10-25-brand-study/README.md), Character Kit v0.9.4 through [DESIGN-SOURCES](../../DESIGN-SOURCES.md).
+**Spec:** [approved sheets](../../../game-design/characters/2026-10-25-brand-study/README.md), Character Kit v0.9.4 through [DESIGN-SOURCES](../../../DESIGN-SOURCES.md).
 
 ## Global constraints
 
@@ -84,7 +84,7 @@ part of this human refinement.
    actors or change saved scenes, logo, Agent count/role or live connectivity.
 
 Refinement implementation and local validation are recorded in
-[HUMAN-REFINEMENT-REVIEW](../../game-design/characters/2026-10-25-brand-study/HUMAN-REFINEMENT-REVIEW.md).
+[HUMAN-REFINEMENT-REVIEW](../../../game-design/characters/2026-10-25-brand-study/HUMAN-REFINEMENT-REVIEW.md).
 This closes the local refinement/testing pass, not final art acceptance or floor adoption.
 
 ## Execution record
@@ -113,4 +113,4 @@ untouched.
 - Ruling: use repository-local asset authoring because game-dev/Blender are absent; no external generation, spend or installation introduced. Assets require direct GLB/visual validation and are not claimed as a game-dev canonical package.
 - Ruling: keep the new models in a dedicated lab first so model review cannot rewrite saved floors or duplicate Zuri/Wangjai into Agent rosters.
 
-- Implementation, tests and browser review are complete for the **first-pass model-review scope**, not final art acceptance. See [MODEL-REVIEW](../../game-design/characters/2026-10-25-brand-study/MODEL-REVIEW.md) for assets, actual verification, independent-review fixes and open art/adoption gates.
+- Implementation, tests and browser review are complete for the **first-pass model-review scope**, not final art acceptance. See [MODEL-REVIEW](../../../game-design/characters/2026-10-25-brand-study/MODEL-REVIEW.md) for assets, actual verification, independent-review fixes and open art/adoption gates.

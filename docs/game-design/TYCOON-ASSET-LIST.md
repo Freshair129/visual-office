@@ -12,7 +12,7 @@ skins over physical geometry; explicit GLB editing is supported. Character asset
 are temporary, with final visual approval open. Read [current design sources](../DESIGN-SOURCES.md)
 and [the package status](README.md) before producing another revision.
 
-Spec สำหรับ [Office Tycoon slice](../superpowers/specs/2026-10-23-office-tycoon-design.md)
+Spec สำหรับ [Office Tycoon slice](../superpowers/specs/historical/2026-10-23-office-tycoon-design.md)
 รายการนี้เป็นเป้าหมายผลิต ไม่ใช่สต็อกโมเดลใหม่ที่เสร็จแล้ว
 ไฟล์เก่าตรวจจาก `web/assets/models/studio/manifest.json` revision `office-models/v1`
 พบ20 GLB entries; renderer Officeปัจจุบันยังสร้างบางส่วนจากfactoryโดยตรง

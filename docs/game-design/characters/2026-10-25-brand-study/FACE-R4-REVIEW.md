@@ -49,7 +49,7 @@ hash remains `c76729078169d44da377e3df3fb3f29d0d0013e14b362a627b3ff75ee9e82cce`.
 Matched front/quarter/profile and wire renders are reviewed from exported bytes.
 Intermediate results, including the owner-rejected flat profile, remain under
 ignored `reports/zuri-face-r4/iteration-*/`. Final checks are recorded in the
-[execution plan](../../../superpowers/plans/2026-10-26-zuri-face-r4.md).
+[execution plan](../../../superpowers/plans/historical/2026-10-26-zuri-face-r4.md).
 
 Structural QA does not establish likeness or art approval. Source seam vertices,
 mirrored/stacked UVs, color-atlas reuse and hidden back-to-back contact remain

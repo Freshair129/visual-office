@@ -77,12 +77,12 @@ with 3,984 triangles in seven meshes and 126,396 bytes.
 Its SHA-256 is
 `f00aacb451781f78e4236f25cea2baafe01a4005b806c623b18a3e55463721ff`.
 
-Blender 5.2.2 game-profile [QA](../../asset-source/blender/chair-clearance-qa.json)
+Blender 5.2.2 game-profile [QA](../../assets-source/blender/chair-clearance-qa.json)
 reported zero errors and fourteen warnings. Material and wire review sheets
 were inspected. Seven UV-overlap warnings are retained because this procedural
 chair uses repeated primitive UVs and solid materials; unique texture baking
 is not supported by these UVs. Seven coincident-vertex warnings are retained
-as export seams: a separate [attribute audit](../../asset-source/blender/chair-clearance-attributes.json)
+as export seams: a separate [attribute audit](../../assets-source/blender/chair-clearance-attributes.json)
 found 926 extra coincident-position vertices at 1e-5 precision, each with different normal or UV
 attributes, and zero identical-attribute duplicates. Welding those seams would
 change shading or texture coordinates. The wire-sheet modifier exaggerates

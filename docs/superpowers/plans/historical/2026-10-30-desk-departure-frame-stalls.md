@@ -8,7 +8,7 @@
 
 **Tech stack:** Three.js / GLB, Node tests, Chrome hardware WebGL D3D11 on RTX3060.
 
-**Spec:** User continuation and [prior measured report](../../game-design/OFFICE-CHAIR-PERFORMANCE-20261030.md).
+**Spec:** User continuation and [prior measured report](../../../game-design/OFFICE-CHAIR-PERFORMANCE-20261030.md).
 
 ## Constraints and review focus
 

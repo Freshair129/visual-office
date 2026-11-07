@@ -21,8 +21,8 @@ Owner approved v0.2 on 23 October 2026 and authorized implementation planning fo
 ตัวอย่างครบวงจร (vertical slice) คือส่วนเล็กที่มีทั้งภาพ, navigation, ข้อมูล,
 คำสั่ง, ผลลัพธ์ และการกู้คืนเมื่อผิดพลาด ไม่ใช่การสร้างทุกชั้นแบบคร่าว ๆ
 
-การออกแบบนี้ขยาย [SRS](../../VISUAL-OFFICE-SRS.md) VO-FR-001–023 ด้วย
-VO-FR-024–028 และใช้ [wireframes](../../game-design/tycoon-wireframes.svg)
+การออกแบบนี้ขยาย [SRS](../../../VISUAL-OFFICE-SRS.md) VO-FR-001–023 ด้วย
+VO-FR-024–028 และใช้ [wireframes](../../../game-design/tycoon-wireframes.svg)
 เป็นภาพโครง ไม่ใช่หลักฐาน implementation
 
 ### เป้าหมายการทดลองใช้
@@ -52,7 +52,7 @@ shared scene save ที่ยังไม่มี owner contract และ fre
 | Render sprites หลายมุม | เบากว่าในบางกรณี แต่จำนวนภาพ/animation เพิ่ม และรักษา depth กับผนังที่แก้ได้ยาก | ไม่ใช้แทน GLB; คงไว้เฉพาะ fallback/ฉากเก่า |
 
 โมเดลต้องมีสามมิติครบ แต่กล้องใช้งานมีมุมหลักเดียว **ไม่ใช่โมเดลหน้าเดียว**
-มุมตรวจงานและภาพ preview ดู [asset list](../../game-design/TYCOON-ASSET-LIST.md)
+มุมตรวจงานและภาพ preview ดู [asset list](../../../game-design/TYCOON-ASSET-LIST.md)
 
 ## 3. UX แบบฉากเต็มพื้นที่
 
@@ -280,12 +280,12 @@ ZD7 จึงยังเป็น dependency ของ shared save ข้าม
 ## 10. งานที่ต่อได้และสิ่งที่ต้องยืนยัน
 
 เดิน art/greybox/HUD/GLB/import/collision tests ได้จาก design ที่อนุมัติ
-การอ่าน/สั่ง Zuri ใช้ [dependency และ acceptance matrix](../../game-design/TYCOON-INTEGRATION-AND-ACCEPTANCE.md)
+การอ่าน/สั่ง Zuri ใช้ [dependency และ acceptance matrix](../../../game-design/TYCOON-INTEGRATION-AND-ACCEPTANCE.md)
 sourceมี project/work CRUD ไม่ได้แปลว่า registered Office client ใช้ทุก routeได้
 ไม่มีการสร้าง auth protocol หรือ generic Agent endpointใน designนี้
 
-รายละเอียด production พร้อมใน [workflow](../../game-design/TYCOON-PRODUCTION-WORKFLOW.md)
-และ [asset list](../../game-design/TYCOON-ASSET-LIST.md) ผู้พัฒนาจัดลำดับเองได้ภายในเกณฑ์นั้น
+รายละเอียด production พร้อมใน [workflow](../../../game-design/TYCOON-PRODUCTION-WORKFLOW.md)
+และ [asset list](../../../game-design/TYCOON-ASSET-LIST.md) ผู้พัฒนาจัดลำดับเองได้ภายในเกณฑ์นั้น
 ตัวเลือกที่ยังต้องเจ้าของ platformยืนยันไม่ใช่คำถามให้ผู้ใช้เดาชื่อ API
 
 ## 11. Definition of Done

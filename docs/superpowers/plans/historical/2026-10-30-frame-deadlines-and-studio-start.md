@@ -8,7 +8,7 @@
 
 **Tech stack:** Three.js, actual GLBs, Node tests, Chrome hardware WebGL D3D11 on RTX3060.
 
-**Spec:** User continuation and [previous measured report](../../game-design/OFFICE-FRAME-STALLS-20261030.md).
+**Spec:** User continuation and [previous measured report](../../../game-design/OFFICE-FRAME-STALLS-20261030.md).
 
 ## Constraints and review focus
 

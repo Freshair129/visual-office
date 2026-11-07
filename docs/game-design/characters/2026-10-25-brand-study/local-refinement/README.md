@@ -4,7 +4,7 @@ Authority: owner-requested face, hair and garment refinement on 25 October 2026,
 using the visible Tripo preview as reference. **Character Lab only; owner art
 acceptance and floor adoption remain pending.**
 
-[Execution plan](../../../../superpowers/plans/2026-10-25-zuri-surface-refinement.md)
+[Execution plan](../../../../superpowers/plans/historical/2026-10-25-zuri-surface-refinement.md)
 continues the [local reconstruction](../local-rebuild/README.md), preserving the
 approved source sheet, original face albedo and separate character identities.
 

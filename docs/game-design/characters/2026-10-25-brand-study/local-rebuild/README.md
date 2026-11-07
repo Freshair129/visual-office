@@ -11,7 +11,7 @@ approved Zuri image. No provider cache/model extraction or further paid job.
 The single-character input in `../tripo/zuri-front-input-v1.png` is the identity
 reference for an original face albedo. Geometry remains editable local Three.js
 source and is exported as a real animated GLB, never a billboard or downloaded
-Tripo asset. See the [execution plan](../../../../superpowers/plans/2026-10-25-zuri-local-rebuild.md).
+Tripo asset. See the [execution plan](../../../../superpowers/plans/historical/2026-10-25-zuri-local-rebuild.md).
 
 The local Zuri GLB is rebuilt and tested in Character Lab. Previous candidate
 bytes are preserved in ignored `reports/zuri-local-rebuild/` before editing.

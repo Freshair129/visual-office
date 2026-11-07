@@ -11,7 +11,7 @@ provider generation remains pending account login and credit authorization.
 
 Status: concept direction approved on 25 October 2026; model production and
 testing authorized by the owner's message, "approve เริ่มปั้นตัวละครและทดสอบได้".
-See [production plan](../../../superpowers/plans/2026-10-25-brand-characters.md).
+See [production plan](../../../superpowers/plans/historical/2026-10-25-brand-characters.md).
 The first GLBs and browser lab are recorded in [model review](MODEL-REVIEW.md).
 Their mechanical verification does not grant final visual acceptance.
 The owner rejected the procedural Office figures

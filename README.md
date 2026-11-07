@@ -100,5 +100,5 @@ commands are separate from the credential-free synthetic harnesses above.
 - [Documentation index](docs/README.md) — document entrypoints and ownership.
 - [Domain mapping and connection limits](docs/DOMAIN-OFFICE.md).
 - [Visual Office SRS](docs/VISUAL-OFFICE-SRS.md) and [Zuri platform boundary](docs/ZURI-PLATFORM-INTEGRATION-BOUNDARY.md).
-- [Design QA](design-qa.md) — dated screenshots and local results. Historical test/build counts
+- [Design QA](docs/records/design-qa.md) — dated screenshots and local results. Historical test/build counts
   apply only to their recorded revision and are not current validation or hosted/live acceptance.

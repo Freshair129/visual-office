@@ -69,7 +69,7 @@ it with a failing-then-passing seam position/normal regression and reran build/t
 The reviewer did not repeat review after that correction.
 
 Runtime screenshots/logs are in ignored `reports/zuri-local-refinement/`.
-[Provenance](../../game-design/characters/2026-10-25-brand-study/local-refinement/provenance.json)
+[Provenance](../../../game-design/characters/2026-10-25-brand-study/local-refinement/provenance.json)
 records final hashes, evidence scope and pending owner visual acceptance.
 No floor adoption or provider generation occurred.
 Reference screenshot source files are in `docs/game-design/characters/2026-10-25-brand-study/local-refinement/`.

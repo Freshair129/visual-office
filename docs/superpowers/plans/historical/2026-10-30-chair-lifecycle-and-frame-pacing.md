@@ -8,7 +8,7 @@
 
 **Tech stack:** Three.js, browser WebGL on RTX 3060/D3D11, Node test runner and production-scene Playwright harnesses.
 
-**Spec:** The owner's continuation request in this conversation; [contact constraints](../../game-design/TYCOON-UPPER-CONTACT.md), [SRS](../../VISUAL-OFFICE-SRS.md), and the [recorded baseline](../../game-design/OFFICE-WORLD-VERIFICATION-20261030.md).
+**Spec:** The owner's continuation request in this conversation; [contact constraints](../../../game-design/TYCOON-UPPER-CONTACT.md), [SRS](../../../VISUAL-OFFICE-SRS.md), and the [recorded baseline](../../../game-design/OFFICE-WORLD-VERIFICATION-20261030.md).
 
 ## Constraints and acceptance
 
@@ -37,7 +37,7 @@
 - [x] Freeze source and rerun the full96-case production GPU lifecycle matrix, plus repeated lifecycle/Stop/restart cases affected by new pose/cache state.
 - [x] With other task-owned GPU/test processes closed, measure at least120s per display/30FPS mode, including all lifecycle phases. Record cadence, percentiles, worst frames, motion errors and source hashes against the target above.
 - [x] Deliver a new evidence report with actual commands/results and remaining limits. Rebuild the offline handoff only if exported scene/station semantics changed; preserve design IDs and null canonical mappings. No automatic commit of unrelated changes.
-- [x] Later continuation qualifies bounded steady30 against every unchanged timing gate: [frame-stall report](../../game-design/OFFICE-FRAME-STALLS-20261030.md),672 tests,96 GPU cases and7/7 timing profiles on frozen source. Earlier six-profile failures remain historical evidence. Maximum66.8ms still does not guarantee33.3ms every frame or arbitrary hardware/scenes.
+- [x] Later continuation qualifies bounded steady30 against every unchanged timing gate: [frame-stall report](../../../game-design/OFFICE-FRAME-STALLS-20261030.md),672 tests,96 GPU cases and7/7 timing profiles on frozen source. Earlier six-profile failures remain historical evidence. Maximum66.8ms still does not guarantee33.3ms every frame or arbitrary hardware/scenes.
 
 ## Additional real-time regression
 
@@ -82,6 +82,6 @@ was slower despite fewer bounds checks and must remain diagnostic-only.
 This document records the requested execution scope and integrator decisions. It is not a product approval or an operational status record.
 
 The measured causes, selected algorithms and completed checks are recorded in
-[the implementation report](../../game-design/OFFICE-CHAIR-PERFORMANCE-20261030.md).
+[the implementation report](../../../game-design/OFFICE-CHAIR-PERFORMANCE-20261030.md).
 Fixed 60Hz physical substeps were selected after the remaining 30Hz path failed
 while the same 60Hz lifecycle passed. No collision threshold was relaxed.

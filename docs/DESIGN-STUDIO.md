@@ -1,5 +1,7 @@
 # Design Studio — ห้องทดลอง 3D ชุดแรก
 
+SSOT: Edition-specific authoring behavior is in [HYBRID-STUDIO.md](HYBRID-STUDIO.md), [NATIVE-STUDIO.md](NATIVE-STUDIO.md), and [OFFICE-BLUEPRINTS.md](OFFICE-BLUEPRINTS.md).
+
 **สถานะเอกสาร 26 ตุลาคม 2026:** ส่วนต้นเป็นประวัติ model-preview รอบ20ตุลาคม
 ไม่ใช่ข้อจำกัดของ Studio ทั้งระบบในปัจจุบัน ใช้ [Hybrid Studio](HYBRID-STUDIO.md),
 [Native Studio](NATIVE-STUDIO.md) และ [Blueprint / GLB Studio](OFFICE-BLUEPRINTS.md)

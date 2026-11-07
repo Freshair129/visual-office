@@ -13,7 +13,7 @@ Use [the current package guide](README.md), [SRS](../VISUAL-OFFICE-SRS.md) and
 [runtime audit](../API-ENDPOINT-AUDIT.md) for current completion/contract status.
 Synthetic tests, provisional models and local saves do not close live/final-art gates.
 
-อ่าน [Design](../superpowers/specs/2026-10-23-office-tycoon-design.md) ก่อน
+อ่าน [Design](../superpowers/specs/historical/2026-10-23-office-tycoon-design.md) ก่อน
 นี่คือลำดับการผลิตของ vertical slice ที่ขอ ไม่ใช่รายงานว่าขั้นเหล่านี้เสร็จแล้ว
 รายละเอียดสำหรับผู้พัฒนาระบุไฟล์/เกณฑ์เพียงพอให้แตกเป็น implementation tasks หลัง review
 

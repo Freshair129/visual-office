@@ -2,7 +2,7 @@
 
 **Goal:** Reduce the observed45.3ms draw-issued gap and cold hidden-draw cost; verify complete actual-GPU lifecycles without inventing acceptance or approval.
 
-**Spec:** Current owner continuation and [previous measured limitations](../../game-design/OFFICE-STUDIO-FIRST-DRAW-20261031.md). The owner has repeatedly requested execution; this plan records engineering decisions, not new owner approval.
+**Spec:** Current owner continuation and [previous measured limitations](../../../game-design/OFFICE-STUDIO-FIRST-DRAW-20261031.md). The owner has repeatedly requested execution; this plan records engineering decisions, not new owner approval.
 
 **Architecture:** Retain the existing Three.js renderer and resumable transactional solver. Trace work boundaries before choosing changes. Prior trace's45.3ms gap is33.6ms between callback pose starts plus11.7ms added pose work; later gaps similarly track pose-cost differences. For30FPS, test drawing the last committed validated pose before advancing the next pose; acknowledge one render of additional visual latency. Native-display mode retains current ordering. Keep lifecycle clock, elapsed time, solver allowance and physical validation unchanged. Observe the actual pose at render entry, not only state after callback.
 
@@ -27,4 +27,4 @@ Drawing previous committed poses must never draw partial/invalid solves or lose 
 
 Native inline execution follows the continuing request; independent review is a separate delegated read-only check. Final results will link the evidence report here. This plan is not a task admission or product status registry.
 
-Final observations: [source-bound report](../../game-design/OFFICE-STUDIO-SUBMISSION-20261031.md). 757/757tests and isolated build509pass; GPU96/96,15floors,cancellation4/4. Final RAF33.7/33.6/33.9ms; submission36.2/35.1/36.6ms. Physical every-frame33.3ms and real503backend health remain unqualified. Archive stream validation is asserted only by the post-seal external archive JSON.
+Final observations: [source-bound report](../../../game-design/OFFICE-STUDIO-SUBMISSION-20261031.md). 757/757tests and isolated build509pass; GPU96/96,15floors,cancellation4/4. Final RAF33.7/33.6/33.9ms; submission36.2/35.1/36.6ms. Physical every-frame33.3ms and real503backend health remain unqualified. Archive stream validation is asserted only by the post-seal external archive JSON.

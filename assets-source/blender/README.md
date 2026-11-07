@@ -7,7 +7,7 @@ Blender 5.2.2 LTS (`d13f752e3b9c`) imported `desk`, `chair`, `floor`, `wall` and
 To reproduce one import in a separate background Blender process from the repository root, substitute the installed Blender executable and choose a dedicated output directory:
 
 ```powershell
-& 'G:\AI-Studio\Blender\blender.exe' -b --factory-startup --python-exit-code 1 -P scripts/asset-factory/inspect_blender.py -- web/assets/models/tycoon/desk.glb asset-source/blender/derived
+& 'G:\AI-Studio\Blender\blender.exe' -b --factory-startup --python-exit-code 1 -P scripts/asset-factory/inspect_blender.py -- web/assets/models/tycoon/desk.glb assets-source/blender/derived
 node scripts/asset-factory/validate.mjs
 node --test tests/asset-factory-validation.test.mjs tests/tycoon-assets.test.mjs tests/tycoon-scene.test.mjs
 ```
@@ -16,7 +16,7 @@ The import command replaces the named derived output files. It does not change t
 
 `derived/desk-qa.json` records a separate Blender asset QA run on the imported desk using the game profile. It **failed** with one detected coplanar overlap between Mesh_5 and Mesh_6 and recorded 28 warnings including overlapping UVs, duplicate vertices and hidden back-to-back surfaces. UV/vertex warnings can reflect GLB export seams and material-only use; they need investigation rather than automatic acceptance. Other assets have not received equivalent geometry QA. At the time of this import the actor had seven actions and no armature or skinned mesh; it was a rigid articulated prototype, not the requested reusable skinned rig. Since the 6 November character integration the regenerated prototype `web/assets/models/tycoon/actor.glb` carries two skins (garments), so these derived files no longer match it. Imported actions have not been round-trip or deformation tested.
 
-The original inspection stage did not integrate new assets, a real roster, Open Question or approval action. See [the implementation plan](../../docs/superpowers/plans/2026-10-29-asset-factory-vertical-slice.md) for the asset, runtime, platform contract, quality and performance gates.
+The original inspection stage did not integrate new assets, a real roster, Open Question or approval action. See [the implementation plan](../../docs/superpowers/plans/historical/2026-10-29-asset-factory-vertical-slice.md) for the asset, runtime, platform contract, quality and performance gates.
 
 ## 29 October follow-up: local rigged candidate
 

@@ -1,5 +1,7 @@
 # Projects: original art with a 3D skeleton
 
+SSOT: Accepted Projects scene-composition correction: [Unified Scene Sheet design](2026-10-24-unified-scene-sheet-design.md).
+
 Owner direction, 24 October 2026: continue from the restored original design.
 Use Projects first. Keep the logo, palette and scene style. Use 3D to support
 depth, collision and walking rather than replacing the illustrated environment.

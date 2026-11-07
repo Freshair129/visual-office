@@ -1,6 +1,6 @@
 # Continuous character implementation and evidence
 
-Source: [owner correction and design](../specs/2026-10-25-continuous-character-design.md).
+Source: [owner correction and design](../../specs/historical/2026-10-25-continuous-character-design.md).
 
 1. Add failing geometry regressions for actual skinned, continuous limbs and
    garment seams. Retain existing pose, feet, seating and disposal tests.

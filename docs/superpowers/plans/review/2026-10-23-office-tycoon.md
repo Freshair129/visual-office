@@ -8,7 +8,7 @@
 
 **Tech Stack:** Existing JavaScript ES modules, Three.js 0.180.0, GLTFExporter/GLTFLoader, node:test, JSDOM and browser validation.
 
-**Spec:** [Approved design v0.2](../specs/2026-10-23-office-tycoon-design.md), [production workflow](../../game-design/TYCOON-PRODUCTION-WORKFLOW.md), [asset list](../../game-design/TYCOON-ASSET-LIST.md).
+**Spec:** [Approved design v0.2](../../specs/historical/2026-10-23-office-tycoon-design.md), [production workflow](../../../game-design/TYCOON-PRODUCTION-WORKFLOW.md), [asset list](../../../game-design/TYCOON-ASSET-LIST.md).
 
 ## Global Constraints
 
