@@ -20,7 +20,7 @@ export class ChatUI{
   if(next&&this.#thread)void this.#poll(this.#generation,this.#thread);
  }
  #draft(thread=this.#thread){let d=this.#drafts.get(thread);if(!d){d={text:'',id:null,files:[]};this.#drafts.set(thread,d);}d.files??=[];return d;}
- async #api(thread,route='',method='GET',body){const r=await fetch('/api/chats/'+thread+route,{method,cache:'no-store',headers:{'content-type':'application/json'},...(body?{body:JSON.stringify(body)}:{}),signal:AbortSignal.timeout(20000)});const d=await r.json();if(!r.ok)throw new Error(d.error||'เชื่อมต่อแชทไม่สำเร็จ');return d;}
+ async #api(thread,route='',method='GET',body){const r=await fetch(officeApiUrl('chats/'+thread+route),{method,cache:'no-store',headers:{'content-type':'application/json'},...(body?{body:JSON.stringify(body)}:{}),signal:AbortSignal.timeout(20000)});const d=await r.json();if(!r.ok)throw new Error(d.error||'เชื่อมต่อแชทไม่สำเร็จ');return d;}
  #controls(){const disabled=!this.#thread||this.#sending.has(this.#thread);$('#chat-send').disabled=disabled||!!this.#drafts.get(this.#thread)?.files?.some(f=>f.state!=='ready');$('#chat-input').disabled=disabled;$('#chat-attach').disabled=disabled;$('#chat-files').disabled=disabled;}
  open(threadId,name){this.#name=name;$('#chat-title').textContent=this.contactTitle(name);if(threadId===this.#thread)return;
   clearTimeout(this.#timer);this.#generation++;this.#thread=threadId;this.#watched=0;this.#signature='';this.#first=true;this.#latestMessages=[];this.#pendingMessages=[];this.#olderMessages=[];this.#latestCursor=null;this.#olderCursor=null;this.#hasMoreHistory=false;this.#historyTruncated=false;this.#historyLoading=false;this.#historyAnchor=null;this.#historyButton();
@@ -90,7 +90,7 @@ export class ChatUI{
  }
  async #upload(thread,item){item.state='uploading';if(thread===this.#thread){this.#renderFiles();this.#controls();}
   const controller=new AbortController(),timeout=setTimeout(()=>controller.abort(new DOMException('The operation timed out','TimeoutError')),60000);item.uploadController=controller;
-  try{const r=await fetch('/api/chats/'+thread+'/attachments/'+item.id,{method:'POST',headers:{'content-type':item.mimeType,'x-file-name':encodeURIComponent(item.name)},body:item.file,signal:controller.signal});const d=await r.json();if(!r.ok)throw new Error(d.error||'อัปโหลดไม่สำเร็จ');if(!this.#drafts.get(thread)?.files?.includes(item))return;item.state='ready';item.error=null;}catch(e){if(this.#drafts.get(thread)?.files?.includes(item)){item.state='error';item.error=e.message;}}
+  try{const r=await fetch(officeApiUrl('chats/'+thread+'/attachments/'+item.id),{method:'POST',headers:{'content-type':item.mimeType,'x-file-name':encodeURIComponent(item.name)},body:item.file,signal:controller.signal});const d=await r.json();if(!r.ok)throw new Error(d.error||'อัปโหลดไม่สำเร็จ');if(!this.#drafts.get(thread)?.files?.includes(item))return;item.state='ready';item.error=null;}catch(e){if(this.#drafts.get(thread)?.files?.includes(item)){item.state='error';item.error=e.message;}}
   finally{clearTimeout(timeout);if(item.uploadController===controller)item.uploadController=null;if(this.#drafts.get(thread)?.files?.includes(item)&&thread===this.#thread){this.#renderFiles();this.#controls();}}
  }
  async #send(){const thread=this.#thread,name=this.#name,text=$('#chat-input').value.trim();if(!thread||this.#sending.has(thread))return;
@@ -102,3 +102,4 @@ export class ChatUI{
   finally{this.#sending.delete(thread);this.#controls();}
  }
 }
+import {officeApiUrl} from './office-api-base.js';

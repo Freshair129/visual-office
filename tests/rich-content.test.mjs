@@ -20,6 +20,14 @@ test('interactive HTML runs only after opening, in an opaque sandbox, and closes
  assert.equal(frame.getAttribute('sandbox'),'allow-scripts');assert.match(frame.srcdoc,/Content-Security-Policy/);assert.ok(frame.srcdoc.includes('<button id="counter">0</button>'));assert.equal(frame.getAttribute('referrerpolicy'),'no-referrer');assert.match(interactiveDocument('test'),/Content-Security-Policy/);assert.match(INTERACTIVE_POLICY,/connect-src 'none'/);assert.match(INTERACTIVE_POLICY,/form-action 'none'/);
  disposeRichMessages(target);run.click();assert.equal(target.querySelector('iframe'),null);
 });
+test('CSP release preview removes executable markup, inline styles and user supplied URLs',t=>{
+ dom(t);const preview=interactiveDocument('<button style="color:red" onclick="alert(1)">Run</button><script>alert(1)</script><img src="https://example.test/x.png"><a href="https://example.test">remote</a>',{cspSafe:true});
+ assert.match(preview,/script-src 'none'/);assert.doesNotMatch(preview,/unsafe-inline|<style\b|<script\b|style=|onclick=|https:\/\/example\.test|src=/i);assert.match(preview,/<button>Run<\/button>/);
+});
+test('CSP release SVG rendering strips style elements and style attributes',t=>{
+ dom(t);const svg=safeSvg('<svg xmlns="http://www.w3.org/2000/svg"><style>circle{fill:red}</style><circle style="fill:blue" r="2"/></svg>',{cspSafe:true});
+ assert.equal(svg.querySelector('style'),null);assert.equal(svg.querySelector('[style]'),null);
+});
 test('context display distinguishes reported zero, partial and unknown usage',()=>{
  const full=contextDisplay({model:'model-1',context:{usedTokens:22779,maxTokens:258400}});assert.equal(full.percent,8.8);assert.match(full.text,/22.8K.*258.4K/);assert.equal(full.model,'model-1');
  assert.equal(contextDisplay({context:{usedTokens:0,maxTokens:100}}).percent,0);assert.equal(contextDisplay({context:{usedTokens:25}}).percent,null);assert.equal(contextDisplay({context:{usedTokens:NaN,maxTokens:100}}).percent,null);assert.match(contextDisplay(null).text,/ยังไม่รายงาน/);assert.match(contextDisplay({context:{usedTokens:10,maxTokens:100}},true).text,/ล่าสุด/);

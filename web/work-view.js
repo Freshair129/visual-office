@@ -230,7 +230,7 @@ export class WorkView{
  async #cancelJob(job){
   if(job.cancelRequested||isDemo(this.#options))return;
   const controls=[...this.#root.querySelectorAll('[data-work-cancel]')].filter(node=>node.dataset.workCancel===job.id);controls.forEach(node=>node.disabled=true);
-  try{const response=await fetch('/api/jobs/'+encodeURIComponent(job.id)+'/cancel',{method:'POST',headers:{'content-type':'application/json'},body:'{}',signal:AbortSignal.timeout(20000)});const data=await response.json();if(!response.ok)throw new Error(data.error||'ขอหยุดงานไม่สำเร็จ');
+  try{const response=await fetch(officeApiUrl('jobs/'+encodeURIComponent(job.id)+'/cancel'),{method:'POST',headers:{'content-type':'application/json'},body:'{}',signal:AbortSignal.timeout(20000)});const data=await response.json();if(!response.ok)throw new Error(data.error||'ขอหยุดงานไม่สำเร็จ');
    if(data.job?.id===job.id)Object.assign(job,data.job);this.#options.toast(job.cancelRequested?'ขอหยุดงานแล้ว รอ T3 รับคำสั่ง':'งานนี้สิ้นสุดแล้ว');this.#renderList(true);this.#renderInspector(true);this.#renderDetail(true);void this.#options.refresh();
   }catch(error){this.#options.toast(error.message||'ขอหยุดงานไม่สำเร็จ');controls.forEach(node=>node.disabled=false);}
  }
@@ -363,7 +363,7 @@ export class WorkView{
   this.#saving.add(job.id);this.#reviewFeedback.textContent='กำลังบันทึก…';this.#updateReviewControls(job);
   try{
    const baseUpdatedAt=draft?draft.baseUpdatedAt:review.updatedAt;
-   const response=await fetch('/api/work-reviews/'+encodeURIComponent(job.id),{method:'PUT',headers:{'content-type':'application/json'},body:JSON.stringify({jobId:job.id,dueDate,acceptance,reviewStatus,note,action:decision,baseUpdatedAt}),signal:AbortSignal.timeout(20000)});
+   const response=await fetch(officeApiUrl('work-reviews/'+encodeURIComponent(job.id)),{method:'PUT',headers:{'content-type':'application/json'},body:JSON.stringify({jobId:job.id,dueDate,acceptance,reviewStatus,note,action:decision,baseUpdatedAt}),signal:AbortSignal.timeout(20000)});
    const data=await response.json();
    if(response.status===409&&data.code==='REVIEW_CONFLICT'){
     this.#drafts.set(job.id,{dueDate,acceptance,note,dirty:true,conflict:true,baseUpdatedAt});
@@ -414,3 +414,4 @@ export class WorkView{
   if(!this.#detailOpen)return;this.#listScrollTop=this.#listRegion.scrollTop;this.#detailOpen=false;this.#renderDetail();this.#renderList(true);this.#renderInspector(true);
  }
 }
+import {officeApiUrl} from './office-api-base.js';

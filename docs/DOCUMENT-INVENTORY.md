@@ -2,11 +2,11 @@
 
 This inventory covers every Git-tracked and nonignored untracked Markdown file plus Markdown-linked structured QA/report/provenance JSON, companion prompts, local/third-party license texts and fixture receipts. Purpose is summarized from the record title or role; status is evidence-context as of 7 November 2026, not an implementation or art-approval claim.
 
-**Inventory rows:** 162 Markdown files and 60 non-Markdown companion records.
+**Inventory rows:** 163 Markdown files and 60 non-Markdown companion records.
 
-**Kind counts:** asset provenance: 15; decision: 5; fixture: 3; guide: 40; license: 11; plan: 55; prompt: 13; record: 56; spec: 24
+**Kind counts:** asset provenance: 15; decision: 5; fixture: 3; guide: 41; license: 11; plan: 55; prompt: 13; record: 56; spec: 24
 
-**Status counts:** current: 58; historical: 155; superseded-by: 4; unknown: 5
+**Status counts:** current: 59; historical: 155; superseded-by: 4; unknown: 5
 
 Inbound links count Markdown link occurrences from all current Markdown sources, including this inventory's links to the listed files. Phase 2 locations below reflect the owner-approved layout applied on 7 November 2026.
 
@@ -102,6 +102,7 @@ CC0 furniture fixtures and authored geometry-reference images remain in Git.
 | [docs/ART-PRODUCTION-PLAN.md](ART-PRODUCTION-PLAN.md) | Visual Office hybrid art production plan | plan | current — active asset-family checklist and inventory; character approval remains separate | Product, system and Studio guides | 5 | docs/ART-PRODUCTION-PLAN.md |
 | [docs/DATA-MODEL.md](DATA-MODEL.md) | Visual Office code-derived data model | guide | current — source-linked persistence, asset and exchange inventory | Product, system and Studio guides | 3 | docs/DATA-MODEL.md |
 | [docs/ROADMAP-TO-PRODUCTION.md](ROADMAP-TO-PRODUCTION.md) | Visual Office — roadmap to production | plan | proposed — sequences existing gaps; owner acceptance pending | Product, system and Studio guides | 1 | docs/ROADMAP-TO-PRODUCTION.md |
+| [docs/OFFICE-RELEASE.md](OFFICE-RELEASE.md) | Visual Office static release artifact, CSP and vendor provenance | guide | current — build/verification guide for the accepted deployment direction; Zuri work remains proposed | Product, system and Studio guides | 3 | docs/OFFICE-RELEASE.md |
 | [docs/DESIGN-SOURCES.md](DESIGN-SOURCES.md) | Visual Office design sources | decision | current — maintained system guide or bounded proposal | Product, system and Studio guides | 15 | docs/DESIGN-SOURCES.md |
 | [docs/DESIGN-STUDIO.md](DESIGN-STUDIO.md) | Design Studio — ห้องทดลอง 3D ชุดแรก | guide | historical — earlier prototype, comparison or proposal; later guides own current behavior | Product, system and Studio guides | 6 | docs/DESIGN-STUDIO.md |
 | [docs/DOMAIN-OFFICE.md](DOMAIN-OFFICE.md) | Office domain map and connection boundaries | guide | current — maintained system guide or bounded proposal | Product, system and Studio guides | 8 | docs/DOMAIN-OFFICE.md |

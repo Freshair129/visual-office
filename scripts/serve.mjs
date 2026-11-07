@@ -4,6 +4,7 @@ import {resolve,extname,sep} from 'node:path';
 import {loadBridgeConfig} from './bridge-config.mjs';
 import {createZuriConnector} from './zuri-connector.mjs';
 import {proxyOfficeRequest} from './office-proxy.mjs';
+import {rewriteBareThreeImports} from './office-browser-modules.mjs';
 import {normalizeZuriOrigin} from '../web/office-zuri-transfer.js';
 const root=resolve('web'),port=Number(process.env.PORT||4173);
 // Static preview never loads bridge credentials or forwards requests to a Site.
@@ -22,5 +23,6 @@ http.createServer(async(req,res)=>{try{
   res.writeHead(response.status,Object.fromEntries(response.headers)).end(Buffer.from(await response.arrayBuffer()));return;
  }
  const path=resolve(root,'.'+decodeURIComponent(u.pathname==='/'?'/index.html':u.pathname));if(!path.startsWith(root+sep)){res.writeHead(403).end();return;}if(!(await stat(path)).isFile())throw Error('not found');
- res.writeHead(200,{'Content-Type':types[extname(path)]||'application/octet-stream','Cache-Control':'no-cache','X-Content-Type-Options':'nosniff','Referrer-Policy':'no-referrer'}).end(await readFile(path));
+ const bytes=await readFile(path),body=extname(path)==='.js'?rewriteBareThreeImports(bytes.toString('utf8'),path,root):bytes;
+ res.writeHead(200,{'Content-Type':types[extname(path)]||'application/octet-stream','Cache-Control':'no-cache','X-Content-Type-Options':'nosniff','Referrer-Policy':'no-referrer'}).end(body);
 }catch{res.writeHead(404).end('Not found');}}).listen(port,'127.0.0.1',()=>console.log(`Local: http://127.0.0.1:${port}`));

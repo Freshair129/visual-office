@@ -1,20 +1,46 @@
 import {marked,createDOMPurify} from './vendor/rich/rich-libs.js';
+import {DEVELOPMENT_INTERACTIVE_POLICY} from './rich-content-dev-policy.js';
 let purifier,mermaidPromise,diagramNumber=0;
+// Replaced by a literal in the release bundle so dev-only branches are removed.
+const releaseBuild=typeof __OFFICE_RELEASE__!=='undefined'&&__OFFICE_RELEASE__===true;
 const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 marked.use({renderer:{image({href,text}){return '<a href="'+escape(href)+'">ดูรูปภาพ'+(text?' · '+escape(text):'')+'</a>';}}});
 const clean=()=>purifier??=createDOMPurify(window);
 const element=(tag,text,cls)=>{const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(cls)e.className=cls;return e;};
 const button=(label,action)=>{const b=element('button',label);b.type='button';b.onclick=action;return b;};
 const copy=async(b,text)=>{try{await navigator.clipboard.writeText(text);b.textContent='คัดลอกแล้ว';}catch{b.textContent='เลือกและคัดลอกจากโค้ดได้';}};
-export const INTERACTIVE_POLICY="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; connect-src 'none'; frame-src 'none'; form-action 'none'; base-uri 'none'; worker-src 'none'";
-export function interactiveDocument(source){return '<!doctype html><html><head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="'+INTERACTIVE_POLICY+'"><meta name="viewport" content="width=device-width,initial-scale=1"><style>body{font:14px/1.6 system-ui,sans-serif;color:#1f2937;margin:20px;background:white}button,input,select{font:inherit}button{cursor:pointer}img,svg,canvas{max-width:100%}</style></head><body>'+source+'</body></html>';}
-export function safeSvg(source){
+const RELEASE_INTERACTIVE_POLICY="default-src 'none'; script-src 'none'; style-src 'none'; img-src 'none'; connect-src 'none'; frame-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'; worker-src 'none'";
+export const INTERACTIVE_POLICY=releaseBuild?RELEASE_INTERACTIVE_POLICY:DEVELOPMENT_INTERACTIVE_POLICY;
+function releasePreviewMarkup(source){
+ const sanitized=clean().sanitize(String(source),{USE_PROFILES:{html:true,svg:true,svgFilters:true},FORBID_TAGS:['script','style','link','meta','base','iframe','object','embed','form'],FORBID_ATTR:['style','srcset','srcdoc','action','formaction','background']});
+ const parsed=new DOMParser().parseFromString(sanitized,'text/html');
+ for(const element of parsed.body.querySelectorAll('*'))for(const attribute of [...element.attributes]){
+  const name=attribute.name.toLowerCase();
+  if(name.startsWith('on')||name==='style'||['src','srcset','poster','action','formaction','data','manifest','background','longdesc'].includes(name)){element.removeAttribute(attribute.name);continue;}
+  if((name==='href'||name==='xlink:href')&&!attribute.value.trim().startsWith('#'))element.removeAttribute(attribute.name);
+ }
+ return parsed.body.innerHTML;
+}
+export function interactiveDocument(source,{cspSafe=releaseBuild}={}){
+ // The release client never emits the development policy, whatever the caller asks.
+ cspSafe=releaseBuild||cspSafe;
+ const policy=cspSafe?RELEASE_INTERACTIVE_POLICY:DEVELOPMENT_INTERACTIVE_POLICY;
+ const body=cspSafe?releasePreviewMarkup(source):source;
+ const defaultStyle=cspSafe?'':'<style>body{font:14px/1.6 system-ui,sans-serif;color:#1f2937;margin:20px;background:white}button,input,select{font:inherit}button{cursor:pointer}img,svg,canvas{max-width:100%}</style>';
+ return '<!doctype html><html><head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="'+policy+'"><meta name="viewport" content="width=device-width,initial-scale=1">'+defaultStyle+'</head><body>'+body+'</body></html>';
+}
+export function safeSvg(source,{cspSafe=releaseBuild}={}){
+ cspSafe=releaseBuild||cspSafe;
  const result=clean().sanitize(source,{USE_PROFILES:{svg:true,svgFilters:true},FORBID_TAGS:['foreignObject','image','a','script']});
  const doc=new DOMParser().parseFromString(result,'image/svg+xml');const svg=doc.documentElement;
  if(svg.localName!=='svg'||doc.querySelector('parsererror'))throw new Error('Invalid SVG');
  for(const node of [svg,...svg.querySelectorAll('*')]){
   for(const attr of [...node.attributes])if((/href$/i.test(attr.name)&&!attr.value.startsWith('#'))||[...attr.value.matchAll(/url\(\s*(['"]?)(.*?)\1\s*\)/gi)].some(m=>!m[2].trim().startsWith('#')))node.removeAttribute(attr.name);
-  if(node.localName==='style')node.textContent=node.textContent.replace(/@import[^;]+;/gi,'').replace(/url\([^)]*\)/gi,m=>/^url\(\s*['"]?#/.test(m)?m:'none');
+   if(node.localName==='style'){
+    if(cspSafe){node.remove();continue;}
+    node.textContent=node.textContent.replace(/@import[^;]+;/gi,'').replace(/url\([^)]*\)/gi,m=>/^url\(\s*['"]?#/.test(m)?m:'none');
+   }
+  if(cspSafe)for(const attr of [...node.attributes])if(attr.name.toLowerCase()==='style')node.removeAttribute(attr.name);
  }
  return document.importNode(svg,true);
 }
@@ -39,12 +65,13 @@ function diagramCard(source,language,onResize){
 }
 function interactiveCard(source,onResize){
  const {card,bar,details}=codeCard(source,'Interactive');card.classList.add('interactive-card');
- const hint=element('p','HTML / JavaScript · เปิดเพื่อโต้ตอบกับชิ้นงาน','interactive-hint');card.insertBefore(hint,details);
- const run=button('เปิดชิ้นงาน',()=>{
+ const hint=element('p',releaseBuild?'HTML · ตัวอย่างแบบอ่านอย่างเดียว':'HTML / JavaScript · เปิดเพื่อโต้ตอบกับชิ้นงาน','interactive-hint');card.insertBefore(hint,details);
+ const openLabel=releaseBuild?'ดูตัวอย่างแบบอ่านอย่างเดียว':'เปิดชิ้นงาน';
+ const run=button(openLabel,()=>{
   onResize({before:true});
-  if(card.querySelector('iframe')){const frame=card.querySelector('iframe');frame.remove();run.textContent='เปิดชิ้นงาน';hint.hidden=false;onResize();return;}
-  const frame=element('iframe');frame.title='ชิ้นงาน interactive';frame.setAttribute('sandbox','allow-scripts');frame.setAttribute('referrerpolicy','no-referrer');frame.setAttribute('allow',"camera 'none'; microphone 'none'; geolocation 'none'; clipboard-read 'none'; clipboard-write 'none'");
-  frame.srcdoc=interactiveDocument(source);card.insertBefore(frame,details);run.textContent='ปิดชิ้นงาน';hint.hidden=true;onResize();
+  if(card.querySelector('iframe')){const frame=card.querySelector('iframe');frame.remove();run.textContent=openLabel;hint.hidden=false;onResize();return;}
+  const frame=element('iframe');frame.title=releaseBuild?'ตัวอย่าง HTML แบบอ่านอย่างเดียว':'ชิ้นงาน interactive';frame.setAttribute('sandbox',releaseBuild?'':'allow-scripts');frame.setAttribute('referrerpolicy','no-referrer');frame.setAttribute('allow',"camera 'none'; microphone 'none'; geolocation 'none'; clipboard-read 'none'; clipboard-write 'none'");
+  frame.srcdoc=interactiveDocument(source);card.insertBefore(frame,details);run.textContent='ปิดตัวอย่าง';hint.hidden=true;onResize();
  });bar.insertBefore(run,bar.lastChild);return card;
 }
 export function renderRichMessage(container,text,{onResize=()=>{}}={}){

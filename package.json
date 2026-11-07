@@ -15,6 +15,9 @@
     "docs:check": "node scripts/check-docs.mjs",
     "perf:hybrid": "node scripts/perf-hybrid.mjs",
     "build": "npm run assets && node scripts/build-rich.mjs && node scripts/build-worker.mjs",
+    "release": "node scripts/build-office-release.mjs",
+    "release:check": "node scripts/check-office-release.mjs",
+    "release:serve": "node scripts/serve-office-release.mjs",
     "bridge": "node scripts/bridge.mjs"
   },
   "dependencies": {

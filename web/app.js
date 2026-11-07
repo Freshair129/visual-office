@@ -2,9 +2,6 @@ import {isOfficeFloor} from './office-floor-registry.js';
 import {workspaceAccess,readReturnFloor,writeReturnFloor,SYNTHETIC_WORKSPACE_PROFILE} from './workspace-context.js';
 import {BuildingView} from './building-view.js';
 import {TycoonView} from './tycoon-view.js';
-import {TycoonDomainView} from './tycoon-domain-view.js';
-import {CONTEXT_PROFILE} from './office-domain-context.js';
-import {resolveOfficeContextRoute,domainDetail} from './office-context-route.js';
 import {TycoonStore} from './tycoon-state.js';
 
 import {CloudClient} from './cloud-client.js';
@@ -22,11 +19,25 @@ import {InboxView} from './inbox-view.js';
 import {TeamPage} from './team-page.js';
 import {workspaceRoute,workspaceHash} from './workspace-navigation.js';
 import {watchOptionalAssetImages} from './optional-assets.js';
+import {officeApiUrl} from './office-api-base.js';
+
+const releaseBuild = typeof __OFFICE_RELEASE__ === 'boolean' && __OFFICE_RELEASE__;
+const contextMeta = releaseBuild ? null : document.querySelector('meta[name=office-context-profile]');
+let TycoonDomainView, CONTEXT_PROFILE, resolveOfficeContextRoute, domainDetail;
+if (contextMeta) {
+  const [viewModule, contextModule, routeModule] = await Promise.all([
+    import('./tycoon-domain-view.js'), import('./office-domain-context.js'), import('./office-context-route.js'),
+  ]);
+  TycoonDomainView = viewModule.TycoonDomainView;
+  CONTEXT_PROFILE = contextModule.CONTEXT_PROFILE;
+  resolveOfficeContextRoute = routeModule.resolveOfficeContextRoute;
+  domainDetail = routeModule.domainDetail;
+}
 
 watchOptionalAssetImages(document);
 const $=s=>document.querySelector(s);
-const syntheticWorkspace=document.querySelector('meta[name=office-workspace-profile]')?.content===SYNTHETIC_WORKSPACE_PROFILE;
-const dynamicWorkspace=!!document.querySelector('meta[name=office-context-profile]');
+const syntheticWorkspace=!releaseBuild&&document.querySelector('meta[name=office-workspace-profile]')?.content===SYNTHETIC_WORKSPACE_PROFILE;
+const dynamicWorkspace=!!contextMeta;
 let workspaceVerified=false,returnStorage;
 let sceneStatePreview={};try{if(syntheticWorkspace)sceneStatePreview=JSON.parse(document.querySelector('#office-synthetic-agent-states')?.textContent||'{}');}catch{}try{returnStorage=dynamicWorkspace?null:sessionStorage;}catch{}
 function workspaceGate(){return {...workspaceAccess({verified:workspaceVerified,zuriEnabled:!!buildingUI?.zuriEnabled,synthetic:syntheticWorkspace,demo:mode==='demo',connectionStatus}),synthetic:syntheticWorkspace};}
@@ -124,17 +135,17 @@ const knowledgeUI=new KnowledgeView($('#knowledge-content'),{autoLoad:false,toas
 const inboxUI=new InboxView($('#inbox-content'),{onOpenConnection:openConnect,onOpenWork:id=>navigate('work',true,id),onOpenChat:focusChat,onCreateTask:()=>openTask(),toast,onCount(count){$('#inbox-count').textContent=count;$('#inbox-count').hidden=!count;}});
 const teamUI=new TeamPage($('#team-content'),{avatarIcon,onOpenWork:id=>navigate('work',true,id),onChat(i){select(i);navigate('chat');},onTask(i){select(i);openTask();},onAvatar(i){select(i);openAvatar();}});
 function updatePages(){const team=agents();buildingUI?.update(team,mode,{jobs:liveJobs,reviews:workReviews,connectionStatus,lastSync});const data={jobs:mode==='demo'?[]:liveJobs,agents:team,reviews:workReviews,sessions:mode==='demo'?[]:liveSessions};workUI.update({...data,dataState:mode==='demo'||connectionStatus==='live'?'ready':connectionStatus==='connecting'?'loading':'unavailable'});resultsUI.update(data);knowledgeUI.update({context:teamContext,active:currentView==='knowledge'&&workspaceGate().allowed});teamUI.update(data);inboxUI.update({...data,connectionStatus:mode==='demo'?'demo':connectionStatus,lastSync});const count=inboxUI.count;if(typeof count==='number'){$('#inbox-count').textContent=count;$('#inbox-count').hidden=!count;}}
-async function refreshReviews(){if(reviewLoading)return;reviewLoading=true;try{const response=await fetch('/api/work-reviews',{cache:'no-store',signal:AbortSignal.timeout(15000)});if(response.ok){const data=await response.json();for(const review of data.reviews||[]){const existing=workReviews[review.jobId];if(!existing||Date.parse(review.updatedAt)>=Date.parse(existing.updatedAt))workReviews[review.jobId]=review;}updatePages();}}catch{}finally{reviewLoading=false;}}
+async function refreshReviews(){if(reviewLoading)return;reviewLoading=true;try{const response=await fetch(officeApiUrl('work-reviews'),{cache:'no-store',signal:AbortSignal.timeout(15000)});if(response.ok){const data=await response.json();for(const review of data.reviews||[]){const existing=workReviews[review.jobId];if(!existing||Date.parse(review.updatedAt)>=Date.parse(existing.updatedAt))workReviews[review.jobId]=review;}updatePages();}}catch{}finally{reviewLoading=false;}}
 let preferenceQueue=Promise.resolve();
 function saveLive(){save('zuri-office-desks',{endpoint:'cloud',assignments:liveAssignments});persistPreferences()}
-function persistPreferences(){if(mode!=='live')return;const body=JSON.stringify({assignments:liveAssignments,avatars});preferenceQueue=preferenceQueue.catch(()=>{}).then(async()=>{const response=await fetch('/api/preferences',{method:'PUT',headers:{'content-type':'application/json'},body});if(!response.ok)throw new Error();}).catch(()=>toast('บันทึกบนเว็บไม่สำเร็จ การตั้งค่ายังอยู่ในอุปกรณ์นี้'))}
+function persistPreferences(){if(mode!=='live')return;const body=JSON.stringify({assignments:liveAssignments,avatars});preferenceQueue=preferenceQueue.catch(()=>{}).then(async()=>{const response=await fetch(officeApiUrl('preferences'),{method:'PUT',headers:{'content-type':'application/json'},body});if(!response.ok)throw new Error();}).catch(()=>toast('บันทึกบนเว็บไม่สำเร็จ การตั้งค่ายังอยู่ในอุปกรณ์นี้'))}
 function openDialog(id){const d=$(id);if(!d.open)d.showModal()}
 function openConnect(){if(buildingUI?.zuriEnabled){buildingUI.openZuriConnection();return;}openDialog('#connect-dialog')}
 function zuriConnectionUI(state){
  if(!state?.enabled)return;
  document.querySelector('.workspace-settings')?.setAttribute('title',state.state==='READY'?'Zuri · '+(state.businessName||'เชื่อมต่อแล้ว'):'เชื่อมต่อ Zuri');
 }
-async function startLive(){client.disconnect();mode='live';liveSessions=[];const saved=stored('zuri-office-desks',{});try{const response=await fetch('/api/preferences',{cache:'no-store'});if(!response.ok)throw new Error();const prefs=await response.json();if(prefs.assignments){liveAssignments=prefs.assignments;autoAssign=false;}else if(saved.endpoint==='cloud'&&saved.assignments?.length===profiles.length){liveAssignments=saved.assignments;autoAssign=false;}if(prefs.avatars)avatars=Object.fromEntries(defaults.map((a,i)=>[i,safeAvatar(prefs.avatars[i],a.avatar)]));}catch{if(saved.endpoint==='cloud'&&saved.assignments?.length===profiles.length){liveAssignments=saved.assignments;autoAssign=false;}}render();connectionUI();await client.connect();}
+async function startLive(){client.disconnect();mode='live';liveSessions=[];const saved=stored('zuri-office-desks',{});try{const response=await fetch(officeApiUrl('preferences'),{cache:'no-store'});if(!response.ok)throw new Error();const prefs=await response.json();if(prefs.assignments){liveAssignments=prefs.assignments;autoAssign=false;}else if(saved.endpoint==='cloud'&&saved.assignments?.length===profiles.length){liveAssignments=saved.assignments;autoAssign=false;}if(prefs.avatars)avatars=Object.fromEntries(defaults.map((a,i)=>[i,safeAvatar(prefs.avatars[i],a.avatar)]));}catch{if(saved.endpoint==='cloud'&&saved.assignments?.length===profiles.length){liveAssignments=saved.assignments;autoAssign=false;}}render();connectionUI();await client.connect();}
 $('#connect-form').addEventListener('submit',async e=>{e.preventDefault();const button=$('#connect-submit');button.disabled=true;try{await startLive();$('#connect-dialog').close();}finally{button.disabled=false;}});
 function useDemo(){if(knowledgeUI.dirty||knowledgeUI.saving||knowledgeUI.libraryBusy){toast('มีร่างความรู้ทีมค้างอยู่ · บันทึกหรือคืนค่าร่างก่อนเปิดตัวอย่าง');return;}client.disconnect();teamContext='';workReviews={};mode='demo';connectionUI();render();$('#connect-dialog').close();toast('กำลังแสดงออฟฟิศตัวอย่าง')}
 $('#use-demo').onclick=useDemo;$('#disconnect').onclick=()=>{client.disconnect();liveSessions=liveSessions.map(a=>({...a,status:'offline'}));connectionStatus='offline';render();connectionUI();$('#connect-dialog').close();toast('ยกเลิกการเชื่อมต่อแล้ว')};
@@ -181,7 +192,7 @@ document.querySelectorAll('#more-dialog [data-action]').forEach(button=>button.a
 document.querySelectorAll('[data-nav]').forEach(b=>b.onclick=()=>navigate(b.dataset.nav,true,b.dataset.nav==='office'?lastOfficeDetail:null));
 buildingUI=new BuildingView($('#office-view'),{avatarIcon,getWorkspaceAccess:workspaceGate,getAgentStatePreview:key=>syntheticWorkspace&&Array.isArray(sceneStatePreview[key])?sceneStatePreview[key]:null,onNativeSceneNeeded:ensureNativeOffice,onNavigate:key=>navigate('office',true,key),onChat:id=>{const i=profiles.findIndex(p=>p.id===id);if(i>=0){select(i);navigate('chat');}},onTask:id=>{const i=profiles.findIndex(p=>p.id===id);if(i>=0){select(i);openTask();}},onConnect:openConnect,onConnectionState:zuriConnectionUI,onOpenPage:(page,id)=>navigate(page,true,id),onNewTask:options=>openTask(options)});
 let tycoonStorage;try{tycoonStorage=window.localStorage;}catch{}
-const dynamicCandidate=document.querySelector('meta[name=office-context-profile]')?.content===CONTEXT_PROFILE;
+const dynamicCandidate=!!contextMeta&&contextMeta.content===CONTEXT_PROFILE;
 const frozenContextClock=Date.parse(document.querySelector('meta[name=office-context-wall-clock]')?.content||'');
 const OfficeSurface=dynamicCandidate?TycoonDomainView:TycoonView;
 tycoonUI=new OfficeSurface($('#office-view'),{dataOptions:{wallNow:()=>Number.isFinite(frozenContextClock)?frozenContextClock:Date.now()},storage:tycoonStorage,onNavigate:(key,{replace=false}={})=>{if(replace)history.replaceState(null,'',workspaceHash('office',key));navigate('office',!replace,key);},onLegacy:async key=>{const hash=location.hash,ok=await new TycoonStore(tycoonStorage).select(key,'legacy');if(location.hash!==hash)return;if(ok)navigate('office',false,key);else toast('ยังบันทึก edition ไม่ได้ · อยู่ในฉากเดิม');},onStudio:async key=>{const hash=location.hash,ok=await new TycoonStore(tycoonStorage).select(key,'tycoon3d');if(location.hash!==hash)return;if(!ok){toast('ยังบันทึก edition ไม่ได้ · อยู่ในฉากเดิม');return;}buildingUI.domain=null;buildingUI.isLobby=false;buildingUI.studioFloor=key;navigate('office',true,'studio');}});

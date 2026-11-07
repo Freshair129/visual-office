@@ -241,7 +241,7 @@ export class ResultsView{
   const refresh=make(this.#doc,'button','รีเฟรชรายการ','results-refresh');refresh.type='button';refresh.onclick=()=>this.#loadFiles(threadId,true);slot.append(refresh);
   if(!cached.files.length){slot.append(make(this.#doc,'p','ไม่มีไฟล์แนบที่บันทึกไว้ในบทสนทนานี้','results-file-state'));return;}
   const list=make(this.#doc,'ul',undefined,'result-file-list');
-  for(const file of cached.files){if(!isUuid(file.id)||typeof file.name!=='string')continue;const item=make(this.#doc,'li');const link=make(this.#doc,'a',file.name);link.href=`/api/result-files/${encodeURIComponent(threadId)}/${encodeURIComponent(file.id)}/download`;link.download=safeAttachmentFilename(file.name);item.append(link,make(this.#doc,'small',`${fileSize(file.sizeBytes)} · ${dateLabel(file.createdAt)}`));list.append(item);}
+  for(const file of cached.files){if(!isUuid(file.id)||typeof file.name!=='string')continue;const item=make(this.#doc,'li');const link=make(this.#doc,'a',file.name);link.href=officeApiUrl(`result-files/${encodeURIComponent(threadId)}/${encodeURIComponent(file.id)}/download`);link.download=safeAttachmentFilename(file.name);item.append(link,make(this.#doc,'small',`${fileSize(file.sizeBytes)} · ${dateLabel(file.createdAt)}`));list.append(item);}
   slot.append(list);
  }
  async #loadFiles(threadId,force=false){
@@ -252,7 +252,7 @@ export class ResultsView{
   this.#fileCache.set(threadId,{status:'loading'});
   if(this.#selectedFileThreadId===threadId)this.#renderFileBrowser();
   try{
-   const response=await this.#options.fetchImpl(`/api/result-files?threadId=${encodeURIComponent(threadId)}`,{headers:{accept:'application/json'},signal:AbortSignal.timeout?.(15000)});
+   const response=await this.#options.fetchImpl(officeApiUrl(`result-files?threadId=${encodeURIComponent(threadId)}`),{headers:{accept:'application/json'},signal:AbortSignal.timeout?.(15000)});
    const data=await response.json();if(!response.ok)throw new Error(data.error||'โหลดไฟล์ไม่สำเร็จ');
    const files=Array.isArray(data.files)?data.files.filter(file=>file&&isUuid(file.id)&&typeof file.name==='string'&&Number.isFinite(file.sizeBytes)).slice(0,100):[];
    this.#fileCache.set(threadId,{status:'ready',files});
@@ -260,3 +260,4 @@ export class ResultsView{
   if(this.#selectedFileThreadId===threadId)this.#renderFileBrowser();
  }
 }
+import {officeApiUrl} from './office-api-base.js';

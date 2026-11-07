@@ -18,7 +18,7 @@ export class TeamPage {
    chat.onclick=()=>this.options.onChat(i);task.onclick=()=>this.options.onTask(i);avatarButton.onclick=()=>this.options.onAvatar(i);actions.append(chat,task,avatarButton);card.append(actions);
    const tools=el('details'),toolOutput=el('div','เปิดดูเพื่ออ่านความสามารถที่ T3 รายงาน','team-tools');tools.append(el('summary','เครื่องมือของแชทปัจจุบัน'),toolOutput);
    tools.addEventListener('toggle',async()=>{if(!tools.open||tools.dataset.loaded)return;const current=this.agents[i];if(!current?.sessionId){toolOutput.textContent='ยังไม่มีแชทที่รายงานเครื่องมือ';return;}
-    toolOutput.textContent='กำลังอ่านจาก T3…';try{const response=await fetch('/api/chats/'+encodeURIComponent(current.sessionId),{cache:'no-store',signal:AbortSignal.timeout(20000)});if(!response.ok)throw new Error();const data=await response.json(),cap=data.capabilities;toolOutput.replaceChildren();
+    toolOutput.textContent='กำลังอ่านจาก T3…';try{const response=await fetch(officeApiUrl('chats/'+encodeURIComponent(current.sessionId)),{cache:'no-store',signal:AbortSignal.timeout(20000)});if(!response.ok)throw new Error();const data=await response.json(),cap=data.capabilities;toolOutput.replaceChildren();
      toolOutput.append(el('p',cap?.model?'โมเดล · '+cap.model:'T3 ยังไม่รายงานโมเดล'));
      const list=el('ul');for(const skill of cap?.skills||[]){list.append(el('li',typeof skill==='string'?skill:skill.name||skill.id||'ทักษะที่รายงาน'));}toolOutput.append(list,el('p',list.children.length?'การอนุมัติเครื่องมือทำใน T3':'T3 ยังไม่รายงานรายการทักษะของแชทนี้'));tools.dataset.loaded='true';
     }catch{toolOutput.textContent='ยังอ่านเครื่องมือไม่ได้ ลองปิดแล้วเปิดอีกครั้ง';}});card.append(tools);grid.append(card);
@@ -26,3 +26,4 @@ export class TeamPage {
  }
  open(id){if(id)this.root.querySelector('#profile-'+CSS.escape(id))?.scrollIntoView({block:'start'});}
 }
+import {officeApiUrl} from './office-api-base.js';
