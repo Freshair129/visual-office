@@ -1,0 +1,49 @@
+{
+  "kind": "actor",
+  "source": "C:\\Users\\suanr\\workspace\\visual-office\\web\\assets\\models\\tycoon\\actor.glb",
+  "source_sha256": "f1d0f905e250d7f8423b4ec9259f7e7c354f965e85c9e30726b3a3c88a3e36da",
+  "source_role": "derived import of existing prototype GLB; not original authoring source",
+  "blender": "5.2.2 LTS",
+  "blender_build": "d13f752e3b9c",
+  "mesh_objects": 53,
+  "triangles": 11978,
+  "materials": [
+    "Material_0",
+    "Material_1",
+    "Material_10",
+    "Material_2",
+    "Material_3",
+    "Material_4",
+    "Material_5",
+    "Material_6",
+    "Material_7",
+    "Material_8",
+    "Material_9"
+  ],
+  "dimensions_m": [
+    0.550000011920929,
+    0.400319367647171,
+    1.7002103328704834
+  ],
+  "min_m": [
+    -0.2750000059604645,
+    -0.20000000298023224,
+    3.725290298461914e-09
+  ],
+  "max_m": [
+    0.2750000059604645,
+    0.20031936466693878,
+    1.7002103328704834
+  ],
+  "armatures": 0,
+  "imported_actions": [
+    "gesture_point",
+    "idle",
+    "seated_work",
+    "sit_down",
+    "stand_up",
+    "talk",
+    "walk"
+  ],
+  "quality": "prototype; visual and rig review pending"
+}

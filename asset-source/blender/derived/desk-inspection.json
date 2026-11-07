@@ -1,0 +1,43 @@
+{
+  "kind": "desk",
+  "source": "C:\\Users\\suanr\\workspace\\visual-office\\web\\assets\\models\\tycoon\\desk.glb",
+  "source_sha256": "ccd93e509accb744f355b1139e4cd41a8806072f15ba6abea3f87921c74e48e9",
+  "source_role": "derived import of existing prototype GLB; not original authoring source",
+  "blender": "5.2.2 LTS",
+  "blender_build": "d13f752e3b9c",
+  "mesh_objects": 13,
+  "triangles": 684,
+  "materials": [
+    "Material_0",
+    "Material_1",
+    "Material_10",
+    "Material_11",
+    "Material_12",
+    "Material_2",
+    "Material_3",
+    "Material_4",
+    "Material_5",
+    "Material_6",
+    "Material_7",
+    "Material_8",
+    "Material_9"
+  ],
+  "dimensions_m": [
+    1.600000023841858,
+    0.7999999523162842,
+    1.3000000715255737
+  ],
+  "min_m": [
+    -0.800000011920929,
+    -0.3999999761581421,
+    0.0
+  ],
+  "max_m": [
+    0.800000011920929,
+    0.3999999761581421,
+    1.3000000715255737
+  ],
+  "armatures": 0,
+  "imported_actions": [],
+  "quality": "prototype; visual and rig review pending"
+}

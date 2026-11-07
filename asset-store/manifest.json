@@ -1,0 +1,709 @@
+{
+  "schemaVersion": "visual-office-asset-store/v1",
+  "assets": [
+    {
+      "path": "assets-source/characters/candidates/anime-lab.blend",
+      "bytes": 10616833,
+      "sha256": "d31a87bf4105be88d0246bf20efce0d59823cde65c5893e3ab4c83cd923cb749",
+      "contentType": "application/octet-stream",
+      "class": "third-party-candidate",
+      "licenseNote": "Rigged Anime Girl by 3dquads blender; CC0-1.0 per retained candidate license record."
+    },
+    {
+      "path": "assets-source/characters/candidates/rain-lab.blend",
+      "bytes": 17280092,
+      "sha256": "d9992d14b6829c61499e8fbdc05bb2a105b4376efc09d206a00c8f9414ebe6c4",
+      "contentType": "application/octet-stream",
+      "class": "third-party-candidate",
+      "licenseNote": "Rain v3.3 source identifies CC-BY-4.0; preserve Blender Foundation attribution when distributing."
+    },
+    {
+      "path": "assets-source/characters/candidates/revisions/zuri-anime-v1/zuri-anime.blend",
+      "bytes": 10544357,
+      "sha256": "4b45ad3899d0ecaa4402ca45530a8b871f564d7a0c70e12ab7c625616fa169a9",
+      "contentType": "application/octet-stream",
+      "class": "third-party-candidate",
+      "licenseNote": "Derivative of the CC0 Rigged Anime Girl candidate; CC0 covers only the base source, while Zuri brand identity and derivative design remain Zuri-owned."
+    },
+    {
+      "path": "assets-source/characters/candidates/revisions/zuri-anime-v1/zuri-anime.glb",
+      "bytes": 10688868,
+      "sha256": "4bd7db9b179b277708c6399949526a50e54a56ec9709a5e680662c0240815745",
+      "contentType": "model/gltf-binary",
+      "class": "third-party-candidate",
+      "licenseNote": "Derivative of the CC0 Rigged Anime Girl candidate; CC0 covers only the base source, while Zuri brand identity and derivative design remain Zuri-owned."
+    },
+    {
+      "path": "assets-source/characters/candidates/revisions/zuri-anime-v2/zuri-anime.blend",
+      "bytes": 11573738,
+      "sha256": "ddc5f10d6e3f296dbaab5a7233fbcd197d150ce170275cef24f5e1319619a695",
+      "contentType": "application/octet-stream",
+      "class": "third-party-candidate",
+      "licenseNote": "Derivative of the CC0 Rigged Anime Girl candidate; CC0 covers only the base source, while Zuri brand identity and derivative design remain Zuri-owned."
+    },
+    {
+      "path": "assets-source/characters/candidates/revisions/zuri-anime-v2/zuri-anime.glb",
+      "bytes": 10787488,
+      "sha256": "179675ed327e9422f2b7a1a597b23696db059f6dc70b1dc9bb63efa9ff36c1fe",
+      "contentType": "model/gltf-binary",
+      "class": "third-party-candidate",
+      "licenseNote": "Derivative of the CC0 Rigged Anime Girl candidate; CC0 covers only the base source, while Zuri brand identity and derivative design remain Zuri-owned."
+    },
+    {
+      "path": "assets-source/characters/candidates/zuri-anime.blend",
+      "bytes": 12239509,
+      "sha256": "e470188ab5368142de714eeb85cd98a568a4b2eee15066a714cc2f27a63521ac",
+      "contentType": "application/octet-stream",
+      "class": "third-party-candidate",
+      "licenseNote": "Derivative of the CC0 Rigged Anime Girl candidate; CC0 covers only the base source, while Zuri brand identity and derivative design remain Zuri-owned."
+    },
+    {
+      "path": "assets-source/characters/candidates/zuri-face-r4.blend",
+      "bytes": 12237520,
+      "sha256": "d492cf8cdfc9d8d847724c53963baf0a1fe20363a08dbb66a41da81fed6d1132",
+      "contentType": "application/octet-stream",
+      "class": "brand-character",
+      "licenseNote": "Editable source for Zuri, Wangjai, Staff A/B or a Zuri brand revision; brand identity is Zuri-owned and has no open redistribution license."
+    },
+    {
+      "path": "assets-source/characters/zuri-blender-pilot.blend",
+      "bytes": 6130312,
+      "sha256": "3632be10441038995cd581746a99d73f4c087366deb2ca5ffdceef7a285a9145",
+      "contentType": "application/octet-stream",
+      "class": "brand-character",
+      "licenseNote": "Editable source for Zuri, Wangjai, Staff A/B or a Zuri brand revision; brand identity is Zuri-owned and has no open redistribution license."
+    },
+    {
+      "path": "assets-source/characters/zuri-hair-strands-albedo.png",
+      "bytes": 1688174,
+      "sha256": "0f35a7006a67a8aecda482eade0483fffdf18362379e5fd12ce55fe54821707e",
+      "contentType": "image/png",
+      "class": "imagegen",
+      "licenseNote": "Built-in ImageGen character albedo; retain its prompt and provenance. No third-party stock license is asserted."
+    },
+    {
+      "path": "assets-source/characters/zuri-head-revision.blend",
+      "bytes": 6354127,
+      "sha256": "29cb0c1c2fa4537b1d48fac31ffd95a009444d17df5548d200e500173621e7b8",
+      "contentType": "application/octet-stream",
+      "class": "brand-character",
+      "licenseNote": "Editable source for Zuri, Wangjai, Staff A/B or a Zuri brand revision; brand identity is Zuri-owned and has no open redistribution license."
+    },
+    {
+      "path": "docs/game-design/characters/2026-10-25-brand-study/local-rebuild/zuri-face-albedo-v1.png",
+      "bytes": 1401801,
+      "sha256": "2a7bb8a73952c5cce65e9e47a365beb9080087b0ef0638fab7523c4dd854a937",
+      "contentType": "image/png",
+      "class": "imagegen",
+      "licenseNote": "Built-in ImageGen character albedo; retain its prompt and provenance. No third-party stock license is asserted."
+    },
+    {
+      "path": "docs/game-design/characters/2026-10-25-brand-study/local-refinement/tripo-face-preview.jpg",
+      "bytes": 83606,
+      "sha256": "90610cea9e00713dfb58cf0396ebb9dfff1ffa3a06ea9af3c4cb61c70d09ad96",
+      "contentType": "image/jpeg",
+      "class": "brand-character",
+      "licenseNote": "Zuri, Wangjai, Staff A/B character sheet, reference or review image; brand identity is Zuri-owned and has no open redistribution license."
+    },
+    {
+      "path": "docs/game-design/characters/2026-10-25-brand-study/local-refinement/tripo-front-preview.jpg",
+      "bytes": 79012,
+      "sha256": "463e6a0b0351d7f844ed5f2ccca7bd35be57718be3b83fd9692320461bb507b3",
+      "contentType": "image/jpeg",
+      "class": "brand-character",
+      "licenseNote": "Zuri, Wangjai, Staff A/B character sheet, reference or review image; brand identity is Zuri-owned and has no open redistribution license."
+    },
+    {
+      "path": "docs/game-design/characters/2026-10-25-brand-study/office-staff-sheet-v1.png",
+      "bytes": 1881392,
+      "sha256": "7045b3adac441205d15a0d58acade2eb256e487dd488df00a535d0eb1cd60513",
+      "contentType": "image/png",
+      "class": "brand-character",
+      "licenseNote": "Zuri, Wangjai, Staff A/B character sheet, reference or review image; brand identity is Zuri-owned and has no open redistribution license."
+    },
+    {
+      "path": "docs/game-design/characters/2026-10-25-brand-study/tripo/staff-a-front-input-v1.png",
+      "bytes": 1521299,
+      "sha256": "1b77d90b2c5c84c1c247709168a027381561008c98595cb7608a1a31d392e440",
+      "contentType": "image/png",
+      "class": "brand-character",
+      "licenseNote": "Zuri, Wangjai, Staff A/B character sheet, reference or review image; brand identity is Zuri-owned and has no open redistribution license."
+    },
+    {
+      "path": "docs/game-design/characters/2026-10-25-brand-study/tripo/staff-b-front-input-v1.png",
+      "bytes": 1270171,
+      "sha256": "007af04f7ec2cc4dca2563369317b0d676c6cc60441321647c691c3375d03af7",
+      "contentType": "image/png",
+      "class": "brand-character",
+      "licenseNote": "Zuri, Wangjai, Staff A/B character sheet, reference or review image; brand identity is Zuri-owned and has no open redistribution license."
+    },
+    {
+      "path": "docs/game-design/characters/2026-10-25-brand-study/tripo/zuri-front-input-v1.png",
+      "bytes": 1421712,
+      "sha256": "92b8996a5ee379c565476040b132d6929c0484c1a6a9df09403c91eb92a04501",
+      "contentType": "image/png",
+      "class": "brand-character",
+      "licenseNote": "Zuri, Wangjai, Staff A/B character sheet, reference or review image; brand identity is Zuri-owned and has no open redistribution license."
+    },
+    {
+      "path": "docs/game-design/characters/2026-10-25-brand-study/wangjai-sheet-v1.png",
+      "bytes": 1764335,
+      "sha256": "659da83e0012aed26c629d7e8439ccaedb81c7ff7b9d131aa468388cae27b2fa",
+      "contentType": "image/png",
+      "class": "brand-character",
+      "licenseNote": "Zuri, Wangjai, Staff A/B character sheet, reference or review image; brand identity is Zuri-owned and has no open redistribution license."
+    },
+    {
+      "path": "docs/game-design/characters/2026-10-25-brand-study/zuri-sheet-v1.png",
+      "bytes": 2061655,
+      "sha256": "23640829719cb5d9d96e2027616667770e3f2a4dc549c4d1e8acdae3e4777b9e",
+      "contentType": "image/png",
+      "class": "brand-character",
+      "licenseNote": "Zuri, Wangjai, Staff A/B character sheet, reference or review image; brand identity is Zuri-owned and has no open redistribution license."
+    },
+    {
+      "path": "docs/game-design/office-evolution-v01.png",
+      "bytes": 2040202,
+      "sha256": "bce5d12d1426d6c89621bfb929b9ad8e97c299cb444ed6b73f2a6855ce233830",
+      "contentType": "image/png",
+      "class": "imagegen",
+      "licenseNote": "Built-in ImageGen concept board; its adjacent prompt is retained in the repository. No third-party stock license is asserted."
+    },
+    {
+      "path": "web/assets/brand/tokens-v0.8.0.json",
+      "bytes": 3496,
+      "sha256": "fd206327434c97f013762379a69a0b0f4f448350bc201a094a4cead83f0d2d95",
+      "contentType": "application/json",
+      "class": "brand-mark",
+      "licenseNote": "Zuri brand identity artwork; Zuri-owned and has no open redistribution license."
+    },
+    {
+      "path": "web/assets/brand/zuri-app-dark-micro.svg",
+      "bytes": 465,
+      "sha256": "ce78e4dc162eec5d16026210abb47df1bc4d8d9b0f809a8155360a558880eb1f",
+      "contentType": "image/svg+xml",
+      "class": "brand-mark",
+      "licenseNote": "Zuri brand identity artwork; Zuri-owned and has no open redistribution license."
+    },
+    {
+      "path": "web/assets/brand/zuri-iconic-primary.svg",
+      "bytes": 334,
+      "sha256": "697823656a7ad298ba7e49d7b7a36669efb31e8e9619e18ebae0df896e5d421e",
+      "contentType": "image/svg+xml",
+      "class": "brand-mark",
+      "licenseNote": "Zuri brand identity artwork; Zuri-owned and has no open redistribution license."
+    },
+    {
+      "path": "web/assets/brand/zuri-wordmark-primary.svg",
+      "bytes": 3282,
+      "sha256": "1670040794b4ea7fec717da5e8f6afda7a79e34ad67b9fa207c74c36ad0eea11",
+      "contentType": "image/svg+xml",
+      "class": "brand-mark",
+      "licenseNote": "Zuri brand identity artwork; Zuri-owned and has no open redistribution license."
+    },
+    {
+      "path": "web/assets/models/characters/candidates/anime.glb",
+      "bytes": 5945260,
+      "sha256": "99162d6b9b12662b251342e087633b1a7003468339dd9b769ed33feacd47ccbb",
+      "contentType": "model/gltf-binary",
+      "class": "third-party-candidate",
+      "licenseNote": "Rigged Anime Girl by 3dquads blender; CC0-1.0 per retained candidate license record."
+    },
+    {
+      "path": "web/assets/models/characters/candidates/rain.glb",
+      "bytes": 10496480,
+      "sha256": "260292714497445b92598620927430a34d4b9259c087ed4edf4863ddde026be0",
+      "contentType": "model/gltf-binary",
+      "class": "third-party-candidate",
+      "licenseNote": "Rain v3.3 source identifies CC-BY-4.0; preserve Blender Foundation attribution when distributing."
+    },
+    {
+      "path": "web/assets/models/characters/candidates/zuri-anime.glb",
+      "bytes": 10499000,
+      "sha256": "c76729078169d44da377e3df3fb3f29d0d0013e14b362a627b3ff75ee9e82cce",
+      "contentType": "model/gltf-binary",
+      "class": "third-party-candidate",
+      "licenseNote": "Derivative of the CC0 Rigged Anime Girl candidate; CC0 covers only the base source, while Zuri brand identity and derivative design remain Zuri-owned."
+    },
+    {
+      "path": "web/assets/models/characters/candidates/zuri-face-r4.glb",
+      "bytes": 10498996,
+      "sha256": "68fdfc353eb2ca71f0c4ebef4453157033c11dd5a62d92249f347104458516ab",
+      "contentType": "model/gltf-binary",
+      "class": "brand-character",
+      "licenseNote": "Zuri, Wangjai, Staff A/B or Zuri-derived character review asset; brand identity is Zuri-owned and has no open redistribution license."
+    },
+    {
+      "path": "web/assets/models/characters/lod/staff-a-lod1.glb",
+      "bytes": 2133460,
+      "sha256": "8ba881aa77ffcfca622023859d5b88a0790bcde616f025f849cf8456e452e5c2",
+      "contentType": "model/gltf-binary",
+      "class": "brand-character",
+      "licenseNote": "Zuri, Wangjai, Staff A/B or Zuri-derived character review asset; brand identity is Zuri-owned and has no open redistribution license."
+    },
+    {
+      "path": "web/assets/models/characters/lod/staff-b-lod1.glb",
+      "bytes": 2066940,
+      "sha256": "433fc7ffc98adacc46d98bb76971bad1fe3da30596a3e323c0010cd2c150d8c0",
+      "contentType": "model/gltf-binary",
+      "class": "brand-character",
+      "licenseNote": "Zuri, Wangjai, Staff A/B or Zuri-derived character review asset; brand identity is Zuri-owned and has no open redistribution license."
+    },
+    {
+      "path": "web/assets/models/characters/lod/wangjai-lod1.glb",
+      "bytes": 1065284,
+      "sha256": "028c0371d725512e87f3518bbdf1610717bdfabda2ab86ee33411d8de541f371",
+      "contentType": "model/gltf-binary",
+      "class": "brand-character",
+      "licenseNote": "Zuri, Wangjai, Staff A/B or Zuri-derived character review asset; brand identity is Zuri-owned and has no open redistribution license."
+    },
+    {
+      "path": "web/assets/models/characters/lod/zuri-lod1.glb",
+      "bytes": 5515484,
+      "sha256": "cbc2fc0743cd42cafee7901733666bf856436b6e9b07482b17a50e0cd4da823e",
+      "contentType": "model/gltf-binary",
+      "class": "brand-character",
+      "licenseNote": "Zuri, Wangjai, Staff A/B or Zuri-derived character review asset; brand identity is Zuri-owned and has no open redistribution license."
+    },
+    {
+      "path": "web/assets/models/characters/references/office-staff-sheet-v1.png",
+      "bytes": 1881392,
+      "sha256": "7045b3adac441205d15a0d58acade2eb256e487dd488df00a535d0eb1cd60513",
+      "contentType": "image/png",
+      "class": "brand-character",
+      "licenseNote": "Zuri, Wangjai, Staff A/B character reference or review image; brand identity is Zuri-owned and has no open redistribution license."
+    },
+    {
+      "path": "web/assets/models/characters/references/tripo-face-preview.jpg",
+      "bytes": 83606,
+      "sha256": "90610cea9e00713dfb58cf0396ebb9dfff1ffa3a06ea9af3c4cb61c70d09ad96",
+      "contentType": "image/jpeg",
+      "class": "brand-character",
+      "licenseNote": "Zuri, Wangjai, Staff A/B character reference or review image; brand identity is Zuri-owned and has no open redistribution license."
+    },
+    {
+      "path": "web/assets/models/characters/references/tripo-front-preview.jpg",
+      "bytes": 79012,
+      "sha256": "463e6a0b0351d7f844ed5f2ccca7bd35be57718be3b83fd9692320461bb507b3",
+      "contentType": "image/jpeg",
+      "class": "brand-character",
+      "licenseNote": "Zuri, Wangjai, Staff A/B character reference or review image; brand identity is Zuri-owned and has no open redistribution license."
+    },
+    {
+      "path": "web/assets/models/characters/references/wangjai-sheet-v1.png",
+      "bytes": 1764335,
+      "sha256": "659da83e0012aed26c629d7e8439ccaedb81c7ff7b9d131aa468388cae27b2fa",
+      "contentType": "image/png",
+      "class": "brand-character",
+      "licenseNote": "Zuri, Wangjai, Staff A/B character reference or review image; brand identity is Zuri-owned and has no open redistribution license."
+    },
+    {
+      "path": "web/assets/models/characters/references/zuri-sheet-v1.png",
+      "bytes": 2061655,
+      "sha256": "23640829719cb5d9d96e2027616667770e3f2a4dc549c4d1e8acdae3e4777b9e",
+      "contentType": "image/png",
+      "class": "brand-character",
+      "licenseNote": "Zuri, Wangjai, Staff A/B character reference or review image; brand identity is Zuri-owned and has no open redistribution license."
+    },
+    {
+      "path": "web/assets/models/characters/reviews/zuri-before-refinement.glb",
+      "bytes": 5032944,
+      "sha256": "8955b1cafa2b482a3bf6c09e7800b56317e8b27918826378328599de43543810",
+      "contentType": "model/gltf-binary",
+      "class": "brand-character",
+      "licenseNote": "Zuri, Wangjai, Staff A/B or Zuri-derived character review asset; brand identity is Zuri-owned and has no open redistribution license."
+    },
+    {
+      "path": "web/assets/models/characters/reviews/zuri-blender-pilot.glb",
+      "bytes": 3515680,
+      "sha256": "de69ba1c10b605bc59d4b062d4f2262031c842317cf032b66b4700af5d3bd12e",
+      "contentType": "model/gltf-binary",
+      "class": "brand-character",
+      "licenseNote": "Zuri, Wangjai, Staff A/B or Zuri-derived character review asset; brand identity is Zuri-owned and has no open redistribution license."
+    },
+    {
+      "path": "web/assets/models/characters/reviews/zuri-head-revision.glb",
+      "bytes": 6560868,
+      "sha256": "60062c05c724dafee9a0a1d96ba9a6d56b2d7ed3580658ce4b98cd4e2c452eb5",
+      "contentType": "model/gltf-binary",
+      "class": "brand-character",
+      "licenseNote": "Zuri, Wangjai, Staff A/B or Zuri-derived character review asset; brand identity is Zuri-owned and has no open redistribution license."
+    },
+    {
+      "path": "web/assets/models/characters/staff-a.glb",
+      "bytes": 4095188,
+      "sha256": "9e82d9d5b783e49ce0e902bd13e9398f3255e86c380b481f45266e608c38e7fc",
+      "contentType": "model/gltf-binary",
+      "class": "brand-character",
+      "licenseNote": "Zuri, Wangjai, Staff A/B or Zuri-derived character review asset; brand identity is Zuri-owned and has no open redistribution license."
+    },
+    {
+      "path": "web/assets/models/characters/staff-b.glb",
+      "bytes": 3971668,
+      "sha256": "b88bfed7072ec5482e046113c36785a513c91f96a194564e6ea3b838b6fc8c82",
+      "contentType": "model/gltf-binary",
+      "class": "brand-character",
+      "licenseNote": "Zuri, Wangjai, Staff A/B or Zuri-derived character review asset; brand identity is Zuri-owned and has no open redistribution license."
+    },
+    {
+      "path": "web/assets/models/characters/wangjai.glb",
+      "bytes": 1930704,
+      "sha256": "5bf4e7886fd6f0844ebd54b60aa31a1383e32f0bf1bfa5bfb681d8a60aa4f09e",
+      "contentType": "model/gltf-binary",
+      "class": "brand-character",
+      "licenseNote": "Zuri, Wangjai, Staff A/B or Zuri-derived character review asset; brand identity is Zuri-owned and has no open redistribution license."
+    },
+    {
+      "path": "web/assets/models/characters/zuri.glb",
+      "bytes": 5113768,
+      "sha256": "70978ebebfd79314951243e233a08f0e01ae02ba183d9dbb3d0dd4c529dd7499",
+      "contentType": "model/gltf-binary",
+      "class": "brand-character",
+      "licenseNote": "Zuri, Wangjai, Staff A/B or Zuri-derived character review asset; brand identity is Zuri-owned and has no open redistribution license."
+    },
+    {
+      "path": "web/assets/office-world/hybrid/backgrounds/city.png",
+      "bytes": 1891028,
+      "sha256": "5492587f5c7c7f2aa34fb90ed01962986a7bf85240f22a772426242181cfeb4a",
+      "contentType": "image/png",
+      "class": "imagegen",
+      "licenseNote": "Built-in ImageGen Visual Office image; retain its prompt and provenance. No third-party stock license is asserted."
+    },
+    {
+      "path": "web/assets/office-world/hybrid/backgrounds/garden.png",
+      "bytes": 1976465,
+      "sha256": "835c5708e8caf94eb2d91c1e377bb224cc5176d81621b8b725327d3cbb8bdd21",
+      "contentType": "image/png",
+      "class": "imagegen",
+      "licenseNote": "Built-in ImageGen Visual Office image; retain its prompt and provenance. No third-party stock license is asserted."
+    },
+    {
+      "path": "web/assets/office-world/hybrid/backgrounds/office-isometric-v1.png",
+      "bytes": 2380117,
+      "sha256": "9b93d68f7b99c2e52aefe925c9f7604e08f4dabad1c701262bba3b032803c39a",
+      "contentType": "image/png",
+      "class": "imagegen",
+      "licenseNote": "Built-in ImageGen Visual Office image; retain its prompt and provenance. No third-party stock license is asserted."
+    },
+    {
+      "path": "web/assets/office-world/hybrid/backgrounds/office-isometric-v2.png",
+      "bytes": 2229113,
+      "sha256": "31fdafea539c792d84b24122b084678866d28f744e06a364d653fee73f65f639",
+      "contentType": "image/png",
+      "class": "imagegen",
+      "licenseNote": "Built-in ImageGen Visual Office image; retain its prompt and provenance. No third-party stock license is asserted."
+    },
+    {
+      "path": "web/assets/office-world/hybrid/backgrounds/office-isometric-v3.png",
+      "bytes": 2182879,
+      "sha256": "cad7f8a72e259a617ae230596d68ac9145c592edae9b282fa781af5b6a1914b5",
+      "contentType": "image/png",
+      "class": "imagegen",
+      "licenseNote": "Built-in ImageGen Visual Office image; retain its prompt and provenance. No third-party stock license is asserted."
+    },
+    {
+      "path": "web/assets/office-world/hybrid/backgrounds/office-isometric-v4.png",
+      "bytes": 2078333,
+      "sha256": "8d1f28ee3fced9e5565ea5854555ddfb7a3739453b7ad1e3ab6d7a96cfe86c14",
+      "contentType": "image/png",
+      "class": "imagegen",
+      "licenseNote": "Built-in ImageGen Visual Office image; retain its prompt and provenance. No third-party stock license is asserted."
+    },
+    {
+      "path": "web/assets/office-world/hybrid/backgrounds/office-isometric-v5.png",
+      "bytes": 2160706,
+      "sha256": "48985b07e7c0aa1ed60904ce5f2fadca36348d7b7eefc7aee3000ae18b7b8491",
+      "contentType": "image/png",
+      "class": "imagegen",
+      "licenseNote": "Built-in ImageGen Visual Office image; retain its prompt and provenance. No third-party stock license is asserted."
+    },
+    {
+      "path": "web/assets/office-world/hybrid/backgrounds/office-workfloor-v1.png",
+      "bytes": 2040682,
+      "sha256": "9632c8200a5eb2c9bda7b5b0c375e76db45a8a9395d8d94e71bc6310fcc3889e",
+      "contentType": "image/png",
+      "class": "imagegen",
+      "licenseNote": "Built-in ImageGen Visual Office image; retain its prompt and provenance. No third-party stock license is asserted."
+    },
+    {
+      "path": "web/assets/office-world/hybrid/characters/avatar-atlas-12.png",
+      "bytes": 1167154,
+      "sha256": "42332b5b989021e75f8785451d2e2dbd23d416c0d7281e14941aae30cfbdda5b",
+      "contentType": "image/png",
+      "class": "imagegen",
+      "licenseNote": "Built-in ImageGen Visual Office image; retain its prompt and provenance. No third-party stock license is asserted."
+    },
+    {
+      "path": "web/assets/office-world/hybrid/characters/avatar-seated-12-v1.png",
+      "bytes": 1392335,
+      "sha256": "748028832c21e53eaa68e3e24ad0c2eae6d740c8a2ac98de6f8f2fce4b98c04c",
+      "contentType": "image/png",
+      "class": "imagegen",
+      "licenseNote": "Built-in ImageGen Visual Office image; retain its prompt and provenance. No third-party stock license is asserted."
+    },
+    {
+      "path": "web/assets/office-world/hybrid/characters/avatar-walk-12-v1.png",
+      "bytes": 1496668,
+      "sha256": "21aa741a0663d1a8e0ecbdb7152db918b75f65d8d50ddf63fbbd72cae3e5819e",
+      "contentType": "image/png",
+      "class": "imagegen",
+      "licenseNote": "Built-in ImageGen Visual Office image; retain its prompt and provenance. No third-party stock license is asserted."
+    },
+    {
+      "path": "web/assets/office-world/hybrid/props/chair.png",
+      "bytes": 1105808,
+      "sha256": "925b4837a4d58821700142913b0575c9abd4c197ad7222fd0ffd677e11385dfc",
+      "contentType": "image/png",
+      "class": "imagegen",
+      "licenseNote": "Built-in ImageGen Visual Office image; retain its prompt and provenance. No third-party stock license is asserted."
+    },
+    {
+      "path": "web/assets/office-world/hybrid/props/desk.png",
+      "bytes": 1040495,
+      "sha256": "f92abea185721bacc6ee0a76f36c4e95cdd321b4d12b173a6cb39f5205f74f05",
+      "contentType": "image/png",
+      "class": "imagegen",
+      "licenseNote": "Built-in ImageGen Visual Office image; retain its prompt and provenance. No third-party stock license is asserted."
+    },
+    {
+      "path": "web/assets/office-world/hybrid/props/printer-v1.png",
+      "bytes": 1430009,
+      "sha256": "a6ab34c124c10cdd3ebd45fdccf4bac3fd6de4d78759a825e2e419a9075b23f0",
+      "contentType": "image/png",
+      "class": "imagegen",
+      "licenseNote": "Built-in ImageGen Visual Office image; retain its prompt and provenance. No third-party stock license is asserted."
+    },
+    {
+      "path": "web/assets/office-world/hybrid/props/sofa-isometric-v1.png",
+      "bytes": 1985380,
+      "sha256": "da03b4e9d0140c525ea03ae608accdcbfccd211ce650a8c1e7475e8452986ed7",
+      "contentType": "image/png",
+      "class": "imagegen",
+      "licenseNote": "Built-in ImageGen Visual Office image; retain its prompt and provenance. No third-party stock license is asserted."
+    },
+    {
+      "path": "web/assets/office-world/hybrid/props/task-chair-isometric-v1.png",
+      "bytes": 1279498,
+      "sha256": "dcb113fc2e0669a42fedd35481a5ac769f9e99c1d8f229a2c16cf4f11dfe995e",
+      "contentType": "image/png",
+      "class": "imagegen",
+      "licenseNote": "Built-in ImageGen Visual Office image; retain its prompt and provenance. No third-party stock license is asserted."
+    },
+    {
+      "path": "web/assets/office-world/hybrid/props/task-chair-isometric-v2.png",
+      "bytes": 1180359,
+      "sha256": "e43f7336262a256fb8545932c2ab4ad4b9f73b25149f88baeacee68c342fcbac",
+      "contentType": "image/png",
+      "class": "imagegen",
+      "licenseNote": "Built-in ImageGen Visual Office image; retain its prompt and provenance. No third-party stock license is asserted."
+    },
+    {
+      "path": "web/assets/office-world/hybrid/props/task-chair-v1.png",
+      "bytes": 1385838,
+      "sha256": "015c182f1b43d1ca3b14ce22b2c8d9e1c820613a9770106c10c4e54416590be4",
+      "contentType": "image/png",
+      "class": "imagegen",
+      "licenseNote": "Built-in ImageGen Visual Office image; retain its prompt and provenance. No third-party stock license is asserted."
+    },
+    {
+      "path": "web/assets/office-world/hybrid/props/whiteboard-v1.png",
+      "bytes": 986851,
+      "sha256": "26c10ebc6a02941cfb5e3000a52022440ecdcd5894d6030b4335210c081c19be",
+      "contentType": "image/png",
+      "class": "imagegen",
+      "licenseNote": "Built-in ImageGen Visual Office image; retain its prompt and provenance. No third-party stock license is asserted."
+    },
+    {
+      "path": "web/assets/office-world/hybrid/props/work-desk-isometric-v1.png",
+      "bytes": 1272642,
+      "sha256": "7fa70514ae790f0eb17382c9401047453a93a80871468bab9302f39835198015",
+      "contentType": "image/png",
+      "class": "imagegen",
+      "licenseNote": "Built-in ImageGen Visual Office image; retain its prompt and provenance. No third-party stock license is asserted."
+    },
+    {
+      "path": "web/assets/office-world/hybrid/props/work-desk-isometric-v2.png",
+      "bytes": 1144715,
+      "sha256": "52d6c9e1662329b8803b449ac9d7a4c74ea50fcf550b7a0ed4955b4979c8ba7d",
+      "contentType": "image/png",
+      "class": "imagegen",
+      "licenseNote": "Built-in ImageGen Visual Office image; retain its prompt and provenance. No third-party stock license is asserted."
+    },
+    {
+      "path": "web/assets/office-world/hybrid/props/work-desk-v1.png",
+      "bytes": 957142,
+      "sha256": "50b393437ecc869a071e73b1dca2476c8742780f238b24efdaae7e151938afec",
+      "contentType": "image/png",
+      "class": "imagegen",
+      "licenseNote": "Built-in ImageGen Visual Office image; retain its prompt and provenance. No third-party stock license is asserted."
+    },
+    {
+      "path": "web/assets/office-world/idle-campus-desktop.png",
+      "bytes": 2906971,
+      "sha256": "7350175be8b2d83707a8e6a1cefde68bce833ec73fc91409a059d76c041527d3",
+      "contentType": "image/png",
+      "class": "imagegen",
+      "licenseNote": "Built-in ImageGen Visual Office image; retain its prompt and provenance. No third-party stock license is asserted."
+    },
+    {
+      "path": "web/assets/office-world/idle-campus-mobile.png",
+      "bytes": 2884733,
+      "sha256": "a7e3fbb6b57c41edcac119a3bbf82f79b4eadd0ababcf4aa63420bc13d736614",
+      "contentType": "image/png",
+      "class": "imagegen",
+      "licenseNote": "Built-in ImageGen Visual Office image; retain its prompt and provenance. No third-party stock license is asserted."
+    },
+    {
+      "path": "web/assets/office-world/lobby-desktop.png",
+      "bytes": 2040058,
+      "sha256": "9eea8e8449aea07162d1057ab66de68a5eaa24ec918765858bccafa3dceb0912",
+      "contentType": "image/png",
+      "class": "imagegen",
+      "licenseNote": "Built-in ImageGen Visual Office image; retain its prompt and provenance. No third-party stock license is asserted."
+    },
+    {
+      "path": "web/assets/office-world/lobby-mobile.png",
+      "bytes": 2112626,
+      "sha256": "781445d0e736b80dbc7b287309b4e476f2491a1a837de96c8ddf2aea2761f9c8",
+      "contentType": "image/png",
+      "class": "imagegen",
+      "licenseNote": "Built-in ImageGen Visual Office image; retain its prompt and provenance. No third-party stock license is asserted."
+    },
+    {
+      "path": "web/assets/office-world/skins/projects-painted-atlas-r180-v1.png",
+      "bytes": 2187896,
+      "sha256": "d8787f81f2a5e8dc3a5c3b62f29552416dff19806e246bdf12186ba981ee28e5",
+      "contentType": "image/png",
+      "class": "imagegen",
+      "licenseNote": "Built-in ImageGen Visual Office image; retain its prompt and provenance. No third-party stock license is asserted."
+    },
+    {
+      "path": "web/assets/office-world/skins/projects-painted-atlas-r270-v1.png",
+      "bytes": 2128963,
+      "sha256": "dc973dbd7c58ddd39af6fc578dcd6957f9687b5fac4a5f7c5f14b654eabfba35",
+      "contentType": "image/png",
+      "class": "imagegen",
+      "licenseNote": "Built-in ImageGen Visual Office image; retain its prompt and provenance. No third-party stock license is asserted."
+    },
+    {
+      "path": "web/assets/office-world/skins/projects-painted-atlas-r90-v1.png",
+      "bytes": 2089801,
+      "sha256": "0db1acd7d59d616c220fb53381fcafa0f83469646281ed76b4f011126a6c04b9",
+      "contentType": "image/png",
+      "class": "imagegen",
+      "licenseNote": "Built-in ImageGen Visual Office image; retain its prompt and provenance. No third-party stock license is asserted."
+    },
+    {
+      "path": "web/assets/office-world/skins/projects-painted-atlas-v1.png",
+      "bytes": 2120714,
+      "sha256": "4cec81aff8221d67805e3ce039416d3725d2d053d815972c0c252c218247ed1e",
+      "contentType": "image/png",
+      "class": "imagegen",
+      "licenseNote": "Built-in ImageGen Visual Office image; retain its prompt and provenance. No third-party stock license is asserted."
+    },
+    {
+      "path": "web/assets/office-world/skins/projects-surfaces-v1.png",
+      "bytes": 2564533,
+      "sha256": "4ea0d81fd10f3e48d33ff80077722b075b2332f923c1d619d6a4245cbecd5f86",
+      "contentType": "image/png",
+      "class": "imagegen",
+      "licenseNote": "Built-in ImageGen Visual Office image; retain its prompt and provenance. No third-party stock license is asserted."
+    },
+    {
+      "path": "web/assets/studio-styles/anime/desk.png",
+      "bytes": 1077320,
+      "sha256": "6f5ebcb20a371f62a4d95dd2e1f95ea444b24140485292b1b31fa468f5f85668",
+      "contentType": "image/png",
+      "class": "imagegen",
+      "licenseNote": "Built-in ImageGen Visual Office image; retain its prompt and provenance. No third-party stock license is asserted."
+    },
+    {
+      "path": "web/assets/studio-styles/anime/lift.png",
+      "bytes": 1152675,
+      "sha256": "3592b52118ff1940d89df5612cd01b1055629ffb3b3979c18c545386186dd428",
+      "contentType": "image/png",
+      "class": "imagegen",
+      "licenseNote": "Built-in ImageGen Visual Office image; retain its prompt and provenance. No third-party stock license is asserted."
+    },
+    {
+      "path": "web/assets/studio-styles/anime/plant.png",
+      "bytes": 1400055,
+      "sha256": "a5914c1b83c4445b167dcabd89f1c40d04b7e68d58b56e9360b00988868f922d",
+      "contentType": "image/png",
+      "class": "imagegen",
+      "licenseNote": "Built-in ImageGen Visual Office image; retain its prompt and provenance. No third-party stock license is asserted."
+    },
+    {
+      "path": "web/assets/studio-styles/painted/desk.png",
+      "bytes": 1236719,
+      "sha256": "4c414719761410af92009e14d3de576ac7ac46f7a7e9baa61e4d17ad54b0436c",
+      "contentType": "image/png",
+      "class": "imagegen",
+      "licenseNote": "Built-in ImageGen Visual Office image; retain its prompt and provenance. No third-party stock license is asserted."
+    },
+    {
+      "path": "web/assets/studio-styles/painted/lift.png",
+      "bytes": 1334145,
+      "sha256": "88b62285150b633e0846e4679fbf2e5deb3edb030d96b26d478200a6e18a396e",
+      "contentType": "image/png",
+      "class": "imagegen",
+      "licenseNote": "Built-in ImageGen Visual Office image; retain its prompt and provenance. No third-party stock license is asserted."
+    },
+    {
+      "path": "web/assets/studio-styles/painted/plant.png",
+      "bytes": 1431067,
+      "sha256": "394f4143cc51a8d18293e1a8245ef2f432bde3826292267442bf210765fdf006",
+      "contentType": "image/png",
+      "class": "imagegen",
+      "licenseNote": "Built-in ImageGen Visual Office image; retain its prompt and provenance. No third-party stock license is asserted."
+    },
+    {
+      "path": "web/assets/studio-styles/shared/duo.png",
+      "bytes": 968151,
+      "sha256": "cc72ca94be867c7ad2e25c92494e494d3c39832889d7c2b59563523d12ce3e27",
+      "contentType": "image/png",
+      "class": "imagegen",
+      "licenseNote": "Built-in ImageGen Visual Office image; retain its prompt and provenance. No third-party stock license is asserted."
+    },
+    {
+      "path": "web/assets/studio-styles/soft3d/desk.png",
+      "bytes": 1163134,
+      "sha256": "72d48cbbff1fa5f94b5bdc0af1ce167e1f96e4b82d343ccf8e135ae41967b302",
+      "contentType": "image/png",
+      "class": "imagegen",
+      "licenseNote": "Built-in ImageGen Visual Office image; retain its prompt and provenance. No third-party stock license is asserted."
+    },
+    {
+      "path": "web/assets/studio-styles/soft3d/lift.png",
+      "bytes": 1076161,
+      "sha256": "942f1c225174523e2721e19da4a8f1c57535cf3f565d1ce008d85c03905f12d3",
+      "contentType": "image/png",
+      "class": "imagegen",
+      "licenseNote": "Built-in ImageGen Visual Office image; retain its prompt and provenance. No third-party stock license is asserted."
+    },
+    {
+      "path": "web/assets/studio-styles/soft3d/plant.png",
+      "bytes": 1219788,
+      "sha256": "9d43bda1a4f8805bc009250649f32318019909537d7354318559142f104333c0",
+      "contentType": "image/png",
+      "class": "imagegen",
+      "licenseNote": "Built-in ImageGen Visual Office image; retain its prompt and provenance. No third-party stock license is asserted."
+    },
+    {
+      "path": "web/assets/zuri-icon-ink.svg",
+      "bytes": 409,
+      "sha256": "9989cb0d892fe5e515c2d99f1c31f3b987b88d1ccb66527e3a5c3188a3b06011",
+      "contentType": "image/svg+xml",
+      "class": "brand-mark",
+      "licenseNote": "Zuri brand identity artwork; Zuri-owned and has no open redistribution license."
+    },
+    {
+      "path": "web/assets/zuri-wordmark.svg",
+      "bytes": 1398,
+      "sha256": "9d7fe0ca58bc41b02e9073904f96999ca896f77e94f08b694926299c484c52ad",
+      "contentType": "image/svg+xml",
+      "class": "brand-mark",
+      "licenseNote": "Zuri brand identity artwork; Zuri-owned and has no open redistribution license."
+    }
+  ]
+}

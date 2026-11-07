@@ -1,0 +1,442 @@
+{
+  "schemaVersion": "tycoon-assets/v1",
+  "revision": "tycoon-kit/1",
+  "quality": "prototype",
+  "units": "metres",
+  "source": "web/tycoon-models.js",
+  "license": "Original procedural geometry for Visual Office",
+  "assets": [
+    {
+      "kind": "plaza",
+      "id": "tycoon:plaza:1",
+      "size": [
+        16,
+        0.3,
+        12
+      ],
+      "quality": "prototype",
+      "footprint": [
+        16,
+        12
+      ],
+      "file": "plaza.glb",
+      "bytes": 30204,
+      "triangles": 300,
+      "sha256": "69f1330c651fc181b0760f4b0d5a062052c1e7547e7c9ec8221d16a4246f7134"
+    },
+    {
+      "kind": "facade",
+      "id": "tycoon:facade:1",
+      "size": [
+        12,
+        3.2,
+        8
+      ],
+      "quality": "prototype",
+      "footprint": [
+        12,
+        8
+      ],
+      "file": "facade.glb",
+      "bytes": 952780,
+      "triangles": 9600,
+      "sha256": "309dc21ada2398dccc983439d5ed816e42f8eefd8c6196e25c873eb6c4a3b1e5"
+    },
+    {
+      "kind": "roof",
+      "id": "tycoon:roof:1",
+      "size": [
+        12,
+        0.4,
+        8
+      ],
+      "quality": "prototype",
+      "footprint": [
+        12,
+        8
+      ],
+      "file": "roof.glb",
+      "bytes": 30204,
+      "triangles": 300,
+      "sha256": "3fd092217d88dd69c780607d1972eeddb6481ea4237769411c127ba3b49f109c"
+    },
+    {
+      "kind": "floor",
+      "id": "tycoon:floor:1",
+      "size": [
+        1,
+        0.1,
+        1
+      ],
+      "quality": "prototype",
+      "footprint": [
+        1,
+        1
+      ],
+      "file": "floor.glb",
+      "bytes": 30212,
+      "triangles": 300,
+      "sha256": "675aab6d832e66ae118fabcc8269aa52270a36ed7d2306c3bd76d21f5f2189d9"
+    },
+    {
+      "kind": "wall",
+      "id": "tycoon:wall:1",
+      "size": [
+        1,
+        2.8,
+        0.2
+      ],
+      "quality": "prototype",
+      "footprint": [
+        1,
+        0.2
+      ],
+      "file": "wall.glb",
+      "bytes": 30256,
+      "triangles": 300,
+      "sha256": "8adf6c73161880c7528cca7cb89cb6c1fd208cfceef9310e898dce205bbf4e0e"
+    },
+    {
+      "kind": "window",
+      "id": "tycoon:window:1",
+      "size": [
+        1.8,
+        1.8,
+        0.2
+      ],
+      "quality": "prototype",
+      "footprint": [
+        1.8,
+        0.2
+      ],
+      "file": "window.glb",
+      "bytes": 149356,
+      "triangles": 1500,
+      "sha256": "42b16528e0e301c46626f1a6d5da6e1a564d30ca1079bed3dc2e3b66257c57d7"
+    },
+    {
+      "kind": "door-frame",
+      "id": "tycoon:door-frame:1",
+      "size": [
+        1.4,
+        2.35,
+        0.2
+      ],
+      "quality": "prototype",
+      "footprint": [
+        1.4,
+        0.2
+      ],
+      "file": "door-frame.glb",
+      "bytes": 89856,
+      "triangles": 900,
+      "sha256": "a7558234902d90c8608487711cf4b6922aa4f265ef4cbd316afd97dcf9a1074b"
+    },
+    {
+      "kind": "door",
+      "id": "tycoon:door:1",
+      "size": [
+        1.2,
+        2.2,
+        0.06
+      ],
+      "quality": "prototype",
+      "footprint": [
+        1.2,
+        0.06
+      ],
+      "file": "door.glb",
+      "bytes": 60084,
+      "triangles": 600,
+      "sha256": "d0daa31840c86f97fa59f74dd746ab3d45ca46576a7404483d2b014ad3cfe4b4"
+    },
+    {
+      "kind": "glass",
+      "id": "tycoon:glass:1",
+      "size": [
+        1,
+        2,
+        0.08
+      ],
+      "quality": "prototype",
+      "footprint": [
+        1,
+        0.08
+      ],
+      "file": "glass.glb",
+      "bytes": 149124,
+      "triangles": 1500,
+      "sha256": "85694a6b51485b4356b7fce36d2172a7e919892d03ee31c6ad5f7d1d4758b3d2"
+    },
+    {
+      "kind": "column",
+      "id": "tycoon:column:1",
+      "size": [
+        0.3,
+        2.8,
+        0.3
+      ],
+      "quality": "prototype",
+      "footprint": [
+        0.3,
+        0.3
+      ],
+      "file": "column.glb",
+      "bytes": 30312,
+      "triangles": 300,
+      "sha256": "2155583a56fae356fbc24049c5888344cbf7386261ec0678156ea8ce5796a0ba"
+    },
+    {
+      "kind": "skirting",
+      "id": "tycoon:skirting:1",
+      "size": [
+        1,
+        0.12,
+        0.03
+      ],
+      "quality": "prototype",
+      "footprint": [
+        1,
+        0.03
+      ],
+      "file": "skirting.glb",
+      "bytes": 30280,
+      "triangles": 300,
+      "sha256": "3e023e3b4f7f3a279b5a3f2ce575dd222a80082a99dd30379a2e2810fb77f75c"
+    },
+    {
+      "kind": "reception",
+      "id": "tycoon:reception:1",
+      "size": [
+        2.55,
+        1.15,
+        1.1
+      ],
+      "quality": "prototype",
+      "footprint": [
+        2.55,
+        1.1
+      ],
+      "file": "reception.glb",
+      "bytes": 83340,
+      "triangles": 2512,
+      "sha256": "66487c2ad2283e650d8ceaa8bc59054b53f8ddc9072d4131d5f87c7973b58ba8"
+    },
+    {
+      "kind": "lift",
+      "id": "tycoon:lift:1",
+      "size": [
+        2.55,
+        2.7,
+        0.85
+      ],
+      "quality": "prototype",
+      "footprint": [
+        2.55,
+        0.85
+      ],
+      "file": "lift.glb",
+      "bytes": 96964,
+      "triangles": 3000,
+      "sha256": "14193889913a42a9322c1da99e90b9f075327653dcd03663003c73ea3f74ed09"
+    },
+    {
+      "kind": "kiosk",
+      "id": "tycoon:kiosk:1",
+      "size": [
+        0.6,
+        1.4,
+        0.5
+      ],
+      "quality": "prototype",
+      "footprint": [
+        0.6,
+        0.5
+      ],
+      "file": "kiosk.glb",
+      "bytes": 119496,
+      "triangles": 1200,
+      "sha256": "54cada8d78ef20693e772e7c3140c04326d2cf3ff7f1204286a2bf695fdd3a8b"
+    },
+    {
+      "kind": "board",
+      "id": "tycoon:board:1",
+      "size": [
+        1.95,
+        1.8,
+        0.58
+      ],
+      "quality": "prototype",
+      "footprint": [
+        1.95,
+        0.58
+      ],
+      "file": "board.glb",
+      "bytes": 90112,
+      "triangles": 2796,
+      "sha256": "bc772b8e130982bcaebfcc3e5e6047a2c63ec9395ee67143f7e5ce7788de4b38"
+    },
+    {
+      "kind": "desk",
+      "id": "tycoon:desk:1",
+      "size": [
+        1.6,
+        1.3,
+        0.8
+      ],
+      "quality": "prototype",
+      "footprint": [
+        1.6,
+        0.8
+      ],
+      "file": "desk.glb",
+      "bytes": 54060,
+      "triangles": 684,
+      "sha256": "de6c816da6a192ac5226f7b4aad9339c72241321bc122a02151beec202b128fb"
+    },
+    {
+      "kind": "chair",
+      "id": "tycoon:chair:1",
+      "size": [
+        0.9,
+        1,
+        0.95
+      ],
+      "quality": "prototype",
+      "footprint": [
+        0.9,
+        0.95
+      ],
+      "file": "chair.glb",
+      "bytes": 126396,
+      "triangles": 3984,
+      "sha256": "f00aacb451781f78e4236f25cea2baafe01a4005b806c623b18a3e55463721ff"
+    },
+    {
+      "kind": "meeting",
+      "id": "tycoon:meeting:1",
+      "size": [
+        2.7,
+        0.76,
+        1.45
+      ],
+      "quality": "prototype",
+      "footprint": [
+        2.7,
+        1.45
+      ],
+      "file": "meeting.glb",
+      "bytes": 100220,
+      "triangles": 3300,
+      "sha256": "7f49b2736c0da73e641bd430af760f631ab27c261553a408e5a2f94cb5bf67a5"
+    },
+    {
+      "kind": "sofa",
+      "id": "tycoon:sofa:1",
+      "size": [
+        2.05,
+        1,
+        1.05
+      ],
+      "quality": "prototype",
+      "footprint": [
+        2.05,
+        1.05
+      ],
+      "file": "sofa.glb",
+      "bytes": 111040,
+      "triangles": 3600,
+      "sha256": "5b0bbb2bcce4d19125c44cbcab293f82b9870a067503864bc43e116b4b708ba2"
+    },
+    {
+      "kind": "coffee-table",
+      "id": "tycoon:coffee-table:1",
+      "size": [
+        1.65,
+        0.45,
+        1.35
+      ],
+      "quality": "prototype",
+      "footprint": [
+        1.65,
+        1.35
+      ],
+      "file": "coffee-table.glb",
+      "bytes": 39708,
+      "triangles": 992,
+      "sha256": "b590f424ecd6a8ffa9329edf0471e197951a57aa4aba71b0108d44b3bbef4fda"
+    },
+    {
+      "kind": "coffee",
+      "id": "tycoon:coffee:1",
+      "size": [
+        1.55,
+        1.55,
+        0.88
+      ],
+      "quality": "prototype",
+      "footprint": [
+        1.55,
+        0.88
+      ],
+      "file": "coffee.glb",
+      "bytes": 95776,
+      "triangles": 2884,
+      "sha256": "2a5d96a4b339502a657b930f98ca899b9996bead781ef7f9127d6d9dc235d748"
+    },
+    {
+      "kind": "cabinet",
+      "id": "tycoon:cabinet:1",
+      "size": [
+        1.55,
+        1.8,
+        0.85
+      ],
+      "quality": "prototype",
+      "footprint": [
+        1.55,
+        0.85
+      ],
+      "file": "cabinet.glb",
+      "bytes": 84148,
+      "triangles": 2700,
+      "sha256": "723db45bf67b9b6fc8b08212734a851321fa00c4ac82586d0034fd72dfa13763"
+    },
+    {
+      "kind": "plant",
+      "id": "tycoon:plant:1",
+      "size": [
+        0.6,
+        1.35,
+        0.6
+      ],
+      "quality": "prototype",
+      "footprint": [
+        0.6,
+        0.6
+      ],
+      "file": "plant.glb",
+      "bytes": 22484,
+      "triangles": 520,
+      "sha256": "75a5eccb0d7fdc5b96a9cc96c91f4e760e486df7dde71bfb5014abe7e77c2466"
+    },
+    {
+      "kind": "actor",
+      "id": "tycoon:actor:1",
+      "size": [
+        0.55,
+        1.7,
+        0.4
+      ],
+      "quality": "prototype",
+      "footprint": [
+        0.55,
+        0.4
+      ],
+      "file": "actor.glb",
+      "bytes": 328060,
+      "triangles": 7294,
+      "sha256": "ac93da5b3ab3cd541c1451f728b252e3c0608fec797ef3babd3376b04898bc76"
+    }
+  ]
+}

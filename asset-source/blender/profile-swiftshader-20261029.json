@@ -1,0 +1,17 @@
+{
+  "browser": "156.0.8078.48",
+  "device": "headless Chrome; ANGLE SwiftShader",
+  "gpu": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+  "viewport": "1280x800 DPR 1",
+  "durationMs": 60030.800000000745,
+  "loadMs": 790.2000000011176,
+  "frames": 657,
+  "meanFps": 10.930980094635334,
+  "p50Ms": 83.40000000000146,
+  "p95Ms": 100.10000000000036,
+  "maxDrawCalls": 181,
+  "maxTriangles": 54718,
+  "geometryObjects": 101,
+  "textures": 24,
+  "jsHeapBytes": 19874622
+}

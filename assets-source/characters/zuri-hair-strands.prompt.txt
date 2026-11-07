@@ -1,0 +1,5 @@
+Tool: built-in image_gen.imagegen
+Use: original hair base-color texture for Zuri head correction (not provider geometry)
+SHA-256: 0f35a7006a67a8aecda482eade0483fffdf18362379e5fd12ce55fe54821707e
+
+Create a production-ready square base-color texture for dark chestnut brown anime 3D hair locks. This is ONLY a texture atlas, not a portrait or object or wig. Entire square is filled edge to edge with long thin flowing parallel hair fibers running VERTICALLY top to bottom. Deep chocolate chestnut base #4D2D20, subtle warm medium-brown thin fibers #724D35, darker fine grooves. Painted stylized 3D game quality, silky understated detail, soft continuous strand flow, narrow subtle variation, no broad white highlight stripe. Very even diffuse illumination, no cast shadows, no lighting gradients across image, no black border, no scalp, no roots, no tips, no text, no objects, no face, no empty margin. Continuous repeat horizontally, strands run full image height. Fine high-frequency strand details, low contrast. Flat PBR albedo for hair surfaces, not a finished beauty render.

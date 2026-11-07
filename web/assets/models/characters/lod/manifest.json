@@ -1,0 +1,5072 @@
+{
+  "schemaVersion": "brand-character-lods/v1",
+  "quality": "candidate-unreviewed",
+  "units": "metres",
+  "blender": "5.2.2 LTS",
+  "blenderBuild": "d13f752e3b9c",
+  "pipelineSha256": "d12c960831fbd32fe7d776f76f01551cf1a9a84bb3599e4a2110a28de35aca46",
+  "skinInfluenceGuard": 0.02,
+  "sourceManifest": "web/assets/models/characters/manifest.json",
+  "artApproved": false,
+  "physicalDevicePerformance": "unmeasured",
+  "assets": [
+    {
+      "id": "zuri",
+      "file": "zuri-lod1.glb",
+      "bytes": 5515484,
+      "sha256": "cbc2fc0743cd42cafee7901733666bf856436b6e9b07482b17a50e0cd4da823e",
+      "triangles": 81438,
+      "meshes": 21,
+      "materials": 12,
+      "primitives": 24,
+      "skins": 1,
+      "bones": [
+        "Chest",
+        "Foot.L",
+        "Foot.R",
+        "Forearm.L",
+        "Forearm.R",
+        "Hand.L",
+        "Hand.R",
+        "Head",
+        "Hips",
+        "Neck",
+        "Root",
+        "Shin.L",
+        "Shin.R",
+        "Shoulder.L",
+        "Shoulder.R",
+        "Spine",
+        "Thigh.L",
+        "Thigh.R",
+        "Toe.L",
+        "Toe.R",
+        "UpperArm.L",
+        "UpperArm.R",
+        "UpperChest",
+        "f_index.01.L",
+        "f_index.01.R",
+        "f_index.02.L",
+        "f_index.02.R",
+        "f_index.03.L",
+        "f_index.03.R",
+        "f_middle.01.L",
+        "f_middle.01.R",
+        "f_middle.02.L",
+        "f_middle.02.R",
+        "f_middle.03.L",
+        "f_middle.03.R",
+        "f_pinky.01.L",
+        "f_pinky.01.R",
+        "f_pinky.02.L",
+        "f_pinky.02.R",
+        "f_pinky.03.L",
+        "f_pinky.03.R",
+        "f_ring.01.L",
+        "f_ring.01.R",
+        "f_ring.02.L",
+        "f_ring.02.R",
+        "f_ring.03.L",
+        "f_ring.03.R",
+        "thumb.01.L",
+        "thumb.01.R",
+        "thumb.02.L",
+        "thumb.02.R",
+        "thumb.03.L",
+        "thumb.03.R"
+      ],
+      "clips": [
+        "idle",
+        "seated",
+        "walking"
+      ],
+      "textures": [
+        {
+          "name": "Zuri_Chestnut_Strand_Albedo",
+          "mimeType": "image/png",
+          "width": 1024,
+          "height": 1024,
+          "bytes": 154998
+        },
+        {
+          "name": "Zuri_Amber_Iris_Detail",
+          "mimeType": "image/png",
+          "width": 512,
+          "height": 512,
+          "bytes": 226678
+        },
+        {
+          "name": "Zuri_Warm_Skin_Albedo",
+          "mimeType": "image/png",
+          "width": 1024,
+          "height": 1024,
+          "bytes": 1362689
+        },
+        {
+          "name": "Zuri_Cardigan_Woven_Check",
+          "mimeType": "image/png",
+          "width": 1024,
+          "height": 1024,
+          "bytes": 31165
+        },
+        {
+          "name": "Zuri_Face_Baked_Albedo",
+          "mimeType": "image/png",
+          "width": 1024,
+          "height": 1024,
+          "bytes": 48788
+        }
+      ],
+      "source": "web/assets/models/characters/candidates/zuri-face-r4.glb",
+      "sourceSha256": "68fdfc353eb2ca71f0c4ebef4453157033c11dd5a62d92249f347104458516ab",
+      "before": {
+        "bytes": 10498996,
+        "sha256": "68fdfc353eb2ca71f0c4ebef4453157033c11dd5a62d92249f347104458516ab",
+        "triangles": 202880,
+        "meshes": 21,
+        "materials": 12,
+        "primitives": 24,
+        "skins": 1,
+        "bones": [
+          "Chest",
+          "Foot.L",
+          "Foot.R",
+          "Forearm.L",
+          "Forearm.R",
+          "Hand.L",
+          "Hand.R",
+          "Head",
+          "Hips",
+          "Neck",
+          "Root",
+          "Shin.L",
+          "Shin.R",
+          "Shoulder.L",
+          "Shoulder.R",
+          "Spine",
+          "Thigh.L",
+          "Thigh.R",
+          "Toe.L",
+          "Toe.R",
+          "UpperArm.L",
+          "UpperArm.R",
+          "UpperChest",
+          "f_index.01.L",
+          "f_index.01.R",
+          "f_index.02.L",
+          "f_index.02.R",
+          "f_index.03.L",
+          "f_index.03.R",
+          "f_middle.01.L",
+          "f_middle.01.R",
+          "f_middle.02.L",
+          "f_middle.02.R",
+          "f_middle.03.L",
+          "f_middle.03.R",
+          "f_pinky.01.L",
+          "f_pinky.01.R",
+          "f_pinky.02.L",
+          "f_pinky.02.R",
+          "f_pinky.03.L",
+          "f_pinky.03.R",
+          "f_ring.01.L",
+          "f_ring.01.R",
+          "f_ring.02.L",
+          "f_ring.02.R",
+          "f_ring.03.L",
+          "f_ring.03.R",
+          "thumb.01.L",
+          "thumb.01.R",
+          "thumb.02.L",
+          "thumb.02.R",
+          "thumb.03.L",
+          "thumb.03.R"
+        ],
+        "clips": [
+          "idle",
+          "seated",
+          "walking"
+        ],
+        "textures": [
+          {
+            "name": "Zuri_Chestnut_Strand_Albedo",
+            "mimeType": "image/png",
+            "width": 1024,
+            "height": 1024,
+            "bytes": 154998
+          },
+          {
+            "name": "Zuri_Amber_Iris_Detail",
+            "mimeType": "image/png",
+            "width": 512,
+            "height": 512,
+            "bytes": 226678
+          },
+          {
+            "name": "Zuri_Warm_Skin_Albedo",
+            "mimeType": "image/png",
+            "width": 1024,
+            "height": 1024,
+            "bytes": 1362689
+          },
+          {
+            "name": "Zuri_Cardigan_Woven_Check",
+            "mimeType": "image/png",
+            "width": 1024,
+            "height": 1024,
+            "bytes": 31165
+          },
+          {
+            "name": "Zuri_Face_Baked_Albedo",
+            "mimeType": "image/png",
+            "width": 1024,
+            "height": 1024,
+            "bytes": 48788
+          }
+        ]
+      },
+      "changes": [
+        {
+          "node": "Eye Brows",
+          "primitive": 0,
+          "before": 624,
+          "after": 624,
+          "ratioRequested": 1.0,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "Eye Lashes",
+          "primitive": 0,
+          "before": 840,
+          "after": 840,
+          "ratioRequested": 1.0,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "Eye.L",
+          "primitive": 0,
+          "before": 992,
+          "after": 992,
+          "ratioRequested": 1.0,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "Eye.L",
+          "primitive": 1,
+          "before": 608,
+          "after": 608,
+          "ratioRequested": 1.0,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "Eye.R",
+          "primitive": 0,
+          "before": 992,
+          "after": 992,
+          "ratioRequested": 1.0,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "Eye.R",
+          "primitive": 1,
+          "before": 608,
+          "after": 608,
+          "ratioRequested": 1.0,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "Hands",
+          "primitive": 0,
+          "before": 20064,
+          "after": 4011,
+          "ratioRequested": 0.2,
+          "ratioApplied": 0.2,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0.013342980295419693,
+          "attempts": [
+            {
+              "ratio": 0.2,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "Jacket",
+          "primitive": 0,
+          "before": 5892,
+          "after": 1472,
+          "ratioRequested": 0.25,
+          "ratioApplied": 0.25,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.25,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "Pant.002",
+          "primitive": 0,
+          "before": 36288,
+          "after": 2903,
+          "ratioRequested": 0.08,
+          "ratioApplied": 0.08,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.08,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "Retopo-Girl",
+          "primitive": 0,
+          "before": 21156,
+          "after": 21156,
+          "ratioRequested": 1.0,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "Shoes",
+          "primitive": 0,
+          "before": 1282,
+          "after": 1282,
+          "ratioRequested": 1.0,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "Shoes",
+          "primitive": 1,
+          "before": 726,
+          "after": 726,
+          "ratioRequested": 1.0,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "Tongue",
+          "primitive": 0,
+          "before": 616,
+          "after": 616,
+          "ratioRequested": 1.0,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "Zuri_Bob_Unified",
+          "primitive": 0,
+          "before": 71552,
+          "after": 8586,
+          "ratioRequested": 0.12,
+          "ratioApplied": 0.12,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.12,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "Zuri_Cardigan_Torso",
+          "primitive": 0,
+          "before": 25024,
+          "after": 24522,
+          "ratioRequested": 0.08,
+          "ratioApplied": 0.98,
+          "retainedMoreThanPlanned": true,
+          "retentionReason": "skin-influence-guard",
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.08,
+              "accepted": false,
+              "reason": "skin-influence-loss",
+              "droppedWeight": 0.021854117512702942
+            },
+            {
+              "ratio": 0.25,
+              "accepted": false,
+              "reason": "skin-influence-loss",
+              "droppedWeight": 0.03262002393603325
+            },
+            {
+              "ratio": 0.5,
+              "accepted": false,
+              "reason": "skin-influence-loss",
+              "droppedWeight": 0.048001717776060104
+            },
+            {
+              "ratio": 0.75,
+              "accepted": false,
+              "reason": "skin-influence-loss",
+              "droppedWeight": 0.025163065642118454
+            },
+            {
+              "ratio": 0.9,
+              "accepted": false,
+              "reason": "skin-influence-loss",
+              "droppedWeight": 0.025163065642118454
+            },
+            {
+              "ratio": 0.98,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "Zuri_Crew_Neck",
+          "primitive": 0,
+          "before": 4480,
+          "after": 1120,
+          "ratioRequested": 0.25,
+          "ratioApplied": 0.25,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.25,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "Zuri_Glasses_Bridge",
+          "primitive": 0,
+          "before": 496,
+          "after": 496,
+          "ratioRequested": 0.25,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": true,
+          "retentionReason": "visual-qa-glasses-overlap",
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "Zuri_Glasses_Rim_1",
+          "primitive": 0,
+          "before": 3840,
+          "after": 3840,
+          "ratioRequested": 0.25,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": true,
+          "retentionReason": "visual-qa-glasses-overlap",
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "Zuri_Glasses_Rim_-1",
+          "primitive": 0,
+          "before": 3840,
+          "after": 3840,
+          "ratioRequested": 0.25,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": true,
+          "retentionReason": "visual-qa-glasses-overlap",
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "Zuri_Glasses_Temple_1",
+          "primitive": 0,
+          "before": 976,
+          "after": 976,
+          "ratioRequested": 0.25,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": true,
+          "retentionReason": "visual-qa-glasses-overlap",
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "Zuri_Glasses_Temple_-1",
+          "primitive": 0,
+          "before": 976,
+          "after": 976,
+          "ratioRequested": 0.25,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": true,
+          "retentionReason": "visual-qa-glasses-overlap",
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "Zuri_Orange_Clip",
+          "primitive": 0,
+          "before": 496,
+          "after": 124,
+          "ratioRequested": 0.25,
+          "ratioApplied": 0.25,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.25,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "Zuri_Orange_Pin_0",
+          "primitive": 0,
+          "before": 256,
+          "after": 64,
+          "ratioRequested": 0.25,
+          "ratioApplied": 0.25,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.25,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "Zuri_Orange_Pin_2",
+          "primitive": 0,
+          "before": 256,
+          "after": 64,
+          "ratioRequested": 0.25,
+          "ratioApplied": 0.25,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.25,
+              "accepted": true
+            }
+          ]
+        }
+      ],
+      "lod": 1,
+      "artApproved": false,
+      "targets": {
+        "triangles": 40000,
+        "bytes": 3000000
+      },
+      "targetMet": false,
+      "limitations": [
+        "Candidate requires multi-angle, animation and browser review.",
+        "Faces, contact soles and original textures are protected; budgets are guidance.",
+        "Physical-device performance is unmeasured; art remains unapproved."
+      ]
+    },
+    {
+      "id": "wangjai",
+      "file": "wangjai-lod1.glb",
+      "bytes": 1065284,
+      "sha256": "028c0371d725512e87f3518bbdf1610717bdfabda2ab86ee33411d8de541f371",
+      "triangles": 24992,
+      "meshes": 39,
+      "materials": 6,
+      "primitives": 39,
+      "skins": 0,
+      "bones": [],
+      "clips": [
+        "idle",
+        "walking",
+        "seated",
+        "wave",
+        "point"
+      ],
+      "textures": [],
+      "source": "web/assets/models/characters/wangjai.glb",
+      "sourceSha256": "5bf4e7886fd6f0844ebd54b60aa31a1383e32f0bf1bfa5bfb681d8a60aa4f09e",
+      "before": {
+        "bytes": 1930704,
+        "sha256": "5bf4e7886fd6f0844ebd54b60aa31a1383e32f0bf1bfa5bfb681d8a60aa4f09e",
+        "triangles": 61646,
+        "meshes": 39,
+        "materials": 6,
+        "primitives": 39,
+        "skins": 0,
+        "bones": [],
+        "clips": [
+          "idle",
+          "walking",
+          "seated",
+          "wave",
+          "point"
+        ],
+        "textures": []
+      },
+      "changes": [
+        {
+          "node": "wangjai-shell",
+          "primitive": 0,
+          "before": 8960,
+          "after": 8960,
+          "ratioRequested": 0.5,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": true,
+          "retentionReason": "visual-qa-visor-ear-surface-overlap",
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "wangjai-visor",
+          "primitive": 0,
+          "before": 2560,
+          "after": 2560,
+          "ratioRequested": 0.5,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": true,
+          "retentionReason": "visual-qa-visor-ear-surface-overlap",
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "wangjai-visor-bezel",
+          "primitive": 0,
+          "before": 3072,
+          "after": 614,
+          "ratioRequested": 0.2,
+          "ratioApplied": 0.2,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.2,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "wangjai-eye-left",
+          "primitive": 0,
+          "before": 2160,
+          "after": 1080,
+          "ratioRequested": 0.5,
+          "ratioApplied": 0.5,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.5,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "wangjai-eye-right",
+          "primitive": 0,
+          "before": 2160,
+          "after": 1080,
+          "ratioRequested": 0.5,
+          "ratioApplied": 0.5,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.5,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "wangjai-smile",
+          "primitive": 0,
+          "before": 46,
+          "after": 46,
+          "ratioRequested": 1.0,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "wangjai-rear-service-seam",
+          "primitive": 0,
+          "before": 3072,
+          "after": 614,
+          "ratioRequested": 0.2,
+          "ratioApplied": 0.2,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.2,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "wangjai-ear-left-gasket",
+          "primitive": 0,
+          "before": 256,
+          "after": 256,
+          "ratioRequested": 0.2,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": true,
+          "retentionReason": "visual-qa-visor-ear-surface-overlap",
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "wangjai-ear-left-shell",
+          "primitive": 0,
+          "before": 256,
+          "after": 256,
+          "ratioRequested": 0.2,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": true,
+          "retentionReason": "visual-qa-visor-ear-surface-overlap",
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "wangjai-ear-left-bevel",
+          "primitive": 0,
+          "before": 256,
+          "after": 256,
+          "ratioRequested": 0.2,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": true,
+          "retentionReason": "visual-qa-visor-ear-surface-overlap",
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "wangjai-ear-left-recess",
+          "primitive": 0,
+          "before": 256,
+          "after": 256,
+          "ratioRequested": 0.2,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": true,
+          "retentionReason": "visual-qa-visor-ear-surface-overlap",
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "wangjai-ear-left-face",
+          "primitive": 0,
+          "before": 256,
+          "after": 256,
+          "ratioRequested": 0.2,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": true,
+          "retentionReason": "visual-qa-visor-ear-surface-overlap",
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "wangjai-ear-right-gasket",
+          "primitive": 0,
+          "before": 256,
+          "after": 256,
+          "ratioRequested": 0.2,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": true,
+          "retentionReason": "visual-qa-visor-ear-surface-overlap",
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "wangjai-ear-right-shell",
+          "primitive": 0,
+          "before": 256,
+          "after": 256,
+          "ratioRequested": 0.2,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": true,
+          "retentionReason": "visual-qa-visor-ear-surface-overlap",
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "wangjai-ear-right-bevel",
+          "primitive": 0,
+          "before": 256,
+          "after": 256,
+          "ratioRequested": 0.2,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": true,
+          "retentionReason": "visual-qa-visor-ear-surface-overlap",
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "wangjai-ear-right-recess",
+          "primitive": 0,
+          "before": 256,
+          "after": 256,
+          "ratioRequested": 0.2,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": true,
+          "retentionReason": "visual-qa-visor-ear-surface-overlap",
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "wangjai-ear-right-face",
+          "primitive": 0,
+          "before": 256,
+          "after": 256,
+          "ratioRequested": 0.2,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": true,
+          "retentionReason": "visual-qa-visor-ear-surface-overlap",
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "wangjai-left-shoulder",
+          "primitive": 0,
+          "before": 2160,
+          "after": 431,
+          "ratioRequested": 0.2,
+          "ratioApplied": 0.2,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.2,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "wangjai-left-sleeve",
+          "primitive": 0,
+          "before": 576,
+          "after": 114,
+          "ratioRequested": 0.2,
+          "ratioApplied": 0.2,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.2,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "wangjai-left-cuff",
+          "primitive": 0,
+          "before": 2160,
+          "after": 432,
+          "ratioRequested": 0.2,
+          "ratioApplied": 0.2,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.2,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "wangjai-left-mitten",
+          "primitive": 0,
+          "before": 2160,
+          "after": 432,
+          "ratioRequested": 0.2,
+          "ratioApplied": 0.2,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.2,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "wangjai-left-thumb",
+          "primitive": 0,
+          "before": 2160,
+          "after": 432,
+          "ratioRequested": 0.2,
+          "ratioApplied": 0.2,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.2,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "wangjai-left-point-finger",
+          "primitive": 0,
+          "before": 2160,
+          "after": 432,
+          "ratioRequested": 0.2,
+          "ratioApplied": 0.2,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.2,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "wangjai-right-shoulder",
+          "primitive": 0,
+          "before": 2160,
+          "after": 431,
+          "ratioRequested": 0.2,
+          "ratioApplied": 0.2,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.2,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "wangjai-right-sleeve",
+          "primitive": 0,
+          "before": 576,
+          "after": 114,
+          "ratioRequested": 0.2,
+          "ratioApplied": 0.2,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.2,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "wangjai-right-cuff",
+          "primitive": 0,
+          "before": 2160,
+          "after": 432,
+          "ratioRequested": 0.2,
+          "ratioApplied": 0.2,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.2,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "wangjai-right-mitten",
+          "primitive": 0,
+          "before": 2160,
+          "after": 432,
+          "ratioRequested": 0.2,
+          "ratioApplied": 0.2,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.2,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "wangjai-right-thumb",
+          "primitive": 0,
+          "before": 2160,
+          "after": 432,
+          "ratioRequested": 0.2,
+          "ratioApplied": 0.2,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.2,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "wangjai-right-point-finger",
+          "primitive": 0,
+          "before": 2160,
+          "after": 432,
+          "ratioRequested": 0.2,
+          "ratioApplied": 0.2,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.2,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "wangjai-left-hip-joint",
+          "primitive": 0,
+          "before": 2160,
+          "after": 432,
+          "ratioRequested": 0.2,
+          "ratioApplied": 0.2,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.2,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "wangjai-left-shin",
+          "primitive": 0,
+          "before": 480,
+          "after": 95,
+          "ratioRequested": 0.2,
+          "ratioApplied": 0.2,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.2,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "wangjai-left-ankle-joint",
+          "primitive": 0,
+          "before": 2160,
+          "after": 432,
+          "ratioRequested": 0.2,
+          "ratioApplied": 0.2,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.2,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "wangjai-left-shoe",
+          "primitive": 0,
+          "before": 2304,
+          "after": 459,
+          "ratioRequested": 0.2,
+          "ratioApplied": 0.2,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.2,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "wangjai-left-sole",
+          "primitive": 0,
+          "before": 48,
+          "after": 48,
+          "ratioRequested": 1.0,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "wangjai-right-hip-joint",
+          "primitive": 0,
+          "before": 2160,
+          "after": 432,
+          "ratioRequested": 0.2,
+          "ratioApplied": 0.2,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.2,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "wangjai-right-shin",
+          "primitive": 0,
+          "before": 480,
+          "after": 95,
+          "ratioRequested": 0.2,
+          "ratioApplied": 0.2,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.2,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "wangjai-right-ankle-joint",
+          "primitive": 0,
+          "before": 2160,
+          "after": 432,
+          "ratioRequested": 0.2,
+          "ratioApplied": 0.2,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.2,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "wangjai-right-shoe",
+          "primitive": 0,
+          "before": 2304,
+          "after": 459,
+          "ratioRequested": 0.2,
+          "ratioApplied": 0.2,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.2,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "wangjai-right-sole",
+          "primitive": 0,
+          "before": 48,
+          "after": 48,
+          "ratioRequested": 1.0,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        }
+      ],
+      "lod": 1,
+      "artApproved": false,
+      "targets": {
+        "triangles": 25000,
+        "bytes": 1500000
+      },
+      "targetMet": true,
+      "limitations": [
+        "Candidate requires multi-angle, animation and browser review.",
+        "Faces, contact soles and original textures are protected; budgets are guidance.",
+        "Physical-device performance is unmeasured; art remains unapproved."
+      ]
+    },
+    {
+      "id": "staff-a",
+      "file": "staff-a-lod1.glb",
+      "bytes": 2133460,
+      "sha256": "8ba881aa77ffcfca622023859d5b88a0790bcde616f025f849cf8456e452e5c2",
+      "triangles": 33264,
+      "meshes": 113,
+      "materials": 23,
+      "primitives": 113,
+      "skins": 15,
+      "bones": [
+        "chest",
+        "head",
+        "hips",
+        "left-ankle",
+        "left-elbow",
+        "left-hand",
+        "left-hip",
+        "left-knee",
+        "left-shoulder",
+        "neck",
+        "right-ankle",
+        "right-elbow",
+        "right-hand",
+        "right-hip",
+        "right-knee",
+        "right-shoulder",
+        "spine"
+      ],
+      "clips": [
+        "idle",
+        "walking",
+        "seated",
+        "wave",
+        "point"
+      ],
+      "textures": [
+        {
+          "name": "original-hair-fibres",
+          "mimeType": "image/png",
+          "width": 256,
+          "height": 512,
+          "bytes": 62028
+        }
+      ],
+      "source": "web/assets/models/characters/staff-a.glb",
+      "sourceSha256": "9e82d9d5b783e49ce0e902bd13e9398f3255e86c380b481f45266e608c38e7fc",
+      "before": {
+        "bytes": 4095188,
+        "sha256": "9e82d9d5b783e49ce0e902bd13e9398f3255e86c380b481f45266e608c38e7fc",
+        "triangles": 101544,
+        "meshes": 113,
+        "materials": 23,
+        "primitives": 113,
+        "skins": 15,
+        "bones": [
+          "chest",
+          "head",
+          "hips",
+          "left-ankle",
+          "left-elbow",
+          "left-hand",
+          "left-hip",
+          "left-knee",
+          "left-shoulder",
+          "neck",
+          "right-ankle",
+          "right-elbow",
+          "right-hand",
+          "right-hip",
+          "right-knee",
+          "right-shoulder",
+          "spine"
+        ],
+        "clips": [
+          "idle",
+          "walking",
+          "seated",
+          "wave",
+          "point"
+        ],
+        "textures": [
+          {
+            "name": "original-hair-fibres",
+            "mimeType": "image/png",
+            "width": 256,
+            "height": 512,
+            "bytes": 62028
+          }
+        ]
+      },
+      "changes": [
+        {
+          "node": "sculpted-face",
+          "primitive": 0,
+          "before": 10240,
+          "after": 10240,
+          "ratioRequested": 1.0,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "ear--1",
+          "primitive": 0,
+          "before": 1472,
+          "after": 441,
+          "ratioRequested": 0.3,
+          "ratioApplied": 0.3,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.3,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "ear-fold--1",
+          "primitive": 0,
+          "before": 1472,
+          "after": 441,
+          "ratioRequested": 0.3,
+          "ratioApplied": 0.3,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.3,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "brow--1",
+          "primitive": 0,
+          "before": 224,
+          "after": 224,
+          "ratioRequested": 1.0,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "nostril--1",
+          "primitive": 0,
+          "before": 112,
+          "after": 112,
+          "ratioRequested": 1.0,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "eye-white--1",
+          "primitive": 0,
+          "before": 1280,
+          "after": 383,
+          "ratioRequested": 0.3,
+          "ratioApplied": 0.3,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.3,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "iris--1",
+          "primitive": 0,
+          "before": 1344,
+          "after": 403,
+          "ratioRequested": 0.3,
+          "ratioApplied": 0.3,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.3,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "pupil--1",
+          "primitive": 0,
+          "before": 920,
+          "after": 276,
+          "ratioRequested": 0.3,
+          "ratioApplied": 0.3,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.3,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "catchlight--1",
+          "primitive": 0,
+          "before": 736,
+          "after": 220,
+          "ratioRequested": 0.3,
+          "ratioApplied": 0.3,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.3,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "catchlight-small--1",
+          "primitive": 0,
+          "before": 460,
+          "after": 138,
+          "ratioRequested": 0.3,
+          "ratioApplied": 0.3,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.3,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "upper-lash--1",
+          "primitive": 0,
+          "before": 288,
+          "after": 288,
+          "ratioRequested": 1.0,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "lower-lid--1",
+          "primitive": 0,
+          "before": 280,
+          "after": 280,
+          "ratioRequested": 1.0,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "eyelid-fold--1",
+          "primitive": 0,
+          "before": 280,
+          "after": 280,
+          "ratioRequested": 1.0,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "outer-lash--1",
+          "primitive": 0,
+          "before": 168,
+          "after": 168,
+          "ratioRequested": 1.0,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "ear-1",
+          "primitive": 0,
+          "before": 1472,
+          "after": 441,
+          "ratioRequested": 0.3,
+          "ratioApplied": 0.3,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.3,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "ear-fold-1",
+          "primitive": 0,
+          "before": 1472,
+          "after": 441,
+          "ratioRequested": 0.3,
+          "ratioApplied": 0.3,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.3,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "brow-1",
+          "primitive": 0,
+          "before": 224,
+          "after": 224,
+          "ratioRequested": 1.0,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "nostril-1",
+          "primitive": 0,
+          "before": 112,
+          "after": 112,
+          "ratioRequested": 1.0,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "eye-white-1",
+          "primitive": 0,
+          "before": 1280,
+          "after": 384,
+          "ratioRequested": 0.3,
+          "ratioApplied": 0.3,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.3,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "iris-1",
+          "primitive": 0,
+          "before": 1344,
+          "after": 402,
+          "ratioRequested": 0.3,
+          "ratioApplied": 0.3,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.3,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "pupil-1",
+          "primitive": 0,
+          "before": 920,
+          "after": 276,
+          "ratioRequested": 0.3,
+          "ratioApplied": 0.3,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.3,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "catchlight-1",
+          "primitive": 0,
+          "before": 736,
+          "after": 220,
+          "ratioRequested": 0.3,
+          "ratioApplied": 0.3,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.3,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "catchlight-small-1",
+          "primitive": 0,
+          "before": 460,
+          "after": 138,
+          "ratioRequested": 0.3,
+          "ratioApplied": 0.3,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.3,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "upper-lash-1",
+          "primitive": 0,
+          "before": 288,
+          "after": 288,
+          "ratioRequested": 1.0,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "lower-lid-1",
+          "primitive": 0,
+          "before": 280,
+          "after": 280,
+          "ratioRequested": 1.0,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "eyelid-fold-1",
+          "primitive": 0,
+          "before": 280,
+          "after": 280,
+          "ratioRequested": 1.0,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "outer-lash-1",
+          "primitive": 0,
+          "before": 168,
+          "after": 168,
+          "ratioRequested": 1.0,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "soft-lip-surface",
+          "primitive": 0,
+          "before": 720,
+          "after": 720,
+          "ratioRequested": 1.0,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "closed-smile",
+          "primitive": 0,
+          "before": 336,
+          "after": 336,
+          "ratioRequested": 1.0,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "hair-volume",
+          "primitive": 0,
+          "before": 4096,
+          "after": 901,
+          "ratioRequested": 0.22,
+          "ratioApplied": 0.22,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.22,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "temple-lock--1",
+          "primitive": 0,
+          "before": 768,
+          "after": 168,
+          "ratioRequested": 0.22,
+          "ratioApplied": 0.22,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.22,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "temple-lock-1",
+          "primitive": 0,
+          "before": 768,
+          "after": 168,
+          "ratioRequested": 0.22,
+          "ratioApplied": 0.22,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.22,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "ponytail-lock-0",
+          "primitive": 0,
+          "before": 768,
+          "after": 168,
+          "ratioRequested": 0.22,
+          "ratioApplied": 0.22,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.22,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "ponytail-lock-1",
+          "primitive": 0,
+          "before": 768,
+          "after": 167,
+          "ratioRequested": 0.22,
+          "ratioApplied": 0.22,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.22,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "ponytail-lock-2",
+          "primitive": 0,
+          "before": 768,
+          "after": 167,
+          "ratioRequested": 0.22,
+          "ratioApplied": 0.22,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.22,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "ponytail-lock-3",
+          "primitive": 0,
+          "before": 768,
+          "after": 168,
+          "ratioRequested": 0.22,
+          "ratioApplied": 0.22,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.22,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "ponytail-lock-4",
+          "primitive": 0,
+          "before": 768,
+          "after": 167,
+          "ratioRequested": 0.22,
+          "ratioApplied": 0.22,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.22,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "ponytail-lock-5",
+          "primitive": 0,
+          "before": 768,
+          "after": 168,
+          "ratioRequested": 0.22,
+          "ratioApplied": 0.22,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.22,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "ponytail-lock-6",
+          "primitive": 0,
+          "before": 768,
+          "after": 167,
+          "ratioRequested": 0.22,
+          "ratioApplied": 0.22,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.22,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "side-part-fringe",
+          "primitive": 0,
+          "before": 3456,
+          "after": 760,
+          "ratioRequested": 0.22,
+          "ratioApplied": 0.22,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.22,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "swept-fringe-wisp-0",
+          "primitive": 0,
+          "before": 768,
+          "after": 168,
+          "ratioRequested": 0.22,
+          "ratioApplied": 0.22,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.22,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "swept-fringe-wisp-1",
+          "primitive": 0,
+          "before": 768,
+          "after": 168,
+          "ratioRequested": 0.22,
+          "ratioApplied": 0.22,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.22,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "swept-fringe-wisp-2",
+          "primitive": 0,
+          "before": 768,
+          "after": 167,
+          "ratioRequested": 0.22,
+          "ratioApplied": 0.22,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.22,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "swept-fringe-wisp-3",
+          "primitive": 0,
+          "before": 768,
+          "after": 168,
+          "ratioRequested": 0.22,
+          "ratioApplied": 0.22,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.22,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "gathered-hair-0",
+          "primitive": 0,
+          "before": 768,
+          "after": 167,
+          "ratioRequested": 0.22,
+          "ratioApplied": 0.22,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.22,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "gathered-hair-1",
+          "primitive": 0,
+          "before": 768,
+          "after": 167,
+          "ratioRequested": 0.22,
+          "ratioApplied": 0.22,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.22,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "gathered-hair-2",
+          "primitive": 0,
+          "before": 768,
+          "after": 168,
+          "ratioRequested": 0.22,
+          "ratioApplied": 0.22,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.22,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "gathered-hair-3",
+          "primitive": 0,
+          "before": 768,
+          "after": 168,
+          "ratioRequested": 0.22,
+          "ratioApplied": 0.22,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.22,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "gathered-hair-4",
+          "primitive": 0,
+          "before": 768,
+          "after": 168,
+          "ratioRequested": 0.22,
+          "ratioApplied": 0.22,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.22,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "gathered-hair-5",
+          "primitive": 0,
+          "before": 768,
+          "after": 168,
+          "ratioRequested": 0.22,
+          "ratioApplied": 0.22,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.22,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "gathered-hair-6",
+          "primitive": 0,
+          "before": 768,
+          "after": 168,
+          "ratioRequested": 0.22,
+          "ratioApplied": 0.22,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.22,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "hair-tie",
+          "primitive": 0,
+          "before": 1472,
+          "after": 323,
+          "ratioRequested": 0.22,
+          "ratioApplied": 0.22,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.22,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "left-palm",
+          "primitive": 0,
+          "before": 1536,
+          "after": 244,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "left-finger-0",
+          "primitive": 0,
+          "before": 336,
+          "after": 52,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "left-nail-0",
+          "primitive": 0,
+          "before": 552,
+          "after": 88,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "left-finger-1",
+          "primitive": 0,
+          "before": 336,
+          "after": 52,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "left-nail-1",
+          "primitive": 0,
+          "before": 552,
+          "after": 88,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "left-finger-2",
+          "primitive": 0,
+          "before": 336,
+          "after": 52,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "left-nail-2",
+          "primitive": 0,
+          "before": 552,
+          "after": 88,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "left-finger-3",
+          "primitive": 0,
+          "before": 336,
+          "after": 52,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "left-nail-3",
+          "primitive": 0,
+          "before": 552,
+          "after": 88,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "left-thumb",
+          "primitive": 0,
+          "before": 480,
+          "after": 75,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "right-palm",
+          "primitive": 0,
+          "before": 1536,
+          "after": 244,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "right-finger-0",
+          "primitive": 0,
+          "before": 336,
+          "after": 52,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "right-nail-0",
+          "primitive": 0,
+          "before": 552,
+          "after": 88,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "right-finger-1",
+          "primitive": 0,
+          "before": 336,
+          "after": 52,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "right-nail-1",
+          "primitive": 0,
+          "before": 552,
+          "after": 88,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "right-finger-2",
+          "primitive": 0,
+          "before": 336,
+          "after": 52,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "right-nail-2",
+          "primitive": 0,
+          "before": 552,
+          "after": 88,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "right-finger-3",
+          "primitive": 0,
+          "before": 336,
+          "after": 52,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "right-nail-3",
+          "primitive": 0,
+          "before": 552,
+          "after": 88,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "right-thumb",
+          "primitive": 0,
+          "before": 480,
+          "after": 76,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "shirt-button-0",
+          "primitive": 0,
+          "before": 460,
+          "after": 72,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "shirt-button-1",
+          "primitive": 0,
+          "before": 460,
+          "after": 72,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "shirt-button-2",
+          "primitive": 0,
+          "before": 460,
+          "after": 72,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "shirt-button-3",
+          "primitive": 0,
+          "before": 460,
+          "after": 72,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "shirt-button-4",
+          "primitive": 0,
+          "before": 460,
+          "after": 72,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "shirt-button-5",
+          "primitive": 0,
+          "before": 460,
+          "after": 72,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "left-shoe-sole",
+          "primitive": 0,
+          "before": 768,
+          "after": 768,
+          "ratioRequested": 1.0,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "left-shoe-upper",
+          "primitive": 0,
+          "before": 1280,
+          "after": 203,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "left-lace-0",
+          "primitive": 0,
+          "before": 140,
+          "after": 22,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "left-lace-1",
+          "primitive": 0,
+          "before": 140,
+          "after": 22,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "left-lace-2",
+          "primitive": 0,
+          "before": 140,
+          "after": 21,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "left-lace-3",
+          "primitive": 0,
+          "before": 140,
+          "after": 21,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "left-lace-4",
+          "primitive": 0,
+          "before": 140,
+          "after": 22,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "right-shoe-sole",
+          "primitive": 0,
+          "before": 768,
+          "after": 768,
+          "ratioRequested": 1.0,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "right-shoe-upper",
+          "primitive": 0,
+          "before": 1280,
+          "after": 203,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "right-lace-0",
+          "primitive": 0,
+          "before": 140,
+          "after": 22,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "right-lace-1",
+          "primitive": 0,
+          "before": 140,
+          "after": 22,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "right-lace-2",
+          "primitive": 0,
+          "before": 140,
+          "after": 21,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "right-lace-3",
+          "primitive": 0,
+          "before": 140,
+          "after": 21,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "right-lace-4",
+          "primitive": 0,
+          "before": 140,
+          "after": 22,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "waist-button",
+          "primitive": 0,
+          "before": 736,
+          "after": 116,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "tailored-pocket--1",
+          "primitive": 0,
+          "before": 168,
+          "after": 26,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "belt-loop--1",
+          "primitive": 0,
+          "before": 12,
+          "after": 12,
+          "ratioRequested": 1.0,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "tailored-pocket-1",
+          "primitive": 0,
+          "before": 168,
+          "after": 25,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "belt-loop-1",
+          "primitive": 0,
+          "before": 12,
+          "after": 12,
+          "ratioRequested": 1.0,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "trouser-fly",
+          "primitive": 0,
+          "before": 168,
+          "after": 25,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "neck-surface",
+          "primitive": 0,
+          "before": 1920,
+          "after": 306,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "undershirt",
+          "primitive": 0,
+          "before": 4032,
+          "after": 644,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "shirt-collar--1",
+          "primitive": 0,
+          "before": 288,
+          "after": 46,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "shirt-collar-1",
+          "primitive": 0,
+          "before": 288,
+          "after": 45,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "shirt-button-placket",
+          "primitive": 0,
+          "before": 224,
+          "after": 35,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "left-sleeve",
+          "primitive": 0,
+          "before": 2432,
+          "after": 389,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "left-ribbed-cuff",
+          "primitive": 0,
+          "before": 768,
+          "after": 122,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "left-forearm",
+          "primitive": 0,
+          "before": 1536,
+          "after": 460,
+          "ratioRequested": 0.3,
+          "ratioApplied": 0.3,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.3,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "left-trouser-leg",
+          "primitive": 0,
+          "before": 3024,
+          "after": 483,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "right-sleeve",
+          "primitive": 0,
+          "before": 2432,
+          "after": 388,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "right-ribbed-cuff",
+          "primitive": 0,
+          "before": 768,
+          "after": 122,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "right-forearm",
+          "primitive": 0,
+          "before": 1536,
+          "after": 459,
+          "ratioRequested": 0.3,
+          "ratioApplied": 0.3,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.3,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "right-trouser-leg",
+          "primitive": 0,
+          "before": 3024,
+          "after": 482,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "trouser-waist",
+          "primitive": 0,
+          "before": 4096,
+          "after": 655,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "waistband",
+          "primitive": 0,
+          "before": 768,
+          "after": 122,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        }
+      ],
+      "lod": 1,
+      "artApproved": false,
+      "targets": {
+        "triangles": 25000,
+        "bytes": 1500000
+      },
+      "targetMet": false,
+      "limitations": [
+        "Candidate requires multi-angle, animation and browser review.",
+        "Faces, contact soles and original textures are protected; budgets are guidance.",
+        "Physical-device performance is unmeasured; art remains unapproved."
+      ]
+    },
+    {
+      "id": "staff-b",
+      "file": "staff-b-lod1.glb",
+      "bytes": 2066940,
+      "sha256": "433fc7ffc98adacc46d98bb76971bad1fe3da30596a3e323c0010cd2c150d8c0",
+      "triangles": 31600,
+      "meshes": 110,
+      "materials": 24,
+      "primitives": 110,
+      "skins": 15,
+      "bones": [
+        "chest",
+        "head",
+        "hips",
+        "left-ankle",
+        "left-elbow",
+        "left-hand",
+        "left-hip",
+        "left-knee",
+        "left-shoulder",
+        "neck",
+        "right-ankle",
+        "right-elbow",
+        "right-hand",
+        "right-hip",
+        "right-knee",
+        "right-shoulder",
+        "spine"
+      ],
+      "clips": [
+        "idle",
+        "walking",
+        "seated",
+        "wave",
+        "point"
+      ],
+      "textures": [
+        {
+          "name": "original-hair-fibres",
+          "mimeType": "image/png",
+          "width": 256,
+          "height": 512,
+          "bytes": 62028
+        }
+      ],
+      "source": "web/assets/models/characters/staff-b.glb",
+      "sourceSha256": "b88bfed7072ec5482e046113c36785a513c91f96a194564e6ea3b838b6fc8c82",
+      "before": {
+        "bytes": 3971668,
+        "sha256": "b88bfed7072ec5482e046113c36785a513c91f96a194564e6ea3b838b6fc8c82",
+        "triangles": 97048,
+        "meshes": 110,
+        "materials": 24,
+        "primitives": 110,
+        "skins": 15,
+        "bones": [
+          "chest",
+          "head",
+          "hips",
+          "left-ankle",
+          "left-elbow",
+          "left-hand",
+          "left-hip",
+          "left-knee",
+          "left-shoulder",
+          "neck",
+          "right-ankle",
+          "right-elbow",
+          "right-hand",
+          "right-hip",
+          "right-knee",
+          "right-shoulder",
+          "spine"
+        ],
+        "clips": [
+          "idle",
+          "walking",
+          "seated",
+          "wave",
+          "point"
+        ],
+        "textures": [
+          {
+            "name": "original-hair-fibres",
+            "mimeType": "image/png",
+            "width": 256,
+            "height": 512,
+            "bytes": 62028
+          }
+        ]
+      },
+      "changes": [
+        {
+          "node": "sculpted-face",
+          "primitive": 0,
+          "before": 10240,
+          "after": 10240,
+          "ratioRequested": 1.0,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "ear--1",
+          "primitive": 0,
+          "before": 1472,
+          "after": 441,
+          "ratioRequested": 0.3,
+          "ratioApplied": 0.3,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.3,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "ear-fold--1",
+          "primitive": 0,
+          "before": 1472,
+          "after": 441,
+          "ratioRequested": 0.3,
+          "ratioApplied": 0.3,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.3,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "brow--1",
+          "primitive": 0,
+          "before": 224,
+          "after": 224,
+          "ratioRequested": 1.0,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "nostril--1",
+          "primitive": 0,
+          "before": 112,
+          "after": 112,
+          "ratioRequested": 1.0,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "eye-white--1",
+          "primitive": 0,
+          "before": 1280,
+          "after": 384,
+          "ratioRequested": 0.3,
+          "ratioApplied": 0.3,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.3,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "iris--1",
+          "primitive": 0,
+          "before": 1344,
+          "after": 403,
+          "ratioRequested": 0.3,
+          "ratioApplied": 0.3,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.3,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "pupil--1",
+          "primitive": 0,
+          "before": 920,
+          "after": 276,
+          "ratioRequested": 0.3,
+          "ratioApplied": 0.3,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.3,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "catchlight--1",
+          "primitive": 0,
+          "before": 736,
+          "after": 220,
+          "ratioRequested": 0.3,
+          "ratioApplied": 0.3,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.3,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "catchlight-small--1",
+          "primitive": 0,
+          "before": 460,
+          "after": 138,
+          "ratioRequested": 0.3,
+          "ratioApplied": 0.3,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.3,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "upper-lash--1",
+          "primitive": 0,
+          "before": 288,
+          "after": 288,
+          "ratioRequested": 1.0,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "lower-lid--1",
+          "primitive": 0,
+          "before": 280,
+          "after": 280,
+          "ratioRequested": 1.0,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "eyelid-fold--1",
+          "primitive": 0,
+          "before": 280,
+          "after": 280,
+          "ratioRequested": 1.0,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "ear-1",
+          "primitive": 0,
+          "before": 1472,
+          "after": 441,
+          "ratioRequested": 0.3,
+          "ratioApplied": 0.3,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.3,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "ear-fold-1",
+          "primitive": 0,
+          "before": 1472,
+          "after": 441,
+          "ratioRequested": 0.3,
+          "ratioApplied": 0.3,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.3,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "brow-1",
+          "primitive": 0,
+          "before": 224,
+          "after": 224,
+          "ratioRequested": 1.0,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "nostril-1",
+          "primitive": 0,
+          "before": 112,
+          "after": 112,
+          "ratioRequested": 1.0,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "eye-white-1",
+          "primitive": 0,
+          "before": 1280,
+          "after": 384,
+          "ratioRequested": 0.3,
+          "ratioApplied": 0.3,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.3,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "iris-1",
+          "primitive": 0,
+          "before": 1344,
+          "after": 403,
+          "ratioRequested": 0.3,
+          "ratioApplied": 0.3,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.3,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "pupil-1",
+          "primitive": 0,
+          "before": 920,
+          "after": 276,
+          "ratioRequested": 0.3,
+          "ratioApplied": 0.3,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.3,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "catchlight-1",
+          "primitive": 0,
+          "before": 736,
+          "after": 220,
+          "ratioRequested": 0.3,
+          "ratioApplied": 0.3,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.3,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "catchlight-small-1",
+          "primitive": 0,
+          "before": 460,
+          "after": 138,
+          "ratioRequested": 0.3,
+          "ratioApplied": 0.3,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.3,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "upper-lash-1",
+          "primitive": 0,
+          "before": 288,
+          "after": 288,
+          "ratioRequested": 1.0,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "lower-lid-1",
+          "primitive": 0,
+          "before": 280,
+          "after": 280,
+          "ratioRequested": 1.0,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "eyelid-fold-1",
+          "primitive": 0,
+          "before": 280,
+          "after": 280,
+          "ratioRequested": 1.0,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "soft-lip-surface",
+          "primitive": 0,
+          "before": 720,
+          "after": 720,
+          "ratioRequested": 1.0,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "closed-smile",
+          "primitive": 0,
+          "before": 336,
+          "after": 336,
+          "ratioRequested": 1.0,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "hair-volume",
+          "primitive": 0,
+          "before": 4096,
+          "after": 900,
+          "ratioRequested": 0.22,
+          "ratioApplied": 0.22,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.22,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "layered-short-lock-0",
+          "primitive": 0,
+          "before": 768,
+          "after": 168,
+          "ratioRequested": 0.22,
+          "ratioApplied": 0.22,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.22,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "layered-short-lock-1",
+          "primitive": 0,
+          "before": 768,
+          "after": 167,
+          "ratioRequested": 0.22,
+          "ratioApplied": 0.22,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.22,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "layered-short-lock-2",
+          "primitive": 0,
+          "before": 768,
+          "after": 168,
+          "ratioRequested": 0.22,
+          "ratioApplied": 0.22,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.22,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "layered-short-lock-3",
+          "primitive": 0,
+          "before": 768,
+          "after": 168,
+          "ratioRequested": 0.22,
+          "ratioApplied": 0.22,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.22,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "layered-short-lock-4",
+          "primitive": 0,
+          "before": 768,
+          "after": 167,
+          "ratioRequested": 0.22,
+          "ratioApplied": 0.22,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.22,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "layered-short-lock-5",
+          "primitive": 0,
+          "before": 768,
+          "after": 168,
+          "ratioRequested": 0.22,
+          "ratioApplied": 0.22,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.22,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "layered-short-lock-6",
+          "primitive": 0,
+          "before": 768,
+          "after": 168,
+          "ratioRequested": 0.22,
+          "ratioApplied": 0.22,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.22,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "layered-short-lock-7",
+          "primitive": 0,
+          "before": 768,
+          "after": 167,
+          "ratioRequested": 0.22,
+          "ratioApplied": 0.22,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.22,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "layered-short-lock-8",
+          "primitive": 0,
+          "before": 768,
+          "after": 167,
+          "ratioRequested": 0.22,
+          "ratioApplied": 0.22,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.22,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "layered-short-lock-9",
+          "primitive": 0,
+          "before": 768,
+          "after": 167,
+          "ratioRequested": 0.22,
+          "ratioApplied": 0.22,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.22,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "short-side-layer-0",
+          "primitive": 0,
+          "before": 768,
+          "after": 121,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "short-side-layer-1",
+          "primitive": 0,
+          "before": 768,
+          "after": 122,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "short-side-layer-2",
+          "primitive": 0,
+          "before": 768,
+          "after": 122,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "short-side-layer-3",
+          "primitive": 0,
+          "before": 768,
+          "after": 122,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "short-side-layer-4",
+          "primitive": 0,
+          "before": 768,
+          "after": 122,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "short-side-layer-5",
+          "primitive": 0,
+          "before": 768,
+          "after": 121,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "short-side-layer-6",
+          "primitive": 0,
+          "before": 768,
+          "after": 121,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "short-side-layer-7",
+          "primitive": 0,
+          "before": 768,
+          "after": 121,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "short-side-layer-8",
+          "primitive": 0,
+          "before": 768,
+          "after": 122,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "sideburn--1",
+          "primitive": 0,
+          "before": 768,
+          "after": 168,
+          "ratioRequested": 0.22,
+          "ratioApplied": 0.22,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.22,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "sideburn-1",
+          "primitive": 0,
+          "before": 768,
+          "after": 168,
+          "ratioRequested": 0.22,
+          "ratioApplied": 0.22,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.22,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "left-palm",
+          "primitive": 0,
+          "before": 1536,
+          "after": 244,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "left-finger-0",
+          "primitive": 0,
+          "before": 336,
+          "after": 52,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "left-nail-0",
+          "primitive": 0,
+          "before": 552,
+          "after": 88,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "left-finger-1",
+          "primitive": 0,
+          "before": 336,
+          "after": 52,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "left-nail-1",
+          "primitive": 0,
+          "before": 552,
+          "after": 88,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "left-finger-2",
+          "primitive": 0,
+          "before": 336,
+          "after": 52,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "left-nail-2",
+          "primitive": 0,
+          "before": 552,
+          "after": 88,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "left-finger-3",
+          "primitive": 0,
+          "before": 336,
+          "after": 52,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "left-nail-3",
+          "primitive": 0,
+          "before": 552,
+          "after": 88,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "left-thumb",
+          "primitive": 0,
+          "before": 480,
+          "after": 75,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "right-palm",
+          "primitive": 0,
+          "before": 1536,
+          "after": 244,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "right-finger-0",
+          "primitive": 0,
+          "before": 336,
+          "after": 52,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "right-nail-0",
+          "primitive": 0,
+          "before": 552,
+          "after": 88,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "right-finger-1",
+          "primitive": 0,
+          "before": 336,
+          "after": 52,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "right-nail-1",
+          "primitive": 0,
+          "before": 552,
+          "after": 88,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "right-finger-2",
+          "primitive": 0,
+          "before": 336,
+          "after": 52,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "right-nail-2",
+          "primitive": 0,
+          "before": 552,
+          "after": 88,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "right-finger-3",
+          "primitive": 0,
+          "before": 336,
+          "after": 52,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "right-nail-3",
+          "primitive": 0,
+          "before": 552,
+          "after": 88,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "right-thumb",
+          "primitive": 0,
+          "before": 480,
+          "after": 76,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "shirt-button-0",
+          "primitive": 0,
+          "before": 460,
+          "after": 72,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "shirt-button-1",
+          "primitive": 0,
+          "before": 460,
+          "after": 72,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "shirt-button-2",
+          "primitive": 0,
+          "before": 460,
+          "after": 72,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "shirt-button-3",
+          "primitive": 0,
+          "before": 460,
+          "after": 72,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "shirt-button-4",
+          "primitive": 0,
+          "before": 460,
+          "after": 72,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "shirt-button-5",
+          "primitive": 0,
+          "before": 460,
+          "after": 72,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "left-shoe-sole",
+          "primitive": 0,
+          "before": 768,
+          "after": 768,
+          "ratioRequested": 1.0,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "left-shoe-upper",
+          "primitive": 0,
+          "before": 1280,
+          "after": 203,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "left-lace-0",
+          "primitive": 0,
+          "before": 140,
+          "after": 22,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "left-lace-1",
+          "primitive": 0,
+          "before": 140,
+          "after": 22,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "left-lace-2",
+          "primitive": 0,
+          "before": 140,
+          "after": 21,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "left-lace-3",
+          "primitive": 0,
+          "before": 140,
+          "after": 21,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "left-lace-4",
+          "primitive": 0,
+          "before": 140,
+          "after": 22,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "right-shoe-sole",
+          "primitive": 0,
+          "before": 768,
+          "after": 768,
+          "ratioRequested": 1.0,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "right-shoe-upper",
+          "primitive": 0,
+          "before": 1280,
+          "after": 203,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "right-lace-0",
+          "primitive": 0,
+          "before": 140,
+          "after": 22,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "right-lace-1",
+          "primitive": 0,
+          "before": 140,
+          "after": 22,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "right-lace-2",
+          "primitive": 0,
+          "before": 140,
+          "after": 21,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "right-lace-3",
+          "primitive": 0,
+          "before": 140,
+          "after": 21,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "right-lace-4",
+          "primitive": 0,
+          "before": 140,
+          "after": 22,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "waist-button",
+          "primitive": 0,
+          "before": 736,
+          "after": 116,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "tailored-pocket--1",
+          "primitive": 0,
+          "before": 168,
+          "after": 26,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "belt-loop--1",
+          "primitive": 0,
+          "before": 12,
+          "after": 12,
+          "ratioRequested": 1.0,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "tailored-pocket-1",
+          "primitive": 0,
+          "before": 168,
+          "after": 25,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "belt-loop-1",
+          "primitive": 0,
+          "before": 12,
+          "after": 12,
+          "ratioRequested": 1.0,
+          "ratioApplied": 1.0,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": []
+        },
+        {
+          "node": "trouser-fly",
+          "primitive": 0,
+          "before": 168,
+          "after": 25,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "neck-surface",
+          "primitive": 0,
+          "before": 1920,
+          "after": 306,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "undershirt",
+          "primitive": 0,
+          "before": 4032,
+          "after": 644,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "shirt-collar--1",
+          "primitive": 0,
+          "before": 288,
+          "after": 46,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "shirt-collar-1",
+          "primitive": 0,
+          "before": 288,
+          "after": 45,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "shirt-button-placket",
+          "primitive": 0,
+          "before": 224,
+          "after": 35,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "left-sleeve",
+          "primitive": 0,
+          "before": 2432,
+          "after": 389,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "left-ribbed-cuff",
+          "primitive": 0,
+          "before": 768,
+          "after": 122,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "left-forearm",
+          "primitive": 0,
+          "before": 1536,
+          "after": 460,
+          "ratioRequested": 0.3,
+          "ratioApplied": 0.3,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.3,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "left-trouser-leg",
+          "primitive": 0,
+          "before": 3024,
+          "after": 483,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "right-sleeve",
+          "primitive": 0,
+          "before": 2432,
+          "after": 389,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "right-ribbed-cuff",
+          "primitive": 0,
+          "before": 768,
+          "after": 122,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "right-forearm",
+          "primitive": 0,
+          "before": 1536,
+          "after": 460,
+          "ratioRequested": 0.3,
+          "ratioApplied": 0.3,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.3,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "right-trouser-leg",
+          "primitive": 0,
+          "before": 3024,
+          "after": 482,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "trouser-waist",
+          "primitive": 0,
+          "before": 4096,
+          "after": 655,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "node": "waistband",
+          "primitive": 0,
+          "before": 768,
+          "after": 122,
+          "ratioRequested": 0.16,
+          "ratioApplied": 0.16,
+          "retainedMoreThanPlanned": false,
+          "retentionReason": null,
+          "maxDroppedSkinWeight": 0,
+          "attempts": [
+            {
+              "ratio": 0.16,
+              "accepted": true
+            }
+          ]
+        }
+      ],
+      "lod": 1,
+      "artApproved": false,
+      "targets": {
+        "triangles": 25000,
+        "bytes": 1500000
+      },
+      "targetMet": false,
+      "limitations": [
+        "Candidate requires multi-angle, animation and browser review.",
+        "Faces, contact soles and original textures are protected; budgets are guidance.",
+        "Physical-device performance is unmeasured; art remains unapproved."
+      ]
+    }
+  ]
+}

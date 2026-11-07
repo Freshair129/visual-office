@@ -1,0 +1,19 @@
+Use case: stylized-concept
+Asset type: Portrait 9:16 full-bleed environment background for an interactive mobile Office Idle simulation game, ideally 1152 by 2048 pixels.
+Primary request: A beautiful finished isometric cutaway 3D INTERIOR of the ground-floor lobby of a modern ZURI office tower. The entire important lobby furniture arrangement must be visible. This is one complete warm, charming miniature game room, no UI overlays.
+Style reference: Match the previously viewed ZURI blue-glass and cream office tower's polished colorful miniature 3D art, amber/orange architecture, bright daylight, trees, lush plants, tiny employees, crisp ambient shadows and clean bevelled forms. The reference is STYLE AND BUILDING IDENTITY ONLY; the new view is indoors, not the tower exterior.
+
+Layout is essential. Use image coordinates as percentages from top-left:
+- Two distinct elevator door bays together on the back wall at about x62%, y32%. Two closed brushed blue-gray metallic elevator doors, warm amber frames, an illuminated G indicator above, and a small visible call-button panel between the two bays. These elevator doors must be easy to recognize and not blocked by plants or people.
+- A curved cream reception counter with amber lower panels centered around x28%, y50%. One tiny receptionist behind it. Only small understated ZURI lettering on its front.
+- A digital work noticeboard mounted on the right wall centered around x78%, y50%, visually recognizable as a dark blue screen within a simple slim amber frame. Show abstract unlabeled line shapes and tiny squares only; no text, numbers, charts or fake task data.
+- A green lounge centered around x27%, y68%, two small sage/green sofas and rounded coffee table with a small plant.
+- A small knowledge/library kiosk centered around x72%, y70%, a waist-height cream/amber bookcase with tidy colorful books and a small blue-screen standing kiosk. Blank, no UI data or lettering on the kiosk.
+- The central path between reception and lift should be generous open cream-tiled walking space. Add only a few tiny miniature employees walking naturally through it.
+
+Composition: Orthographic isometric camera 35 degrees down, looking into the lobby, roof removed. Portrait 9:16. Full-bleed room, no illustrated border, no empty outside canvas. Keep the top 16% visually quiet cream wall and subtle blue windows, for an HTML HUD to be overlaid later. Keep the bottom 19% mostly open cream tiled floor, for an HTML navigation dock to be added later. Fit both elevator doors, full reception desk, full lounge seating and the full library kiosk inside the frame without clipping them. The interactive areas must be separated and recognizable. Use back and side walls to explain the interior with the camera-facing wall absent.
+
+Materials and color: Warm cream stone floor and walls, amber and orange vertical accents, blue tinted glass windows, brushed blue-gray elevator metal, lush green potted plants in cream planters, clean daylight and soft crisp ambient shadows. Sophisticated cheerful low-poly 3D Office Idle mobile-game aesthetics, charming detailed miniatures and clean silhouettes. Avoid photorealism and visual noise.
+
+Text allowed (verbatim): small "ZURI" on reception and one "G" lift sign. No other text or numbers.
+Constraints: one finished image only. No floating labels, no UI, HUD, navigation, buttons, counters, badges, fake data, speech bubbles, watermark or arrows. No exterior tower, no multi-floor dollhouse stack, no flat vector style, no dashboard. All main furniture fully visible.

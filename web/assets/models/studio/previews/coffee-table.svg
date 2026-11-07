@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 170" fill="none">
+  <defs>
+    <linearGradient id="top" x1="61" y1="57" x2="174" y2="108" gradientUnits="userSpaceOnUse"><stop stop-color="#FFF8EB"/><stop offset="1" stop-color="#E8D8BD"/></linearGradient>
+    <linearGradient id="stem" x1="116" y1="95" x2="128" y2="145" gradientUnits="userSpaceOnUse"><stop stop-color="#C5CCC5"/><stop offset="1" stop-color="#87938D"/></linearGradient>
+    <filter id="shadow" x="23" y="75" width="194" height="82" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feGaussianBlur stdDeviation="8"/></filter>
+  </defs>
+  <ellipse cx="120" cy="126" fill="#6D7C6E" fill-opacity=".2" filter="url(#shadow)" rx="83" ry="17"/>
+  <path d="m113 92 14 1 7 42h-28l7-43Z" fill="url(#stem)"/>
+  <path d="m91 132 58 1-10 8h-38l-10-9Z" fill="#A3AEA5"/>
+  <ellipse cx="120" cy="89" fill="#D5C4A7" rx="72" ry="24"/>
+  <path d="M48 85c0 13 32 24 72 24s72-11 72-24v8c0 13-32 24-72 24S48 106 48 93v-8Z" fill="#C4AF8F"/>
+  <ellipse cx="120" cy="84" fill="url(#top)" rx="72" ry="24"/>
+  <path d="m127 76 29 3 8 8-30-2-7-9Z" fill="#D6ECFA"/>
+  <path d="m131 73 28 3 5 5-29-2-4-6Z" fill="#E8820C" fill-opacity=".72"/>
+</svg>

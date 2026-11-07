@@ -1,0 +1,42 @@
+{
+  "status": "proposed-not-approved",
+  "generator": "built-in ImageGen",
+  "runtimeIntegration": false,
+  "sourceRevision": "Character Kit v0.9.4",
+  "sources": [
+    {
+      "file": "F:/zuri-product/design/zuri-character-kit-v0.9.4/boards/01-ZURI-SOLO.png",
+      "sha256": "95c7d09468a2e28fd0adc764fe2f302689b0ebb7eac38f9efb235703aed2e4ca"
+    },
+    {
+      "file": "F:/zuri-product/design/zuri-character-kit-v0.9.4/boards/02-WANGJAI-SOLO.png",
+      "sha256": "04ab4e6cce8da6a2c179fbcef6bff63691f6e276ca52411b6610c81f64d939df"
+    }
+  ],
+  "outputs": [
+    {
+      "file": "zuri-sheet-v1.png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 2061655,
+      "sha256": "23640829719cb5d9d96e2027616667770e3f2a4dc549c4d1e8acdae3e4777b9e",
+      "prompt": "zuri.prompt.md"
+    },
+    {
+      "file": "wangjai-sheet-v1.png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 1764335,
+      "sha256": "659da83e0012aed26c629d7e8439ccaedb81c7ff7b9d131aa468388cae27b2fa",
+      "prompt": "wangjai.prompt.md"
+    },
+    {
+      "file": "office-staff-sheet-v1.png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 1881392,
+      "sha256": "7045b3adac441205d15a0d58acade2eb256e487dd488df00a535d0eb1cd60513",
+      "prompt": "office-staff.prompt.md"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": "anime",
+  "name": "Rigged Anime Girl",
+  "author": "3dquads blender",
+  "license": "CC0-1.0",
+  "source": "https://www.blendkit.com/asset-gallery-detail/1d63f553-863b-41d4-b3bd-d92222700fee/",
+  "attribution": "Rigged Anime Girl \u2014 3dquads blender (CC0)",
+  "sha256": "99162d6b9b12662b251342e087633b1a7003468339dd9b769ed33feacd47ccbb",
+  "sourceSha256": "39fc8b555922a7b236e0ad46abe695c7f30c1044948d1cd915de74740d329c50",
+  "bytes": 5945260,
+  "triangles": 127505,
+  "meshes": 33,
+  "materials": 12,
+  "skins": 1,
+  "animations": 0,
+  "height": 1.65,
+  "artApproved": false,
+  "floorAdoption": false,
+  "changes": "Decoded official glTF compression; texture resolution capped at 2K; normalized display height. Skin retained; no authored motion clips.",
+  "limitations": [
+    "No walk or sit clips supplied by these source files.",
+    "Lab comparison only; no Zuri brand adaptation or floor adoption."
+  ],
+  "facePoint": [
+    0.0004546940326690674,
+    1.4972947835922241,
+    0.002783786505460739
+  ],
+  "faceDistance": 0.688963794708252
+}

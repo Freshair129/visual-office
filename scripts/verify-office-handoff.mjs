@@ -1,0 +1,24 @@
+import {readFile} from 'node:fs/promises';
+import path from 'node:path';
+import {validateOfficeHandoff} from '../web/office-handoff.js';
+import {sha256} from '../web/office-world-identity.js';
+import {verifyCustomAssetMeasurements} from '../web/office-handoff-assets.js';
+import {readHandoffArchive} from './office-handoff-archive.mjs';
+import {isDeepStrictEqual} from 'node:util';
+const root=process.argv[2];if(!root)throw Error('Provide package directory');
+const manifest=await validateOfficeHandoff(JSON.parse(await readFile(path.join(root,'manifest.json'),'utf8')));
+const revisions=manifest.entities.filter(e=>e.type==='assetRevision');
+const archive=readHandoffArchive(await readFile(path.join(root,'office-world.zip')));
+const expectedFiles=new Set(['manifest.json','schema.json','id-map.json','README.txt',...revisions.map(r=>r.data.uri)]);
+if(archive.size!==expectedFiles.size||[...expectedFiles].some(name=>!archive.has(name)))throw Error('Archive file inventory mismatch');
+const packagedAssets=new Map();
+for(const r of revisions){const bytes=await readFile(path.join(root,r.data.uri)),packed=archive.get(r.data.uri);if(bytes.length!==r.data.bytes||await sha256(bytes)!==r.data.sha256||!bytes.equals(packed))throw Error('Asset mismatch: '+r.key);packagedAssets.set(r.data.uri,packed);}
+await verifyCustomAssetMeasurements(manifest.entities,uri=>{const bytes=packagedAssets.get(uri);if(!bytes)throw Error('Missing packaged custom GLB: '+uri);return bytes;});
+const map=JSON.parse(await readFile(path.join(root,'id-map.json'),'utf8'));
+if(map.length!==manifest.entities.length||new Set(map.map(r=>r.externalId)).size!==map.length||map.some(r=>r.externalSource!=='visual-office-design'||r.zuriId!==null||!manifest.entities.some(e=>e.id===r.externalId&&e.type===r.kind&&e.key===r.key)))throw Error('Identity crosswalk mismatch');
+const schema=JSON.parse(await readFile(path.join(root,'schema.json'),'utf8'));
+const contract=JSON.parse(await readFile(new URL('../contracts/office-design-handoff-v1.schema.json',import.meta.url),'utf8'));
+if(!isDeepStrictEqual(schema,contract))throw Error('Package schema differs from current producer contract');
+for(const [name,value]of [['manifest.json',manifest],['id-map.json',map],['schema.json',schema]])if(!isDeepStrictEqual(JSON.parse(archive.get(name).toString('utf8')),value))throw Error('Archive JSON mismatch: '+name);
+if(!archive.get('README.txt').toString('utf8').includes('Design registration proposal'))throw Error('Archive missing proposal notice');
+console.log(JSON.stringify({verified:true,archiveVerified:true,archiveEntries:archive.size,entities:manifest.entities.length,revisions:revisions.length,contentHash:manifest.contentHash,registeredInZuri:false},null,2));

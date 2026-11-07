@@ -1,0 +1,44 @@
+/* The room fills the viewport. HUD remains readable while the map pans below it. */
+.office-world.floor-immersive.inside-floor{height:100dvh;min-height:0;padding:0;overflow:hidden}
+.office-world.floor-immersive .world-heading,.office-world.floor-immersive .world-navigation,.office-world.floor-immersive .world-footnote,.office-world.floor-immersive .world-scene-note{display:none}
+.office-world.floor-immersive .world-layout{position:absolute;inset:0;display:block;max-width:none;margin:0}
+.office-world.floor-immersive .world-stage{height:100%;width:100%;border:0;border-radius:0;box-shadow:none;overflow:auto;overscroll-behavior:contain;touch-action:pan-x pan-y;scrollbar-width:none;cursor:grab;background:#fff8ed}
+.office-world.floor-immersive .world-stage::-webkit-scrollbar{display:none}
+.office-world.floor-immersive .world-stage.floor-panning{cursor:grabbing;user-select:none}
+.office-world.floor-immersive .hy-applied-floor{width:var(--floor-map-width,1728px);max-width:none;padding:0;margin:0;border:0;border-radius:0;box-shadow:none;background:transparent}
+.office-world.floor-immersive .hy-applied-stage{width:100%;border-radius:0}
+.office-world.floor-immersive .hy-scene{container-type:normal}
+.office-world.floor-immersive .hy-object{touch-action:pan-x pan-y}
+.office-world.floor-immersive .world-scene{width:var(--floor-map-width,1728px);height:calc(var(--floor-map-width,1728px) / 1.5)}
+.office-world.floor-immersive .hy-applied-header,.office-world.floor-immersive .hy-applied-floor>p{display:none}
+.office-world.floor-immersive .hy-activity-hud{position:fixed;top:142px;left:20px;max-width:calc(100vw - 40px);font-size:11px;z-index:15}
+.office-world.floor-immersive .hy-floor-sign{z-index:3}
+.office-world.floor-immersive .idle-hud,.office-world.floor-immersive .idle-location,.office-world.floor-immersive .idle-shortcuts{z-index:20}
+.office-world.floor-immersive .idle-location>span{color:#fff;text-shadow:0 1px 4px #25364c}
+.floor-tools{display:none}
+.office-world.floor-immersive .floor-tools{position:fixed;right:20px;top:142px;display:flex;flex-direction:column;gap:9px;z-index:20}
+.floor-tools button{min-height:44px;min-width:92px;padding:10px 14px;border:1px solid #d4dcca;border-bottom:3px solid #bac8b6;border-radius:12px;background:#fffaf1ed;color:#344a40;font:600 12px 'IBM Plex Sans Thai',sans-serif;cursor:pointer;box-shadow:0 3px 10px #18385d22}
+.floor-tools button:focus-visible,.floor-team-close:focus-visible{outline:3px solid #e8820c;outline-offset:3px}
+.floor-team-dialog{width:min(600px,calc(100vw - 24px));max-height:80dvh;margin:auto;padding:16px;border:1px solid #d8dfce;border-radius:20px;background:#fffaf1;color:#344a40;overflow:auto}
+.floor-team-dialog::backdrop{background:#172b4066;backdrop-filter:blur(3px)}
+.floor-team-dialog>header{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.floor-team-dialog h2{margin:0;font-size:20px}
+.floor-team-close{min-width:44px;min-height:44px;border:1px solid #d4dcca;border-radius:10px;background:#fff;color:#344a40;font:inherit;cursor:pointer}
+.office-world .floor-team-dialog .world-directory{display:block;max-height:none;border:0;box-shadow:none;background:transparent;border-radius:0;overflow:visible}
+.floor-team-dialog .world-directory-heading{padding:12px 0}
+.floor-team-dialog .floor-role-detail{border:0}
+/* Object sheets belong to the viewport rather than to the wide scrolling map. */
+.office-world.floor-immersive .hy-interaction-popup,.office-world.floor-immersive .floor-tasks-dialog{position:fixed;max-width:calc(100vw - 24px);max-height:80dvh;overflow:auto}
+@media(max-width:767px){
+ .office-world.floor-immersive #scene canvas{touch-action:pan-x pan-y!important}
+ .office-world.floor-immersive .idle-shortcuts{display:none}
+ .office-world.floor-immersive .hy-activity-hud{top:120px;left:12px;right:12px;max-width:none;font-size:10px;flex-wrap:wrap}
+ .office-world.floor-immersive .floor-tools{top:205px;right:12px;gap:7px}
+ .floor-tools button{min-width:76px;padding:9px;font-size:11px}
+ .office-world.floor-immersive .idle-dock{bottom:max(12px,env(safe-area-inset-bottom))}
+}
+
+.office-world.has-hybrid-floor.inside-floor.floor-immersive .hy-applied-floor{margin:var(--floor-map-top,0px) auto 0}
+.office-world.floor-immersive .world-scene{margin:var(--floor-map-top,0px) auto 0}
+.floor-tools button[aria-pressed="true"]{background:#fde8d0;border-color:#e8820c}
+.office-world.floor-immersive .floor-tools{max-height:calc(100dvh - 250px);overflow:auto}

@@ -1,0 +1,37 @@
+{
+  "kind": "chair",
+  "source": "C:\\Users\\suanr\\workspace\\visual-office\\web\\assets\\models\\tycoon\\chair.glb",
+  "source_sha256": "d9dbc950794d9e318ccce5a0ea1819440e96465c729210c08ada98590c86c99f",
+  "source_role": "derived import of existing prototype GLB; not original authoring source",
+  "blender": "5.2.2 LTS",
+  "blender_build": "d13f752e3b9c",
+  "mesh_objects": 7,
+  "triangles": 3984,
+  "materials": [
+    "Material_0",
+    "Material_1",
+    "Material_2",
+    "Material_3",
+    "Material_4",
+    "Material_5",
+    "Material_6"
+  ],
+  "dimensions_m": [
+    0.8999999761581421,
+    0.949999988079071,
+    1.149999976158142
+  ],
+  "min_m": [
+    -0.44999998807907104,
+    -0.4749999940395355,
+    0.0
+  ],
+  "max_m": [
+    0.44999998807907104,
+    0.4749999940395355,
+    1.149999976158142
+  ],
+  "armatures": 0,
+  "imported_actions": [],
+  "quality": "prototype; visual and rig review pending"
+}

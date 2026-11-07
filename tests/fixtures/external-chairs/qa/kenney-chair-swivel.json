@@ -1,0 +1,46 @@
+{
+  "ok": true,
+  "pass": false,
+  "errors": [
+    "ExternalChair: degenerate faces=3 zero-len edges=0"
+  ],
+  "warnings": [
+    "ExternalChair: duplicate verts=369 loose verts=0",
+    "hidden back-to-back faces: ExternalChair (4 pairs) - delete to save tris"
+  ],
+  "ground_z": 0.0,
+  "zfighting": [],
+  "floating": [],
+  "back_to_back": [
+    {
+      "where": "ExternalChair",
+      "tri_pairs": 4
+    }
+  ],
+  "enclosed": [],
+  "objects": {
+    "ExternalChair": {
+      "verts": 739,
+      "faces": 588,
+      "tris": 588,
+      "ngons": 0,
+      "boundary_edges": 738,
+      "nonmanifold_edges": 0,
+      "wire_edges": 0,
+      "loose_verts": 0,
+      "degenerate_faces": 3,
+      "zero_length_edges": 0,
+      "inconsistent_normals_edges": 0,
+      "duplicate_verts": 369,
+      "islands": 78,
+      "inside_out_islands": 0,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "materials": 2
+    }
+  },
+  "uvCheckSkipped": "GLB intentionally has no UVs or image textures; source OBJ/MTL are preserved separately."
+}

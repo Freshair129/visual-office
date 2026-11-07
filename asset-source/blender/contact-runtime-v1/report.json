@@ -1,0 +1,205 @@
+{
+  "method": "Production TycoonScene, deterministic 30/60 Hz updates with every frame rendered on hardware WebGL, not a real-time FPS benchmark",
+  "browser": "156.0.8078.48",
+  "errors": [],
+  "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3060 (0x00002504) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+  "cases": [
+    {
+      "kind": "route",
+      "hz": 30,
+      "phases": [
+        "walking",
+        "done"
+      ],
+      "doneFrames": 61,
+      "plantedPairs": 217,
+      "minFootM": 3.477340168866071e-8,
+      "maxPlantShiftM": 9.137418086319483e-9,
+      "maxWorkingPelvisErrorM": 0,
+      "maxWorkingOrSettledFootGapM": 7.23819262174567e-8
+    },
+    {
+      "kind": "bundled-small",
+      "hz": 30,
+      "seatHeight": 0.41334906674282257,
+      "phases": [
+        "walking",
+        "entering",
+        "sit",
+        "working",
+        "standing",
+        "leaving",
+        "done"
+      ],
+      "doneFrames": 61,
+      "plantedPairs": 806,
+      "minFootM": 3.400263530328213e-8,
+      "maxPlantShiftM": 9.430910308609665e-8,
+      "maxWorkingPelvisErrorM": 2.3736568266485847e-12,
+      "maxWorkingOrSettledFootGapM": 2.673293236411812e-7
+    },
+    {
+      "kind": "bundled-large",
+      "hz": 30,
+      "seatHeight": 0.6889151112380376,
+      "phases": [
+        "walking",
+        "entering",
+        "sit",
+        "working",
+        "standing",
+        "leaving",
+        "done"
+      ],
+      "doneFrames": 61,
+      "plantedPairs": 747,
+      "minFootM": 2.6155891822126107e-8,
+      "maxPlantShiftM": 8.707214062626796e-8,
+      "maxWorkingPelvisErrorM": 1.0755840662568517e-12,
+      "maxWorkingOrSettledFootGapM": 2.421359013517859e-7
+    },
+    {
+      "kind": "custom-small",
+      "hz": 30,
+      "seatHeight": 0.41334906674282257,
+      "phases": [
+        "walking",
+        "entering",
+        "sit",
+        "working",
+        "standing",
+        "leaving",
+        "done"
+      ],
+      "doneFrames": 61,
+      "plantedPairs": 806,
+      "minFootM": 3.400263530328213e-8,
+      "maxPlantShiftM": 9.430910308609665e-8,
+      "maxWorkingPelvisErrorM": 2.3736568266485847e-12,
+      "maxWorkingOrSettledFootGapM": 2.673293236411812e-7
+    },
+    {
+      "kind": "custom-large",
+      "hz": 30,
+      "seatHeight": 0.6889151112380376,
+      "phases": [
+        "walking",
+        "entering",
+        "sit",
+        "working",
+        "standing",
+        "leaving",
+        "done"
+      ],
+      "doneFrames": 61,
+      "plantedPairs": 747,
+      "minFootM": 2.6155891822126107e-8,
+      "maxPlantShiftM": 8.707214062626796e-8,
+      "maxWorkingPelvisErrorM": 1.0755840662568517e-12,
+      "maxWorkingOrSettledFootGapM": 2.421359013517859e-7
+    },
+    {
+      "kind": "route",
+      "hz": 60,
+      "phases": [
+        "walking",
+        "done"
+      ],
+      "doneFrames": 121,
+      "plantedPairs": 409,
+      "minFootM": 3.4540051415881765e-8,
+      "maxPlantShiftM": 4.682854132534074e-9,
+      "maxWorkingPelvisErrorM": 0,
+      "maxWorkingOrSettledFootGapM": 7.238192625936103e-8
+    },
+    {
+      "kind": "bundled-small",
+      "hz": 60,
+      "seatHeight": 0.41334906674282257,
+      "phases": [
+        "walking",
+        "entering",
+        "sit",
+        "working",
+        "standing",
+        "leaving",
+        "done"
+      ],
+      "doneFrames": 121,
+      "plantedPairs": 1604,
+      "minFootM": 3.281456817252699e-8,
+      "maxPlantShiftM": 8.845774294380539e-8,
+      "maxWorkingPelvisErrorM": 2.3736568266485847e-12,
+      "maxWorkingOrSettledFootGapM": 2.673293236411812e-7
+    },
+    {
+      "kind": "bundled-large",
+      "hz": 60,
+      "seatHeight": 0.6889151112380376,
+      "phases": [
+        "walking",
+        "entering",
+        "sit",
+        "working",
+        "standing",
+        "leaving",
+        "done"
+      ],
+      "doneFrames": 121,
+      "plantedPairs": 1508,
+      "minFootM": 3.345874324560168e-8,
+      "maxPlantShiftM": 9.380991247282936e-8,
+      "maxWorkingPelvisErrorM": 1.0755840662568517e-12,
+      "maxWorkingOrSettledFootGapM": 2.421359013517859e-7
+    },
+    {
+      "kind": "custom-small",
+      "hz": 60,
+      "seatHeight": 0.41334906674282257,
+      "phases": [
+        "walking",
+        "entering",
+        "sit",
+        "working",
+        "standing",
+        "leaving",
+        "done"
+      ],
+      "doneFrames": 121,
+      "plantedPairs": 1604,
+      "minFootM": 3.281456817252699e-8,
+      "maxPlantShiftM": 8.845774294380539e-8,
+      "maxWorkingPelvisErrorM": 2.3736568266485847e-12,
+      "maxWorkingOrSettledFootGapM": 2.673293236411812e-7
+    },
+    {
+      "kind": "custom-large",
+      "hz": 60,
+      "seatHeight": 0.6889151112380376,
+      "phases": [
+        "walking",
+        "entering",
+        "sit",
+        "working",
+        "standing",
+        "leaving",
+        "done"
+      ],
+      "doneFrames": 121,
+      "plantedPairs": 1508,
+      "minFootM": 3.345874324560168e-8,
+      "maxPlantShiftM": 9.380991247282936e-8,
+      "maxWorkingPelvisErrorM": 1.0755840662568517e-12,
+      "maxWorkingOrSettledFootGapM": 2.421359013517859e-7
+    }
+  ],
+  "sha256": {
+    "web/tycoon-contact.js": "67fae9af192bb0215c259e048a19038643e0dcdb6941db428304a5972ea6370f",
+    "web/tycoon-seat-contact.js": "f562fa6d9ed6fe4005ba87ec28b2deaeba70bddc6c158df5fa73e9b478a0ba10",
+    "web/tycoon-scene.js": "0bc232046e888cf87a2f3264bb911c47f72c97022b56a7a4cb64f6cadda4642a",
+    "web/tycoon-activity.js": "c3d9c458fff350961017b6e095052631e1f39acf851ad1650c4fe26b81d50e92",
+    "web/tycoon-blueprint.js": "1e60334084af80807423a55468fd3ffb166a54fe64dce394e92f87e7a39e5799",
+    "web/assets/models/tycoon-factory/actor-rig-v3.glb": "12963ec2f220812d2a88da8382a83d7da5671a7084fbd758b0dc82902ee58ac2",
+    "web/assets/models/tycoon/chair.glb": "d9dbc950794d9e318ccce5a0ea1819440e96465c729210c08ada98590c86c99f"
+  }
+}

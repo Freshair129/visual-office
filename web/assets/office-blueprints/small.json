@@ -1,0 +1,87 @@
+{
+  "schemaVersion": "office-room/v1",
+  "name": "S · Compact office",
+  "background": "office",
+  "brief": "Metric simulation template; no Agent records.",
+  "objects": [
+    {
+      "id": "plan-desk-1",
+      "kind": "work-desk",
+      "scale": 0.62,
+      "flip": false,
+      "locked": false,
+      "x": 57.77817459305202,
+      "y": 49.5567878988858
+    },
+    {
+      "id": "plan-chair-1",
+      "kind": "task-chair",
+      "scale": 0.72,
+      "flip": false,
+      "locked": false,
+      "x": 53.712310601229376,
+      "y": 52.728161812507466
+    },
+    {
+      "id": "plan-desk-2",
+      "kind": "work-desk",
+      "scale": 0.62,
+      "flip": false,
+      "locked": false,
+      "x": 66.26345596729058,
+      "y": 56.175307370791884
+    },
+    {
+      "id": "plan-chair-2",
+      "kind": "task-chair",
+      "scale": 0.72,
+      "flip": false,
+      "locked": false,
+      "x": 62.197591975467944,
+      "y": 59.34668128441355
+    },
+    {
+      "id": "floor-sofa",
+      "kind": "team-sofa",
+      "scale": 1,
+      "flip": false,
+      "locked": false,
+      "x": 44.34314575050762,
+      "y": 42.38672513765422
+    },
+    {
+      "id": "floor-water",
+      "kind": "water-cooler",
+      "scale": 1,
+      "flip": false,
+      "locked": false,
+      "x": 52.65165042944955,
+      "y": 43.0761542493111
+    },
+    {
+      "id": "floor-board",
+      "kind": "whiteboard",
+      "scale": 0.8,
+      "flip": false,
+      "locked": false,
+      "interaction": {
+        "type": "tasks"
+      },
+      "x": 42.39860210224462,
+      "y": 49.97044536587993
+    },
+    {
+      "id": "floor-lift",
+      "kind": "wayfinding-arrow",
+      "scale": 1,
+      "flip": false,
+      "locked": false,
+      "interaction": {
+        "type": "elevator"
+      },
+      "x": 35.50431098567578,
+      "y": 54.79644914747812
+    }
+  ],
+  "blueprint": "small"
+}

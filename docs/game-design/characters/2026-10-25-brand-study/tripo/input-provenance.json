@@ -1,0 +1,33 @@
+{
+  "producer": "built-in ImageGen",
+  "purpose": "derived single-view inputs; not new brand authority",
+  "inputs": [
+    {
+      "id": "zuri",
+      "file": "zuri-front-input-v1.png",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "92b8996a5ee379c565476040b132d6929c0484c1a6a9df09403c91eb92a04501",
+      "prompt": "zuri-front-input-v1.prompt.md",
+      "approvedSourceSheet": "../zuri-sheet-v1.png"
+    },
+    {
+      "id": "staff-a",
+      "file": "staff-a-front-input-v1.png",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "1b77d90b2c5c84c1c247709168a027381561008c98595cb7608a1a31d392e440",
+      "prompt": "staff-a-front-input-v1.prompt.md",
+      "approvedSourceSheet": "../office-staff-sheet-v1.png"
+    },
+    {
+      "id": "staff-b",
+      "file": "staff-b-front-input-v1.png",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "007af04f7ec2cc4dca2563369317b0d676c6cc60441321647c691c3375d03af7",
+      "prompt": "staff-b-front-input-v1.prompt.md",
+      "approvedSourceSheet": "../office-staff-sheet-v1.png"
+    }
+  ]
+}

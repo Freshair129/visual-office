@@ -1,0 +1,75 @@
+.zuri-floor-panel{grid-column:1/-1;min-width:0;margin:12px 12px 14px;padding:18px;border:1px solid #eadfce;border-radius:18px;background:linear-gradient(145deg,#fffdf8,#fff);box-shadow:0 3px 0 #eee7db;color:#3b4650;font-family:'IBM Plex Sans Thai',Manrope,sans-serif}
+.zuri-floor-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+.zuri-eyebrow,.zuri-command-kicker{display:block;color:#a06b32;font:700 9px/1.5 Manrope,sans-serif;letter-spacing:1.25px;text-transform:uppercase}
+.zuri-floor-heading h2,.zuri-connect-heading h2{margin:4px 0 0;color:#35414a;font-size:17px;line-height:1.45;font-weight:700}
+.zuri-state-badge{flex:0 0 auto;padding:5px 10px;border:1px solid #e5dfd5;border-radius:999px;background:#f8f6f0;color:#687177;font-size:10px;line-height:1.4}
+.zuri-state-badge[data-state="ready"]{border-color:#c9dfcb;background:#f1f8f1;color:#467448}
+.zuri-state-badge[data-state="empty"]{border-color:#ddd8cb;background:#f7f5ef;color:#77715f}
+.zuri-state-badge[data-state="auth_required"],.zuri-state-badge[data-state="forbidden"],.zuri-state-badge[data-state="error"]{border-color:#ead0c8;background:#fff5f2;color:#9a5145}
+.zuri-business-current{margin:10px 0 12px;color:#737c80;font-size:11px}
+.zuri-record-list{min-height:40px;border:1px solid #f0ece5;border-radius:12px;background:#fffefa;padding:10px 12px}
+.zuri-empty-state,.zuri-record-count,.zuri-record-more{margin:0;color:#828984;font-size:11px;line-height:1.7}
+.zuri-record-count{margin-bottom:7px;color:#69736e}
+.zuri-record-items{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+.zuri-record-item{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;min-width:0;padding:7px 9px;border-radius:9px;background:#f8f7f2;font-size:11px;line-height:1.5}
+.zuri-record-label{min-width:0;overflow-wrap:anywhere;color:#46514e}
+.zuri-record-status{flex:0 0 auto;padding:1px 6px;border-radius:999px;background:#efe9dc;color:#7c725e;font-size:9px}
+.zuri-record-more{margin-top:7px;text-align:right}
+.zuri-business-link-hint{margin:7px 0 0;color:#85877d;font-size:9px;line-height:1.6}
+.zuri-floor-footer{display:flex;justify-content:space-between;gap:12px;margin-top:10px;color:#8a8f8b;font-size:9px;line-height:1.6}
+.zuri-agent-unavailable{margin:0;color:#95764d}
+.zuri-source-meta{margin:0;text-align:right}
+.zuri-floor-actions,.zuri-connection-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.zuri-button{display:inline-flex;justify-content:center;align-items:center;min-height:38px;padding:8px 12px;border:1px solid #ded8cf;border-radius:10px;background:#fff;color:#586169;font:600 11px 'IBM Plex Sans Thai',Manrope,sans-serif;text-decoration:none;cursor:pointer;transition:background .15s,border-color .15s,transform .15s}
+.zuri-button:hover{background:#faf6ed;border-color:#d8bc91}
+.zuri-button:active{transform:translateY(1px)}
+.zuri-button.primary{border-color:#d58b34;background:#eea94f;color:#573917;box-shadow:inset 0 -2px 0 #c98434}
+.zuri-button.primary:hover{background:#f4bd72}
+.zuri-button.quiet{background:#faf9f6}
+.zuri-button:disabled{opacity:.55;cursor:not-allowed;transform:none}
+.zuri-login-link{display:inline-flex;margin-top:10px;padding:7px 10px;border-radius:9px;background:#fff4df;color:#885d27;font-size:11px;font-weight:600;text-decoration:none}
+.zuri-login-link[hidden]{display:none}
+.zuri-login-link.compact{margin-top:9px}
+.zuri-command-area{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px}
+.zuri-command-card{min-width:0;padding:12px;border:1px solid #eee8dc;border-radius:13px;background:#fcfaf5}
+.zuri-command-note{margin:5px 0 9px;color:#7c827d;font-size:10px;line-height:1.6}
+.zuri-command-form{display:flex;gap:7px;align-items:stretch}
+.zuri-command-input{min-width:0;flex:1;height:38px;padding:7px 10px;border:1px solid #deded8;border-radius:9px;background:#fff;font:11px 'IBM Plex Sans Thai',Manrope,sans-serif;color:#34424a}
+.zuri-command-input:focus,.zuri-business-select:focus{outline:2px solid #e8ae61;outline-offset:1px}
+.zuri-command-result{min-height:0;margin-top:8px;color:#69726d;font-size:10px;line-height:1.65;overflow-wrap:anywhere}
+.zuri-command-result-title{display:block;margin-bottom:4px;color:#59665e;font-size:10px}
+.zuri-command-result-list{margin:0;padding-left:17px}
+.zuri-command-result-list li+li{margin-top:3px}
+.zuri-command-feedback{margin:0;color:#8c7353}
+.zuri-connect-dialog{width:min(620px,calc(100vw - 28px));max-width:none;max-height:min(88dvh,820px);overflow-y:auto;padding:22px;border:1px solid #e3d9c9;border-radius:20px;background:#fffdf8;color:#36434a;box-shadow:0 24px 80px #17202c38;font-family:'IBM Plex Sans Thai',Manrope,sans-serif}
+.zuri-connect-dialog::backdrop{background:#17202c77;backdrop-filter:blur(2px)}
+.zuri-connect-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+.zuri-icon-close{min-width:42px;min-height:38px;border:1px solid #e5dfd4;border-radius:10px;background:#fff;color:#657078;font:600 10px 'IBM Plex Sans Thai',sans-serif;cursor:pointer}
+.zuri-connection-status,.zuri-sweep-status{margin:12px 0 0;color:#68746f;font-size:11px;line-height:1.7}
+.zuri-target-note{margin:8px 0 14px;color:#898e87;font:10px Manrope,sans-serif;overflow-wrap:anywhere}
+.zuri-business-label{display:grid;gap:6px;color:#59645e;font-size:11px;font-weight:600}
+.zuri-business-select{width:100%;min-height:42px;padding:8px 10px;border:1px solid #ddd9d1;border-radius:10px;background:#fff;color:#39474b;font:12px 'IBM Plex Sans Thai',Manrope,sans-serif}
+.zuri-domain-checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin-top:12px}
+.zuri-check-row{display:flex;justify-content:space-between;align-items:center;gap:8px;min-width:0;padding:7px 9px;border:1px solid #f0ece5;border-radius:9px;background:#fff;font-size:10px;line-height:1.5}
+.zuri-check-floor{min-width:0;color:#59645e;overflow-wrap:anywhere}
+.zuri-check-state{flex:0 0 auto;color:#858982;text-align:right}
+.zuri-check-state[data-state="ready"]{color:#4a7b4d}.zuri-check-state[data-state="auth_required"],.zuri-check-state[data-state="forbidden"],.zuri-check-state[data-state="error"]{color:#a25448}
+.zuri-connect-dialog [hidden],.zuri-floor-panel [hidden]{display:none!important}
+.zuri-floor-panel :focus-visible,.zuri-connect-dialog :focus-visible{outline:2px solid #d58b34;outline-offset:2px}
+@media(max-width:1100px){.inside-floor .zuri-floor-panel{grid-column:1/-1}}
+@media(min-width:768px) and (max-width:1100px){
+  .inside-floor .zuri-floor-panel{grid-row:2}
+  .inside-floor .floor-roster{grid-column:1;grid-row:3}
+  .inside-floor .floor-role-detail{grid-column:2;grid-row:3/5}
+  .inside-floor .floor-reserved-note{grid-column:1;grid-row:4}
+}
+@media(max-width:767px){
+  .inside-floor .zuri-floor-panel{margin:10px 9px 12px;padding:13px;border-radius:15px}
+  .zuri-floor-heading{gap:8px}.zuri-floor-heading h2{font-size:15px}.zuri-state-badge{max-width:112px;text-align:center;padding:5px 7px}
+  .zuri-record-items{grid-template-columns:1fr}.zuri-floor-footer{display:block}.zuri-source-meta{text-align:left;margin-top:2px}
+  .zuri-floor-actions{display:grid;grid-template-columns:1fr 1fr}.zuri-floor-actions .zuri-button{padding-inline:7px;font-size:10px}
+  .zuri-command-area{grid-template-columns:1fr}.zuri-command-card{padding:10px}.zuri-command-form{gap:6px}.zuri-command-form .zuri-button{padding-inline:9px}
+  .zuri-connect-dialog{padding:17px 14px;border-radius:16px}.zuri-connection-actions{display:grid;grid-template-columns:1fr}.zuri-domain-checks{grid-template-columns:1fr}
+  .zuri-check-row{font-size:11px}
+}
+@media(prefers-reduced-motion:reduce){.zuri-button{transition:none}}

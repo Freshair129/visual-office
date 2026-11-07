@@ -1,0 +1,179 @@
+{
+  "fps": 30,
+  "navigation_m_per_s": 0.85,
+  "clips": {
+    "idle": {
+      "frames": 91,
+      "min_shoe_z_m": 3.725290298461914e-09,
+      "max_both_feet_gap_m": 3.725290298461914e-09,
+      "walk_contact_step_max_m": null,
+      "walk_worst_contact": null,
+      "walk_contact_samples": 0,
+      "pelvis_min_z_m": null,
+      "default_seat_z_m": null,
+      "per_foot": {
+        "left": {
+          "min_z_m": 3.725290298461914e-09,
+          "max_z_m": 3.725290298461914e-09,
+          "grounded_frames": 91,
+          "walk_grounded_pairs": 0
+        },
+        "right": {
+          "min_z_m": 3.725290298461914e-09,
+          "max_z_m": 3.725290298461914e-09,
+          "grounded_frames": 91,
+          "walk_grounded_pairs": 0
+        }
+      }
+    },
+    "walk": {
+      "frames": 28,
+      "min_shoe_z_m": -8.565950793126831e-08,
+      "max_both_feet_gap_m": 7.239098920308606e-08,
+      "walk_contact_step_max_m": 5.866090456788098e-08,
+      "walk_worst_contact": {
+        "side": "left",
+        "from": 9,
+        "to": 10,
+        "distance_m": 5.866090456788098e-08
+      },
+      "walk_contact_samples": 26,
+      "pelvis_min_z_m": null,
+      "default_seat_z_m": null,
+      "per_foot": {
+        "left": {
+          "min_z_m": -5.492857368949444e-08,
+          "max_z_m": 0.08992378413677216,
+          "grounded_frames": 15,
+          "walk_grounded_pairs": 13
+        },
+        "right": {
+          "min_z_m": -8.565950793126831e-08,
+          "max_z_m": 0.08992379903793335,
+          "grounded_frames": 15,
+          "walk_grounded_pairs": 13
+        }
+      }
+    },
+    "sit_down": {
+      "frames": 25,
+      "min_shoe_z_m": -6.45285069822421e-08,
+      "max_both_feet_gap_m": 1.2619668154911778e-07,
+      "walk_contact_step_max_m": null,
+      "walk_worst_contact": null,
+      "walk_contact_samples": 0,
+      "pelvis_min_z_m": null,
+      "default_seat_z_m": null,
+      "per_foot": {
+        "left": {
+          "min_z_m": -6.204584224178689e-08,
+          "max_z_m": 1.2619668154911778e-07,
+          "grounded_frames": 25,
+          "walk_grounded_pairs": 0
+        },
+        "right": {
+          "min_z_m": -6.45285069822421e-08,
+          "max_z_m": 1.2720856545911374e-07,
+          "grounded_frames": 25,
+          "walk_grounded_pairs": 0
+        }
+      }
+    },
+    "sitting": {
+      "frames": 31,
+      "min_shoe_z_m": 6.646149586231331e-08,
+      "max_both_feet_gap_m": 6.646149586231331e-08,
+      "walk_contact_step_max_m": null,
+      "walk_worst_contact": null,
+      "walk_contact_samples": 0,
+      "pelvis_min_z_m": 0.5508503913879395,
+      "default_seat_z_m": 0.551132,
+      "per_foot": {
+        "left": {
+          "min_z_m": 6.807655239526866e-08,
+          "max_z_m": 6.807655239526866e-08,
+          "grounded_frames": 31,
+          "walk_grounded_pairs": 0
+        },
+        "right": {
+          "min_z_m": 6.646149586231331e-08,
+          "max_z_m": 6.646149586231331e-08,
+          "grounded_frames": 31,
+          "walk_grounded_pairs": 0
+        }
+      }
+    },
+    "typing": {
+      "frames": 31,
+      "min_shoe_z_m": 6.646149586231331e-08,
+      "max_both_feet_gap_m": 6.646149586231331e-08,
+      "walk_contact_step_max_m": null,
+      "walk_worst_contact": null,
+      "walk_contact_samples": 0,
+      "pelvis_min_z_m": 0.5508503913879395,
+      "default_seat_z_m": 0.551132,
+      "per_foot": {
+        "left": {
+          "min_z_m": 6.807655239526866e-08,
+          "max_z_m": 6.807655239526866e-08,
+          "grounded_frames": 31,
+          "walk_grounded_pairs": 0
+        },
+        "right": {
+          "min_z_m": 6.646149586231331e-08,
+          "max_z_m": 6.646149586231331e-08,
+          "grounded_frames": 31,
+          "walk_grounded_pairs": 0
+        }
+      }
+    },
+    "waving": {
+      "frames": 31,
+      "min_shoe_z_m": 3.725290298461914e-09,
+      "max_both_feet_gap_m": 3.725290298461914e-09,
+      "walk_contact_step_max_m": null,
+      "walk_worst_contact": null,
+      "walk_contact_samples": 0,
+      "pelvis_min_z_m": null,
+      "default_seat_z_m": null,
+      "per_foot": {
+        "left": {
+          "min_z_m": 3.725290298461914e-09,
+          "max_z_m": 3.725290298461914e-09,
+          "grounded_frames": 31,
+          "walk_grounded_pairs": 0
+        },
+        "right": {
+          "min_z_m": 3.725290298461914e-09,
+          "max_z_m": 3.725290298461914e-09,
+          "grounded_frames": 31,
+          "walk_grounded_pairs": 0
+        }
+      }
+    },
+    "stand_up": {
+      "frames": 25,
+      "min_shoe_z_m": -6.45285069822421e-08,
+      "max_both_feet_gap_m": 1.2619668154911778e-07,
+      "walk_contact_step_max_m": null,
+      "walk_worst_contact": null,
+      "walk_contact_samples": 0,
+      "pelvis_min_z_m": null,
+      "default_seat_z_m": null,
+      "per_foot": {
+        "left": {
+          "min_z_m": -6.204584224178689e-08,
+          "max_z_m": 1.2619668154911778e-07,
+          "grounded_frames": 25,
+          "walk_grounded_pairs": 0
+        },
+        "right": {
+          "min_z_m": -6.45285069822421e-08,
+          "max_z_m": 1.2720856545911374e-07,
+          "grounded_frames": 25,
+          "walk_grounded_pairs": 0
+        }
+      }
+    }
+  }
+}

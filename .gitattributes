@@ -1,0 +1,4 @@
+tests/fixtures/marketing-office/read-v1.json -text
+tests/fixtures/marketing-office/domain-context-v1.json -text
+# Pipeline scripts are hash-pinned in generated manifests; keep their bytes identical on every OS.
+scripts/asset-factory/*.py text eol=lf

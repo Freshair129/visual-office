@@ -1,0 +1,195 @@
+{
+  "schemaVersion": "office-room/v1",
+  "name": "L · Open office office",
+  "background": "office",
+  "brief": "Metric simulation template; no Agent records.",
+  "objects": [
+    {
+      "id": "plan-desk-1",
+      "kind": "work-desk",
+      "scale": 0.62,
+      "flip": false,
+      "locked": false,
+      "x": 52.82842712474619,
+      "y": 34.66511908709711
+    },
+    {
+      "id": "plan-chair-1",
+      "kind": "task-chair",
+      "scale": 0.72,
+      "flip": false,
+      "locked": false,
+      "x": 48.762563132923546,
+      "y": 37.83649300071878
+    },
+    {
+      "id": "plan-desk-2",
+      "kind": "work-desk",
+      "scale": 0.62,
+      "flip": false,
+      "locked": false,
+      "x": 64.37783788412646,
+      "y": 43.67365947941373
+    },
+    {
+      "id": "plan-chair-2",
+      "kind": "task-chair",
+      "scale": 0.72,
+      "flip": false,
+      "locked": false,
+      "x": 60.31197389230382,
+      "y": 46.84503339303539
+    },
+    {
+      "id": "plan-desk-3",
+      "kind": "work-desk",
+      "scale": 0.62,
+      "flip": false,
+      "locked": false,
+      "x": 75.92724864350674,
+      "y": 52.68219987173035
+    },
+    {
+      "id": "plan-chair-3",
+      "kind": "task-chair",
+      "scale": 0.72,
+      "flip": false,
+      "locked": false,
+      "x": 71.86138465168409,
+      "y": 55.85357378535201
+    },
+    {
+      "id": "plan-desk-4",
+      "kind": "work-desk",
+      "scale": 0.62,
+      "flip": false,
+      "locked": false,
+      "x": 87.47665940288702,
+      "y": 61.69074026404696
+    },
+    {
+      "id": "plan-chair-4",
+      "kind": "task-chair",
+      "scale": 0.72,
+      "flip": false,
+      "locked": false,
+      "x": 83.41079541106437,
+      "y": 64.86211417766863
+    },
+    {
+      "id": "plan-desk-5",
+      "kind": "work-desk",
+      "scale": 0.62,
+      "flip": false,
+      "locked": false,
+      "x": 35.50431098567578,
+      "y": 48.17792967557204
+    },
+    {
+      "id": "plan-chair-5",
+      "kind": "task-chair",
+      "scale": 0.72,
+      "flip": false,
+      "locked": false,
+      "x": 31.438446993853127,
+      "y": 51.3493035891937
+    },
+    {
+      "id": "plan-desk-6",
+      "kind": "work-desk",
+      "scale": 0.62,
+      "flip": false,
+      "locked": false,
+      "x": 47.05372174505606,
+      "y": 57.186470067888656
+    },
+    {
+      "id": "plan-chair-6",
+      "kind": "task-chair",
+      "scale": 0.72,
+      "flip": false,
+      "locked": false,
+      "x": 42.987857753233406,
+      "y": 60.35784398151032
+    },
+    {
+      "id": "plan-desk-7",
+      "kind": "work-desk",
+      "scale": 0.62,
+      "flip": false,
+      "locked": false,
+      "x": 58.60313250443633,
+      "y": 66.19501046020527
+    },
+    {
+      "id": "plan-chair-7",
+      "kind": "task-chair",
+      "scale": 0.72,
+      "flip": false,
+      "locked": false,
+      "x": 54.53726851261368,
+      "y": 69.36638437382693
+    },
+    {
+      "id": "plan-desk-8",
+      "kind": "work-desk",
+      "scale": 0.62,
+      "flip": false,
+      "locked": false,
+      "x": 70.1525432638166,
+      "y": 75.20355085252189
+    },
+    {
+      "id": "plan-chair-8",
+      "kind": "task-chair",
+      "scale": 0.72,
+      "flip": false,
+      "locked": false,
+      "x": 66.08667927199396,
+      "y": 78.37492476614355
+    },
+    {
+      "id": "floor-sofa",
+      "kind": "team-sofa",
+      "scale": 1,
+      "flip": false,
+      "locked": false,
+      "x": 37.27207793864214,
+      "y": 25.84042645788901
+    },
+    {
+      "id": "floor-water",
+      "kind": "water-cooler",
+      "scale": 1,
+      "flip": false,
+      "locked": false,
+      "x": 45.58058261758408,
+      "y": 26.529855569545887
+    },
+    {
+      "id": "floor-board",
+      "kind": "whiteboard",
+      "scale": 0.8,
+      "flip": false,
+      "locked": false,
+      "interaction": {
+        "type": "tasks"
+      },
+      "x": 21.185398666648197,
+      "y": 44.455012472624865
+    },
+    {
+      "id": "floor-lift",
+      "kind": "wayfinding-arrow",
+      "scale": 1,
+      "flip": false,
+      "locked": false,
+      "interaction": {
+        "type": "elevator"
+      },
+      "x": 14.291107550079353,
+      "y": 49.28101625422305
+    }
+  ],
+  "blueprint": "large"
+}

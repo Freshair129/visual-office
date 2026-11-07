@@ -1,0 +1,21 @@
+name: Office checks
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - run: npm run docs:check
+      - run: npm test
+      - run: npm run build
+      - name: Pinned producer compatibility
+        run: node scripts/marketing-compatibility.mjs tests/fixtures/marketing-office/read-v1.json 7cd8b312704a75822c0495faa5c216f8536dc125aca0d9ee588ce5647fc8e101

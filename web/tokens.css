@@ -1,0 +1,19 @@
+/* ZURI Brand SoT v0.8.0: authentic masters, Thai/Latin fonts and semantic aliases. */
+@font-face{font-family:Manrope;src:url('./assets/fonts/manrope-variable.ttf');font-weight:200 800;font-display:swap}
+@font-face{font-family:Plex;src:url('./assets/fonts/ibm-plex-sans-thai-400.ttf');font-weight:400;font-display:swap}
+@font-face{font-family:Plex;src:url('./assets/fonts/ibm-plex-sans-thai-600.ttf');font-weight:600;font-display:swap}
+@font-face{font-family:Plex;src:url('./assets/fonts/ibm-plex-sans-thai-700.ttf');font-weight:700;font-display:swap}
+@font-face{font-family:Mono;src:url('./assets/fonts/ibm-plex-mono-400.ttf');font-display:swap}
+:root{
+ --bg-canvas:#FFFFFF;--bg-surface:#FFFFFF;--bg-subtle:#EEF1F4;--bg-raised:#F7F8FA;--bg-overlay:#FFFFFF;
+ --text-primary:#1F2937;--text-secondary:#526174;--text-inverse:#FFFFFF;--text-accent:#B45309;
+ --border-subtle:#D6DEE8;--border-default:#D6DEE8;--border-strong:#526174;--border-focus:#1F2937;
+ --action-primary:#1F2937;--action-primary-hover:#111827;--action-primary-pressed:#000000;
+ --status-success:#166534;--status-success-surface:#F0FDF4;--status-danger:#B91C1C;--status-danger-surface:#FEF2F2;--status-info:#1D4ED8;--status-info-surface:#EFF6FF;--status-warning:#92400E;--status-warning-surface:#FFFBEB;
+ --button-primary-bg:var(--action-primary);--button-primary-hover:var(--action-primary-hover);--input-border:var(--border-strong);--input-border-focus:var(--border-focus);--card-bg:var(--bg-surface);--card-border:var(--border-subtle);
+ --space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-6:24px;--space-8:32px;
+ --brand:#E8820C;--brand-hover:#F09420;--brand-dark:var(--text-accent);--brand-tint:#FDE8D0;--brand-surface:#FFF8F0;
+ --ink:var(--text-primary);--muted:var(--text-secondary);--surface:var(--bg-raised);--card:var(--card-bg);--line:var(--border-subtle);
+ --restblue:#D6ECFA;--restblue-text:var(--status-info);--mustard:#C6A052;--mustard-tint:#F5ECD7;--cream:#F5EFE4;
+ --success:var(--status-success);--warning:var(--status-warning);--danger:var(--status-danger);
+}

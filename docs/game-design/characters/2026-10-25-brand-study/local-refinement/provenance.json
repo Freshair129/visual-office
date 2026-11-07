@@ -1,0 +1,150 @@
+{
+  "schemaVersion": "zuri-local-refinement/v1",
+  "recordedAt": "2026-10-25T12:51:22.527Z",
+  "method": "Original local procedural sculpture refined against visible browser screenshots",
+  "scope": "Character Lab only",
+  "head": "4523bf0392c027a98aee297bddd7ac3633b35060",
+  "workingTree": "uncommitted; pre-existing unrelated changes preserved",
+  "providerAssetExtracted": false,
+  "providerGenerationJobs": 0,
+  "providerCreditsSpent": 0,
+  "floorAdopted": false,
+  "ownerArtAcceptance": "pending",
+  "baseline": {
+    "file": "web/assets/models/characters/reviews/zuri-before-refinement.glb",
+    "sha256": "8955b1cafa2b482a3bf6c09e7800b56317e8b27918826378328599de43543810",
+    "triangles": 87224,
+    "meshes": 97
+  },
+  "current": {
+    "id": "zuri",
+    "file": "zuri.glb",
+    "bytes": 5113768,
+    "sha256": "70978ebebfd79314951243e233a08f0e01ae02ba183d9dbb3d0dd4c529dd7499",
+    "triangles": 91944,
+    "meshes": 102,
+    "clips": [
+      "idle",
+      "walking",
+      "seated",
+      "wave",
+      "point"
+    ],
+    "sheet": "docs/game-design/characters/2026-10-25-brand-study/zuri-sheet-v1.png",
+    "sheetSha256": "23640829719cb5d9d96e2027616667770e3f2a4dc549c4d1e8acdae3e4777b9e",
+    "scaleNote": "1.60 m body; hair and shoes additional",
+    "production": {
+      "method": "original-local-sculpt",
+      "revision": "surface-refinement-v2",
+      "source": "web/characters/zuri-head.js",
+      "albedoSource": "docs/game-design/characters/2026-10-25-brand-study/local-rebuild/zuri-face-albedo-v1.png",
+      "albedoSha256": "2a7bb8a73952c5cce65e9e47a365beb9080087b0ef0638fab7523c4dd854a937",
+      "providerModelImported": false
+    }
+  },
+  "unchangedCharacters": [
+    {
+      "id": "wangjai",
+      "sha256": "5bf4e7886fd6f0844ebd54b60aa31a1383e32f0bf1bfa5bfb681d8a60aa4f09e",
+      "unchanged": true
+    },
+    {
+      "id": "staff-a",
+      "sha256": "9e82d9d5b783e49ce0e902bd13e9398f3255e86c380b481f45266e608c38e7fc",
+      "unchanged": true
+    },
+    {
+      "id": "staff-b",
+      "sha256": "b88bfed7072ec5482e046113c36785a513c91f96a194564e6ea3b838b6fc8c82",
+      "unchanged": true
+    }
+  ],
+  "references": {
+    "url": "https://studio.tripo3d.ai/workspace/generate/e636ec75-6c1d-4081-b718-b0979f52054e",
+    "format": "Unmodified visible browser JPEG screenshots; SVG viewBox crops",
+    "sameCameraAsLocal": false,
+    "images": [
+      {
+        "file": "tripo-front-preview.jpg",
+        "width": 963,
+        "height": 884,
+        "viewBox": [
+          530,
+          150,
+          275,
+          620
+        ],
+        "sha256": "463e6a0b0351d7f844ed5f2ccca7bd35be57718be3b83fd9692320461bb507b3"
+      },
+      {
+        "file": "tripo-face-preview.jpg",
+        "width": 963,
+        "height": 884,
+        "viewBox": [
+          575,
+          70,
+          205,
+          200
+        ],
+        "sha256": "90610cea9e00713dfb58cf0396ebb9dfff1ffa3a06ea9af3c4cb61c70d09ad96"
+      }
+    ]
+  },
+  "verification": {
+    "commands": [
+      {
+        "command": "npm run build",
+        "exitCode": 0,
+        "embeddedWorkerAssets": 435,
+        "log": "reports/zuri-local-refinement/build.log",
+        "notes": "GLTFExporter normalized source normals during export; exported normal assertions passed."
+      },
+      {
+        "command": "npm test",
+        "exitCode": 0,
+        "tests": 759,
+        "passed": 759,
+        "failed": 0,
+        "skipped": 0,
+        "log": "reports/zuri-local-refinement/tests.log"
+      }
+    ],
+    "review": {
+      "reviewer": "zuri_surface_review; GPT-6 Luna Max",
+      "scope": "Focused independent source/exported-asset review; 16 checks passed before seam correction",
+      "finding": "P2 nonperiodic hair-cap seam, max 3.60 mm gap",
+      "resolution": "Periodic angular formula plus duplicate seam normal averaging on face/cap/inner shell/turned edge; new regression observed RED then GREEN; full suite rerun",
+      "secondReview": false
+    },
+    "browser": {
+      "source": "http://127.0.0.1:4184/character-lab.html",
+      "worker": "http://127.0.0.1:4185/character-lab.html",
+      "checks": [
+        "Final face close-up and local before/after",
+        "Reference switching and light direction",
+        "Walking and furniture seated posture",
+        "Side and back views",
+        "Rapid Zuri revision to Staff A switch resets reference/version/download",
+        "User tab refreshed to final build"
+      ],
+      "warnErrorLogs": [],
+      "raceEvidence": "Static generation-token review plus rapid selection smoke only; no forced network-delay race simulation",
+      "screenshots": [
+        "reports/zuri-local-refinement/worker-face-comparison.jpg",
+        "reports/zuri-local-refinement/worker-before.jpg",
+        "reports/zuri-local-refinement/worker-body-comparison.jpg",
+        "reports/zuri-local-refinement/worker-seat.jpg",
+        "reports/zuri-local-refinement/worker-side.jpg",
+        "reports/zuri-local-refinement/worker-back.jpg",
+        "reports/zuri-local-refinement/worker-staff-switch.jpg",
+        "reports/zuri-local-refinement/source-walk.jpg",
+        "reports/zuri-local-refinement/source-seat.jpg"
+      ]
+    }
+  },
+  "limits": [
+    "Local stylized approximation; fine strand density, facial identity and garment drape do not reproduce Tripo exactly",
+    "Painted eyes with geometric blinking; no independent gaze or lip-sync",
+    "Synthetic/local art verification; no live Zuri integration or floor roster changes"
+  ]
+}

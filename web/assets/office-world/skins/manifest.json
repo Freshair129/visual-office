@@ -1,0 +1,94 @@
+{
+  "schemaVersion": "office-object-skins/v1",
+  "projection": "object-local orthographic",
+  "camera": {
+    "azimuth": 45,
+    "elevation": 31.33225149759427
+  },
+  "atlas": {
+    "columns": 3,
+    "rows": 2,
+    "cells": [
+      "work-desk",
+      "task-chair",
+      "team-sofa",
+      "water-cooler",
+      "whiteboard",
+      "plant"
+    ]
+  },
+  "files": {
+    "projects-reference-v1.png": {
+      "sha256": "ceb48d6c62ad68ecd764a7b0a04860f0f6d04352af4b42bab639a4f73dd884f0",
+      "bytes": 370850,
+      "width": 1536,
+      "height": 1024
+    },
+    "projects-painted-atlas-v1.png": {
+      "sha256": "4cec81aff8221d67805e3ce039416d3725d2d053d815972c0c252c218247ed1e",
+      "bytes": 2120714,
+      "width": 1536,
+      "height": 1024
+    },
+    "projects-surfaces-v1.png": {
+      "sha256": "4ea0d81fd10f3e48d33ff80077722b075b2332f923c1d619d6a4245cbecd5f86",
+      "bytes": 2564533,
+      "width": 1254,
+      "height": 1254
+    },
+    "projects-reference-r90-v1.png": {
+      "sha256": "f86e5d6415aafb585feb63603332d6014ce86209fed9e6853658b4f684ead196",
+      "bytes": 339334,
+      "width": 1536,
+      "height": 1024
+    },
+    "projects-painted-atlas-r90-v1.png": {
+      "sha256": "0db1acd7d59d616c220fb53381fcafa0f83469646281ed76b4f011126a6c04b9",
+      "bytes": 2089801,
+      "width": 1536,
+      "height": 1024
+    },
+    "projects-reference-r180-v1.png": {
+      "sha256": "6197f7e311ea443fca005193f5c7a3a0ecdca73ada7efdad0819766f8d217fd6",
+      "bytes": 294897,
+      "width": 1536,
+      "height": 1024
+    },
+    "projects-painted-atlas-r180-v1.png": {
+      "sha256": "d8787f81f2a5e8dc3a5c3b62f29552416dff19806e246bdf12186ba981ee28e5",
+      "bytes": 2187896,
+      "width": 1536,
+      "height": 1024
+    },
+    "projects-reference-r270-v1.png": {
+      "sha256": "124aec0d7f4147a8fb5a7c5788b742ddf29ef73548310501ff582c515c732dc6",
+      "bytes": 316650,
+      "width": 1536,
+      "height": 1024
+    },
+    "projects-painted-atlas-r270-v1.png": {
+      "sha256": "dc973dbd7c58ddd39af6fc578dcd6957f9687b5fac4a5f7c5f14b654eabfba35",
+      "bytes": 2128963,
+      "width": 1536,
+      "height": 1024
+    }
+  },
+  "geometrySources": {
+    "web/office-prop-models.js": "3d98c54f136be58909ae6b884d3678ce7f4c09099328990fcd914dbc144aaa85",
+    "web/studio-models.js": "98a1c8360f084f026e2f4ec791764ae780571b664d8b6f8020b340930d5a839d",
+    "web/office-skin-frame.js": "51d3c52c094162b0d9d3afc1e3e448629a3e5401dffb53a7b247dc48258bd790"
+  },
+  "notes": [
+    "Generated art is sampled only on the actual geometry, never a floating image plane.",
+    "Atlas background is masked by geometry; alpha never opens collision or depth holes.",
+    "Reference and atlas are registered 1536x1024 sheets; fixed camera only.",
+    "Quarter-turn reference views 90/180/270 generated against optional object-local projection; the zero-degree projection and geometry are unchanged."
+  ],
+  "orientations": [
+    0,
+    90,
+    180,
+    270
+  ],
+  "geometrySourceEncoding": "utf8-lf"
+}

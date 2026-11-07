@@ -1,0 +1,59 @@
+{
+  "browser": "156.0.8078.48",
+  "method": "headless Chrome with hardware WebGL D3D11; one local simulation probe, route followed by repeated full desk lifecycle",
+  "viewport": "1280x800 DPR 1",
+  "modes": [
+    {
+      "rate": "display",
+      "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3060 (0x00002504) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "loadMs": 648.6999999992549,
+      "elapsedMs": 60004.300000000745,
+      "renderIntervals": 3593,
+      "renderFps": 59.895412241468705,
+      "p50Ms": 16.69999999999709,
+      "p95Ms": 16.799999999999272,
+      "maxDrawCalls": 199,
+      "maxTriangles": 59798,
+      "geometryObjects": 101,
+      "textures": 24,
+      "jsHeapBytes": 39244258,
+      "phases": {
+        "walking": 1237,
+        "done": 7,
+        "entering": 544,
+        "sit": 319,
+        "working": 1080,
+        "standing": 293,
+        "leaving": 114
+      },
+      "completedSequences": 7,
+      "motionFailures": []
+    },
+    {
+      "rate": 30,
+      "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3060 (0x00002504) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "loadMs": 422,
+      "elapsedMs": 60007.300000000745,
+      "renderIntervals": 1796,
+      "renderFps": 29.939421015606506,
+      "p50Ms": 33.30000000000291,
+      "p95Ms": 33.40000000000873,
+      "maxDrawCalls": 199,
+      "maxTriangles": 59798,
+      "geometryObjects": 101,
+      "textures": 24,
+      "jsHeapBytes": 38739674,
+      "phases": {
+        "walking": 612,
+        "done": 7,
+        "entering": 278,
+        "sit": 154,
+        "working": 540,
+        "standing": 146,
+        "leaving": 60
+      },
+      "completedSequences": 7,
+      "motionFailures": []
+    }
+  ]
+}

@@ -1,0 +1,199 @@
+{
+  "browser": "156.0.8078.48",
+  "viewport": "1280x800 DPR1",
+  "method": "headless Chrome actual Projects scene and WebGL; local probe; samples follow rendered frames",
+  "errors": [],
+  "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3060 (0x00002504) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+  "route": [
+    {
+      "x": 44.69669914110089,
+      "y": 36.04397731041088
+    },
+    {
+      "x": 48.23223304703363,
+      "y": 38.80169375703842
+    },
+    {
+      "x": 44.69669914110089,
+      "y": 41.559410203665955
+    }
+  ],
+  "walk": {
+    "phases": [
+      "walking",
+      "done"
+    ],
+    "phaseMetrics": {
+      "walking": {
+        "frames": 135,
+        "minFootM": -0.00686923265344189,
+        "maxFootM": 0.08992267703186567,
+        "maxPlantedFrameSlideM": 0.17791050534008065
+      },
+      "done": {
+        "frames": 1,
+        "minFootM": -0.003857886999811439,
+        "maxFootM": 0.05719808251840902,
+        "maxPlantedFrameSlideM": 0.01517201097881509
+      }
+    },
+    "turns": 1,
+    "maxPlantedFrameSlideM": 0.17791050534008065,
+    "worst": {
+      "phase": "walking",
+      "heading": 0,
+      "shoe": "left"
+    },
+    "minFootM": -0.00686923265344189,
+    "maxStationFootM": 0.05719808251840902,
+    "workingPelvisMinM": null,
+    "samples": 0
+  },
+  "seats": [
+    {
+      "scale": 0.9,
+      "authoredSeatHeightM": 0.4960188,
+      "phases": [
+        "walking",
+        "entering",
+        "sit",
+        "working",
+        "standing",
+        "leaving",
+        "done"
+      ],
+      "phaseMetrics": {
+        "walking": {
+          "frames": 619,
+          "minFootM": -0.006869232653441889,
+          "maxFootM": 0.08991939722188955,
+          "maxPlantedFrameSlideM": 0.19088249152942735
+        },
+        "entering": {
+          "frames": 60,
+          "minFootM": -0.00018582364391904157,
+          "maxFootM": 0.08989666931928614,
+          "maxPlantedFrameSlideM": 0.09456321684123639
+        },
+        "sit": {
+          "frames": 48,
+          "minFootM": -0.01043184819703372,
+          "maxFootM": 0.060968003906924556,
+          "maxPlantedFrameSlideM": 0.18634050809081276
+        },
+        "working": {
+          "frames": 179,
+          "minFootM": -0.003981055244063124,
+          "maxFootM": -0.003980969443913891,
+          "maxPlantedFrameSlideM": 2.6452346979513146e-09
+        },
+        "standing": {
+          "frames": 48,
+          "minFootM": -0.0044567929813811545,
+          "maxFootM": -0.0039812096534185,
+          "maxPlantedFrameSlideM": 0.01274067562437666
+        },
+        "leaving": {
+          "frames": 60,
+          "minFootM": -0.009802112623272815,
+          "maxFootM": 0.08992267781506222,
+          "maxPlantedFrameSlideM": 0.16752822380687243
+        },
+        "done": {
+          "frames": 1,
+          "minFootM": -0.00399580150633786,
+          "maxFootM": 0.05655052592716478,
+          "maxPlantedFrameSlideM": 0.009577017127968872
+        }
+      },
+      "turns": 7,
+      "maxPlantedFrameSlideM": 0.19088249152942735,
+      "worst": {
+        "phase": "walking",
+        "heading": 3.121987322732588,
+        "shoe": "right"
+      },
+      "minFootM": -0.01043184819703372,
+      "maxStationFootM": 0.060968003906924556,
+      "workingPelvisMinM": 0.5468691258012495,
+      "samples": 160
+    },
+    {
+      "scale": 1.25,
+      "authoredSeatHeightM": 0.6889149999999999,
+      "phases": [
+        "walking",
+        "entering",
+        "sit",
+        "working",
+        "standing",
+        "leaving",
+        "done"
+      ],
+      "phaseMetrics": {
+        "walking": {
+          "frames": 603,
+          "minFootM": -0.008761282572463626,
+          "maxFootM": 0.08992267781506222,
+          "maxPlantedFrameSlideM": 0.23204973996795122
+        },
+        "entering": {
+          "frames": 78,
+          "minFootM": -0.00018594635141296173,
+          "maxFootM": 0.08989666931928647,
+          "maxPlantedFrameSlideM": 0.18613981909396637
+        },
+        "sit": {
+          "frames": 48,
+          "minFootM": 0.1809602032336616,
+          "maxFootM": 0.25550208298974064,
+          "maxPlantedFrameSlideM": 0
+        },
+        "working": {
+          "frames": 180,
+          "minFootM": 0.18891514475593685,
+          "maxFootM": 0.18891523055608606,
+          "maxPlantedFrameSlideM": 0
+        },
+        "standing": {
+          "frames": 49,
+          "minFootM": 0.1884395131504905,
+          "maxFootM": 0.1889152505922732,
+          "maxPlantedFrameSlideM": 0
+        },
+        "leaving": {
+          "frames": 78,
+          "minFootM": -0.009799131823123615,
+          "maxFootM": 0.08992267781506182,
+          "maxPlantedFrameSlideM": 0.16752021285312657
+        },
+        "done": {
+          "frames": 1,
+          "minFootM": -0.004011864071334703,
+          "maxFootM": 0.028655236752670277,
+          "maxPlantedFrameSlideM": 0.01216572424408074
+        }
+      },
+      "turns": 6,
+      "maxPlantedFrameSlideM": 0.23204973996795122,
+      "worst": {
+        "phase": "walking",
+        "heading": -3.0592648776692357,
+        "shoe": "left"
+      },
+      "minFootM": -0.009799131823123615,
+      "maxStationFootM": 0.25550208298974064,
+      "workingPelvisMinM": 0.7397653258012494,
+      "samples": 162
+    }
+  ],
+  "sha256": {
+    "web/tycoon-activity.js": "01dc6eff67f81294ccea12ca035594177d51ffa37404bdc832e7aab40c4670c8",
+    "web/tycoon-scene.js": "6c638e5af99cfd4148d210ac90781becc54a48785fc6462fb8e736c4cdbbcdad",
+    "web/tycoon-blueprint.js": "6fa0945d88a93173a082cd847c1565690c0e638ebc4bb325701a6d3e98bbc0bd",
+    "web/assets/models/tycoon-factory/actor-rig-v3.glb": "12963ec2f220812d2a88da8382a83d7da5671a7084fbd758b0dc82902ee58ac2",
+    "web/assets/models/tycoon/chair.glb": "d9dbc950794d9e318ccce5a0ea1819440e96465c729210c08ada98590c86c99f",
+    "scripts/asset-factory/measure-contact-scene.cjs": "5f22c283c3bf155013c86d5add0fcd7d99b90b0290138a75a58e297eab41f80b"
+  },
+  "interpretation": "Diagnostic baseline only. Existing runtime remains unchanged. Foot slide and seat contact are unresolved; no production, approval or live-agent acceptance."
+}

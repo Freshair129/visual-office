@@ -1,0 +1,15 @@
+{
+  "generator": "built-in image_gen",
+  "reference": "C:/Users/suanr/.codex/generated_images/01a15724-ec18-7bb2-a034-ee14ed1a9ff0/exec-cc90b766-094e-49bf-a9bb-3a0577ae6125.png",
+  "style": "Editorial anime environment; warm brown contour, cel shading, cream/amber/sage/blue palette; front and right faces, orthographic camera approximately 30 degrees down.",
+  "requestedCanvas": [1024, 1024],
+  "actualCanvas": [1254, 1254],
+  "transparentBackgroundRequested": true,
+  "validation": "All three visually inspected. System.Drawing reported alpha 0 at corner and alpha 253 at center for each asset. Exact original PNGs copied, no raster edits or resizing.",
+  "limitations": ["Generated illustrations, not 3D models", "Slight colored alpha edge fringe is visible against black preview", "Rendered dimensions differ from requested dimensions"],
+  "assets": [
+    {"file":"desk.png","original":"C:/Users/suanr/.codex/generated_images/01a15874-cc53-7311-befc-4959ef9b3fe3/exec-ab073183-f6b1-4054-9687-99e6d5db0584.png","prompt":"One isolated rounded reception desk with cream curved countertop, warm wood slat frontage, amber brass base, sage ergonomic chair, blue monitor, white mug, desktop plant, keyboard. Match bottom-left reference. Transparent alpha, contact shadow only; no floorplate, room, text, UI or characters; crisp warm-brown outlines, 2-3 tone cel shade; no CGI, gouache, pixel or voxel art."},
+    {"file":"lift.png","original":"C:/Users/suanr/.codex/generated_images/01a15874-cc53-7311-befc-4959ef9b3fe3/exec-f13d74b8-0407-409a-bb2a-9c51abfeeec1.png","prompt":"Single isolated closed blue double elevator door bay, amber brass rounded frame, cream slim wall bay, amber skirting, side call buttons. Match bottom-middle reference, omit G or any text. Transparent alpha, contact shadow only; no floorplate, scene, UI or characters; crisp warm-brown outlines, 2-3 tone cel shade; no CGI, gouache, pixel or voxel art."},
+    {"file":"plant.png","original":"C:/Users/suanr/.codex/generated_images/01a15874-cc53-7311-befc-4959ef9b3fe3/exec-4efef9ac-0647-49ad-b926-4cfbfa1a8516.png","prompt":"One tall broadleaf office plant with layered lance-shaped leaves above dense small base leaves, cream square planter with amber gold rim and base trim. Match bottom-right reference. Transparent alpha, contact shadow only; no floorplate, room, text, UI or characters; crisp warm-brown outlines, 2-3 tone cel shade; no CGI, gouache, pixel or voxel art."}
+  ]
+}

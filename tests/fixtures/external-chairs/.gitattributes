@@ -1,0 +1,2 @@
+# Preserve the external package's exact source bytes for the recorded SHA-256 provenance.
+source/** -text -diff

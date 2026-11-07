@@ -1,0 +1,51 @@
+[
+  {
+    "mesh": "mesh_0",
+    "vertices": 84,
+    "triangles": 80,
+    "duplicatePositionOccurrences": 42,
+    "identicalAttributeDuplicates": 0
+  },
+  {
+    "mesh": "mesh_1",
+    "vertices": 1484,
+    "triangles": 2100,
+    "duplicatePositionOccurrences": 420,
+    "identicalAttributeDuplicates": 0
+  },
+  {
+    "mesh": "mesh_2",
+    "vertices": 260,
+    "triangles": 240,
+    "duplicatePositionOccurrences": 130,
+    "identicalAttributeDuplicates": 0
+  },
+  {
+    "mesh": "mesh_3",
+    "vertices": 68,
+    "triangles": 64,
+    "duplicatePositionOccurrences": 34,
+    "identicalAttributeDuplicates": 0
+  },
+  {
+    "mesh": "mesh_4",
+    "vertices": 424,
+    "triangles": 600,
+    "duplicatePositionOccurrences": 120,
+    "identicalAttributeDuplicates": 0
+  },
+  {
+    "mesh": "mesh_5",
+    "vertices": 212,
+    "triangles": 300,
+    "duplicatePositionOccurrences": 60,
+    "identicalAttributeDuplicates": 0
+  },
+  {
+    "mesh": "mesh_6",
+    "vertices": 424,
+    "triangles": 600,
+    "duplicatePositionOccurrences": 120,
+    "identicalAttributeDuplicates": 0
+  }
+]

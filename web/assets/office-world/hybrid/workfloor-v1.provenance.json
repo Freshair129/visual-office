@@ -1,0 +1,69 @@
+{
+  "revision": "office-workfloor/v1",
+  "createdAt": "2026-10-23",
+  "generator": "built-in image_gen",
+  "assetType": "PNG sprite/background artwork, not rotatable GLB",
+  "direction": "Painted 2.5D environment + Soft 3D props + 2D Anime",
+  "camera": "approximately 35-degree elevated orthographic isometric, 45-degree yaw",
+  "light": "warm upper-left",
+  "palette": [
+    "cream",
+    "sage",
+    "oak",
+    "teal",
+    "muted amber"
+  ],
+  "reference": "Owner-supplied Office Idle screenshot codex-clipboard-4ceef686-8260-4665-87ed-ed2c287b3955.png; camera and room layout only, not shipped as runtime artwork",
+  "characterSource": "characters/avatar-atlas-12.png, same 4x3 generic identities; no Agent binding",
+  "promptRecord": "Summarized production briefs below, not exact generation transcripts",
+  "briefs": [
+    "Isometric cutaway company-office background with rear work room and foreground corridor/lounge; preserve smooth painted surface style, no pixel art or UI. Architectural fixtures and lounge are baked background art.",
+    "Ordinary rectangular oak employee PC desk, cream open legs, drawer, two monitors, keyboard/mouse and document accessories; monitor backs face viewer and employee sits far side.",
+    "Matching isometric sage ergonomic task chair and teal team-rest sofa, separate transparent props.",
+    "Separate transparent dimensional multifunction printer/cabinet and mobile whiteboard.",
+    "Edit original regular 4-column/3-row generic avatar atlas into seated typing and alternate walking stride atlases, preserving identities and row order."
+  ],
+  "runtime": "activity simulation only; standing/stride alternation and seated pose, no skeletal rig or navigation mesh",
+  "files": [
+    {
+      "path": "backgrounds/office-isometric-v1.png",
+      "sha256": "9b93d68f7b99c2e52aefe925c9f7604e08f4dabad1c701262bba3b032803c39a",
+      "bytes": 2380117
+    },
+    {
+      "path": "props/work-desk-isometric-v1.png",
+      "sha256": "7fa70514ae790f0eb17382c9401047453a93a80871468bab9302f39835198015",
+      "bytes": 1272642
+    },
+    {
+      "path": "props/task-chair-isometric-v1.png",
+      "sha256": "dcb113fc2e0669a42fedd35481a5ac769f9e99c1d8f229a2c16cf4f11dfe995e",
+      "bytes": 1279498
+    },
+    {
+      "path": "props/sofa-isometric-v1.png",
+      "sha256": "da03b4e9d0140c525ea03ae608accdcbfccd211ce650a8c1e7475e8452986ed7",
+      "bytes": 1985380
+    },
+    {
+      "path": "props/printer-v1.png",
+      "sha256": "a6ab34c124c10cdd3ebd45fdccf4bac3fd6de4d78759a825e2e419a9075b23f0",
+      "bytes": 1430009
+    },
+    {
+      "path": "props/whiteboard-v1.png",
+      "sha256": "26c10ebc6a02941cfb5e3000a52022440ecdcd5894d6030b4335210c081c19be",
+      "bytes": 986851
+    },
+    {
+      "path": "characters/avatar-seated-12-v1.png",
+      "sha256": "748028832c21e53eaa68e3e24ad0c2eae6d740c8a2ac98de6f8f2fce4b98c04c",
+      "bytes": 1392335
+    },
+    {
+      "path": "characters/avatar-walk-12-v1.png",
+      "sha256": "21aa741a0663d1a8e0ecbdb7152db918b75f65d8d50ddf63fbbd72cae3e5819e",
+      "bytes": 1496668
+    }
+  ]
+}

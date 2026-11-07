@@ -1,0 +1,56 @@
+{
+  "providerAssetExtracted": false,
+  "floorAdopted": false,
+  "generatedBy": "built-in ImageGen",
+  "schema": "local-character-source/v1",
+  "reference": "../tripo/zuri-front-input-v1.png",
+  "imageSource": "exec-69b47ec8-3ed1-44e3-9eb5-a953a231b081.png",
+  "method": "original-local-sculpt-with-generated-albedo",
+  "faceTexture": "zuri-face-albedo-v1.png",
+  "faceTextureSha256": "2a7bb8a73952c5cce65e9e47a365beb9080087b0ef0638fab7523c4dd854a937",
+  "actualImageDimensions": {
+    "width": 1254,
+    "height": 1254
+  },
+  "localGlb": {
+    "id": "zuri",
+    "file": "zuri.glb",
+    "bytes": 5032944,
+    "sha256": "8955b1cafa2b482a3bf6c09e7800b56317e8b27918826378328599de43543810",
+    "triangles": 87224,
+    "meshes": 97,
+    "clips": [
+      "idle",
+      "walking",
+      "seated",
+      "wave",
+      "point"
+    ],
+    "sheet": "docs/game-design/characters/2026-10-25-brand-study/zuri-sheet-v1.png",
+    "sheetSha256": "23640829719cb5d9d96e2027616667770e3f2a4dc549c4d1e8acdae3e4777b9e",
+    "scaleNote": "1.60 m body; hair and shoes additional",
+    "production": {
+      "method": "original-local-sculpt",
+      "source": "web/characters/zuri-head.js",
+      "albedoSource": "docs/game-design/characters/2026-10-25-brand-study/local-rebuild/zuri-face-albedo-v1.png",
+      "albedoSha256": "2a7bb8a73952c5cce65e9e47a365beb9080087b0ef0638fab7523c4dd854a937",
+      "providerModelImported": false
+    }
+  },
+  "verification": {
+    "independentReview": "No remaining geometry-contract blocker; owner art review remains pending",
+    "tests": "753 passed; 0 failed; 0 skipped",
+    "build": "PASS; 430 embedded Worker assets",
+    "workerBrowser": {
+      "url": "http://127.0.0.1:4185/character-lab.html",
+      "checked": ["face", "walking", "seated with reference furniture"],
+      "warningsAndErrors": [],
+      "screenshots": [
+        "reports/zuri-local-rebuild/worker-face.png",
+        "reports/zuri-local-rebuild/worker-walk.png",
+        "reports/zuri-local-rebuild/worker-seated.png"
+      ],
+      "ownerArtAcceptance": "pending"
+    }
+  }
+}

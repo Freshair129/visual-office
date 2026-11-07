@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1020" viewBox="0 0 1440 1020" style="width:100%;height:auto;max-width:1440px" role="img" aria-labelledby="title desc">
+  <title id="title">Office Tycoon — Building, Lobby and Projects wireframes</title>
+  <desc id="desc">Proposed layout diagrams, not final art or running software. Full scene with top context, bottom dock and contextual work sheet. No persistent sidebar.</desc>
+  <defs>
+    <style>
+      text{font-family:'IBM Plex Sans Thai','Segoe UI',sans-serif;fill:#283e3c}
+      .title{font-size:30px;font-weight:700}.sub{font-size:16px;fill:#667a73}
+      .label{font-size:17px;font-weight:600}.small{font-size:14px}.tiny{font-size:12px}
+      .frame{fill:#fffaf3;stroke:#c8d4c7;stroke-width:2}.scene{fill:#e5ecdf}
+      .button{fill:#fffaf3;stroke:#9cafa3;stroke-width:1.5}.primary{fill:#e8820c}
+      .hit{fill:#d6ecfa;stroke:#3d7a9e;stroke-width:2}.white{fill:#fff}
+      .line{stroke:#91a697;stroke-width:2;fill:none}.dash{stroke:#7a9c91;stroke-width:2;fill:none;stroke-dasharray:5 5}
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="none" stroke="#7a9c91"/></marker>
+  </defs>
+  <rect width="1440" height="1020" fill="#f1f2e9"/>
+  <text x="34" y="48" class="title">OFFICE TYCOON · BUILDING / LOBBY / PROJECTS</text>
+  <text x="34" y="79" class="sub">โครงหน้าจอสำหรับ review · ฉากหลักเต็มพื้นที่ + แตะวัตถุเพื่อใช้งาน · ยังไม่ใช่ final art หรือหน้าที่รันแล้ว</text>
+
+  <g transform="translate(30 110)">
+    <rect width="440" height="410" rx="20" class="frame"/>
+    <text x="18" y="31" class="label">01 · อาคาร</text><text x="305" y="31" class="small">Business ▾</text>
+    <rect x="12" y="48" width="416" height="294" rx="12" class="scene"/>
+    <text x="26" y="74" class="tiny">สถานะข้อมูล / เวลาอัปเดต</text>
+    <path d="M83 137L232 95L352 149L201 193Z" fill="#b9c9bd"/>
+    <path d="M83 137L201 193L201 301L83 244Z" fill="#d3d9ca"/>
+    <path d="M201 193L352 149L352 259L201 301Z" fill="#faf4e5"/>
+    <path d="M83 190L201 245L352 202" class="line"/>
+    <path d="M220 205L330 174L330 193L220 225Z" fill="#d6ecfa"/>
+    <path d="M220 253L330 221L330 244L220 276Z" fill="#b7c9bd"/>
+    <rect x="225" y="143" width="155" height="38" rx="10" class="hit"/><text x="238" y="168" class="small">01 · Projects →</text>
+    <rect x="151" y="285" width="156" height="39" rx="12" class="primary"/><text x="173" y="310" class="label white">เข้าออฟฟิศ →</text>
+    <g transform="translate(16 355)"><rect width="408" height="40" rx="13" class="button"/><text x="19" y="26" class="small">อาคาร</text><text x="127" y="26" class="small">ชั้น</text><text x="220" y="26" class="small">งาน</text><text x="304" y="26" class="small">แต่งห้อง</text></g>
+  </g>
+
+  <g transform="translate(500 110)">
+    <rect width="440" height="410" rx="20" class="frame"/>
+    <text x="18" y="31" class="label">02 · G Lobby</text><text x="305" y="31" class="small">Business ▾</text>
+    <rect x="12" y="48" width="416" height="294" rx="12" class="scene"/>
+    <text x="26" y="74" class="tiny">ตำแหน่งวัตถุเชิงแนวคิด · ยังไม่ใช่ blueprint</text>
+    <rect x="38" y="94" width="364" height="225" rx="5" fill="#f4ead7" stroke="#9cafa3" stroke-width="6"/>
+    <rect x="62" y="122" width="131" height="48" rx="9" class="hit"/><text x="74" y="152" class="small">Reception / จอ</text>
+    <rect x="285" y="111" width="92" height="73" rx="7" class="hit"/><text x="308" y="139" class="label">Lift</text><text x="296" y="165" class="small">เลือกชั้น</text>
+    <rect x="64" y="236" width="113" height="38" rx="10" fill="#8aa59a"/><text x="88" y="261" class="small white">Lounge</text>
+    <rect x="262" y="248" width="111" height="42" rx="7" class="hit"/><text x="280" y="275" class="small">บอร์ดแนะนำ</text>
+    <path d="M208 318L208 202L329 202L329 187" class="dash" marker-end="url(#arrow)"/>
+    <text x="140" y="214" class="tiny">ทางเดิน</text>
+    <g transform="translate(16 355)"><rect width="408" height="40" rx="13" class="button"/><text x="19" y="26" class="small">อาคาร</text><text x="127" y="26" class="small">ชั้น</text><text x="220" y="26" class="small">งาน</text><text x="304" y="26" class="small">แต่งห้อง</text></g>
+  </g>
+
+  <g transform="translate(970 110)">
+    <rect width="440" height="410" rx="20" class="frame"/>
+    <text x="18" y="31" class="label">03 · Projects</text><text x="305" y="31" class="small">Business ▾</text>
+    <rect x="12" y="48" width="416" height="294" rx="12" class="scene"/>
+    <text x="26" y="74" class="tiny">แตะสิ่งของ → เปิดงานที่ผูกกับวัตถุ</text>
+    <rect x="38" y="94" width="364" height="225" rx="5" fill="#f4ead7" stroke="#9cafa3" stroke-width="6"/>
+    <rect x="60" y="114" width="100" height="48" rx="7" class="hit"/><text x="72" y="145" class="small">Project board</text>
+    <rect x="199" y="121" width="75" height="35" rx="6" fill="#cfab7d"/><rect x="295" y="121" width="75" height="35" rx="6" fill="#cfab7d"/>
+    <rect x="199" y="230" width="75" height="35" rx="6" fill="#cfab7d"/><rect x="295" y="230" width="75" height="35" rx="6" fill="#cfab7d"/>
+    <circle cx="234" cy="179" r="13" fill="#3d7a9e"/><circle cx="332" cy="179" r="13" fill="#678477"/>
+    <rect x="181" y="193" width="207" height="25" rx="9" fill="#fffaf3"/><text x="196" y="211" class="tiny">ตัวละครมีเมื่อ Zuri ส่ง roster จริง</text>
+    <rect x="60" y="235" width="96" height="40" rx="9" class="hit"/><text x="75" y="261" class="small">โต๊ะประชุม</text>
+    <text x="175" y="303" class="tiny">4 โต๊ะ ≠ Agent 4 ตัว</text>
+    <g transform="translate(16 355)"><rect width="408" height="40" rx="13" class="button"/><text x="19" y="26" class="small">อาคาร</text><text x="127" y="26" class="small">ชั้น</text><text x="220" y="26" class="small">งาน</text><text x="304" y="26" class="small">แต่งห้อง</text></g>
+  </g>
+
+  <g transform="translate(30 555)">
+    <text x="0" y="0" class="label">MOBILE · เปิดรายละเอียดเมื่อกด</text>
+    <rect y="22" width="285" height="375" rx="24" class="frame"/>
+    <text x="18" y="54" class="small">01 Projects</text><text x="185" y="54" class="tiny">Business ▾</text>
+    <rect x="12" y="69" width="261" height="130" rx="12" class="scene"/>
+    <text x="45" y="123" class="label">ฉาก GLB ยังอยู่ด้านหลัง</text>
+    <text x="56" y="149" class="small">เลื่อน · ซูม · แตะเลือก</text>
+    <rect x="8" y="173" width="269" height="166" rx="19" fill="#fff" stroke="#9cafa3"/>
+    <rect x="119" y="182" width="46" height="4" rx="2" fill="#c1cfc7"/>
+    <text x="23" y="212" class="label">งาน / Agent ที่เลือก</text><text x="251" y="211" class="label">×</text>
+    <text x="23" y="239" class="small">ชื่อจริง · สถานะจริง · ที่มาข้อมูล</text>
+    <text x="23" y="265" class="tiny">เลือก action และตรวจ scope ก่อนส่ง</text>
+    <rect x="22" y="282" width="240" height="41" rx="11" class="primary"/><text x="59" y="309" class="label white">ส่งคำสั่งผ่าน Zuri</text>
+    <text x="23" y="374" class="small">อาคาร      ชั้น      งาน      แต่งห้อง</text>
+  </g>
+
+  <g transform="translate(355 565)">
+    <text x="0" y="0" class="title">ออกแบบ → ทดลอง → ผลิต → เชื่อม → ตรวจรับ</text>
+    <text x="0" y="32" class="sub">ตรวจ interaction และระยะทางเดินก่อนเพิ่มรายละเอียดโมเดล</text>
+    <g transform="translate(0 60)">
+      <rect width="235" height="100" rx="14" class="frame"/><text x="16" y="32" class="label">1 · แปลน + Greybox</text><text x="16" y="59" class="small">ขนาดจริง / กล้อง / ทางเดิน</text><text x="16" y="83" class="small">กดเข้าอาคารและเปลี่ยนชั้นได้</text>
+      <rect x="255" width="235" height="100" rx="14" class="frame"/><text x="271" y="32" class="label">2 · GLB + Rig</text><text x="271" y="59" class="small">24 asset definitions ใช้ซ้ำ</text><text x="271" y="83" class="small">1 rig / 3 presets / 7 clips</text>
+      <rect x="510" width="235" height="100" rx="14" class="frame"/><text x="526" y="32" class="label">3 · ประกอบ + Studio</text><text x="526" y="59" class="small">วัตถุ / collision / depth</text><text x="526" y="83" class="small">รักษา state และบันทึกแยกชั้น</text>
+      <rect x="765" width="250" height="100" rx="14" class="frame"/><text x="781" y="32" class="label">4 · Zuri + Playtest</text><text x="781" y="59" class="small">อ่าน → สั่ง → ยืนยันผลจริง</text><text x="781" y="83" class="small">ทดสอบ error และสิทธิ์ด้วย</text>
+    </g>
+    <rect y="190" width="1015" height="146" rx="16" fill="#e0e8dd"/>
+    <text x="20" y="221" class="label">เกณฑ์ที่ต้องไม่ปะปนกัน</text>
+    <text x="20" y="253" class="small">ฉากกดเล่นได้ ≠ อ่านข้อมูลจริงผ่าน ≠ สั่ง Agent สำเร็จ</text>
+    <text x="20" y="282" class="small">UI ส่งคำสั่งต้องรอ owner API และผลยืนยันจาก Zuri; animation ไม่ใช่หลักฐานว่างานสำเร็จ</text>
+    <text x="20" y="311" class="small">เมื่อ slice นี้ผ่านแล้ว จึงเพิ่ม floor kit / วัตถุ / action ของ domain ถัดไป</text>
+  </g>
+  <text x="34" y="994" class="sub">Design review v0.1 · 23 Oct 2026 · สีฟ้าแสดงจุดกดใน wireframe · ผังตำแหน่งเป็นแนวคิด ไม่ใช่แปลนวัดระยะ</text>
+</svg>

@@ -1,0 +1,41 @@
+{
+  "id": "zuri-anime",
+  "name": "Zuri \u00b7 Anime base adaptation",
+  "author": "Visual Office; base by 3dquads blender",
+  "license": "CC0-1.0 (base model)",
+  "source": "https://www.blendkit.com/asset-gallery-detail/1d63f553-863b-41d4-b3bd-d92222700fee/",
+  "attribution": "Base: Rigged Anime Girl \u2014 3dquads blender (CC0); Zuri adaptation: Visual Office",
+  "sha256": "4bd7db9b179b277708c6399949526a50e54a56ec9709a5e680662c0240815745",
+  "sourceSha256": "d31a87bf4105be88d0246bf20efce0d59823cde65c5893e3ab4c83cd923cb749",
+  "baseGlbSha256": "99162d6b9b12662b251342e087633b1a7003468339dd9b769ed33feacd47ccbb",
+  "bytes": 10688868,
+  "triangles": 207106,
+  "meshes": 55,
+  "materials": 16,
+  "skins": 1,
+  "animations": 3,
+  "clipNames": [
+    "idle",
+    "seated",
+    "walking"
+  ],
+  "height": 1.65,
+  "facePoint": [
+    0,
+    1.493,
+    0.005
+  ],
+  "faceDistance": 0.69,
+  "artApproved": false,
+  "floorAdoption": false,
+  "changes": [
+    "Retained author face/body topology with proportional face refinements.",
+    "Warm skin and brown iris, shorter bob and fringe, thin glasses and orange clip.",
+    "Cream cardigan, charcoal shirt/trousers, cream/orange footwear.",
+    "Explicit semantic skin transfer to a game skeleton; authored Lab motion studies."
+  ],
+  "limitations": [
+    "Art and motion require visual review; no floor adoption.",
+    "Base contact/topology findings require production cleanup."
+  ]
+}

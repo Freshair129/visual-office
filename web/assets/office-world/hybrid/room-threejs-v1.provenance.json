@@ -1,0 +1,26 @@
+{
+  "revision": "office-room-threejs/v1",
+  "createdAt": "2026-10-23",
+  "ownerSteering": [
+    "Editable per-floor routes, forbidden areas and interaction/seat anchors",
+    "Remove floating elevator/printer; ground arrow opens directory",
+    "Room structure as actual Three.js model"
+  ],
+  "runtimeSource": [
+    "web/office-architecture.js",
+    "web/hybrid-office-3d.js",
+    "web/office-navigation.js",
+    "web/office-nav-state.js",
+    "web/office-nav-editor.js"
+  ],
+  "runtimeAssetType": "Procedural Three.js floor/wall/window meshes and articulated people, not a new GLB catalog package",
+  "fallbackArtwork": {
+    "path": "backgrounds/office-isometric-v4.png",
+    "sha256": "8d1f28ee3fced9e5565ea5854555ddfb7a3739453b7ad1e3ab6d7a96cfe86c14",
+    "generator": "built-in image_gen edit of office-isometric-v3.png",
+    "editBrief": "Remove rear printer and near-wall elevator/callbutton, continue cabinetry/creamwall/baseboard, retain camera/layout/doorway. No text/arrow baked into art."
+  },
+  "wayfinding": "props/wayfinding-arrow.svg, code-native vector projected on ground; directory UI remains separate",
+  "dataBoundary": "room.navigation is local authored scene data; no Agent/Business mutation; current shared platform contracts remain paused",
+  "limits": "Fixed orthographic camera and room shell; Garden/City retain old sprite scenes. No general imported-mesh navigation baking or mobile-device performance certification."
+}

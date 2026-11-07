@@ -1,0 +1,30 @@
+{
+  "id": "rain",
+  "name": "Rain",
+  "author": "Blender Studio / Blender Foundation",
+  "license": "CC-BY-4.0",
+  "source": "https://studio.blender.org/characters/rain/v3/",
+  "attribution": "Rain Rig (CC) Blender Foundation | studio.blender.org",
+  "sha256": "260292714497445b92598620927430a34d4b9259c087ed4edf4863ddde026be0",
+  "sourceSha256": "831ab6d837c679040285862b15dc9ee5180b018442a88aeaf92aaa7509b80258",
+  "bytes": 10496480,
+  "triangles": 135325,
+  "meshes": 16,
+  "materials": 16,
+  "skins": 0,
+  "animations": 0,
+  "height": 1.65,
+  "artApproved": false,
+  "floorAdoption": false,
+  "changes": "Evaluated static geometry with one subdivision level; original Base Color shaders baked into textures; simplified roughness and omitted auxiliary cornea/dot shells; normalized display height. Original rig preserved in downloaded source, not this GLB.",
+  "limitations": [
+    "No walk or sit clips supplied by these source files.",
+    "Lab comparison only; no Zuri brand adaptation or floor adoption."
+  ],
+  "facePoint": [
+    -5.21540641784668e-08,
+    1.453790307044983,
+    0.2022998332977295
+  ],
+  "faceDistance": 0.9209982633590699
+}

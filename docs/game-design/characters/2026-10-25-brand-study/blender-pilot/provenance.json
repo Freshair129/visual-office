@@ -1,0 +1,171 @@
+{
+  "schema": "zuri-character-pilot/v1",
+  "recordedAt": "2026-10-25T21:41:07.270447+07:00",
+  "approval": "Owner approved tool installation and separate Zuri pilot; no floor adoption",
+  "blender": {
+    "version": "5.2.3 LTS",
+    "archiveSha256": "723f08a4401502561eb763cdeacf8745b31e5f3f154d287d3830d97cf75dc2fb",
+    "checksumVerified": true,
+    "source": "https://download.blender.org/release/Blender5.2/"
+  },
+  "mpfb": {
+    "version": "2.0.18",
+    "archiveSha256": "c075b3e9b94b8e5556a5f03f4653602d02ea306de08126e8f55ed6dee28a2dad",
+    "checksumVerified": true,
+    "source": "https://extensions.blender.org/add-ons/mpfb/",
+    "coreAssetLicense": "CC0-1.0",
+    "codeLicense": "GPL-3.0-or-later",
+    "licenseSource": "https://github.com/makehumancommunity/mpfb2/blob/v2.0.18/LICENSE.md"
+  },
+  "skills": {
+    "repo": "EL4CTEO/blender-skills",
+    "commit": "71d031dab8bc6729504d11a78cbe91945401045f",
+    "names": [
+      "blender-animation",
+      "blender-asset-qa",
+      "blender-character-rigging",
+      "blender-core",
+      "blender-export-pipelines",
+      "blender-facial-shapekeys",
+      "blender-game-optimization",
+      "blender-lighting-lookdev",
+      "blender-pbr-materials",
+      "blender-pipeline-automation",
+      "blender-retopology-uv",
+      "blender-scene-setup",
+      "blender-sculpting",
+      "blender-texture-baking"
+    ]
+  },
+  "mcp": {
+    "version": "2.2.4",
+    "commit": "febcd90ece59c3416d7c55fd3723cea46bcaa59d",
+    "endpoint": "127.0.0.1:9876",
+    "telemetry": false,
+    "actualMcpInitializeListAndReadScene": "PASS",
+    "source": "https://github.com/ahujasid/mcp-for-blender"
+  },
+  "asset": {
+    "id": "zuri-blender-pilot",
+    "stage": "static-head-fitting-review",
+    "bytes": 3515680,
+    "sha256": "de69ba1c10b605bc59d4b062d4f2262031c842317cf032b66b4700af5d3bd12e",
+    "triangles": 126568,
+    "meshes": 102,
+    "clips": [],
+    "blender": "5.2.3 LTS",
+    "mpfb": "2.0.18",
+    "source": "assets-source/characters/zuri-blender-pilot.blend",
+    "targets": {
+      "head/head-round": 0.35,
+      "chin/chin-width-decr": 0.45,
+      "chin/chin-height-decr": 0.3,
+      "nose/nose-scale-depth-decr": 0.3,
+      "nose/nose-scale-horiz-decr": 0.25,
+      "nose/nose-scale-vert-decr": 0.15,
+      "mouth/mouth-scale-horiz-decr": 0.65,
+      "mouth/mouth-angles-up": 0.4,
+      "mouth/mouth-lowerlip-volume-decr": 0.45,
+      "mouth/mouth-upperlip-volume-decr": 0.35,
+      "eyes/l-eye-scale-incr": 0.45,
+      "eyes/l-eye-height2-incr": 0.28,
+      "eyes/r-eye-scale-incr": 0.45,
+      "eyes/r-eye-height2-incr": 0.28
+    },
+    "reused": "Existing Zuri local hair, glasses, wardrobe and body rig; previous face removed; no provider geometry",
+    "landmarks": {
+      "sourceEye": [
+        0.0,
+        -0.09627979248762131,
+        1.2871425151824951
+      ],
+      "sourceTop": 1.3839486837387085,
+      "scale": [
+        1.18,
+        1.04,
+        1.3738793920221066
+      ]
+    },
+    "artApproved": false,
+    "floorAdoption": false
+  },
+  "blendSha256": "3632be10441038995cd581746a99d73f4c087366deb2ca5ffdceef7a285a9145",
+  "previousZuriSha256": "70978ebebfd79314951243e233a08f0e01ae02ba183d9dbb3d0dd4c529dd7499",
+  "qa": {
+    "newFacePass": true,
+    "errors": [],
+    "warnings": [
+      "asset lowest point z=1.329 (not resting on ground plane z=0)"
+    ],
+    "acceptedWarningReason": "Isolated head is at neck height; full exported character feet are approximately z=0"
+  },
+  "verification": {
+    "fullSuite": {
+      "command": "npm test",
+      "pass": 762,
+      "fail": 0,
+      "skipped": 0,
+      "scope": "Before final neck UV repair and pending-action UI polish; final focused tests below"
+    },
+    "build": {
+      "command": "npm run build",
+      "result": "PASS"
+    },
+    "finalFocused": {
+      "pass": 9,
+      "fail": 0,
+      "skipped": 0
+    },
+    "finalWorkerPackaging": {
+      "command": "node scripts/build-worker.mjs",
+      "assets": 437,
+      "result": "PASS"
+    },
+    "roundtrip": {
+      "blendReopened": true,
+      "glbReimported": true,
+      "meshes": 102,
+      "boundsMin": [
+        -0.28747886419296265,
+        -0.15775464475154877,
+        2.6933514618576737e-07
+      ],
+      "boundsMax": [
+        0.28763407468795776,
+        0.12745772302150726,
+        1.6590001583099365
+      ],
+      "faceQaPass": true,
+      "scope": "Static head pilot; no motion qualification"
+    },
+    "browser": {
+      "source4184": [
+        "pilot loaded",
+        "face/reference comparison",
+        "prior model walking",
+        "static clips disabled"
+      ],
+      "worker4185": [
+        "pilot loaded",
+        "face/reference comparison",
+        "wireframe toggle",
+        "prior model seated",
+        "Staff A switch",
+        "return to static pilot",
+        "download target switches"
+      ],
+      "consoleWarningsErrors": [],
+      "workerPilotAndSheetBytesMatchDisk": true
+    },
+    "hostedCI": "NOT_RUN",
+    "liveZuri": "NOT_ENABLED"
+  },
+  "limits": [
+    "Static face fitting study, not approved art",
+    "Hair/glasses/clothing/body rig reused locally",
+    "Eyes/lids, lips, neck and hair require further art refinement",
+    "No new expressions or verified walk/sit clips",
+    "No whole-character production QA or crowd LOD acceptance",
+    "No provider generation, imported provider geometry or floor adoption"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "id": "zuri-blender-pilot",
+  "stage": "static-head-fitting-review",
+  "bytes": 3515680,
+  "sha256": "de69ba1c10b605bc59d4b062d4f2262031c842317cf032b66b4700af5d3bd12e",
+  "triangles": 126568,
+  "meshes": 102,
+  "clips": [],
+  "blender": "5.2.3 LTS",
+  "mpfb": "2.0.18",
+  "source": "assets-source/characters/zuri-blender-pilot.blend",
+  "targets": {
+    "head/head-round": 0.35,
+    "chin/chin-width-decr": 0.45,
+    "chin/chin-height-decr": 0.3,
+    "nose/nose-scale-depth-decr": 0.3,
+    "nose/nose-scale-horiz-decr": 0.25,
+    "nose/nose-scale-vert-decr": 0.15,
+    "mouth/mouth-scale-horiz-decr": 0.65,
+    "mouth/mouth-angles-up": 0.4,
+    "mouth/mouth-lowerlip-volume-decr": 0.45,
+    "mouth/mouth-upperlip-volume-decr": 0.35,
+    "eyes/l-eye-scale-incr": 0.45,
+    "eyes/l-eye-height2-incr": 0.28,
+    "eyes/r-eye-scale-incr": 0.45,
+    "eyes/r-eye-height2-incr": 0.28
+  },
+  "reused": "Existing Zuri local hair, glasses, wardrobe and body rig; previous face removed; no provider geometry",
+  "landmarks": {
+    "sourceEye": [
+      0.0,
+      -0.09627979248762131,
+      1.2871425151824951
+    ],
+    "sourceTop": 1.3839486837387085,
+    "scale": [
+      1.18,
+      1.04,
+      1.3738793920221066
+    ]
+  },
+  "artApproved": false,
+  "floorAdoption": false
+}

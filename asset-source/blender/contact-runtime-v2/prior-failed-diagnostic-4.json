@@ -1,0 +1,1358 @@
+{
+  "method": "Production TycoonScene; deterministic 30/60Hz with each simulated frame rendered on real GPU; external fixtures via production IndexedDB import; no live business backend",
+  "browser": "156.0.8078.48",
+  "errors": [],
+  "sourceUnchanged": true,
+  "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3060 (0x00002504) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+  "cases": [
+    {
+      "kind": "route-lobby",
+      "floor": "lobby",
+      "hz": 30,
+      "started": {
+        "ok": true,
+        "message": "กำลังลองเดินในฉาก GLB · ใช้ผนังและประตูจริง"
+      },
+      "phases": [
+        "walking",
+        "done"
+      ],
+      "frames": 466,
+      "doneFrames": 61,
+      "workingFrames": 0,
+      "plantedPairs": 507,
+      "minFootM": 3.807744531960298e-8,
+      "maxFootGapM": 7.238192635374914e-8,
+      "maxPlantShiftM": 9.595754834889494e-9,
+      "collision": {
+        "framesChecked": 466,
+        "capsulesChecked": 2796,
+        "trianglesTested": 0,
+        "sweepSamples": 1928,
+        "minClearanceM": null,
+        "refusals": 0
+      },
+      "statuses": [
+        "กำลังลองเดินในฉาก GLB · ใช้ผนังและประตูจริง",
+        "ทดสอบเสร็จแล้ว · ไม่มีการเปลี่ยนข้อมูลธุรกิจ"
+      ],
+      "diagnostic": {
+        "ok": true,
+        "phase": "done",
+        "checkedCapsules": 6,
+        "testedTriangles": 0,
+        "checkedMeshes": 0,
+        "sampleCount": 1,
+        "minClearanceM": null,
+        "hit": null
+      }
+    },
+    {
+      "kind": "route-projects",
+      "floor": "projects",
+      "hz": 30,
+      "started": {
+        "ok": true,
+        "message": "กำลังลองเดินในฉาก GLB · ใช้ผนังและประตูจริง"
+      },
+      "phases": [
+        "walking",
+        "done"
+      ],
+      "frames": 435,
+      "doneFrames": 61,
+      "workingFrames": 0,
+      "plantedPairs": 472,
+      "minFootM": 3.663489976777514e-8,
+      "maxFootGapM": 7.238192700464682e-8,
+      "maxPlantShiftM": 9.102629186206594e-9,
+      "collision": {
+        "framesChecked": 435,
+        "capsulesChecked": 2610,
+        "trianglesTested": 0,
+        "sweepSamples": 1804,
+        "minClearanceM": null,
+        "refusals": 0
+      },
+      "statuses": [
+        "กำลังลองเดินในฉาก GLB · ใช้ผนังและประตูจริง",
+        "ทดสอบเสร็จแล้ว · ไม่มีการเปลี่ยนข้อมูลธุรกิจ"
+      ],
+      "diagnostic": {
+        "ok": true,
+        "phase": "done",
+        "checkedCapsules": 6,
+        "testedTriangles": 0,
+        "checkedMeshes": 0,
+        "sampleCount": 1,
+        "minClearanceM": null,
+        "hit": null
+      }
+    },
+    {
+      "kind": "route-growth",
+      "floor": "growth",
+      "hz": 30,
+      "started": {
+        "ok": true,
+        "message": "กำลังลองเดินในฉาก GLB · ใช้ผนังและประตูจริง"
+      },
+      "phases": [
+        "walking",
+        "done"
+      ],
+      "frames": 435,
+      "doneFrames": 61,
+      "workingFrames": 0,
+      "plantedPairs": 472,
+      "minFootM": 3.663489976777514e-8,
+      "maxFootGapM": 7.238192700464682e-8,
+      "maxPlantShiftM": 9.102629186206594e-9,
+      "collision": {
+        "framesChecked": 435,
+        "capsulesChecked": 2610,
+        "trianglesTested": 0,
+        "sweepSamples": 1804,
+        "minClearanceM": null,
+        "refusals": 0
+      },
+      "statuses": [
+        "กำลังลองเดินในฉาก GLB · ใช้ผนังและประตูจริง",
+        "ทดสอบเสร็จแล้ว · ไม่มีการเปลี่ยนข้อมูลธุรกิจ"
+      ],
+      "diagnostic": {
+        "ok": true,
+        "phase": "done",
+        "checkedCapsules": 6,
+        "testedTriangles": 0,
+        "checkedMeshes": 0,
+        "sampleCount": 1,
+        "minClearanceM": null,
+        "hit": null
+      }
+    },
+    {
+      "kind": "kenney-chair-four-leg-0.9",
+      "floor": "projects",
+      "hz": 30,
+      "started": {
+        "ok": true,
+        "message": "กำลังทดสอบเข้าจุดใช้งาน → นั่ง / พัก → ลุกกลับ"
+      },
+      "phases": [
+        "walking",
+        "entering",
+        "sit",
+        "working",
+        "standing",
+        "leaving",
+        "done"
+      ],
+      "frames": 496,
+      "doneFrames": 61,
+      "workingFrames": 91,
+      "plantedPairs": 693,
+      "minFootM": 2.107855040964869e-8,
+      "maxFootGapM": 2.5926896995261506e-7,
+      "maxPlantShiftM": 8.064334021360795e-8,
+      "collision": {
+        "framesChecked": 496,
+        "capsulesChecked": 2976,
+        "trianglesTested": 3060,
+        "sweepSamples": 1524,
+        "minClearanceM": 0.012836727671210205,
+        "refusals": 0
+      },
+      "statuses": [
+        "กำลังทดสอบเข้าจุดใช้งาน → นั่ง / พัก → ลุกกลับ",
+        "เข้าจุดนั่ง",
+        "กำลังนั่ง",
+        "กำลังทดลองนั่งทำงาน",
+        "กำลังลุกจากที่นั่ง",
+        "เดินกลับสู่ทางเดิน",
+        "ทดสอบเสร็จแล้ว · ไม่มีการเปลี่ยนข้อมูลธุรกิจ"
+      ],
+      "diagnostic": {
+        "ok": true,
+        "phase": "done",
+        "checkedCapsules": 6,
+        "testedTriangles": 0,
+        "checkedMeshes": 0,
+        "sampleCount": 1,
+        "minClearanceM": null,
+        "hit": null
+      }
+    },
+    {
+      "kind": "kenney-chair-four-leg-1.1",
+      "floor": "projects",
+      "hz": 30,
+      "started": {
+        "ok": true,
+        "message": "กำลังทดสอบเข้าจุดใช้งาน → นั่ง / พัก → ลุกกลับ"
+      },
+      "phases": [
+        "walking",
+        "entering",
+        "sit",
+        "working",
+        "standing",
+        "leaving",
+        "done"
+      ],
+      "frames": 513,
+      "doneFrames": 61,
+      "workingFrames": 91,
+      "plantedPairs": 709,
+      "minFootM": 3.04716847134238e-8,
+      "maxFootGapM": 2.533399773087041e-7,
+      "maxPlantShiftM": 8.064334038015995e-8,
+      "collision": {
+        "framesChecked": 513,
+        "capsulesChecked": 3078,
+        "trianglesTested": 1794,
+        "sweepSamples": 1622,
+        "minClearanceM": 0.012836727686462199,
+        "refusals": 0
+      },
+      "statuses": [
+        "กำลังทดสอบเข้าจุดใช้งาน → นั่ง / พัก → ลุกกลับ",
+        "เข้าจุดนั่ง",
+        "กำลังนั่ง",
+        "กำลังทดลองนั่งทำงาน",
+        "กำลังลุกจากที่นั่ง",
+        "เดินกลับสู่ทางเดิน",
+        "ทดสอบเสร็จแล้ว · ไม่มีการเปลี่ยนข้อมูลธุรกิจ"
+      ],
+      "diagnostic": {
+        "ok": true,
+        "phase": "done",
+        "checkedCapsules": 6,
+        "testedTriangles": 0,
+        "checkedMeshes": 0,
+        "sampleCount": 1,
+        "minClearanceM": null,
+        "hit": null
+      }
+    },
+    {
+      "kind": "kenney-chair-rounded-back-0.9",
+      "floor": "projects",
+      "hz": 30,
+      "started": {
+        "ok": true,
+        "message": "กำลังทดสอบเข้าจุดใช้งาน → นั่ง / พัก → ลุกกลับ"
+      },
+      "phases": [
+        "walking",
+        "entering",
+        "sit",
+        "working",
+        "standing",
+        "leaving",
+        "done"
+      ],
+      "frames": 505,
+      "doneFrames": 61,
+      "workingFrames": 91,
+      "plantedPairs": 702,
+      "minFootM": 2.064280894441259e-8,
+      "maxFootGapM": 2.594438045076823e-7,
+      "maxPlantShiftM": 8.064334020676537e-8,
+      "collision": {
+        "framesChecked": 505,
+        "capsulesChecked": 3030,
+        "trianglesTested": 4080,
+        "sweepSamples": 1550,
+        "minClearanceM": 0.012836727681982671,
+        "refusals": 0
+      },
+      "statuses": [
+        "กำลังทดสอบเข้าจุดใช้งาน → นั่ง / พัก → ลุกกลับ",
+        "เข้าจุดนั่ง",
+        "กำลังนั่ง",
+        "กำลังทดลองนั่งทำงาน",
+        "กำลังลุกจากที่นั่ง",
+        "เดินกลับสู่ทางเดิน",
+        "ทดสอบเสร็จแล้ว · ไม่มีการเปลี่ยนข้อมูลธุรกิจ"
+      ],
+      "diagnostic": {
+        "ok": true,
+        "phase": "done",
+        "checkedCapsules": 6,
+        "testedTriangles": 0,
+        "checkedMeshes": 0,
+        "sampleCount": 1,
+        "minClearanceM": null,
+        "hit": null
+      }
+    },
+    {
+      "kind": "kenney-chair-rounded-back-1.1",
+      "floor": "projects",
+      "hz": 30,
+      "started": {
+        "ok": true,
+        "message": "กำลังทดสอบเข้าจุดใช้งาน → นั่ง / พัก → ลุกกลับ"
+      },
+      "phases": [
+        "walking",
+        "entering",
+        "sit",
+        "working",
+        "standing",
+        "leaving",
+        "done"
+      ],
+      "frames": 513,
+      "doneFrames": 61,
+      "workingFrames": 91,
+      "plantedPairs": 709,
+      "minFootM": 3.047168658756231e-8,
+      "maxFootGapM": 2.535121717828282e-7,
+      "maxPlantShiftM": 8.064334115825255e-8,
+      "collision": {
+        "framesChecked": 513,
+        "capsulesChecked": 3078,
+        "trianglesTested": 3069,
+        "sweepSamples": 1623,
+        "minClearanceM": 0.012836727699628542,
+        "refusals": 0
+      },
+      "statuses": [
+        "กำลังทดสอบเข้าจุดใช้งาน → นั่ง / พัก → ลุกกลับ",
+        "เข้าจุดนั่ง",
+        "กำลังนั่ง",
+        "กำลังทดลองนั่งทำงาน",
+        "กำลังลุกจากที่นั่ง",
+        "เดินกลับสู่ทางเดิน",
+        "ทดสอบเสร็จแล้ว · ไม่มีการเปลี่ยนข้อมูลธุรกิจ"
+      ],
+      "diagnostic": {
+        "ok": true,
+        "phase": "done",
+        "checkedCapsules": 6,
+        "testedTriangles": 0,
+        "checkedMeshes": 0,
+        "sampleCount": 1,
+        "minClearanceM": null,
+        "hit": null
+      }
+    },
+    {
+      "kind": "kenney-chair-swivel-0.9",
+      "floor": "projects",
+      "hz": 30,
+      "started": {
+        "ok": true,
+        "message": "กำลังทดสอบเข้าจุดใช้งาน → นั่ง / พัก → ลุกกลับ"
+      },
+      "phases": [
+        "walking",
+        "entering",
+        "sit",
+        "working",
+        "standing",
+        "leaving",
+        "done"
+      ],
+      "frames": 506,
+      "doneFrames": 61,
+      "workingFrames": 91,
+      "plantedPairs": 704,
+      "minFootM": 1.288060134419507e-8,
+      "maxFootGapM": 2.629444425633361e-7,
+      "maxPlantShiftM": 7.733097800670721e-8,
+      "collision": {
+        "framesChecked": 506,
+        "capsulesChecked": 3036,
+        "trianglesTested": 0,
+        "sweepSamples": 1565,
+        "minClearanceM": null,
+        "refusals": 0
+      },
+      "statuses": [
+        "กำลังทดสอบเข้าจุดใช้งาน → นั่ง / พัก → ลุกกลับ",
+        "เข้าจุดนั่ง",
+        "กำลังนั่ง",
+        "กำลังทดลองนั่งทำงาน",
+        "กำลังลุกจากที่นั่ง",
+        "เดินกลับสู่ทางเดิน",
+        "ทดสอบเสร็จแล้ว · ไม่มีการเปลี่ยนข้อมูลธุรกิจ"
+      ],
+      "diagnostic": {
+        "ok": true,
+        "phase": "done",
+        "checkedCapsules": 6,
+        "testedTriangles": 0,
+        "checkedMeshes": 0,
+        "sampleCount": 1,
+        "minClearanceM": null,
+        "hit": null
+      }
+    },
+    {
+      "kind": "kenney-chair-swivel-1.1",
+      "floor": "projects",
+      "hz": 30,
+      "started": {
+        "ok": true,
+        "message": "กำลังทดสอบเข้าจุดใช้งาน → นั่ง / พัก → ลุกกลับ"
+      },
+      "phases": [
+        "walking",
+        "entering",
+        "sit",
+        "working",
+        "standing",
+        "leaving",
+        "done"
+      ],
+      "frames": 513,
+      "doneFrames": 61,
+      "workingFrames": 91,
+      "plantedPairs": 709,
+      "minFootM": 2.857088984586872e-8,
+      "maxFootGapM": 2.568307977315091e-7,
+      "maxPlantShiftM": 8.064334175202323e-8,
+      "collision": {
+        "framesChecked": 513,
+        "capsulesChecked": 3078,
+        "trianglesTested": 2838,
+        "sweepSamples": 1636,
+        "minClearanceM": 0.012836728202490669,
+        "refusals": 0
+      },
+      "statuses": [
+        "กำลังทดสอบเข้าจุดใช้งาน → นั่ง / พัก → ลุกกลับ",
+        "เข้าจุดนั่ง",
+        "กำลังนั่ง",
+        "กำลังทดลองนั่งทำงาน",
+        "กำลังลุกจากที่นั่ง",
+        "เดินกลับสู่ทางเดิน",
+        "ทดสอบเสร็จแล้ว · ไม่มีการเปลี่ยนข้อมูลธุรกิจ"
+      ],
+      "diagnostic": {
+        "ok": true,
+        "phase": "done",
+        "checkedCapsules": 6,
+        "testedTriangles": 0,
+        "checkedMeshes": 0,
+        "sampleCount": 1,
+        "minClearanceM": null,
+        "hit": null
+      }
+    },
+    {
+      "kind": "bundled-0.75",
+      "floor": "projects",
+      "hz": 30,
+      "started": {
+        "ok": true,
+        "message": "กำลังทดสอบเข้าจุดใช้งาน → นั่ง / พัก → ลุกกลับ"
+      },
+      "phases": [
+        "walking",
+        "entering",
+        "sit",
+        "working",
+        "standing",
+        "leaving",
+        "done"
+      ],
+      "frames": 523,
+      "doneFrames": 61,
+      "workingFrames": 91,
+      "plantedPairs": 720,
+      "minFootM": 2.995943768027112e-8,
+      "maxFootGapM": 2.6791523877700346e-7,
+      "maxPlantShiftM": 7.832234785159759e-8,
+      "collision": {
+        "framesChecked": 523,
+        "capsulesChecked": 3138,
+        "trianglesTested": 0,
+        "sweepSamples": 1652,
+        "minClearanceM": null,
+        "refusals": 0
+      },
+      "statuses": [
+        "กำลังทดสอบเข้าจุดใช้งาน → นั่ง / พัก → ลุกกลับ",
+        "เข้าจุดนั่ง",
+        "กำลังนั่ง",
+        "กำลังทดลองนั่งทำงาน",
+        "กำลังลุกจากที่นั่ง",
+        "เดินกลับสู่ทางเดิน",
+        "ทดสอบเสร็จแล้ว · ไม่มีการเปลี่ยนข้อมูลธุรกิจ"
+      ],
+      "diagnostic": {
+        "ok": true,
+        "phase": "done",
+        "checkedCapsules": 6,
+        "testedTriangles": 0,
+        "checkedMeshes": 0,
+        "sampleCount": 1,
+        "minClearanceM": null,
+        "hit": null
+      }
+    },
+    {
+      "kind": "bundled-1",
+      "floor": "projects",
+      "hz": 30,
+      "started": {
+        "ok": true,
+        "message": "กำลังทดสอบเข้าจุดใช้งาน → นั่ง / พัก → ลุกกลับ"
+      },
+      "phases": [
+        "walking",
+        "entering",
+        "sit",
+        "working",
+        "standing",
+        "leaving",
+        "done",
+        "blocked"
+      ],
+      "frames": 566,
+      "doneFrames": 15,
+      "workingFrames": 91,
+      "plantedPairs": 729,
+      "minFootM": 2.702414800982515e-8,
+      "maxFootGapM": 2.579400267739154e-7,
+      "maxPlantShiftM": 8.321499906311202e-8,
+      "collision": {
+        "framesChecked": 566,
+        "capsulesChecked": 3396,
+        "trianglesTested": 5747,
+        "sweepSamples": 1993,
+        "minClearanceM": -0.0012308636711727133,
+        "refusals": 1
+      },
+      "statuses": [
+        "กำลังทดสอบเข้าจุดใช้งาน → นั่ง / พัก → ลุกกลับ",
+        "เข้าจุดนั่ง",
+        "กำลังนั่ง",
+        "กำลังทดลองนั่งทำงาน",
+        "กำลังลุกจากที่นั่ง",
+        "เดินกลับสู่ทางเดิน",
+        "ทดสอบเสร็จแล้ว · ไม่มีการเปลี่ยนข้อมูลธุรกิจ",
+        "หยุดทดสอบการเดิน · left-thigh ชน desk-1"
+      ],
+      "diagnostic": {
+        "ok": false,
+        "phase": "done",
+        "checkedCapsules": 6,
+        "testedTriangles": 1,
+        "checkedMeshes": 4,
+        "sampleCount": 3,
+        "minClearanceM": -0.0012308636711727133,
+        "hit": {
+          "objectId": "desk-1",
+          "mesh": "Mesh_0",
+          "limb": "left-thigh",
+          "side": "left",
+          "clearanceM": -0.0012308636711727133,
+          "distanceM": 0.09076913632882729,
+          "radiusM": 0.092,
+          "segmentStart": [
+            3.6801282048225366,
+            0.9370088473916562,
+            3.5273928941583352
+          ],
+          "segmentEnd": [
+            3.6801282048225366,
+            0.7474198058254038,
+            3.9119356552588114
+          ],
+          "surfaceCenter": [
+            3.780246901512146,
+            0.7254265546798706,
+            4.004183033108712
+          ],
+          "surfaceBounds": {
+            "min": [
+              3.0316049337387083,
+              0.7254265546798706,
+              4.000000023841858
+            ],
+            "max": [
+              4.528888869285583,
+              0.7254265546798706,
+              4.008366042375565
+            ]
+          },
+          "surfaceNormal": [
+            0,
+            1,
+            0
+          ],
+          "sweepT": 1,
+          "sampleIndex": 3
+        },
+        "stepBackoffM": 0,
+        "safeRoot": [
+          3.7999999999999963,
+          0,
+          3.574999999999996
+        ],
+        "attemptedRoot": [
+          3.7999999999999963,
+          0,
+          3.574999999999996
+        ]
+      }
+    },
+    {
+      "kind": "bundled-1.25",
+      "floor": "projects",
+      "hz": 30,
+      "started": {
+        "ok": true,
+        "message": "กำลังทดสอบเข้าจุดใช้งาน → นั่ง / พัก → ลุกกลับ"
+      },
+      "phases": [
+        "walking",
+        "entering",
+        "blocked"
+      ],
+      "frames": 371,
+      "doneFrames": 0,
+      "workingFrames": 0,
+      "plantedPairs": 369,
+      "minFootM": 2.657097717649932e-8,
+      "maxFootGapM": 0,
+      "maxPlantShiftM": 1.5056966987455548e-8,
+      "collision": {
+        "framesChecked": 371,
+        "capsulesChecked": 2226,
+        "trianglesTested": 19,
+        "sweepSamples": 1691,
+        "minClearanceM": -0.002226034822362055,
+        "refusals": 1
+      },
+      "statuses": [
+        "กำลังทดสอบเข้าจุดใช้งาน → นั่ง / พัก → ลุกกลับ",
+        "เข้าจุดนั่ง",
+        "หยุดทดสอบการเดิน · right-thigh ชน desk-1"
+      ],
+      "diagnostic": {
+        "ok": false,
+        "phase": "entering",
+        "checkedCapsules": 6,
+        "testedTriangles": 7,
+        "checkedMeshes": 2,
+        "sampleCount": 2,
+        "minClearanceM": -0.002226034822362055,
+        "hit": {
+          "objectId": "desk-1",
+          "mesh": "Mesh_0",
+          "limb": "right-thigh",
+          "side": "right",
+          "clearanceM": -0.002226034822362055,
+          "distanceM": 0.08977396517763794,
+          "radiusM": 0.092,
+          "segmentStart": [
+            3.928973669554368,
+            0.9370088473916562,
+            3.6925349414147
+          ],
+          "segmentEnd": [
+            3.8198725224438497,
+            0.5931059870091582,
+            3.924148743305641
+          ],
+          "surfaceCenter": [
+            3.780246901512146,
+            0.641126275062561,
+            4.004183033108712
+          ],
+          "surfaceBounds": {
+            "min": [
+              3.0316049337387083,
+              0.641126275062561,
+              4.000000023841858
+            ],
+            "max": [
+              4.528888869285583,
+              0.641126275062561,
+              4.008366042375565
+            ]
+          },
+          "surfaceNormal": [
+            0,
+            -1,
+            0
+          ],
+          "sweepT": 1,
+          "sampleIndex": 2
+        },
+        "stepBackoffM": 0,
+        "safeRoot": [
+          3.7999999999999963,
+          0,
+          3.6937499999999965
+        ],
+        "attemptedRoot": [
+          3.7999999999999963,
+          0,
+          3.6937499999999965
+        ]
+      }
+    },
+    {
+      "kind": "route-lobby",
+      "floor": "lobby",
+      "hz": 60,
+      "started": {
+        "ok": true,
+        "message": "กำลังลองเดินในฉาก GLB · ใช้ผนังและประตูจริง"
+      },
+      "phases": [
+        "walking",
+        "done"
+      ],
+      "frames": 931,
+      "doneFrames": 121,
+      "workingFrames": 0,
+      "plantedPairs": 1010,
+      "minFootM": 3.9465867606768655e-8,
+      "maxFootGapM": 7.238192681784618e-8,
+      "maxPlantShiftM": 4.6842287650204916e-9,
+      "collision": {
+        "framesChecked": 931,
+        "capsulesChecked": 5586,
+        "trianglesTested": 0,
+        "sweepSamples": 2187,
+        "minClearanceM": null,
+        "refusals": 0
+      },
+      "statuses": [
+        "กำลังลองเดินในฉาก GLB · ใช้ผนังและประตูจริง",
+        "ทดสอบเสร็จแล้ว · ไม่มีการเปลี่ยนข้อมูลธุรกิจ"
+      ],
+      "diagnostic": {
+        "ok": true,
+        "phase": "done",
+        "checkedCapsules": 6,
+        "testedTriangles": 0,
+        "checkedMeshes": 0,
+        "sampleCount": 1,
+        "minClearanceM": null,
+        "hit": null
+      }
+    },
+    {
+      "kind": "route-projects",
+      "floor": "projects",
+      "hz": 60,
+      "started": {
+        "ok": true,
+        "message": "กำลังลองเดินในฉาก GLB · ใช้ผนังและประตูจริง"
+      },
+      "phases": [
+        "walking",
+        "done"
+      ],
+      "frames": 868,
+      "doneFrames": 121,
+      "workingFrames": 0,
+      "plantedPairs": 952,
+      "minFootM": 3.224659075643317e-8,
+      "maxFootGapM": 7.238192680201246e-8,
+      "maxPlantShiftM": 4.682860270854154e-9,
+      "collision": {
+        "framesChecked": 868,
+        "capsulesChecked": 5208,
+        "trianglesTested": 0,
+        "sweepSamples": 2046,
+        "minClearanceM": null,
+        "refusals": 0
+      },
+      "statuses": [
+        "กำลังลองเดินในฉาก GLB · ใช้ผนังและประตูจริง",
+        "ทดสอบเสร็จแล้ว · ไม่มีการเปลี่ยนข้อมูลธุรกิจ"
+      ],
+      "diagnostic": {
+        "ok": true,
+        "phase": "done",
+        "checkedCapsules": 6,
+        "testedTriangles": 0,
+        "checkedMeshes": 0,
+        "sampleCount": 1,
+        "minClearanceM": null,
+        "hit": null
+      }
+    },
+    {
+      "kind": "route-growth",
+      "floor": "growth",
+      "hz": 60,
+      "started": {
+        "ok": true,
+        "message": "กำลังลองเดินในฉาก GLB · ใช้ผนังและประตูจริง"
+      },
+      "phases": [
+        "walking",
+        "done"
+      ],
+      "frames": 868,
+      "doneFrames": 121,
+      "workingFrames": 0,
+      "plantedPairs": 952,
+      "minFootM": 3.224659075643317e-8,
+      "maxFootGapM": 7.238192680201246e-8,
+      "maxPlantShiftM": 4.682860270854154e-9,
+      "collision": {
+        "framesChecked": 868,
+        "capsulesChecked": 5208,
+        "trianglesTested": 0,
+        "sweepSamples": 2046,
+        "minClearanceM": null,
+        "refusals": 0
+      },
+      "statuses": [
+        "กำลังลองเดินในฉาก GLB · ใช้ผนังและประตูจริง",
+        "ทดสอบเสร็จแล้ว · ไม่มีการเปลี่ยนข้อมูลธุรกิจ"
+      ],
+      "diagnostic": {
+        "ok": true,
+        "phase": "done",
+        "checkedCapsules": 6,
+        "testedTriangles": 0,
+        "checkedMeshes": 0,
+        "sampleCount": 1,
+        "minClearanceM": null,
+        "hit": null
+      }
+    },
+    {
+      "kind": "kenney-chair-four-leg-0.9",
+      "floor": "projects",
+      "hz": 60,
+      "started": {
+        "ok": true,
+        "message": "กำลังทดสอบเข้าจุดใช้งาน → นั่ง / พัก → ลุกกลับ"
+      },
+      "phases": [
+        "walking",
+        "entering",
+        "sit",
+        "working",
+        "standing",
+        "leaving",
+        "done"
+      ],
+      "frames": 988,
+      "doneFrames": 121,
+      "workingFrames": 181,
+      "plantedPairs": 1379,
+      "minFootM": 2.102491016902804e-8,
+      "maxFootGapM": 2.592689700428207e-7,
+      "maxPlantShiftM": 8.503994874913876e-8,
+      "collision": {
+        "framesChecked": 988,
+        "capsulesChecked": 5928,
+        "trianglesTested": 5856,
+        "sweepSamples": 1830,
+        "minClearanceM": 0.012836727671210205,
+        "refusals": 0
+      },
+      "statuses": [
+        "กำลังทดสอบเข้าจุดใช้งาน → นั่ง / พัก → ลุกกลับ",
+        "เข้าจุดนั่ง",
+        "กำลังนั่ง",
+        "กำลังทดลองนั่งทำงาน",
+        "กำลังลุกจากที่นั่ง",
+        "เดินกลับสู่ทางเดิน",
+        "ทดสอบเสร็จแล้ว · ไม่มีการเปลี่ยนข้อมูลธุรกิจ"
+      ],
+      "diagnostic": {
+        "ok": true,
+        "phase": "done",
+        "checkedCapsules": 6,
+        "testedTriangles": 0,
+        "checkedMeshes": 0,
+        "sampleCount": 1,
+        "minClearanceM": null,
+        "hit": null
+      }
+    },
+    {
+      "kind": "kenney-chair-four-leg-1.1",
+      "floor": "projects",
+      "hz": 60,
+      "started": {
+        "ok": true,
+        "message": "กำลังทดสอบเข้าจุดใช้งาน → นั่ง / พัก → ลุกกลับ"
+      },
+      "phases": [
+        "walking",
+        "entering",
+        "sit",
+        "working",
+        "standing",
+        "leaving",
+        "done"
+      ],
+      "frames": 1005,
+      "doneFrames": 121,
+      "workingFrames": 181,
+      "plantedPairs": 1413,
+      "minFootM": 2.8520683209920727e-8,
+      "maxFootGapM": 2.544337860827081e-7,
+      "maxPlantShiftM": 8.503998327057029e-8,
+      "collision": {
+        "framesChecked": 1005,
+        "capsulesChecked": 6030,
+        "trianglesTested": 3424,
+        "sweepSamples": 1932,
+        "minClearanceM": 0.012836727686462199,
+        "refusals": 0
+      },
+      "statuses": [
+        "กำลังทดสอบเข้าจุดใช้งาน → นั่ง / พัก → ลุกกลับ",
+        "เข้าจุดนั่ง",
+        "กำลังนั่ง",
+        "กำลังทดลองนั่งทำงาน",
+        "กำลังลุกจากที่นั่ง",
+        "เดินกลับสู่ทางเดิน",
+        "ทดสอบเสร็จแล้ว · ไม่มีการเปลี่ยนข้อมูลธุรกิจ"
+      ],
+      "diagnostic": {
+        "ok": true,
+        "phase": "done",
+        "checkedCapsules": 6,
+        "testedTriangles": 0,
+        "checkedMeshes": 0,
+        "sampleCount": 1,
+        "minClearanceM": null,
+        "hit": null
+      }
+    },
+    {
+      "kind": "kenney-chair-rounded-back-0.9",
+      "floor": "projects",
+      "hz": 60,
+      "started": {
+        "ok": true,
+        "message": "กำลังทดสอบเข้าจุดใช้งาน → นั่ง / พัก → ลุกกลับ"
+      },
+      "phases": [
+        "walking",
+        "entering",
+        "sit",
+        "working",
+        "standing",
+        "leaving",
+        "done"
+      ],
+      "frames": 1005,
+      "doneFrames": 121,
+      "workingFrames": 181,
+      "plantedPairs": 1396,
+      "minFootM": 2.0599176095781147e-8,
+      "maxFootGapM": 2.594438045076823e-7,
+      "maxPlantShiftM": 7.727838451482791e-8,
+      "collision": {
+        "framesChecked": 1005,
+        "capsulesChecked": 6030,
+        "trianglesTested": 7808,
+        "sweepSamples": 1895,
+        "minClearanceM": 0.012836727681982671,
+        "refusals": 0
+      },
+      "statuses": [
+        "กำลังทดสอบเข้าจุดใช้งาน → นั่ง / พัก → ลุกกลับ",
+        "เข้าจุดนั่ง",
+        "กำลังนั่ง",
+        "กำลังทดลองนั่งทำงาน",
+        "กำลังลุกจากที่นั่ง",
+        "เดินกลับสู่ทางเดิน",
+        "ทดสอบเสร็จแล้ว · ไม่มีการเปลี่ยนข้อมูลธุรกิจ"
+      ],
+      "diagnostic": {
+        "ok": true,
+        "phase": "done",
+        "checkedCapsules": 6,
+        "testedTriangles": 0,
+        "checkedMeshes": 0,
+        "sampleCount": 1,
+        "minClearanceM": null,
+        "hit": null
+      }
+    },
+    {
+      "kind": "kenney-chair-rounded-back-1.1",
+      "floor": "projects",
+      "hz": 60,
+      "started": {
+        "ok": true,
+        "message": "กำลังทดสอบเข้าจุดใช้งาน → นั่ง / พัก → ลุกกลับ"
+      },
+      "phases": [
+        "walking",
+        "entering",
+        "sit",
+        "working",
+        "standing",
+        "leaving",
+        "done"
+      ],
+      "frames": 1021,
+      "doneFrames": 121,
+      "workingFrames": 181,
+      "plantedPairs": 1428,
+      "minFootM": 2.849950644556867e-8,
+      "maxFootGapM": 2.535121717828282e-7,
+      "maxPlantShiftM": 7.727841023087773e-8,
+      "collision": {
+        "framesChecked": 1021,
+        "capsulesChecked": 6126,
+        "trianglesTested": 5868,
+        "sweepSamples": 1961,
+        "minClearanceM": 0.012836727699628542,
+        "refusals": 0
+      },
+      "statuses": [
+        "กำลังทดสอบเข้าจุดใช้งาน → นั่ง / พัก → ลุกกลับ",
+        "เข้าจุดนั่ง",
+        "กำลังนั่ง",
+        "กำลังทดลองนั่งทำงาน",
+        "กำลังลุกจากที่นั่ง",
+        "เดินกลับสู่ทางเดิน",
+        "ทดสอบเสร็จแล้ว · ไม่มีการเปลี่ยนข้อมูลธุรกิจ"
+      ],
+      "diagnostic": {
+        "ok": true,
+        "phase": "done",
+        "checkedCapsules": 6,
+        "testedTriangles": 0,
+        "checkedMeshes": 0,
+        "sampleCount": 1,
+        "minClearanceM": null,
+        "hit": null
+      }
+    },
+    {
+      "kind": "kenney-chair-swivel-0.9",
+      "floor": "projects",
+      "hz": 60,
+      "started": {
+        "ok": true,
+        "message": "กำลังทดสอบเข้าจุดใช้งาน → นั่ง / พัก → ลุกกลับ"
+      },
+      "phases": [
+        "walking",
+        "entering",
+        "sit",
+        "working",
+        "standing",
+        "leaving",
+        "done"
+      ],
+      "frames": 992,
+      "doneFrames": 121,
+      "workingFrames": 181,
+      "plantedPairs": 1387,
+      "minFootM": 1.2873241257275992e-8,
+      "maxFootGapM": 2.6354052477482247e-7,
+      "maxPlantShiftM": 7.732984205368918e-8,
+      "collision": {
+        "framesChecked": 992,
+        "capsulesChecked": 5952,
+        "trianglesTested": 0,
+        "sweepSamples": 1862,
+        "minClearanceM": null,
+        "refusals": 0
+      },
+      "statuses": [
+        "กำลังทดสอบเข้าจุดใช้งาน → นั่ง / พัก → ลุกกลับ",
+        "เข้าจุดนั่ง",
+        "กำลังนั่ง",
+        "กำลังทดลองนั่งทำงาน",
+        "กำลังลุกจากที่นั่ง",
+        "เดินกลับสู่ทางเดิน",
+        "ทดสอบเสร็จแล้ว · ไม่มีการเปลี่ยนข้อมูลธุรกิจ"
+      ],
+      "diagnostic": {
+        "ok": true,
+        "phase": "done",
+        "checkedCapsules": 6,
+        "testedTriangles": 0,
+        "checkedMeshes": 0,
+        "sampleCount": 1,
+        "minClearanceM": null,
+        "hit": null
+      }
+    },
+    {
+      "kind": "kenney-chair-swivel-1.1",
+      "floor": "projects",
+      "hz": 60,
+      "started": {
+        "ok": true,
+        "message": "กำลังทดสอบเข้าจุดใช้งาน → นั่ง / พัก → ลุกกลับ"
+      },
+      "phases": [
+        "walking",
+        "entering",
+        "sit",
+        "working",
+        "standing",
+        "leaving",
+        "done"
+      ],
+      "frames": 1022,
+      "doneFrames": 121,
+      "workingFrames": 181,
+      "plantedPairs": 1430,
+      "minFootM": 3.047168275162827e-8,
+      "maxFootGapM": 2.568307977315091e-7,
+      "maxPlantShiftM": 7.727835993870075e-8,
+      "collision": {
+        "framesChecked": 1022,
+        "capsulesChecked": 6132,
+        "trianglesTested": 5396,
+        "sweepSamples": 1967,
+        "minClearanceM": 0.012836728202490669,
+        "refusals": 0
+      },
+      "statuses": [
+        "กำลังทดสอบเข้าจุดใช้งาน → นั่ง / พัก → ลุกกลับ",
+        "เข้าจุดนั่ง",
+        "กำลังนั่ง",
+        "กำลังทดลองนั่งทำงาน",
+        "กำลังลุกจากที่นั่ง",
+        "เดินกลับสู่ทางเดิน",
+        "ทดสอบเสร็จแล้ว · ไม่มีการเปลี่ยนข้อมูลธุรกิจ"
+      ],
+      "diagnostic": {
+        "ok": true,
+        "phase": "done",
+        "checkedCapsules": 6,
+        "testedTriangles": 0,
+        "checkedMeshes": 0,
+        "sampleCount": 1,
+        "minClearanceM": null,
+        "hit": null
+      }
+    },
+    {
+      "kind": "bundled-0.75",
+      "floor": "projects",
+      "hz": 60,
+      "started": {
+        "ok": true,
+        "message": "กำลังทดสอบเข้าจุดใช้งาน → นั่ง / พัก → ลุกกลับ"
+      },
+      "phases": [
+        "walking",
+        "entering",
+        "sit",
+        "working",
+        "standing",
+        "leaving",
+        "done"
+      ],
+      "frames": 1024,
+      "doneFrames": 121,
+      "workingFrames": 181,
+      "plantedPairs": 1417,
+      "minFootM": 3.550343932205546e-8,
+      "maxFootGapM": 2.6791523877700346e-7,
+      "maxPlantShiftM": 7.826070437097006e-8,
+      "collision": {
+        "framesChecked": 1024,
+        "capsulesChecked": 6144,
+        "trianglesTested": 0,
+        "sweepSamples": 1958,
+        "minClearanceM": null,
+        "refusals": 0
+      },
+      "statuses": [
+        "กำลังทดสอบเข้าจุดใช้งาน → นั่ง / พัก → ลุกกลับ",
+        "เข้าจุดนั่ง",
+        "กำลังนั่ง",
+        "กำลังทดลองนั่งทำงาน",
+        "กำลังลุกจากที่นั่ง",
+        "เดินกลับสู่ทางเดิน",
+        "ทดสอบเสร็จแล้ว · ไม่มีการเปลี่ยนข้อมูลธุรกิจ"
+      ],
+      "diagnostic": {
+        "ok": true,
+        "phase": "done",
+        "checkedCapsules": 6,
+        "testedTriangles": 0,
+        "checkedMeshes": 0,
+        "sampleCount": 1,
+        "minClearanceM": null,
+        "hit": null
+      }
+    },
+    {
+      "kind": "bundled-1",
+      "floor": "projects",
+      "hz": 60,
+      "started": {
+        "ok": true,
+        "message": "กำลังทดสอบเข้าจุดใช้งาน → นั่ง / พัก → ลุกกลับ"
+      },
+      "phases": [
+        "walking",
+        "entering",
+        "sit",
+        "working",
+        "standing",
+        "leaving",
+        "done"
+      ],
+      "frames": 1209,
+      "doneFrames": 121,
+      "workingFrames": 181,
+      "plantedPairs": 1617,
+      "minFootM": 3.089816238704052e-8,
+      "maxFootGapM": 2.579400267739154e-7,
+      "maxPlantShiftM": 7.937278559666793e-8,
+      "collision": {
+        "framesChecked": 1209,
+        "capsulesChecked": 7254,
+        "trianglesTested": 11092,
+        "sweepSamples": 2391,
+        "minClearanceM": -0.0007496089942351652,
+        "refusals": 0
+      },
+      "statuses": [
+        "กำลังทดสอบเข้าจุดใช้งาน → นั่ง / พัก → ลุกกลับ",
+        "เข้าจุดนั่ง",
+        "กำลังนั่ง",
+        "กำลังทดลองนั่งทำงาน",
+        "กำลังลุกจากที่นั่ง",
+        "เดินกลับสู่ทางเดิน",
+        "ทดสอบเสร็จแล้ว · ไม่มีการเปลี่ยนข้อมูลธุรกิจ"
+      ],
+      "diagnostic": {
+        "ok": true,
+        "phase": "done",
+        "checkedCapsules": 6,
+        "testedTriangles": 0,
+        "checkedMeshes": 0,
+        "sampleCount": 1,
+        "minClearanceM": null,
+        "hit": null
+      }
+    },
+    {
+      "kind": "bundled-1.25",
+      "floor": "projects",
+      "hz": 60,
+      "started": {
+        "ok": true,
+        "message": "กำลังทดสอบเข้าจุดใช้งาน → นั่ง / พัก → ลุกกลับ"
+      },
+      "phases": [
+        "walking",
+        "entering",
+        "blocked"
+      ],
+      "frames": 735,
+      "doneFrames": 0,
+      "workingFrames": 0,
+      "plantedPairs": 733,
+      "minFootM": 3.0402237479268066e-8,
+      "maxFootGapM": 0,
+      "maxPlantShiftM": 4.682859347112908e-9,
+      "collision": {
+        "framesChecked": 735,
+        "capsulesChecked": 4410,
+        "trianglesTested": 25,
+        "sweepSamples": 1860,
+        "minClearanceM": -0.005563926554402646,
+        "refusals": 1
+      },
+      "statuses": [
+        "กำลังทดสอบเข้าจุดใช้งาน → นั่ง / พัก → ลุกกลับ",
+        "เข้าจุดนั่ง",
+        "หยุดทดสอบการเดิน · right-thigh ชน desk-1"
+      ],
+      "diagnostic": {
+        "ok": false,
+        "phase": "entering",
+        "checkedCapsules": 6,
+        "testedTriangles": 19,
+        "checkedMeshes": 4,
+        "sampleCount": 2,
+        "minClearanceM": -0.005563926554402646,
+        "hit": {
+          "objectId": "desk-1",
+          "mesh": "Mesh_0",
+          "limb": "right-thigh",
+          "side": "right",
+          "clearanceM": -0.005563926554402646,
+          "distanceM": 0.08643607344559735,
+          "radiusM": 0.092,
+          "segmentStart": [
+            3.9235723270259557,
+            0.9370088473916562,
+            3.7307035356775926
+          ],
+          "segmentEnd": [
+            3.7700299357837457,
+            0.5897443850930283,
+            3.92982490123773
+          ],
+          "surfaceCenter": [
+            3.780246901512146,
+            0.641126275062561,
+            4.004183033108712
+          ],
+          "surfaceBounds": {
+            "min": [
+              3.0316049337387083,
+              0.641126275062561,
+              4.000000023841858
+            ],
+            "max": [
+              4.528888869285583,
+              0.641126275062561,
+              4.008366042375565
+            ]
+          },
+          "surfaceNormal": [
+            0,
+            -1,
+            0
+          ],
+          "sweepT": 1,
+          "sampleIndex": 2
+        },
+        "stepBackoffM": 0,
+        "safeRoot": [
+          3.7999999999999963,
+          0,
+          3.6937499999999965
+        ],
+        "attemptedRoot": [
+          3.7999999999999963,
+          0,
+          3.6937499999999965
+        ]
+      }
+    }
+  ],
+  "sha256": {
+    "scripts/asset-factory/verify-office-lifecycle.cjs": "4a3ec60fe227af8eb28f9315ddcfa4e3b34197a31c0be7d4b4b0589ac5e86ede",
+    "web/tycoon-contact.js": "acb01537205b561fc6825b14f930d642875a2b4aade94ef4b22013f6a4dee50a",
+    "web/tycoon-seat-contact.js": "f562fa6d9ed6fe4005ba87ec28b2deaeba70bddc6c158df5fa73e9b478a0ba10",
+    "web/tycoon-scene.js": "973c2ee8f4360c740082f832ed9ffcf7701b541bd7dc2942caf11b9c8ce5c469",
+    "web/tycoon-activity.js": "591f61ba89b3b382fda90abc47045d4355617309b490aa23d8dfa436ad9e27e9",
+    "web/tycoon-blueprint.js": "706d82eae2234f5c99de0b8adb307ff1bc71ec0035a455f222c6e99bce83485d",
+    "web/tycoon-state.js": "0c42f8cc3d712a64d493394944144304d854ab0cdc8057c1d720bd87cf2b281e",
+    "web/tycoon-floor-plans.js": "a973e741d470baa182acc906b140f1ebc24cbfc0b3eb0bed77644d0f98b5c9e1",
+    "web/tycoon-limb-collision.js": "c2acee3e8574a96fc27d1bfe21b0a075e9322583b6d4dbc2e34426c9717696e6",
+    "web/assets/models/tycoon-factory/actor-rig-v3.glb": "12963ec2f220812d2a88da8382a83d7da5671a7084fbd758b0dc82902ee58ac2",
+    "web/assets/models/tycoon/chair.glb": "d9dbc950794d9e318ccce5a0ea1819440e96465c729210c08ada98590c86c99f",
+    "tests\\fixtures\\external-chairs\\kenney-chair-four-leg.glb": "e59ab6cd4ce501430db26b1eb73004e30ef2b05ce8b307af35a7542bf0622412",
+    "tests\\fixtures\\external-chairs\\kenney-chair-rounded-back.glb": "f8fe2461ca0192d3c6cad53d8e81d28cb8b5ed884090179eef783e933fbda463",
+    "tests\\fixtures\\external-chairs\\kenney-chair-swivel.glb": "f28305001cc5ffbb3814dd2c14ca9bdcbe8a7aa2e778b027ff55b31fbc29466f"
+  }
+}

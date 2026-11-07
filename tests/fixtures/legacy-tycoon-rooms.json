@@ -1,0 +1,453 @@
+{
+  "lobby": {
+    "schemaVersion": "office-tycoon/v1",
+    "width": 12,
+    "depth": 8,
+    "objects": [
+      {
+        "id": "lift",
+        "kind": "lift",
+        "x": -4.5,
+        "y": 0,
+        "z": -3.45,
+        "rotation": 0,
+        "scale": 1,
+        "intent": "floors"
+      },
+      {
+        "id": "directory",
+        "kind": "kiosk",
+        "x": -3.25,
+        "y": 0,
+        "z": -3.4,
+        "rotation": 0,
+        "scale": 1,
+        "intent": "floors"
+      },
+      {
+        "id": "plant-left",
+        "kind": "plant",
+        "x": -5.15,
+        "y": 0,
+        "z": 2.9,
+        "rotation": 0,
+        "scale": 1,
+        "intent": "decor"
+      },
+      {
+        "id": "plant-right",
+        "kind": "plant",
+        "x": 5.15,
+        "y": 0,
+        "z": -2.9,
+        "rotation": 0,
+        "scale": 1,
+        "intent": "decor"
+      },
+      {
+        "id": "reception",
+        "kind": "reception",
+        "x": 0,
+        "y": 0,
+        "z": -1.5,
+        "rotation": 0,
+        "scale": 1,
+        "intent": "connect"
+      },
+      {
+        "id": "welcome",
+        "kind": "board",
+        "x": 4,
+        "y": 0,
+        "z": -2.4,
+        "rotation": 0,
+        "scale": 1,
+        "intent": "projects"
+      },
+      {
+        "id": "lounge",
+        "kind": "sofa",
+        "x": -3.7,
+        "y": 0,
+        "z": 1.5,
+        "rotation": 0,
+        "scale": 1,
+        "intent": "decor"
+      },
+      {
+        "id": "lounge-table",
+        "kind": "coffee-table",
+        "x": -3.7,
+        "y": 0,
+        "z": 2.6,
+        "rotation": 0,
+        "scale": 1,
+        "intent": "decor"
+      },
+      {
+        "id": "coffee",
+        "kind": "coffee",
+        "x": 4.6,
+        "y": 0,
+        "z": 1.3,
+        "rotation": 0,
+        "scale": 1,
+        "intent": "decor"
+      },
+      {
+        "id": "reception-plant",
+        "kind": "plant",
+        "x": 2,
+        "y": 0,
+        "z": -2.4,
+        "rotation": 0,
+        "scale": 1,
+        "intent": "decor"
+      }
+    ]
+  },
+  "projects": {
+    "schemaVersion": "office-tycoon/v1",
+    "width": 12,
+    "depth": 8,
+    "objects": [
+      {
+        "id": "lift",
+        "kind": "lift",
+        "x": -4.5,
+        "y": 0,
+        "z": -3.45,
+        "rotation": 0,
+        "scale": 1,
+        "intent": "floors"
+      },
+      {
+        "id": "directory",
+        "kind": "kiosk",
+        "x": -3.25,
+        "y": 0,
+        "z": -3.4,
+        "rotation": 0,
+        "scale": 1,
+        "intent": "floors"
+      },
+      {
+        "id": "plant-left",
+        "kind": "plant",
+        "x": -5.15,
+        "y": 0,
+        "z": 2.9,
+        "rotation": 0,
+        "scale": 1,
+        "intent": "decor"
+      },
+      {
+        "id": "plant-right",
+        "kind": "plant",
+        "x": 5.15,
+        "y": 0,
+        "z": -2.9,
+        "rotation": 0,
+        "scale": 1,
+        "intent": "decor"
+      },
+      {
+        "id": "desk-1",
+        "kind": "desk",
+        "x": -1.7,
+        "y": 0,
+        "z": -1.9,
+        "rotation": 3.141592653589793,
+        "scale": 1,
+        "intent": "work"
+      },
+      {
+        "id": "chair-1",
+        "kind": "chair",
+        "x": -1.7,
+        "y": 0,
+        "z": -2.9,
+        "rotation": 3.141592653589793,
+        "scale": 1,
+        "intent": "decor"
+      },
+      {
+        "id": "desk-2",
+        "kind": "desk",
+        "x": 1.1,
+        "y": 0,
+        "z": -1.9,
+        "rotation": 3.141592653589793,
+        "scale": 1,
+        "intent": "work"
+      },
+      {
+        "id": "chair-2",
+        "kind": "chair",
+        "x": 1.1,
+        "y": 0,
+        "z": -2.9,
+        "rotation": 3.141592653589793,
+        "scale": 1,
+        "intent": "decor"
+      },
+      {
+        "id": "desk-3",
+        "kind": "desk",
+        "x": -1.7,
+        "y": 0,
+        "z": 1.5,
+        "rotation": 3.141592653589793,
+        "scale": 1,
+        "intent": "work"
+      },
+      {
+        "id": "chair-3",
+        "kind": "chair",
+        "x": -1.7,
+        "y": 0,
+        "z": 0.5,
+        "rotation": 3.141592653589793,
+        "scale": 1,
+        "intent": "decor"
+      },
+      {
+        "id": "desk-4",
+        "kind": "desk",
+        "x": 1.1,
+        "y": 0,
+        "z": 1.5,
+        "rotation": 3.141592653589793,
+        "scale": 1,
+        "intent": "work"
+      },
+      {
+        "id": "chair-4",
+        "kind": "chair",
+        "x": 1.1,
+        "y": 0,
+        "z": 0.5,
+        "rotation": 3.141592653589793,
+        "scale": 1,
+        "intent": "decor"
+      },
+      {
+        "id": "project-board",
+        "kind": "board",
+        "x": -4.65,
+        "y": 0,
+        "z": 0,
+        "rotation": 1.5707963267948966,
+        "scale": 1,
+        "intent": "projects"
+      },
+      {
+        "id": "meeting",
+        "kind": "meeting",
+        "x": 4.3,
+        "y": 0,
+        "z": 1.3,
+        "rotation": 0,
+        "scale": 1,
+        "intent": "meeting"
+      },
+      {
+        "id": "artifacts",
+        "kind": "cabinet",
+        "x": 4.4,
+        "y": 0,
+        "z": -3.45,
+        "rotation": 0,
+        "scale": 1,
+        "intent": "artifacts"
+      },
+      {
+        "id": "coffee",
+        "kind": "coffee",
+        "x": -4.6,
+        "y": 0,
+        "z": 2.4,
+        "rotation": 0,
+        "scale": 1,
+        "intent": "decor"
+      }
+    ]
+  },
+  "growth": {
+    "schemaVersion": "office-tycoon/v1",
+    "width": 12,
+    "depth": 8,
+    "objects": [
+      {
+        "id": "lift",
+        "kind": "lift",
+        "x": -4.5,
+        "y": 0,
+        "z": -3.45,
+        "rotation": 0,
+        "scale": 1,
+        "intent": "floors"
+      },
+      {
+        "id": "directory",
+        "kind": "kiosk",
+        "x": -3.25,
+        "y": 0,
+        "z": -3.4,
+        "rotation": 0,
+        "scale": 1,
+        "intent": "floors"
+      },
+      {
+        "id": "plant-left",
+        "kind": "plant",
+        "x": -5.15,
+        "y": 0,
+        "z": 2.9,
+        "rotation": 0,
+        "scale": 1,
+        "intent": "decor"
+      },
+      {
+        "id": "plant-right",
+        "kind": "plant",
+        "x": 5.15,
+        "y": 0,
+        "z": -2.9,
+        "rotation": 0,
+        "scale": 1,
+        "intent": "decor"
+      },
+      {
+        "id": "desk-1",
+        "kind": "desk",
+        "x": -1.7,
+        "y": 0,
+        "z": -1.9,
+        "rotation": 3.141592653589793,
+        "scale": 1,
+        "intent": "work"
+      },
+      {
+        "id": "chair-1",
+        "kind": "chair",
+        "x": -1.7,
+        "y": 0,
+        "z": -2.9,
+        "rotation": 3.141592653589793,
+        "scale": 1,
+        "intent": "decor"
+      },
+      {
+        "id": "desk-2",
+        "kind": "desk",
+        "x": 1.1,
+        "y": 0,
+        "z": -1.9,
+        "rotation": 3.141592653589793,
+        "scale": 1,
+        "intent": "work"
+      },
+      {
+        "id": "chair-2",
+        "kind": "chair",
+        "x": 1.1,
+        "y": 0,
+        "z": -2.9,
+        "rotation": 3.141592653589793,
+        "scale": 1,
+        "intent": "decor"
+      },
+      {
+        "id": "desk-3",
+        "kind": "desk",
+        "x": -1.7,
+        "y": 0,
+        "z": 1.5,
+        "rotation": 3.141592653589793,
+        "scale": 1,
+        "intent": "work"
+      },
+      {
+        "id": "chair-3",
+        "kind": "chair",
+        "x": -1.7,
+        "y": 0,
+        "z": 0.5,
+        "rotation": 3.141592653589793,
+        "scale": 1,
+        "intent": "decor"
+      },
+      {
+        "id": "desk-4",
+        "kind": "desk",
+        "x": 1.1,
+        "y": 0,
+        "z": 1.5,
+        "rotation": 3.141592653589793,
+        "scale": 1,
+        "intent": "work"
+      },
+      {
+        "id": "chair-4",
+        "kind": "chair",
+        "x": 1.1,
+        "y": 0,
+        "z": 0.5,
+        "rotation": 3.141592653589793,
+        "scale": 1,
+        "intent": "decor"
+      },
+      {
+        "id": "marketing-board",
+        "kind": "board",
+        "x": -4.65,
+        "y": 0,
+        "z": 0,
+        "rotation": 1.5707963267948966,
+        "scale": 1,
+        "intent": "projects"
+      },
+      {
+        "id": "meeting",
+        "kind": "meeting",
+        "x": 4.3,
+        "y": 0,
+        "z": 1.3,
+        "rotation": 0,
+        "scale": 1,
+        "intent": "meeting"
+      },
+      {
+        "id": "artifacts",
+        "kind": "cabinet",
+        "x": 4.4,
+        "y": 0,
+        "z": -3.45,
+        "rotation": 0,
+        "scale": 1,
+        "intent": "artifacts"
+      },
+      {
+        "id": "coffee",
+        "kind": "coffee",
+        "x": -4.6,
+        "y": 0,
+        "z": 2.4,
+        "rotation": 0,
+        "scale": 1,
+        "intent": "decor"
+      },
+      {
+        "id": "marketing-ask",
+        "kind": "kiosk",
+        "x": 3,
+        "y": 0,
+        "z": -2,
+        "rotation": 0,
+        "scale": 1,
+        "intent": "marketing-ask"
+      }
+    ]
+  }
+}

@@ -1,0 +1,35 @@
+
+> zuri-visual-office@1.0.0 build
+> npm run assets && node scripts/build-rich.mjs && node scripts/build-worker.mjs
+
+
+> zuri-visual-office@1.0.0 assets
+> node scripts/build-assets.mjs && node scripts/build-studio-assets.mjs && node scripts/build-office-blueprints.mjs && node scripts/build-tycoon-assets.mjs
+
+Generated room.gltf (218 KB)
+Generated desk.gltf (64 KB)
+Generated floor-tile.gltf (2 KB)
+Studio desk-starter.glb · 51 KB · 716 triangles
+Studio desk-studio.glb · 69 KB · 968 triangles
+Studio desk-signature.glb · 77 KB · 1088 triangles
+Studio room-starter.glb · 132 KB · 2412 triangles
+Studio room-studio.glb · 147 KB · 2544 triangles
+Studio room-signature.glb · 163 KB · 2844 triangles
+Studio room-signature-wing.glb · 238 KB · 4484 triangles
+Studio plant-movable.glb · 22 KB · 520 triangles
+Studio mannequin-seated.glb · 23 KB · 356 triangles
+Studio chair-ergonomic.glb · 123 KB · 3984 triangles
+Studio meeting-table.glb · 98 KB · 3300 triangles
+Studio lounge-sofa.glb · 108 KB · 3600 triangles
+Studio coffee-table.glb · 39 KB · 992 triangles
+Studio storage-cabinet.glb · 82 KB · 2700 triangles
+Studio reception-counter.glb · 81 KB · 2512 triangles
+Studio bookcase.glb · 201 KB · 6712 triangles
+Studio floor-lamp.glb · 21 KB · 400 triangles
+Studio whiteboard.glb · 88 KB · 2796 triangles
+Studio coffee-station.glb · 93 KB · 2884 triangles
+Studio elevator-bay.glb · 94 KB · 3000 triangles
+Built 3 measured Office SVG blueprints and 3 room templates.
+Tycoon prototype kit: 24 GLB, 2867376 bytes
+Built local Markdown, sanitizer and Mermaid assets
+Built Worker with 492 embedded assets

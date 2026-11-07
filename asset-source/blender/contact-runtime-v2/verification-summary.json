@@ -1,0 +1,10 @@
+{
+  "runtimeHashesVerified": 57,
+  "profilerSha256": "e0fb198c59df31320ce11add6d069b38186ead6686d1e4cb23c9a3234b188fe0",
+  "tests": 487,
+  "testsFailed": 0,
+  "build": "npm run build in isolated copy; exit 0",
+  "hardwareLifecycleCases": 24,
+  "hardwareLifecycleCompleted": 24,
+  "note": "Local QA measurements only; no business authority or release evidence"
+}

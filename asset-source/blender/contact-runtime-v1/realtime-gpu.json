@@ -1,0 +1,46 @@
+{
+  "browser": "156.0.8078.48",
+  "method": "headless Chrome with hardware WebGL D3D11; one local simulation probe",
+  "viewport": "1280x800 DPR 1",
+  "modes": [
+    {
+      "rate": "display",
+      "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3060 (0x00002504) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "loadMs": 610.5,
+      "elapsedMs": 10001,
+      "renderIntervals": 599,
+      "renderFps": 59.99479177099817,
+      "p50Ms": 16.699999999999818,
+      "p95Ms": 16.800000000000182,
+      "maxDrawCalls": 181,
+      "maxTriangles": 54398,
+      "geometryObjects": 101,
+      "textures": 24,
+      "jsHeapBytes": 15621733
+    },
+    {
+      "rate": 30,
+      "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3060 (0x00002504) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "loadMs": 289.39999999990687,
+      "elapsedMs": 10000.59999999986,
+      "renderIntervals": 299,
+      "renderFps": 29.997491848507643,
+      "p50Ms": 33.30000000000109,
+      "p95Ms": 33.400000000001455,
+      "maxDrawCalls": 181,
+      "maxTriangles": 54398,
+      "geometryObjects": 101,
+      "textures": 24,
+      "jsHeapBytes": 20547417
+    }
+  ],
+  "sha256": {
+    "web/tycoon-contact.js": "67fae9af192bb0215c259e048a19038643e0dcdb6941db428304a5972ea6370f",
+    "web/tycoon-seat-contact.js": "f562fa6d9ed6fe4005ba87ec28b2deaeba70bddc6c158df5fa73e9b478a0ba10",
+    "web/tycoon-scene.js": "0bc232046e888cf87a2f3264bb911c47f72c97022b56a7a4cb64f6cadda4642a",
+    "web/tycoon-activity.js": "c3d9c458fff350961017b6e095052631e1f39acf851ad1650c4fe26b81d50e92",
+    "web/tycoon-blueprint.js": "1e60334084af80807423a55468fd3ffb166a54fe64dce394e92f87e7a39e5799",
+    "web/assets/models/tycoon-factory/actor-rig-v3.glb": "12963ec2f220812d2a88da8382a83d7da5671a7084fbd758b0dc82902ee58ac2",
+    "web/assets/models/tycoon/chair.glb": "d9dbc950794d9e318ccce5a0ea1819440e96465c729210c08ada98590c86c99f"
+  }
+}

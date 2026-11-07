@@ -1,0 +1,35 @@
+{
+  "revision": "office-workfloor/3d-v1",
+  "createdAt": "2026-10-23",
+  "ownerReference": "codex-clipboard-0495eb4f-1270-444e-856e-e16b4dad1d10.png: adult 3D office simulation characters; not shipped as runtime art",
+  "direction": "Painted 2.5D architecture + native Soft 3D props + articulated generic 3D adults",
+  "camera": {
+    "yawDegrees": 45,
+    "groundAxisPixelSlope": 0.52,
+    "elevationDegrees": 31.332,
+    "projection": "orthographic fixed cutaway"
+  },
+  "generation": "built-in image_gen for background edits only; runtime props are code-generated Three.js geometry; since 6 Nov 2026 avatars render temporary GLB characters from web/assets/models/characters/ with a procedural fallback",
+  "backgroundEdits": [
+    "v2: blank name frame above sofa and inset silver elevator door",
+    "v3: remove baked sofa and coffee table for movable 3D replacement, retaining architecture"
+  ],
+  "promptRecord": "Summarized edit briefs, not exact generation transcripts",
+  "files": [
+    {
+      "path": "backgrounds/office-isometric-v2.png",
+      "sha256": "31fdafea539c792d84b24122b084678866d28f744e06a364d653fee73f65f639"
+    },
+    {
+      "path": "backgrounds/office-isometric-v3.png",
+      "sha256": "cad7f8a72e259a617ae230596d68ac9145c592edae9b282fa781af5b6a1914b5"
+    }
+  ],
+  "runtimeSources": [
+    "web/hybrid-office-3d.js",
+    "web/office-characters.js",
+    "web/office-projection.js",
+    "web/office-navigation.js"
+  ],
+  "limits": "Fixed room wall masks and walk polygons, not arbitrary imported architecture. Local simulation only; generic variants do not assign Agent roles."
+}

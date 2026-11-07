@@ -1,0 +1,501 @@
+{
+  "schemaVersion": 1,
+  "purpose": "External custom GLB lifecycle regression fixtures; not a runtime or default asset catalog.",
+  "source": {
+    "title": "Furniture Kit",
+    "author": "Kenney",
+    "url": "https://opengameart.org/content/furniture-kit",
+    "archive": {
+      "fileName": "kenney_oga.zip",
+      "pathAtConversion": "C:\\Users\\suanr\\workspace\\visual-office\\.local\\reference-inputs\\kenney_oga.zip",
+      "sha256": "68afa4e6dc8a53942379fb47f1e84ec735d46b77bb1c1ceb968e245693dde067",
+      "includedInFixture": false
+    },
+    "sourceFiles": {
+      "chair.obj": {
+        "fixturePath": "source/Models/chair.obj",
+        "sha256": "395ba37182de517f58a2b0993ffcf4ae01a858285e269191509c6e2f1fd406f2",
+        "bytes": 8682
+      },
+      "chair.mtl": {
+        "fixturePath": "source/Models/chair.mtl",
+        "sha256": "dc0e8eeb2fef684cc9ab72e9532312ef8796c5035d3c5f23ba768ef6dae17806",
+        "bytes": 144
+      },
+      "chairRounded.obj": {
+        "fixturePath": "source/Models/chairRounded.obj",
+        "sha256": "a33ce0e60e6c026ecac76a14b74119cc19f30e7bbf7448d8cccd467cad1ff322",
+        "bytes": 15508
+      },
+      "chairRounded.mtl": {
+        "fixturePath": "source/Models/chairRounded.mtl",
+        "sha256": "dc0e8eeb2fef684cc9ab72e9532312ef8796c5035d3c5f23ba768ef6dae17806",
+        "bytes": 144
+      },
+      "chairDesk.obj": {
+        "fixturePath": "source/Models/chairDesk.obj",
+        "sha256": "7c2f8d1dcc10149a231e87d695b28cec6673a9c05bf590d4cbb03b7093a38869",
+        "bytes": 46213
+      },
+      "chairDesk.mtl": {
+        "fixturePath": "source/Models/chairDesk.mtl",
+        "sha256": "986eecf24208fd2192b0aeec9402147dd6c43e9165b319a395fb0f0c211b51a6",
+        "bytes": 263
+      }
+    }
+  },
+  "license": {
+    "id": "CC0-1.0",
+    "name": "Creative Commons Zero 1.0 Universal",
+    "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "file": "source/License.txt",
+    "sha256": "f2e61608341204c8e28650702cdff7c87c946aec4b8ef83096c8a5c16a52cd5f"
+  },
+  "conversion": {
+    "blender": "5.2.2 LTS",
+    "command": "\"G:\\AI-Studio\\Blender\\blender.exe\" -b --factory-startup --python-exit-code 1 -P \"C:\\Users\\suanr\\workspace\\visual-office\\scripts\\asset-factory\\prepare-external-chairs.py\" -- --source-root \"C:\\Users\\suanr\\workspace\\visual-office\\.local\\reference-inputs\\kenney-oga\\Models\" --out-root \"C:\\Users\\suanr\\workspace\\visual-office\\tests\\fixtures\\external-chairs\"",
+    "commandTemplate": "blender.exe -b --factory-startup --python-exit-code 1 -P scripts/asset-factory/prepare-external-chairs.py -- --source-root .local/reference-inputs/kenney-oga/Models --out-root tests/fixtures/external-chairs",
+    "sourceAxes": "OBJ Y-up; Blender import up_axis=Y, forward_axis=NEGATIVE_Z",
+    "outputAxes": "glTF 2.0 Y-up",
+    "normalization": "uniform scale to target height; X/Z centered; bottom at Y=0; no mesh remodeling",
+    "geometry": "source topology and vertices preserved; only source-axis conversion, uniform metric scale and centered/grounded origin applied",
+    "uvPolicy": "omit unused malformed source UV maps; MTL sources contain flat colors and no image textures",
+    "approachMarginM": 0.6,
+    "seatHeightRangeM": [
+      0.45,
+      0.6
+    ],
+    "preferredModelHeightRangeM": [
+      0.95,
+      1.15
+    ]
+  },
+  "fixtures": [
+    {
+      "id": "kenney-chair-four-leg",
+      "name": "Kenney Four-leg Chair",
+      "category": "chair",
+      "file": "kenney-chair-four-leg.glb",
+      "height": 1.0,
+      "interaction": {
+        "mode": "seat",
+        "approach": [
+          0.0,
+          -0.8127659618854522
+        ],
+        "seat": [
+          -9.534354780384831e-10,
+          -0.014801108671460278
+        ],
+        "height": 0.5106383388859501,
+        "heading": 3.141592653589793
+      },
+      "measured": {
+        "gltfSize": [
+          0.42553192377090454,
+          1.0,
+          0.42553192377090454
+        ],
+        "gltfGround": 0.0,
+        "gltfXZCenter": [
+          0.0,
+          -0.0
+        ],
+        "seatSurfaceSourceY": 2.4,
+        "seatSurfaceAreaSourceUnits": 3.6800000816583633,
+        "seatSourceCenter": [
+          -1.0000000044811466,
+          2.4000000953674316,
+          0.9304347920672241
+        ],
+        "uniformScale": 0.21276596608125264,
+        "materials": [
+          "wood"
+        ],
+        "conversionDetails": {
+          "uvLayersRemoved": 1,
+          "materialCorePbr": [
+            {
+              "material": "wood",
+              "unsupportedSpecularNormalizedToCoreDefault": true,
+              "baseColorPreserved": true
+            }
+          ]
+        },
+        "qaPass": false,
+        "qaErrors": [
+          "ExternalChair: degenerate faces=10 zero-len edges=0"
+        ],
+        "qaWarnings": [
+          "ExternalChair: duplicate verts=128 loose verts=0"
+        ],
+        "qaObjects": {
+          "ExternalChair": {
+            "verts": 256,
+            "faces": 168,
+            "tris": 168,
+            "ngons": 0,
+            "boundary_edges": 272,
+            "nonmanifold_edges": 0,
+            "wire_edges": 0,
+            "loose_verts": 0,
+            "degenerate_faces": 10,
+            "zero_length_edges": 0,
+            "inconsistent_normals_edges": 0,
+            "duplicate_verts": 128,
+            "islands": 40,
+            "inside_out_islands": 0,
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "materials": 1
+          }
+        }
+      },
+      "previews": {
+        "material": "previews/kenney-chair-four-leg-material.png",
+        "wire": "previews/kenney-chair-four-leg-wire.png"
+      },
+      "qaFile": "qa/kenney-chair-four-leg.json",
+      "provenance": {
+        "author": "Kenney",
+        "title": "Furniture Kit",
+        "sourceUrl": "https://opengameart.org/content/furniture-kit",
+        "sourceObj": "chair.obj",
+        "sourceObjSha256": "395ba37182de517f58a2b0993ffcf4ae01a858285e269191509c6e2f1fd406f2",
+        "sourceMtl": "chair.mtl",
+        "sourceMtlSha256": "dc0e8eeb2fef684cc9ab72e9532312ef8796c5035d3c5f23ba768ef6dae17806",
+        "sourceArchive": {
+          "fileName": "kenney_oga.zip",
+          "pathAtConversion": "C:\\Users\\suanr\\workspace\\visual-office\\.local\\reference-inputs\\kenney_oga.zip",
+          "sha256": "68afa4e6dc8a53942379fb47f1e84ec735d46b77bb1c1ceb968e245693dde067",
+          "includedInFixture": false
+        },
+        "licenseFile": "source/License.txt",
+        "licenseSha256": "f2e61608341204c8e28650702cdff7c87c946aec4b8ef83096c8a5c16a52cd5f",
+        "conversion": {
+          "blender": "5.2.2 LTS",
+          "command": "\"G:\\AI-Studio\\Blender\\blender.exe\" -b --factory-startup --python-exit-code 1 -P \"C:\\Users\\suanr\\workspace\\visual-office\\scripts\\asset-factory\\prepare-external-chairs.py\" -- --source-root \"C:\\Users\\suanr\\workspace\\visual-office\\.local\\reference-inputs\\kenney-oga\\Models\" --out-root \"C:\\Users\\suanr\\workspace\\visual-office\\tests\\fixtures\\external-chairs\"",
+          "sourceAxes": "OBJ Y-up; Blender import up_axis=Y, forward_axis=NEGATIVE_Z",
+          "outputAxes": "glTF 2.0 Y-up",
+          "normalization": "uniform scale to target height; X/Z centered; bottom at Y=0; no mesh remodeling",
+          "geometry": "source topology and vertices preserved; only source-axis conversion, uniform metric scale and centered/grounded origin applied",
+          "conversionDetails": {
+            "uvLayersRemoved": 1,
+            "materialCorePbr": [
+              {
+                "material": "wood",
+                "unsupportedSpecularNormalizedToCoreDefault": true,
+                "baseColorPreserved": true
+              }
+            ]
+          },
+          "uvPolicy": "dropped unused source UVs because the MTL inputs are flat-color only and imported UVs are malformed",
+          "commandTemplate": "blender.exe -b --factory-startup --python-exit-code 1 -P scripts/asset-factory/prepare-external-chairs.py -- --source-root .local/reference-inputs/kenney-oga/Models --out-root tests/fixtures/external-chairs"
+        },
+        "glb": {
+          "glbBytes": 8192,
+          "sha256": "e59ab6cd4ce501430db26b1eb73004e30ef2b05ce8b307af35a7542bf0622412",
+          "meshes": 1,
+          "materials": 1,
+          "images": 0,
+          "primitives": 1,
+          "triangles": 168,
+          "animations": 0,
+          "skins": 0,
+          "extensionsUsed": []
+        }
+      }
+    },
+    {
+      "id": "kenney-chair-rounded-back",
+      "name": "Kenney Rounded-back Chair",
+      "category": "chair",
+      "file": "kenney-chair-rounded-back.glb",
+      "height": 1.05,
+      "interaction": {
+        "mode": "seat",
+        "approach": [
+          0.0,
+          -0.8307692170143127
+        ],
+        "seat": [
+          -1.0341107024028342e-09,
+          -0.016053508849989198
+        ],
+        "height": 0.5076922974139079,
+        "heading": 3.141592653589793
+      },
+      "measured": {
+        "gltfSize": [
+          0.4615384340286255,
+          1.0499999523162842,
+          0.4615384340286255
+        ],
+        "gltfGround": 0.0,
+        "gltfXZCenter": [
+          0.0,
+          -0.0
+        ],
+        "seatSurfaceSourceY": 2.2,
+        "seatSurfaceAreaSourceUnits": 3.6800000816583633,
+        "seatSourceCenter": [
+          -1.0000000044811466,
+          2.200000047683716,
+          0.9304347920672241
+        ],
+        "uniformScale": 0.23076922109544268,
+        "materials": [
+          "wood"
+        ],
+        "conversionDetails": {
+          "uvLayersRemoved": 1,
+          "materialCorePbr": [
+            {
+              "material": "wood",
+              "unsupportedSpecularNormalizedToCoreDefault": true,
+              "baseColorPreserved": true
+            }
+          ]
+        },
+        "qaPass": false,
+        "qaErrors": [
+          "ExternalChair: degenerate faces=6 zero-len edges=0"
+        ],
+        "qaWarnings": [
+          "ExternalChair: duplicate verts=165 loose verts=0"
+        ],
+        "qaObjects": {
+          "ExternalChair": {
+            "verts": 331,
+            "faces": 260,
+            "tris": 260,
+            "ngons": 0,
+            "boundary_edges": 364,
+            "nonmanifold_edges": 0,
+            "wire_edges": 0,
+            "loose_verts": 0,
+            "degenerate_faces": 6,
+            "zero_length_edges": 0,
+            "inconsistent_normals_edges": 0,
+            "duplicate_verts": 165,
+            "islands": 27,
+            "inside_out_islands": 0,
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "materials": 1
+          }
+        }
+      },
+      "previews": {
+        "material": "previews/kenney-chair-rounded-back-material.png",
+        "wire": "previews/kenney-chair-rounded-back-wire.png"
+      },
+      "qaFile": "qa/kenney-chair-rounded-back.json",
+      "provenance": {
+        "author": "Kenney",
+        "title": "Furniture Kit",
+        "sourceUrl": "https://opengameart.org/content/furniture-kit",
+        "sourceObj": "chairRounded.obj",
+        "sourceObjSha256": "a33ce0e60e6c026ecac76a14b74119cc19f30e7bbf7448d8cccd467cad1ff322",
+        "sourceMtl": "chairRounded.mtl",
+        "sourceMtlSha256": "dc0e8eeb2fef684cc9ab72e9532312ef8796c5035d3c5f23ba768ef6dae17806",
+        "sourceArchive": {
+          "fileName": "kenney_oga.zip",
+          "pathAtConversion": "C:\\Users\\suanr\\workspace\\visual-office\\.local\\reference-inputs\\kenney_oga.zip",
+          "sha256": "68afa4e6dc8a53942379fb47f1e84ec735d46b77bb1c1ceb968e245693dde067",
+          "includedInFixture": false
+        },
+        "licenseFile": "source/License.txt",
+        "licenseSha256": "f2e61608341204c8e28650702cdff7c87c946aec4b8ef83096c8a5c16a52cd5f",
+        "conversion": {
+          "blender": "5.2.2 LTS",
+          "command": "\"G:\\AI-Studio\\Blender\\blender.exe\" -b --factory-startup --python-exit-code 1 -P \"C:\\Users\\suanr\\workspace\\visual-office\\scripts\\asset-factory\\prepare-external-chairs.py\" -- --source-root \"C:\\Users\\suanr\\workspace\\visual-office\\.local\\reference-inputs\\kenney-oga\\Models\" --out-root \"C:\\Users\\suanr\\workspace\\visual-office\\tests\\fixtures\\external-chairs\"",
+          "sourceAxes": "OBJ Y-up; Blender import up_axis=Y, forward_axis=NEGATIVE_Z",
+          "outputAxes": "glTF 2.0 Y-up",
+          "normalization": "uniform scale to target height; X/Z centered; bottom at Y=0; no mesh remodeling",
+          "geometry": "source topology and vertices preserved; only source-axis conversion, uniform metric scale and centered/grounded origin applied",
+          "conversionDetails": {
+            "uvLayersRemoved": 1,
+            "materialCorePbr": [
+              {
+                "material": "wood",
+                "unsupportedSpecularNormalizedToCoreDefault": true,
+                "baseColorPreserved": true
+              }
+            ]
+          },
+          "uvPolicy": "dropped unused source UVs because the MTL inputs are flat-color only and imported UVs are malformed",
+          "commandTemplate": "blender.exe -b --factory-startup --python-exit-code 1 -P scripts/asset-factory/prepare-external-chairs.py -- --source-root .local/reference-inputs/kenney-oga/Models --out-root tests/fixtures/external-chairs"
+        },
+        "glb": {
+          "glbBytes": 10560,
+          "sha256": "f8fe2461ca0192d3c6cad53d8e81d28cb8b5ed884090179eef783e933fbda463",
+          "meshes": 1,
+          "materials": 1,
+          "images": 0,
+          "primitives": 1,
+          "triangles": 260,
+          "animations": 0,
+          "skins": 0,
+          "extensionsUsed": []
+        }
+      }
+    },
+    {
+      "id": "kenney-chair-swivel",
+      "name": "Kenney Swivel Desk Chair",
+      "category": "chair",
+      "file": "kenney-chair-swivel.glb",
+      "height": 1.18,
+      "interaction": {
+        "mode": "seat",
+        "approach": [
+          0.0,
+          -0.9051949739456177
+        ],
+        "seat": [
+          -4.661623182236383e-09,
+          -0.049389215084818104
+        ],
+        "height": 0.45347267085931764,
+        "heading": 3.141592653589793
+      },
+      "measured": {
+        "gltfSize": [
+          0.6504953503608704,
+          1.1800000667572021,
+          0.6103899478912354
+        ],
+        "gltfGround": 0.0,
+        "gltfXZCenter": [
+          0.0,
+          -0.0
+        ],
+        "seatSurfaceSourceY": 2.335,
+        "seatSurfaceAreaSourceUnits": 6.8048832677304745,
+        "seatSourceCenter": [
+          -1.674749994439506,
+          2.3350000381469727,
+          1.31718292162846
+        ],
+        "uniformScale": 0.19420670811602556,
+        "materials": [
+          "metalMedium",
+          "carpet"
+        ],
+        "conversionDetails": {
+          "uvLayersRemoved": 1,
+          "materialCorePbr": [
+            {
+              "material": "metalMedium",
+              "unsupportedSpecularNormalizedToCoreDefault": true,
+              "baseColorPreserved": true
+            },
+            {
+              "material": "carpet",
+              "unsupportedSpecularNormalizedToCoreDefault": true,
+              "baseColorPreserved": true
+            }
+          ]
+        },
+        "qaPass": false,
+        "qaErrors": [
+          "ExternalChair: degenerate faces=3 zero-len edges=0"
+        ],
+        "qaWarnings": [
+          "ExternalChair: duplicate verts=369 loose verts=0",
+          "hidden back-to-back faces: ExternalChair (4 pairs) - delete to save tris"
+        ],
+        "qaObjects": {
+          "ExternalChair": {
+            "verts": 739,
+            "faces": 588,
+            "tris": 588,
+            "ngons": 0,
+            "boundary_edges": 738,
+            "nonmanifold_edges": 0,
+            "wire_edges": 0,
+            "loose_verts": 0,
+            "degenerate_faces": 3,
+            "zero_length_edges": 0,
+            "inconsistent_normals_edges": 0,
+            "duplicate_verts": 369,
+            "islands": 78,
+            "inside_out_islands": 0,
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "materials": 2
+          }
+        }
+      },
+      "previews": {
+        "material": "previews/kenney-chair-swivel-material.png",
+        "wire": "previews/kenney-chair-swivel-wire.png"
+      },
+      "qaFile": "qa/kenney-chair-swivel.json",
+      "provenance": {
+        "author": "Kenney",
+        "title": "Furniture Kit",
+        "sourceUrl": "https://opengameart.org/content/furniture-kit",
+        "sourceObj": "chairDesk.obj",
+        "sourceObjSha256": "7c2f8d1dcc10149a231e87d695b28cec6673a9c05bf590d4cbb03b7093a38869",
+        "sourceMtl": "chairDesk.mtl",
+        "sourceMtlSha256": "986eecf24208fd2192b0aeec9402147dd6c43e9165b319a395fb0f0c211b51a6",
+        "sourceArchive": {
+          "fileName": "kenney_oga.zip",
+          "pathAtConversion": "C:\\Users\\suanr\\workspace\\visual-office\\.local\\reference-inputs\\kenney_oga.zip",
+          "sha256": "68afa4e6dc8a53942379fb47f1e84ec735d46b77bb1c1ceb968e245693dde067",
+          "includedInFixture": false
+        },
+        "licenseFile": "source/License.txt",
+        "licenseSha256": "f2e61608341204c8e28650702cdff7c87c946aec4b8ef83096c8a5c16a52cd5f",
+        "conversion": {
+          "blender": "5.2.2 LTS",
+          "command": "\"G:\\AI-Studio\\Blender\\blender.exe\" -b --factory-startup --python-exit-code 1 -P \"C:\\Users\\suanr\\workspace\\visual-office\\scripts\\asset-factory\\prepare-external-chairs.py\" -- --source-root \"C:\\Users\\suanr\\workspace\\visual-office\\.local\\reference-inputs\\kenney-oga\\Models\" --out-root \"C:\\Users\\suanr\\workspace\\visual-office\\tests\\fixtures\\external-chairs\"",
+          "sourceAxes": "OBJ Y-up; Blender import up_axis=Y, forward_axis=NEGATIVE_Z",
+          "outputAxes": "glTF 2.0 Y-up",
+          "normalization": "uniform scale to target height; X/Z centered; bottom at Y=0; no mesh remodeling",
+          "geometry": "source topology and vertices preserved; only source-axis conversion, uniform metric scale and centered/grounded origin applied",
+          "conversionDetails": {
+            "uvLayersRemoved": 1,
+            "materialCorePbr": [
+              {
+                "material": "metalMedium",
+                "unsupportedSpecularNormalizedToCoreDefault": true,
+                "baseColorPreserved": true
+              },
+              {
+                "material": "carpet",
+                "unsupportedSpecularNormalizedToCoreDefault": true,
+                "baseColorPreserved": true
+              }
+            ]
+          },
+          "uvPolicy": "dropped unused source UVs because the MTL inputs are flat-color only and imported UVs are malformed",
+          "commandTemplate": "blender.exe -b --factory-startup --python-exit-code 1 -P scripts/asset-factory/prepare-external-chairs.py -- --source-root .local/reference-inputs/kenney-oga/Models --out-root tests/fixtures/external-chairs"
+        },
+        "glb": {
+          "glbBytes": 23076,
+          "sha256": "f28305001cc5ffbb3814dd2c14ca9bdcbe8a7aa2e778b027ff55b31fbc29466f",
+          "meshes": 1,
+          "materials": 2,
+          "images": 0,
+          "primitives": 2,
+          "triangles": 588,
+          "animations": 0,
+          "skins": 0,
+          "extensionsUsed": []
+        }
+      }
+    }
+  ]
+}

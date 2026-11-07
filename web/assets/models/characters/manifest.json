@@ -1,0 +1,90 @@
+{
+  "schemaVersion": "brand-characters/v1",
+  "quality": "model-review",
+  "units": "metres",
+  "license": "Original authored geometry, procedural textiles and an original ImageGen Zuri face albedo for Visual Office; brand identities remain Zuri-owned.",
+  "sourceKit": "Zuri Character Kit v0.9.4",
+  "approvedSheets": "docs/game-design/characters/2026-10-25-brand-study",
+  "assets": [
+    {
+      "id": "zuri",
+      "file": "zuri.glb",
+      "bytes": 5113768,
+      "sha256": "70978ebebfd79314951243e233a08f0e01ae02ba183d9dbb3d0dd4c529dd7499",
+      "triangles": 91944,
+      "meshes": 102,
+      "clips": [
+        "idle",
+        "walking",
+        "seated",
+        "wave",
+        "point"
+      ],
+      "sheet": "docs/game-design/characters/2026-10-25-brand-study/zuri-sheet-v1.png",
+      "sheetSha256": "23640829719cb5d9d96e2027616667770e3f2a4dc549c4d1e8acdae3e4777b9e",
+      "scaleNote": "1.60 m body; hair and shoes additional",
+      "production": {
+        "method": "original-local-sculpt",
+        "revision": "surface-refinement-v2",
+        "source": "web/characters/zuri-head.js",
+        "albedoSource": "docs/game-design/characters/2026-10-25-brand-study/local-rebuild/zuri-face-albedo-v1.png",
+        "albedoSha256": "2a7bb8a73952c5cce65e9e47a365beb9080087b0ef0638fab7523c4dd854a937",
+        "providerModelImported": false
+      }
+    },
+    {
+      "id": "wangjai",
+      "file": "wangjai.glb",
+      "bytes": 1930704,
+      "sha256": "5bf4e7886fd6f0844ebd54b60aa31a1383e32f0bf1bfa5bfb681d8a60aa4f09e",
+      "triangles": 61646,
+      "meshes": 39,
+      "clips": [
+        "idle",
+        "walking",
+        "seated",
+        "wave",
+        "point"
+      ],
+      "sheet": "docs/game-design/characters/2026-10-25-brand-study/wangjai-sheet-v1.png",
+      "sheetSha256": "659da83e0012aed26c629d7e8439ccaedb81c7ff7b9d131aa468388cae27b2fa",
+      "scaleNote": "0.90 m local preview proposal; no canonical physical height"
+    },
+    {
+      "id": "staff-a",
+      "file": "staff-a.glb",
+      "bytes": 4095188,
+      "sha256": "9e82d9d5b783e49ce0e902bd13e9398f3255e86c380b481f45266e608c38e7fc",
+      "triangles": 101544,
+      "meshes": 113,
+      "clips": [
+        "idle",
+        "walking",
+        "seated",
+        "wave",
+        "point"
+      ],
+      "sheet": "docs/game-design/characters/2026-10-25-brand-study/office-staff-sheet-v1.png",
+      "sheetSha256": "7045b3adac441205d15a0d58acade2eb256e487dd488df00a535d0eb1cd60513",
+      "scaleNote": "Local generic adult art; no role assignment"
+    },
+    {
+      "id": "staff-b",
+      "file": "staff-b.glb",
+      "bytes": 3971668,
+      "sha256": "b88bfed7072ec5482e046113c36785a513c91f96a194564e6ea3b838b6fc8c82",
+      "triangles": 97048,
+      "meshes": 110,
+      "clips": [
+        "idle",
+        "walking",
+        "seated",
+        "wave",
+        "point"
+      ],
+      "sheet": "docs/game-design/characters/2026-10-25-brand-study/office-staff-sheet-v1.png",
+      "sheetSha256": "7045b3adac441205d15a0d58acade2eb256e487dd488df00a535d0eb1cd60513",
+      "scaleNote": "Local generic adult art; no role assignment"
+    }
+  ]
+}

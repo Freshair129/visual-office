@@ -1,0 +1,6 @@
+/* Keep the static compatibility shell out of first paint while modules load.
+   Visibility preserves layout measurements; the selected route releases it. */
+body[data-app-boot="pending"]{margin:0;background:#fff8f0}
+body[data-app-boot="pending"] > :not(#app-boot-status):not(noscript){visibility:hidden!important}
+#app-boot-status{display:none}
+body[data-app-boot="pending"] > #app-boot-status{display:grid;position:fixed;inset:0;place-items:center;color:#786750;font:16px sans-serif}

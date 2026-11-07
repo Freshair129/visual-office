@@ -1,0 +1,26 @@
+{
+  "id": "zuri-head-revision",
+  "stage": "static-head-art-review",
+  "bytes": 6560868,
+  "sha256": "60062c05c724dafee9a0a1d96ba9a6d56b2d7ed3580658ce4b98cd4e2c452eb5",
+  "triangles": 127568,
+  "meshes": 117,
+  "clips": [],
+  "blender": "5.2.3 LTS",
+  "source": "assets-source/characters/zuri-head-revision.blend",
+  "artApproved": false,
+  "floorAdoption": false,
+  "reused": "Body and wardrobe; iris paint from existing local face albedo. Head, eyes, lids, hair, glasses and neck geometry newly authored",
+  "landmarks": {
+    "eyeHeight": 1.4489999999999998,
+    "eyeHalfWidth": 0.027,
+    "chinHeight": 1.3497999999999999,
+    "neckBottom": 1.315,
+    "neckTop": 1.38585
+  },
+  "previousRejected": "zuri-blender-pilot.glb",
+  "textureSources": [
+    "assets-source/characters/zuri-hair-strands-albedo.png",
+    "docs/game-design/characters/2026-10-25-brand-study/local-rebuild/zuri-face-albedo-v1.png"
+  ]
+}

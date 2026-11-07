@@ -1,0 +1,31 @@
+{
+  "kind": "wall",
+  "source": "C:\\Users\\suanr\\workspace\\visual-office\\web\\assets\\models\\tycoon\\wall.glb",
+  "source_sha256": "8adf6c73161880c7528cca7cb89cb6c1fd208cfceef9310e898dce205bbf4e0e",
+  "source_role": "derived import of existing prototype GLB; not original authoring source",
+  "blender": "5.2.2 LTS",
+  "blender_build": "d13f752e3b9c",
+  "mesh_objects": 1,
+  "triangles": 300,
+  "materials": [
+    "Material_0"
+  ],
+  "dimensions_m": [
+    1.0,
+    0.20000000298023224,
+    2.799999952316284
+  ],
+  "min_m": [
+    -0.5,
+    -0.10000000149011612,
+    0.0
+  ],
+  "max_m": [
+    0.5,
+    0.10000000149011612,
+    2.799999952316284
+  ],
+  "armatures": 0,
+  "imported_actions": [],
+  "quality": "prototype; visual and rig review pending"
+}

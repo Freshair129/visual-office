@@ -1,0 +1,52 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {JSDOM} from 'jsdom';
+import {OfficeArtScene,officeArtRoom} from '../web/office-art-scene.js';
+import {createTycoonRoom} from '../web/tycoon-state.js';
+import {readFile} from 'node:fs/promises';
+import {fallbackOptionalImage} from '../web/optional-assets.js';
+test('dynamic physical layout reuses office art without creating any Agent',()=>{
+ const source=createTycoonRoom('growth'),before=structuredClone(source),room=officeArtRoom(source,'Marketing');
+ assert.equal(room.background,'office');assert.equal(room.objects.some(o=>/^avatar-|actor/.test(o.kind)),false);
+ assert.equal(room.objects.filter(o=>o.kind==='work-desk').length,source.objects.filter(o=>o.kind==='desk').length);
+ assert.ok(room.objects.some(o=>o.id==='marketing-board'));assert.ok(room.objects.some(o=>o.id==='marketing-ask'));assert.deepEqual(source,before);
+});
+test('overview and Lobby share existing artwork and remain keyboard operable without WebGL',()=>{
+ const dom=new JSDOM('<main></main>',{pretendToBeVisual:true});const calls=[];
+ const scene=new OfficeArtScene(dom.window.document.querySelector('main'),{onPick:id=>calls.push(id)});
+ scene.setScene('building',null);assert.match(scene.root.querySelector('img').src,/idle-campus-desktop.png$/);
+ assert.equal(scene.root.querySelector('.office-art-viewport').classList.contains('is-campus'),true);
+ scene.viewport.fit();assert.ok(parseFloat(scene.root.querySelector('.office-art-viewport').style.getPropertyValue('--floor-map-width'))>=dom.window.innerWidth*1.25);
+ scene.root.querySelector('button').click();assert.deepEqual(calls,['shell:lobby']);
+ scene.setScene('lobby',createTycoonRoom('lobby'));assert.match(scene.root.querySelector('img').src,/lobby-desktop.png$/);
+ assert.equal(scene.root.querySelector('.office-art-viewport').classList.contains('is-campus'),false);
+ scene.root.querySelector('[data-office-place=lift]').click();assert.equal(calls.at(-1),'lift');
+ scene.dispose();dom.window.close();
+});
+test('office overview and lobby keep rendering when their ImageGen backgrounds are missing',()=>{
+ const dom=new JSDOM('<main></main>',{pretendToBeVisual:true}),scene=new OfficeArtScene(dom.window.document.querySelector('main'));
+ scene.setScene('building',null);const campus=scene.root.querySelector('img');assert.equal(fallbackOptionalImage(campus),true);assert.match(campus.src,/^data:image\/svg\+xml,/);
+ scene.setScene('lobby',createTycoonRoom('lobby'));const lobby=scene.root.querySelector('img');assert.equal(fallbackOptionalImage(lobby),true);assert.match(lobby.src,/^data:image\/svg\+xml,/);
+ scene.dispose();dom.window.close();
+});
+test('applied office objects retain absolute placement and route business activation to the context owner',async()=>{
+ const dom=new JSDOM('<main class="tycoon-stage"></main>',{pretendToBeVisual:true}),calls=[];
+ const style=dom.window.document.createElement('style');style.textContent=await readFile('web/hybrid-studio.css','utf8')+await readFile('web/tycoon-view.css','utf8');dom.window.document.head.append(style);
+ const scene=new OfficeArtScene(dom.window.document.querySelector('main'),{onPick:id=>calls.push(id)});
+ scene.setScene('growth',createTycoonRoom('growth'),{floorLabel:'Marketing'});
+ assert.equal(scene.hybrid.paintedSkeleton,true,'dynamic floors must keep the authored painted skin');
+ const board=scene.root.querySelector('[data-object="marketing-board"]');assert.equal(dom.window.getComputedStyle(board).position,'absolute');
+ assert.equal(dom.window.getComputedStyle(scene.root).isolation,'isolate','floor layers must not cover the HUD');
+ board.click();assert.deepEqual(calls,['marketing-board']);assert.equal(scene.root.querySelector('dialog'),null);
+ calls.length=0;
+ const lift=scene.root.querySelector('[data-object="lift"]');
+ const bounds=()=>({left:100,top:100,right:200,bottom:200,width:100,height:100});
+ lift.getBoundingClientRect=bounds;board.getBoundingClientRect=bounds;
+ scene.hybrid.modelLayer={pick:()=> 'lift',dispose(){}};
+ scene.hybrid.alpha.set(lift.querySelector('img').src,new Uint8Array(128*128*4));
+ scene.hybrid.alpha.set(board.querySelector('img').src,new Uint8Array(128*128*4).fill(255));
+ lift.dispatchEvent(new dom.window.MouseEvent('click',{bubbles:true,detail:1,clientX:150,clientY:150}));
+ assert.deepEqual(calls,['marketing-board'],'transparent front art and approximate geometry must not steal a context-owned board click');
+ calls.length=0;scene.hybrid.alpha.delete(lift.querySelector('img').src);
+ lift.dispatchEvent(new dom.window.MouseEvent('click',{bubbles:true,detail:1,clientX:150,clientY:150}));
+ assert.deepEqual(calls,['marketing-board'],'an undecoded foreground mask is not an opaque interaction surface');
+ scene.dispose();dom.window.close();
+});

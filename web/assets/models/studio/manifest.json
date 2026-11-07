@@ -1,0 +1,552 @@
+{
+  "version": 1,
+  "revision": "office-models/v1",
+  "units": "metres",
+  "upAxis": "Y",
+  "source": "web/studio-models.js",
+  "renderProfile": {
+    "camera": "native-floor orthographic three-quarter view; no camera is baked into GLBs",
+    "lighting": "shared soft warm key from upper-left; shadows are runtime-cast, not baked",
+    "palette": [
+      "#E8820C",
+      "#FDE8D0",
+      "#FFF8F0",
+      "#D6ECFA",
+      "#c99463",
+      "#849e8c"
+    ]
+  },
+  "provenance": "Original procedural geometry created for Visual Office. No external art or textures.",
+  "assets": [
+    {
+      "assetId": "visual-office.desk.starter.v1",
+      "name": "โต๊ะทำงาน Starter",
+      "category": "furniture",
+      "placeable": true,
+      "sceneKind": "asset",
+      "file": "desk-starter.glb",
+      "bytes": 52172,
+      "triangles": 716,
+      "meshes": 11,
+      "assetVersion": 1,
+      "units": "metres",
+      "tier": "starter",
+      "anchors": {
+        "seat": [
+          0,
+          0.48,
+          0.91
+        ],
+        "name": [
+          0,
+          1.65,
+          0
+        ],
+        "footprint": [
+          2.1,
+          2.05
+        ]
+      }
+    },
+    {
+      "assetId": "visual-office.desk.studio.v1",
+      "name": "โต๊ะทำงาน Studio",
+      "category": "furniture",
+      "placeable": true,
+      "sceneKind": "asset",
+      "file": "desk-studio.glb",
+      "bytes": 70660,
+      "triangles": 968,
+      "meshes": 14,
+      "assetVersion": 1,
+      "units": "metres",
+      "tier": "studio",
+      "anchors": {
+        "seat": [
+          0,
+          0.48,
+          0.91
+        ],
+        "name": [
+          0,
+          1.65,
+          0
+        ],
+        "footprint": [
+          2.1,
+          2.05
+        ]
+      }
+    },
+    {
+      "assetId": "visual-office.desk.signature.v1",
+      "name": "โต๊ะทำงาน Signature",
+      "category": "furniture",
+      "placeable": true,
+      "sceneKind": "asset",
+      "file": "desk-signature.glb",
+      "bytes": 78404,
+      "triangles": 1088,
+      "meshes": 16,
+      "assetVersion": 1,
+      "units": "metres",
+      "tier": "signature",
+      "anchors": {
+        "seat": [
+          0,
+          0.48,
+          0.91
+        ],
+        "name": [
+          0,
+          1.65,
+          0
+        ],
+        "footprint": [
+          2.1,
+          2.05
+        ]
+      }
+    },
+    {
+      "assetId": "visual-office.room.starter.v1",
+      "name": "ห้อง Starter",
+      "category": "room",
+      "placeable": false,
+      "sceneKind": "room-template",
+      "file": "room-starter.glb",
+      "bytes": 134876,
+      "triangles": 2412,
+      "meshes": 31,
+      "assetVersion": 1,
+      "units": "metres",
+      "anchors": {
+        "door": [
+          -3.25,
+          0,
+          -3.15
+        ]
+      },
+      "tier": "starter",
+      "loungeWing": false
+    },
+    {
+      "assetId": "visual-office.room.studio.v1",
+      "name": "ห้อง Studio",
+      "category": "room",
+      "placeable": false,
+      "sceneKind": "room-template",
+      "file": "room-studio.glb",
+      "bytes": 150432,
+      "triangles": 2544,
+      "meshes": 37,
+      "assetVersion": 1,
+      "units": "metres",
+      "anchors": {
+        "door": [
+          -3.25,
+          0,
+          -3.15
+        ]
+      },
+      "tier": "studio",
+      "loungeWing": false
+    },
+    {
+      "assetId": "visual-office.room.signature.v1",
+      "name": "ห้อง Signature",
+      "category": "room",
+      "placeable": false,
+      "sceneKind": "room-template",
+      "file": "room-signature.glb",
+      "bytes": 167256,
+      "triangles": 2844,
+      "meshes": 41,
+      "assetVersion": 1,
+      "units": "metres",
+      "anchors": {
+        "door": [
+          -3.25,
+          0,
+          -3.15
+        ]
+      },
+      "tier": "signature",
+      "loungeWing": false
+    },
+    {
+      "assetId": "visual-office.room.signature-wing.v1",
+      "name": "ห้อง Signature · ปีกพักผ่อน",
+      "category": "room",
+      "placeable": false,
+      "sceneKind": "room-template",
+      "file": "room-signature-wing.glb",
+      "bytes": 244080,
+      "triangles": 4484,
+      "meshes": 49,
+      "assetVersion": 1,
+      "units": "metres",
+      "anchors": {
+        "door": [
+          -3.25,
+          0,
+          -3.15
+        ]
+      },
+      "tier": "signature",
+      "loungeWing": true
+    },
+    {
+      "assetId": "visual-office.plant.movable.v1",
+      "name": "ต้นไม้กระถาง",
+      "category": "decor",
+      "placeable": true,
+      "sceneKind": "asset",
+      "file": "plant-movable.glb",
+      "bytes": 22176,
+      "triangles": 520,
+      "meshes": 5,
+      "assetVersion": 1,
+      "units": "metres"
+    },
+    {
+      "assetId": "visual-office.display.mannequin-seated.v1",
+      "name": "หุ่นจำลองนั่ง",
+      "category": "presentation",
+      "placeable": false,
+      "sceneKind": "presentation-only",
+      "presentationOnly": true,
+      "file": "mannequin-seated.glb",
+      "bytes": 23944,
+      "triangles": 356,
+      "meshes": 4,
+      "assetVersion": 1,
+      "units": "metres",
+      "pose": "seated"
+    },
+    {
+      "assetId": "visual-office.chair.ergonomic.v1",
+      "name": "เก้าอี้ทำงาน Ergonomic",
+      "category": "furniture",
+      "placeable": true,
+      "sceneKind": "asset",
+      "file": "chair-ergonomic.glb",
+      "bytes": 126204,
+      "triangles": 3984,
+      "meshes": 7,
+      "assetVersion": 1,
+      "units": "metres",
+      "footprint": [
+        0.9,
+        0.95
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0,
+          0
+        ],
+        "seat": [
+          0,
+          0.66,
+          -0.02
+        ],
+        "back": [
+          0,
+          1.36,
+          0.21
+        ]
+      }
+    },
+    {
+      "assetId": "visual-office.meeting-table.standard.v1",
+      "name": "โต๊ะประชุม 6 ที่นั่ง",
+      "category": "furniture",
+      "placeable": true,
+      "sceneKind": "asset",
+      "file": "meeting-table.glb",
+      "bytes": 100020,
+      "triangles": 3300,
+      "meshes": 5,
+      "assetVersion": 1,
+      "units": "metres",
+      "footprint": [
+        2.7,
+        1.45
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0,
+          0
+        ],
+        "top": [
+          0,
+          0.9,
+          0
+        ]
+      }
+    },
+    {
+      "assetId": "visual-office.sofa.lounge.v1",
+      "name": "โซฟาพักผ่อน 2 ที่นั่ง",
+      "category": "furniture",
+      "placeable": true,
+      "sceneKind": "asset",
+      "file": "lounge-sofa.glb",
+      "bytes": 110840,
+      "triangles": 3600,
+      "meshes": 7,
+      "assetVersion": 1,
+      "units": "metres",
+      "footprint": [
+        2.05,
+        1.05
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0,
+          0
+        ],
+        "seat": [
+          0,
+          0.64,
+          -0.05
+        ]
+      }
+    },
+    {
+      "assetId": "visual-office.coffee-table.studio.v1",
+      "name": "โต๊ะกลาง Soft 3D",
+      "category": "furniture",
+      "placeable": true,
+      "sceneKind": "asset",
+      "file": "coffee-table.glb",
+      "bytes": 39496,
+      "triangles": 992,
+      "meshes": 6,
+      "assetVersion": 1,
+      "units": "metres",
+      "footprint": [
+        1.65,
+        1.35
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0,
+          0
+        ],
+        "top": [
+          0,
+          0.75,
+          0
+        ]
+      }
+    },
+    {
+      "assetId": "visual-office.cabinet.studio.v1",
+      "name": "ตู้เก็บของ Soft 3D",
+      "category": "furniture",
+      "placeable": true,
+      "sceneKind": "asset",
+      "file": "storage-cabinet.glb",
+      "bytes": 83932,
+      "triangles": 2700,
+      "meshes": 6,
+      "assetVersion": 1,
+      "units": "metres",
+      "footprint": [
+        1.55,
+        0.85
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0,
+          0
+        ],
+        "front": [
+          0,
+          0.65,
+          0.36
+        ]
+      }
+    },
+    {
+      "assetId": "visual-office.reception-counter.standard.v1",
+      "name": "เคาน์เตอร์ต้อนรับ",
+      "category": "furniture",
+      "placeable": true,
+      "sceneKind": "asset",
+      "file": "reception-counter.glb",
+      "bytes": 83116,
+      "triangles": 2512,
+      "meshes": 9,
+      "assetVersion": 1,
+      "units": "metres",
+      "footprint": [
+        2.55,
+        1.1
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0,
+          0
+        ],
+        "worktop": [
+          0,
+          1.07,
+          0
+        ]
+      }
+    },
+    {
+      "assetId": "visual-office.bookcase.standard.v1",
+      "name": "ชั้นหนังสือ",
+      "category": "furniture",
+      "placeable": true,
+      "sceneKind": "asset",
+      "file": "bookcase.glb",
+      "bytes": 205988,
+      "triangles": 6712,
+      "meshes": 12,
+      "assetVersion": 1,
+      "units": "metres",
+      "footprint": [
+        1.5,
+        0.75
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0,
+          0
+        ],
+        "shelf": [
+          0,
+          0.95,
+          0.23
+        ]
+      }
+    },
+    {
+      "assetId": "visual-office.floor-lamp.standard.v1",
+      "name": "โคมไฟตั้งพื้น",
+      "category": "decor",
+      "placeable": true,
+      "sceneKind": "asset",
+      "file": "floor-lamp.glb",
+      "bytes": 21612,
+      "triangles": 400,
+      "meshes": 5,
+      "assetVersion": 1,
+      "units": "metres",
+      "footprint": [
+        0.72,
+        0.72
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0,
+          0
+        ],
+        "light": [
+          0,
+          1.72,
+          0
+        ]
+      }
+    },
+    {
+      "assetId": "visual-office.whiteboard.standard.v1",
+      "name": "ไวท์บอร์ด",
+      "category": "decor",
+      "placeable": true,
+      "sceneKind": "asset",
+      "file": "whiteboard.glb",
+      "bytes": 89908,
+      "triangles": 2796,
+      "meshes": 8,
+      "assetVersion": 1,
+      "units": "metres",
+      "footprint": [
+        1.95,
+        0.58
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0,
+          0
+        ],
+        "board": [
+          0,
+          1.23,
+          0.1
+        ]
+      }
+    },
+    {
+      "assetId": "visual-office.coffee-station.standard.v1",
+      "name": "มุมกาแฟสำนักงาน",
+      "category": "decor",
+      "placeable": true,
+      "sceneKind": "asset",
+      "file": "coffee-station.glb",
+      "bytes": 95556,
+      "triangles": 2884,
+      "meshes": 10,
+      "assetVersion": 1,
+      "units": "metres",
+      "footprint": [
+        1.55,
+        0.88
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0,
+          0
+        ],
+        "worktop": [
+          0,
+          0.99,
+          0
+        ]
+      }
+    },
+    {
+      "assetId": "visual-office.elevator.bay.v1",
+      "name": "ชุดประตูลิฟต์",
+      "category": "decor",
+      "placeable": true,
+      "sceneKind": "asset",
+      "file": "elevator-bay.glb",
+      "bytes": 96740,
+      "triangles": 3000,
+      "meshes": 10,
+      "assetVersion": 1,
+      "units": "metres",
+      "footprint": [
+        2.55,
+        0.85
+      ],
+      "anchors": {
+        "ground": [
+          0,
+          0,
+          0
+        ],
+        "interaction": [
+          1.25,
+          1.2,
+          0.3
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Projects skin geometry reference</title><script type="importmap">{"imports":{"three":"./vendor/three.module.js","three/addons/":"./vendor/addons/"}}</script></head><body style="margin:0;background:#eee"><h1>Geometry reference · six equal cells</h1><canvas id="atlas" width="1536" height="1024"></canvas><a id="download" download="projects-skin-reference.png">Save reference</a><script type="module">
+import * as T from 'three';import {makeOfficeProp} from './office-prop-models.js';import {objectSkinFrame,SKIN_KINDS} from './office-skin-frame.js';
+const renderer=new T.WebGLRenderer({alpha:true,antialias:true,preserveDrawingBuffer:true});renderer.setSize(512,512);renderer.outputColorSpace=T.SRGBColorSpace;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.08;renderer.setClearColor(0,0);
+const ctx=document.querySelector('#atlas').getContext('2d');
+for(const [i,kind]of SKIN_KINDS.entries()){const scene=new T.Scene(),model=makeOfficeProp(kind,'signature');scene.add(model);scene.add(new T.HemisphereLight('#fff5e2','#b8c0b3',1.8));const sun=new T.DirectionalLight('#fff1d9',2.2);sun.position.set(-5,16,7);scene.add(sun);const {camera}=objectSkinFrame(model,kind,Number(new URLSearchParams(location.search).get('rotation'))||0);renderer.render(scene,camera);ctx.drawImage(renderer.domElement,(i%3)*512,Math.floor(i/3)*512);}
+const a=document.querySelector('#download');a.href=document.querySelector('#atlas').toDataURL();document.body.dataset.ready='true';
+</script></body></html>

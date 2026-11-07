@@ -1,0 +1,20 @@
+import {readFile,writeFile,mkdir,access} from 'node:fs/promises';
+import path from 'node:path';
+import {OFFICE_FLOORS} from '../web/office-floor-registry.js';
+import {createTycoonRoom} from '../web/tycoon-state.js';
+import {buildOfficeHandoff,buildOfficeHandoffSchema,HANDOFF_TYPES} from '../web/office-handoff.js';
+import {collectHandoffAssets,handoffZip} from '../web/office-handoff-assets.js';
+const output=process.argv[2];if(!output)throw Error('Provide a fresh output directory');
+try{await access(output);throw Error('Output already exists; preserve previous handoffs');}catch(error){if(error.code!=='ENOENT')throw error;}
+const schema=await buildOfficeHandoffSchema();
+const rooms=Object.fromEntries(OFFICE_FLOORS.map(f=>[f.key,createTycoonRoom(f.key)])),assets=await collectHandoffAssets(rooms,{readFile:p=>readFile(path.join('web',p))}),manifest=await buildOfficeHandoff({rooms,assets:assets.descriptors});
+await mkdir(path.join(output,'assets'),{recursive:true});
+await writeFile(path.join(output,'manifest.json'),JSON.stringify(manifest,null,2)+'\n');
+await writeFile(path.join(output,'schema.json'),JSON.stringify(schema,null,2)+'\n');
+await writeFile('contracts/office-design-handoff-v1.schema.json',JSON.stringify(schema,null,2)+'\n');
+await writeFile('web/office-handoff.schema.json',JSON.stringify(schema,null,2)+'\n');
+await writeFile(path.join(output,'id-map.json'),JSON.stringify(manifest.entities.map(e=>({externalSource:'visual-office-design',externalId:e.id,kind:e.type,key:e.key,zuriId:null})),null,2)+'\n');
+for(const [uri,bytes]of assets.blobs)await writeFile(path.join(output,uri),bytes);
+await writeFile(path.join(output,'office-world.zip'),handoffZip(manifest,assets.blobs,schema));
+await writeFile(path.join(output,'README.md'),await readFile('docs/game-design/OFFICE-ZURI-REGISTRATION-HANDOFF.md'));
+console.log(JSON.stringify({output,contentHash:manifest.contentHash,entities:manifest.entities.length,counts:Object.fromEntries(HANDOFF_TYPES.map(type=>[type,manifest.entities.filter(e=>e.type===type).length])),assetFiles:assets.blobs.size},null,2));

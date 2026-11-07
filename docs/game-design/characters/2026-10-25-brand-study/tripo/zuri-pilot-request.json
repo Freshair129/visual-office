@@ -1,0 +1,53 @@
+{
+  "schema": "visual-office/provider-pilot-draft/v1",
+  "provider": "Tripo Studio",
+  "interface": "browser",
+  "input": "zuri-front-input-v1.png",
+  "modelLabel": "H3.1 - Best Quality",
+  "outputMode": "Geometry & Texture",
+  "privacyRequired": "Public",
+  "observedCreditsBeforeLogin": 55,
+  "proposedCreditCeiling": 55,
+  "authorizedCreditCeiling": 55,
+  "loginReady": true,
+  "jobSubmitted": true,
+  "providerJobId": "e636ec75-6c1d-4081-b718-b0979f52054e",
+  "desiredExport": "GLB",
+  "subsequentOperationsExcluded": [
+    "retopology",
+    "rigging",
+    "animation"
+  ],
+  "note": "Production request and observed browser result; not a Tripo API schema. One generation only. Provider completion is not local asset or game acceptance.",
+  "observedCreditsAfterLogin": 55,
+  "privateSetting": "upgrade_required",
+  "exportEvidence": "Clicked Export, selected GLB with current 4k textures, then clicked the final Export button. Tripo opened Upgrade to export ready-to-use 3D assets in multiple formats. Dismissed without subscribing; no GLB downloaded.",
+  "pendingDecision": null,
+  "authorizedJobCount": 1,
+  "approval": "Owner explicitly authorized Public one Zuri pilot, no more than 55 credits, in current chat on 2026-10-25.",
+  "balanceBefore": 200,
+  "inputSha256": "92b8996a5ee379c565476040b132d6929c0484c1a6a9df09403c91eb92a04501",
+  "uploadStartedAt": "2026-10-25T18:21:54.9837268+07:00",
+  "submittedAt": "2026-10-25T18:22:32.4962588+07:00",
+  "providerUrl": "https://studio.tripo3d.ai/workspace/generate/e636ec75-6c1d-4081-b718-b0979f52054e",
+  "balanceAfter": 145,
+  "observedCreditCharge": 55,
+  "providerState": "completed",
+  "resultRecordedAt": "2026-10-25T18:27:49.2993924+07:00",
+  "exportState": "blocked_account_upgrade_required",
+  "downloaded": false,
+  "providerDisplayedMesh": {
+    "vertices": 990426,
+    "topology": "Triangle",
+    "faces": 1888667,
+    "evidenceScope": "Provider UI only; downloaded bytes not inspected"
+  },
+  "reviewedViews": [
+    "front",
+    "side",
+    "rear-three-quarter",
+    "front-three-quarter",
+    "clothing-and-hands-detail"
+  ],
+  "screenshotDirectory": "reports/character-face-polish/"
+}

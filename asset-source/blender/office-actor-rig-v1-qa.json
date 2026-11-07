@@ -1,0 +1,267 @@
+{
+  "ok": true,
+  "pass": true,
+  "errors": [],
+  "warnings": [
+    "asymmetric bone roll vs mirror: ['office-left-shoulder', 'office-left-hand'] (recalc roll / symmetrize)"
+  ],
+  "bones": 16,
+  "deform_bones": 15,
+  "profile": {},
+  "skin": {
+    "office-brow-left": {
+      "verts": 1061,
+      "unweighted": 0,
+      "over_4": 0,
+      "not_normalized": 0,
+      "weights_on_root": 0,
+      "weights_on_nondeform": 0,
+      "groups_without_bone": [],
+      "asymmetric_verts_sampled": 0,
+      "deform_bones_without_group": 14
+    },
+    "office-cheek-left": {
+      "verts": 326,
+      "unweighted": 0,
+      "over_4": 0,
+      "not_normalized": 0,
+      "weights_on_root": 0,
+      "weights_on_nondeform": 0,
+      "groups_without_bone": [],
+      "asymmetric_verts_sampled": 0,
+      "deform_bones_without_group": 14
+    },
+    "office-ear-inner-left": {
+      "verts": 489,
+      "unweighted": 0,
+      "over_4": 0,
+      "not_normalized": 0,
+      "weights_on_root": 0,
+      "weights_on_nondeform": 0,
+      "groups_without_bone": [],
+      "asymmetric_verts_sampled": 0,
+      "deform_bones_without_group": 14
+    },
+    "office-eye-left": {
+      "verts": 326,
+      "unweighted": 0,
+      "over_4": 0,
+      "not_normalized": 0,
+      "weights_on_root": 0,
+      "weights_on_nondeform": 0,
+      "groups_without_bone": [],
+      "asymmetric_verts_sampled": 0,
+      "deform_bones_without_group": 14
+    },
+    "office-eye-white-left": {
+      "verts": 326,
+      "unweighted": 0,
+      "over_4": 0,
+      "not_normalized": 0,
+      "weights_on_root": 0,
+      "weights_on_nondeform": 0,
+      "groups_without_bone": [],
+      "asymmetric_verts_sampled": 0,
+      "deform_bones_without_group": 14
+    },
+    "office-head": {
+      "verts": 489,
+      "unweighted": 0,
+      "over_4": 0,
+      "not_normalized": 0,
+      "weights_on_root": 0,
+      "weights_on_nondeform": 0,
+      "groups_without_bone": [],
+      "asymmetric_verts_sampled": 0,
+      "deform_bones_without_group": 14
+    },
+    "office-left-elbow-joint": {
+      "verts": 269,
+      "unweighted": 0,
+      "over_4": 0,
+      "not_normalized": 0,
+      "weights_on_root": 0,
+      "weights_on_nondeform": 0,
+      "groups_without_bone": [],
+      "asymmetric_verts_sampled": 0,
+      "deform_bones_without_group": 14
+    },
+    "office-left-knee-joint": {
+      "verts": 269,
+      "unweighted": 0,
+      "over_4": 0,
+      "not_normalized": 0,
+      "weights_on_root": 0,
+      "weights_on_nondeform": 0,
+      "groups_without_bone": [],
+      "asymmetric_verts_sampled": 0,
+      "deform_bones_without_group": 14
+    },
+    "office-left-palm": {
+      "verts": 533,
+      "unweighted": 0,
+      "over_4": 0,
+      "not_normalized": 0,
+      "weights_on_root": 0,
+      "weights_on_nondeform": 0,
+      "groups_without_bone": [],
+      "asymmetric_verts_sampled": 0,
+      "deform_bones_without_group": 14
+    },
+    "office-left-shoe": {
+      "verts": 163,
+      "unweighted": 0,
+      "over_4": 0,
+      "not_normalized": 0,
+      "weights_on_root": 0,
+      "weights_on_nondeform": 0,
+      "groups_without_bone": [],
+      "asymmetric_verts_sampled": 0,
+      "deform_bones_without_group": 14
+    },
+    "office-left-shoulder-joint": {
+      "verts": 269,
+      "unweighted": 0,
+      "over_4": 0,
+      "not_normalized": 0,
+      "weights_on_root": 0,
+      "weights_on_nondeform": 0,
+      "groups_without_bone": [],
+      "asymmetric_verts_sampled": 0,
+      "deform_bones_without_group": 14
+    },
+    "office-left-thigh": {
+      "verts": 106,
+      "unweighted": 0,
+      "over_4": 0,
+      "not_normalized": 0,
+      "weights_on_root": 0,
+      "weights_on_nondeform": 0,
+      "groups_without_bone": [],
+      "asymmetric_verts_sampled": 0,
+      "deform_bones_without_group": 14
+    },
+    "office-neck": {
+      "verts": 163,
+      "unweighted": 0,
+      "over_4": 0,
+      "not_normalized": 0,
+      "weights_on_root": 0,
+      "weights_on_nondeform": 0,
+      "groups_without_bone": [],
+      "asymmetric_verts_sampled": 0,
+      "deform_bones_without_group": 14
+    },
+    "office-pelvis": {
+      "verts": 163,
+      "unweighted": 0,
+      "over_4": 0,
+      "not_normalized": 0,
+      "weights_on_root": 0,
+      "weights_on_nondeform": 0,
+      "groups_without_bone": [],
+      "asymmetric_verts_sampled": 0,
+      "deform_bones_without_group": 14
+    },
+    "office-right-elbow-joint": {
+      "verts": 269,
+      "unweighted": 0,
+      "over_4": 0,
+      "not_normalized": 0,
+      "weights_on_root": 0,
+      "weights_on_nondeform": 0,
+      "groups_without_bone": [],
+      "asymmetric_verts_sampled": 0,
+      "deform_bones_without_group": 14
+    },
+    "office-right-knee-joint": {
+      "verts": 269,
+      "unweighted": 0,
+      "over_4": 0,
+      "not_normalized": 0,
+      "weights_on_root": 0,
+      "weights_on_nondeform": 0,
+      "groups_without_bone": [],
+      "asymmetric_verts_sampled": 0,
+      "deform_bones_without_group": 14
+    },
+    "office-right-palm": {
+      "verts": 533,
+      "unweighted": 0,
+      "over_4": 0,
+      "not_normalized": 0,
+      "weights_on_root": 0,
+      "weights_on_nondeform": 0,
+      "groups_without_bone": [],
+      "asymmetric_verts_sampled": 0,
+      "deform_bones_without_group": 14
+    },
+    "office-right-shoe": {
+      "verts": 163,
+      "unweighted": 0,
+      "over_4": 0,
+      "not_normalized": 0,
+      "weights_on_root": 0,
+      "weights_on_nondeform": 0,
+      "groups_without_bone": [],
+      "asymmetric_verts_sampled": 0,
+      "deform_bones_without_group": 14
+    },
+    "office-right-shoulder-joint": {
+      "verts": 269,
+      "unweighted": 0,
+      "over_4": 0,
+      "not_normalized": 0,
+      "weights_on_root": 0,
+      "weights_on_nondeform": 0,
+      "groups_without_bone": [],
+      "asymmetric_verts_sampled": 0,
+      "deform_bones_without_group": 14
+    },
+    "office-right-thigh": {
+      "verts": 106,
+      "unweighted": 0,
+      "over_4": 0,
+      "not_normalized": 0,
+      "weights_on_root": 0,
+      "weights_on_nondeform": 0,
+      "groups_without_bone": [],
+      "asymmetric_verts_sampled": 0,
+      "deform_bones_without_group": 14
+    },
+    "office-shirt": {
+      "verts": 326,
+      "unweighted": 0,
+      "over_4": 0,
+      "not_normalized": 0,
+      "weights_on_root": 0,
+      "weights_on_nondeform": 0,
+      "groups_without_bone": [],
+      "asymmetric_verts_sampled": 0,
+      "deform_bones_without_group": 14
+    },
+    "office-shirt-collar-left": {
+      "verts": 326,
+      "unweighted": 0,
+      "over_4": 0,
+      "not_normalized": 0,
+      "weights_on_root": 0,
+      "weights_on_nondeform": 0,
+      "groups_without_bone": [],
+      "asymmetric_verts_sampled": 0,
+      "deform_bones_without_group": 14
+    },
+    "office-smile": {
+      "verts": 54,
+      "unweighted": 0,
+      "over_4": 0,
+      "not_normalized": 0,
+      "weights_on_root": 0,
+      "weights_on_nondeform": 0,
+      "groups_without_bone": [],
+      "asymmetric_verts_sampled": 0,
+      "deform_bones_without_group": 14
+    }
+  },
+  "fixed": false
+}

@@ -1,0 +1,46 @@
+{
+  "browser": "156.0.8078.48",
+  "method": "headless Chrome with hardware WebGL D3D11; one local simulation probe",
+  "viewport": "1280x800 DPR 1",
+  "modes": [
+    {
+      "rate": "display",
+      "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3060 (0x00002504) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "loadMs": 696.5999999996275,
+      "elapsedMs": 60015,
+      "renderFps": 59.99550033747469,
+      "p50Ms": 16.69999999999709,
+      "p95Ms": 16.799999999999272,
+      "maxDrawCalls": 181,
+      "maxTriangles": 54398,
+      "geometryObjects": 101,
+      "textures": 24,
+      "jsHeapBytes": 16448779,
+      "renderIntervals": 3600
+    },
+    {
+      "rate": 30,
+      "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3060 (0x00002504) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "loadMs": 375.09999999962747,
+      "elapsedMs": 60008.5,
+      "renderFps": 29.947758170185306,
+      "p50Ms": 33.30000000000291,
+      "p95Ms": 33.40000000000873,
+      "maxDrawCalls": 181,
+      "maxTriangles": 54398,
+      "geometryObjects": 101,
+      "textures": 24,
+      "jsHeapBytes": 14405747,
+      "renderIntervals": 1796
+    }
+  ],
+  "provenance": {
+    "actor_sha256": "12963ec2f220812d2a88da8382a83d7da5671a7084fbd758b0dc82902ee58ac2",
+    "desk_sha256": "7a7dd50274e3632ade70dd25f530a8d0d772a0fa5c1d638475d11a789148f9b6",
+    "scene_sha256": "6c638e5af99cfd4148d210ac90781becc54a48785fc6462fb8e736c4cdbbcdad",
+    "pacer_sha256": "a9788cefe4938c054a9907dae6b762c03f9153cade53f35996f3fa0e1ad5d51e",
+    "nvidia_driver": "610.88",
+    "asset_scope": "one simulated actor, Projects default room",
+    "captured_local_date": "2026-10-29"
+  }
+}
