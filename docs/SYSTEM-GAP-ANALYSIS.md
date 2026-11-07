@@ -212,8 +212,21 @@ named, with no positive `tabindex` and `lang="th"`. The connection dialog opens
 from the keyboard as a named modal `<dialog>`; focus moves inside, stays inside
 across 12 Tab presses, Escape closes it and focus returns to the opener. Every
 Lobby hotspot (elevator, board, chat corner, knowledge, exit) is a named button,
-so the canvas scene has a keyboard path. Not covered by this walk-through: other
-editions' dialogs, screen readers and physical devices.
+so the canvas scene has a keyboard path.
+A second lead walk-through the same day (Chrome, 1024×768, real Enter/Tab/Escape key
+events) opened every keyboard-reachable modal in the other surfaces: Lobby elevator,
+reception and board; Hybrid floor avatar, desk and water menus, team/data, elevator
+and the floor task board; Hybrid Studio library, copy-to-floor and unsaved-draft
+dialogs; and the 3D studio unsaved-draft dialog. Each was a named `:modal` dialog with
+initial focus inside, focus stayed inside under Tab, Escape closed it without
+navigating, and focus returned to the opener, with one exception: the floor task
+board removed itself without closing, so focus fell to `<body>`. It now returns
+focus to its opener (`tests/floor-tasks.test.mjs`). Blueprint card thumbnails are
+hidden from the accessibility tree so a card's name is its visible Thai text rather
+than also the drawing's English label (`tests/g4-blueprint-cards.test.mjs`). The
+Tycoon GLB editor exposed no modal dialog to test; dialogs reachable only after a
+file pick (floor file review) were not opened. Not covered: screen readers and
+physical devices.
 `tests/g4-accessibility-lifecycle.test.mjs` exercises the shared frame scheduler,
 Tycoon loop/pacer, dynamic Lab reduced-motion listener, CloudClient polling,
 recovery dialog name, safe initial-focus markup and status updates, plus language

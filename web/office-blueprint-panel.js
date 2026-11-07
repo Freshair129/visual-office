@@ -9,7 +9,7 @@ export class OfficeBlueprintPanel{
     this.storage=storage;
     root.innerHTML=`<details class="hy-blueprints" open><summary>BLUEPRINTS · แม่แบบแปลนสำนักงาน</summary>
       <p>แปลนมุมบนและโครง Three.js ใช้ขนาดเดียวกัน · กริด 1 เมตร · 100 design px / เมตร</p>
-      <div class="hy-blueprint-cards">${Object.values(officeBlueprints).map(b=>`<button type="button" data-blueprint="${b.id}" aria-pressed="false">${blueprintSVG(b.id)}<strong>${b.label}</strong><span>${b.width} × ${b.depth} ม. · ${b.width*b.depth} ตร.ม.</span><small>${b.columns*b.rows} ชุดโต๊ะตัวอย่าง · ไม่ใช่จำนวน agent</small></button>`).join('')}</div>
+      <div class="hy-blueprint-cards">${Object.values(officeBlueprints).map(b=>`<button type="button" data-blueprint="${b.id}" aria-pressed="false">${blueprintSVG(b.id).replace('<svg','<svg aria-hidden="true" focusable="false"')}<strong>${b.label}</strong><span>${b.width} × ${b.depth} ม. · ${b.width*b.depth} ตร.ม.</span><small>${b.columns*b.rows} ชุดโต๊ะตัวอย่าง · ไม่ใช่จำนวน agent</small></button>`).join('')}</div>
       <div class="hy-blueprint-heading"><strong class="hy-blueprint-title"></strong><span class="hy-blueprint-source" role="status"></span></div>
       <div class="hy-blueprint-template-library"><label>นำแปลนที่บันทึกมาใช้<select class="hy-blueprint-saved-select"></select></label><button type="button" class="hy-blueprint-load-saved">ใช้แปลนที่บันทึกกับชั้นนี้</button><small>เปลี่ยนเฉพาะโครงห้อง · เก็บเฟอร์นิเจอร์และตัวละครเดิม · ยังไม่บันทึกชั้น</small></div>
       <button type="button" class="hy-blueprint-edit" aria-pressed="false">แก้ผนัง / ประตูหน้าต่าง</button>
