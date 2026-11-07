@@ -11,7 +11,7 @@ import {listHybridDrawCalls} from '../scripts/diagnose-hybrid-draw-calls.mjs';
 import {hybridMaterialParameters} from '../web/hybrid-scene-batching.js';
 import {defaultBlueprintPlan} from '../web/office-blueprint-state.js';
 
-function fixture(count){
+function fixture(count,{withSkinnedCasters=false}={}){
   const dom=new JSDOM('<div id="scene"><div class="hy-objects"></div></div>');
   const root=dom.window.document.querySelector('#scene');
   root.getBoundingClientRect=()=>({left:0,top:0,width:1000,height:700});
@@ -20,7 +20,7 @@ function fixture(count){
     setClearColor(){} setPixelRatio(){} setSize(){} render(){} dispose(){}
   }
   const layer=new HybridOffice3D(root,{Renderer});
-  layer.characters={create:id=>{const group=new THREE.Group();group.name=`headless-${id}`;return group;},dispose(){}};
+  layer.characters={create:id=>{const group=new THREE.Group();group.name=`headless-${id}`;if(withSkinnedCasters){const geometry=new THREE.BoxGeometry(.2,.4,.2),count=geometry.attributes.position.count,indices=new Uint16Array(count*4),weights=new Float32Array(count*4);for(let i=0;i<count;i++)weights[i*4]=1;geometry.setAttribute('skinIndex',new THREE.Uint16BufferAttribute(indices,4));geometry.setAttribute('skinWeight',new THREE.Float32BufferAttribute(weights,4));const mesh=new THREE.SkinnedMesh(geometry,new THREE.MeshStandardMaterial()),bone=new THREE.Bone();mesh.name=`headless-skinned-${id}`;mesh.castShadow=true;mesh.add(bone);mesh.bind(new THREE.Skeleton([bone]));group.add(mesh);}return group;},dispose(){}};
   const room=hybridPerformanceFixture(count,{domainFloors,departmentStarterRoom,parseRoomJSON});
   layer.sync(room,true);
   return {dom,root,layer,room,close(){layer.dispose();dom.window.close();}};
@@ -76,14 +76,16 @@ test('batching preserves world bounds, triangle count and material parameters ex
       assert.ok(Math.abs(after.bounds.min[axis]-before.bounds.min[axis])<1e-5,`minimum ${axis} bound`);
       assert.ok(Math.abs(after.bounds.max[axis]-before.bounds.max[axis])<1e-5,`maximum ${axis} bound`);
     }
-    const shared=new Map();let batches=0;
+    const shared=new Map(),batches=[];let count=0;
     f.layer.sceneBatches.group.traverse(node=>{
-      if(!node.userData.hybridBatch)return;batches++;
+      if(!node.userData.hybridBatch)return;count++;
       assert.deepEqual(hybridMaterialParameters(node.material),node.userData.hybridBatch.materialParameters,node.name);
-      const key=JSON.stringify(hybridMaterialParameters(node.material));
-      if(shared.has(key))assert.equal(node.material,shared.get(key),'equal materials should share one batch material');else shared.set(key,node.material);
+      const key=JSON.stringify(hybridMaterialParameters(node.material)),variant=node.isInstancedMesh?'instanced':'mesh';
+      if(shared.has(`${variant}|${key}`))assert.equal(node.material,shared.get(`${variant}|${key}`),'equal materials within one renderer variant should share a batch material');else shared.set(`${variant}|${key}`,node.material);
+      batches.push({key,variant,material:node.material});
     });
-    assert.ok(batches>0);
+    for(let i=0;i<batches.length;i++)for(let j=i+1;j<batches.length;j++)if(batches[i].key===batches[j].key&&batches[i].variant!==batches[j].variant)assert.notEqual(batches[i].material,batches[j].material,'mesh and instanced renderer variants keep separate material programs');
+    assert.ok(count>0);
   }finally{f.close();}
 });
 
@@ -134,6 +136,39 @@ test('replacement batches keep shadow casting without duplicate source shadow dr
   }finally{f.close();}
 });
 
+test('shadow casters keep stable depth materials for mesh, instanced and skinned variants',()=>{
+  const f=fixture(4,{withSkinnedCasters:true});try{
+    const regular=[...f.layer.sceneBatches.group.children].find(node=>node.isMesh&&!node.isInstancedMesh&&node.castShadow);
+    const instanced=[...f.layer.sceneBatches.group.children].find(node=>node.isInstancedMesh&&node.castShadow);
+    const skinned=[...f.layer.actors.values()].map(actor=>actor.model.getObjectByProperty('isSkinnedMesh',true));
+    assert.ok(regular&&instanced&&skinned.length>1&&skinned.every(Boolean),'the measured fixture has casters for all three renderer variants');
+    for(const object of [regular,instanced,...skinned])assert.ok(object.customDepthMaterial,'each caster owns a stable depth-material variant');
+    assert.notEqual(regular.customDepthMaterial,instanced.customDepthMaterial,'regular and instanced depth programs cannot toggle one material');
+    assert.notEqual(instanced.customDepthMaterial,skinned[0].customDepthMaterial,'instanced and skinned depth programs cannot toggle one material');
+    assert.equal(skinned[0].customDepthMaterial,skinned[1].customDepthMaterial,'equivalent skinned casters reuse one depth material even when source materials differ');
+    const casters=[regular,instanced,...skinned],materials=casters.map(object=>object.customDepthMaterial),versions=materials.map(material=>material.version),batchPrograms=[...f.layer.sceneBatches.batchMaterials].map(([key,material])=>[key,material,material.version,material.customProgramCacheKey()]);
+    f.layer.step(.1);f.layer.step(.2);f.layer.step(.3);
+    assert.deepEqual(casters.map(object=>object.customDepthMaterial),materials,'the shadow material assignment stays fixed across frames');
+    assert.deepEqual(materials.map(material=>material.version),versions,'frame updates do not invalidate shadow programs');
+    const currentBatchPrograms=new Map(f.layer.sceneBatches.batchMaterials);
+    for(const [key,material,version,programKey]of batchPrograms){assert.equal(currentBatchPrograms.get(key),material,`${key} renderer variant reuses its material`);assert.equal(material.version,version,`${key} material version stays stable`);assert.equal(material.customProgramCacheKey(),programKey,`${key} program cache key stays stable`);}
+    assert.ok(batchPrograms.some(([key])=>key.endsWith('|mesh'))&&batchPrograms.some(([key])=>key.endsWith('|instanced')),'mesh and instanced batches reserve separate program variants');
+  }finally{f.close();}
+});
+
+test('static matrices stay frozen while a preview updates its editable instance',()=>{
+  const f=fixture(4);try{
+    const batch=f.layer.sceneBatches.group,regular=batch.children.find(node=>node.isMesh&&!node.isInstancedMesh),instanced=batch.children.find(node=>node.isInstancedMesh);
+    assert.equal(batch.matrixAutoUpdate,false,'the batch root has no per-frame local transform work');
+    assert.equal(regular.matrixAutoUpdate,false,'merged architecture has a stable local matrix');
+    assert.equal(instanced.matrixAutoUpdate,false,'editable instances have a stable object matrix');
+    const record=f.layer.sceneBatches.objectInstances.get('role-4-desk')[0],before=new THREE.Matrix4(),after=new THREE.Matrix4();
+    record.instanced.getMatrixAt(record.index,before);
+    const source=f.room.objects.find(object=>object.id==='role-4-desk');f.layer.previewMove(source.id,{...source,x:source.x+1});
+    record.instanced.getMatrixAt(record.index,after);assert.notDeepEqual(after.elements,before.elements,'the preview writes the changed instance matrix explicitly');
+  }finally{f.close();}
+});
+
 test('per-object material effects stay separate from opaque shared instances',()=>{
   const f=fixture(4);try{
     const id='role-1-desk',room={...f.room,objects:f.room.objects.map(object=>object.id===id?{...object,effects:{opacity:.75,shadow:0,glow:true,hover:'none'}}:object)};
@@ -163,6 +198,20 @@ test('batched furniture still opens its existing object action menu',()=>{
     const menu=root.querySelector('.hy-interaction-popup [data-use-station]');
     assert.ok(menu,'the desk menu remains available for an instanced desk');assert.equal(menu.disabled,false);
   }finally{scene.dispose();dom.window.close();}
+});
+
+test('model overlay reuses object nodes and skips unchanged DOM style writes',()=>{
+  const f=interactiveBatchFixture();try{
+    const host=f.root.querySelector('.hy-objects'),button=f.root.querySelector(`[data-object="${f.objectId}"]`),bounds={left:12.5,top:21.25,width:7.5,height:18};
+    f.scene.placeModel(button,bounds);
+    const properties=['left','top','width','height','aspectRatio','transform','zIndex'],writes=new Map();
+    for(const property of properties){let value=button.style[property],count=0;Object.defineProperty(button.style,property,{configurable:true,get(){return value;},set(next){count++;value=String(next);}});writes.set(property,()=>count);}
+    f.scene.placeModel(button,bounds);
+    assert.deepEqual([...writes].map(([property,count])=>[property,count()]),properties.map(property=>[property,0]),'unchanged model bounds do not write CSS properties');
+    const originalChildren=host.children;let childScans=0;Object.defineProperty(host,'children',{configurable:true,get(){childScans++;return originalChildren;}});
+    f.scene.paintActivity();
+    assert.equal(childScans,0,'per-frame activity uses the id map instead of scanning .hy-objects children');
+  }finally{f.close();}
 });
 
 function pointerEvent(dom,type,{x,y,pointerId=1}={}){

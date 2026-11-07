@@ -107,10 +107,11 @@ export class HybridSceneBatching{
     const group=new THREE.Group();group.name='hybrid-scene-batches';group.userData.hybridSceneBatchRoot=true;this.group=group;this.parent.add(group);
     this.mergeArchitecture(architecture);
     this.instanceRepeatedProps(models);
+    group.traverse(node=>{node.updateMatrix();node.matrixAutoUpdate=false;});
   }
 
-  batchMaterial(source){
-    const key=materialKey(source);if(!this.batchMaterials.has(key))this.batchMaterials.set(key,source.clone());
+  batchMaterial(source,variant='mesh'){
+    const key=`${materialKey(source)}|${variant}`;if(!this.batchMaterials.has(key))this.batchMaterials.set(key,source.clone());
     return this.batchMaterials.get(key);
   }
 
@@ -144,7 +145,7 @@ export class HybridSceneBatching{
       try{geometry=mergeGeometries(geometries,false);}catch{geometry=null;}
       for(const source of geometries)source.dispose();
       if(!geometry)continue;
-      const first=meshes[0],combined=new THREE.Mesh(geometry,this.batchMaterial(first.material));
+      const first=meshes[0],combined=new THREE.Mesh(geometry,this.batchMaterial(first.material,'mesh'));
       combined.name='hybrid-static-material-batch';combined.castShadow=first.castShadow;combined.receiveShadow=first.receiveShadow;combined.renderOrder=first.renderOrder;combined.layers.mask=first.layers.mask;
       combined.userData.hybridBatch={type:'merged-static',sources:meshes.map(sourceLabel),sourceCount:meshes.length,materialParameters:hybridMaterialParameters(first.material)};
       this.group.add(combined);for(const mesh of meshes)this.hideSource(mesh);
@@ -166,8 +167,8 @@ export class HybridSceneBatching{
     for(const entries of groups.values()){
       if(new Set(entries.map(entry=>entry.objectId)).size<2)continue;
       const first=entries[0];if(entries.some(entry=>!geometryEquals(first.mesh.geometry,entry.mesh.geometry)))continue;
-      const instanced=new THREE.InstancedMesh(first.mesh.geometry.clone(),this.batchMaterial(first.mesh.material),entries.length);
-      instanced.name=`hybrid-${first.model.userData.officeKind}-instances`;instanced.castShadow=first.mesh.castShadow;instanced.receiveShadow=first.mesh.receiveShadow;instanced.renderOrder=first.mesh.renderOrder;instanced.layers.enableAll();instanced.frustumCulled=false;
+      const instanced=new THREE.InstancedMesh(first.mesh.geometry.clone(),this.batchMaterial(first.mesh.material,'instanced'),entries.length);
+      instanced.name=`hybrid-${first.model.userData.officeKind}-instances`;instanced.castShadow=first.mesh.castShadow;instanced.receiveShadow=first.mesh.receiveShadow;instanced.renderOrder=first.mesh.renderOrder;instanced.layers.mask=first.mesh.layers.mask;instanced.frustumCulled=false;
       const sources=[];
       entries.forEach((entry,index)=>{
         const matrix=inverse.clone().multiply(entry.mesh.matrixWorld);instanced.setMatrixAt(index,matrix);
@@ -183,7 +184,7 @@ export class HybridSceneBatching{
     const records=this.objectInstances.get(objectId);if(!records?.length)return false;
     const changedBatches=new Set();
     for(const record of records){
-      this.parent.updateWorldMatrix(true,false);record.source.updateWorldMatrix(true,false);
+      record.model.updateMatrix();this.parent.updateWorldMatrix(true,false);record.source.updateWorldMatrix(true,false);
       const matrix=this.parent.matrixWorld.clone().invert().multiply(record.source.matrixWorld);
       const visible=layerVisible(record.source,camera)&&record.originalMaterial.visible!==false;
       if(!visible){const position=new THREE.Vector3(),rotation=new THREE.Quaternion(),scale=new THREE.Vector3();matrix.decompose(position,rotation,scale);matrix.compose(position,rotation,new THREE.Vector3());}
@@ -193,10 +194,12 @@ export class HybridSceneBatching{
   }
 
   syncVisibility(camera){
+    let anyChanged=false;
     for(const [objectId,records]of this.objectInstances){
-      const changed=records.some(record=>record.visible!==layerVisible(record.source,camera)||record.layers!==record.source.layers.mask||record.originalMaterial.visible===false&&record.visible);
-      if(changed)this.updateObject(objectId,camera);
+      const needsUpdate=records.some(record=>record.visible!==layerVisible(record.source,camera)||record.layers!==record.source.layers.mask||record.originalMaterial.visible===false&&record.visible);
+      if(needsUpdate){this.updateObject(objectId,camera);anyChanged=true;}
     }
+    return anyChanged;
   }
 
   dispose(){if(this.disposed)return;this.clear();this.disposed=true;this.parent=null;}

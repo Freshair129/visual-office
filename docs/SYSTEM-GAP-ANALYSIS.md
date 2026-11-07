@@ -152,7 +152,7 @@ indicative until physical devices are measured.
 | Desktop, 4 and 12 avatars | p95 ≤ 20 ms, p99 ≤ 34 ms, no frame > 100 ms | Scene-batched, 120 s: 4 avatars 18.2 / 18.5 / max 19.0; 12 avatars 18.2 / 18.6 / max 19.0 | Pass |
 | Desktop time to all characters ready, 4 avatars | ≤ 2,000 ms | Scene-batched: 1,592 ms (original files 2,415 ms in the same run) | Pass |
 | 4× CPU proxy, 4 avatars | p95 ≤ 40 ms (25 fps floor) | Scene-batched 36.0 ms (character batching only 50.1; LOD1 before batching 66.8) | Pass |
-| 6× CPU proxy, 4 avatars | p95 ≤ 66.7 ms (15 fps floor) | Scene-batched 70.6 ms (116.6; 216.7) | **Fail** (3.9 ms over) |
+| 6× CPU proxy, 4 avatars | p95 ≤ 66.7 ms (15 fps floor) | Frame-cost pass: 66.7 ms in two interleaved A/B runs on a host then ~2× slower, where `main` gave 83.4–100.0 ms (scene-batched 70.6 ms on the earlier quiet host; 116.6; 216.7) | **Provisional pass**; full 120 s re-measure on a quiet host pending |
 | Physical mid-range phone, 4 avatars | p95 ≤ 40 ms | not measured | Deferred (owner, 7 November 2026) |
 
 The ceiling tests check bytes, hashes, triangles, meshes and instantiated
@@ -170,8 +170,24 @@ ANGLE, 0 errors, no software-renderer cases): renderer calls fell from 273 to
 136 (4 avatars, LOD1) and from 569 to 272 (12 avatars). The lead also checked
 in Chrome that object clicks open the same menus as on `main`.
 
+Per-frame cost pass (7–8 November 2026). A CPU profile of the 6× case showed
+the shadow pass (~25%), per-frame `setProgram` work (~29%), forced whole-scene
+matrix updates, per-actor `Box3` bounds and per-frame DOM overlay scans. The
+pass caches static-caster shadows, shares shadow depth materials, freezes static
+matrices, caches character bounds (skinned bounds stay pose-exact) and writes the
+DOM overlay only on change. The lead compared it with `main` in interleaved
+40 s runs on the same host (6× proxy, LOD1, 4 avatars; host about 2× slower than
+in the runs above): `main` p95 100.0 and 83.4 ms, branch 66.7 and 66.7 ms; draw
+submission 43.6/45.8 → 39.6/40.9 ms; time to ready 12.0–12.6 s → 13.2 s. Most of
+the saving is outside `renderer.render`; character shadows and `setProgram`
+still dominate render time. The lead checked in Chrome that the 2.5D skin on and
+off states and thought-bubble positions match `main` in the same toggle sequence.
+On both `main` and the branch the first frame after loading looks washed out
+until the skin is toggled once; that predates this pass.
+
 Disposition: **desktop qualified (frame time and ready time); 4× CPU proxy
-qualified; 6× CPU proxy fails by 3.9 ms; mobile not qualified until a physical
+qualified; 6× CPU proxy provisionally passes after the per-frame cost pass,
+pending a 120 s re-measure on a quiet host; mobile not qualified until a physical
 phone is measured** (deferred by the owner on 7 November 2026). Twelve-avatar
 proxies remain well over budget (4×: 71.9 ms, 6×: 140.3 ms) and are outside the
 four-avatar budget rows. See the
@@ -202,7 +218,7 @@ system, mobile, live, hosted CI or release acceptance. No merge/deployment.
 | G3: nested HTML/base URL audit omission | Closed locally / Office | Recursive discovery resolves local bases, excludes external-base scripts and traces asset-builder inputs separately. Final static audit: 5 HTML documents, 4 module entries, 224 reachable modules, 3 build-only modules, 0 unclassified authored modules, 27 route families. |
 | G4: accessibility/lifecycle evidence remains partial | P1 QA / lead | 7 November rounds add focused hidden-tab and reduced-motion checks, named recovery, Zuri and Native dialogs, and a limited static HTML/template audit. Zuri panel polling and the handoff popup watcher now pause while hidden. This is partial source/test evidence, not a completed WCAG audit or browser/device acceptance; the remaining checks are below. |
 | G5: business contracts and durable shared scenes remain unavailable | Zuri owner | No published Office auth/client registration, authorized roster/actions, shared scene/version/audit or asset service contract. Do not invent endpoints or enable live. |
-| G6: asset/performance quality | Art approved; desktop and 4× proxy qualified / Office; 6× proxy and physical phone open | Owner approved R4, Wangjai and Staff A/B originals and LOD1 on 7 November 2026; candidates/review metadata excluded and catalog/UI labels updated. Character and scene batching cut renderer calls 491→136 (4 avatars). Against the [G6 budget](#g6-performance-budget--accepted-7-november-2026): desktop frame/ready time and the 4× CPU proxy pass; the 6× proxy is 70.6 ms against 66.7 ms. Physical-phone measurement deferred by the owner on 7 November 2026. |
+| G6: asset/performance quality | Art approved; desktop and 4× proxy qualified / Office; 6× proxy and physical phone open | Owner approved R4, Wangjai and Staff A/B originals and LOD1 on 7 November 2026; candidates/review metadata excluded and catalog/UI labels updated. Character and scene batching cut renderer calls 491→136 (4 avatars). Against the [G6 budget](#g6-performance-budget--accepted-7-november-2026): desktop frame/ready time and the 4× CPU proxy pass; the 6× proxy was 70.6 ms against 66.7 ms and provisionally passes after the per-frame cost pass (re-measure pending). Physical-phone measurement deferred by the owner on 7 November 2026. |
 | G7: reserved-floor board/actions imply an active department | Closed locally / Office | Browser reproduced empty feed and creation actions despite RESERVED. Board now states preparation without a feed read, refresh or Work link; object menus omit Chat/create. Role inspection, illustrative actors and navigation remain. |
 
 G4 disposition: **ACTIVE / handoff; browser and device acceptance open.**
