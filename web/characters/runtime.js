@@ -80,9 +80,8 @@ export function updateCharacter(root,pose={}){
   // correction limit would otherwise sink the mascot when scaled down.
   const offset=seatHeight-s.info.seatHeight;
   s.model.position.y=s.info.family==='robot'?offset:T.MathUtils.clamp(offset,-.18,.35);s.model.updateWorldMatrix(true,true);
-  for(const {leg,target,orientation}of targets){for(const bone of leg)s.fitted.push([bone,bone.quaternion.clone()]);fitLeg(...leg,target,orientation);}
+  for(const {leg,target,orientation}of targets){for(const bone of leg)s.fitted.push([bone,bone.quaternion.clone()]);fitLeg(...leg,target,orientation);}s.model.updateWorldMatrix(true,true);
  }
- s.model.updateWorldMatrix(true,true);
  if(changed||s.lastSeatHeight!==seatHeight){s.model.traverse(n=>{if(n.isSkinnedMesh){n.computeBoundingBox();n.computeBoundingSphere();}});s.lastSeatHeight=seatHeight;}
 }
 export function presentedAction(root,requested='idle'){

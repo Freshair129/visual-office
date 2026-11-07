@@ -29,9 +29,9 @@ export class OfficeObjectSkins{
    if(mesh.isMesh&&!frame&&this.surfaceReady&&!Array.isArray(original)){const a=l.architecture.userData.officeArchitecture,work=a?.floorMeshes?.work;let isWall=false;for(const wall of a?.walls||[]){let p=mesh;while(p){if(p===wall.group){isWall=true;break;}p=p.parent;}if(isWall)break;}if(mesh===work||(isWall&&!original.transparent&&original.color?.r>.5&&original.color?.g>.4)){r.skin=original.clone();r.skin.map=mesh===work?this.oak:this.plaster;r.skin.color.set('#ffffff');r.skin.needsUpdate=true;r.skin.userData.officeSkin=true;}}
    this.records.set(mesh,r);if(mesh===l.ground||!mesh.isMesh)continue;const wire=new THREE.LineSegments(new THREE.WireframeGeometry(mesh.geometry),new THREE.LineBasicMaterial({color:'#9b692b',transparent:true,opacity:.42,depthTest:true,depthWrite:false}));wire.userData.skinWire=true;wire.raycast=()=>{};wire.renderOrder=10;wire.visible=false;mesh.add(wire);this.wires.push(wire);
   }
-  this.apply();
+  this.apply();this.layer.prepareShadowMaterials?.();
  }
- setVisibility(next){for(const k of ['skin','model','wireframe'])if(typeof next[k]==='boolean')this.visibility[k]=next[k];this.apply();this.render();return {...this.visibility};}
+ setVisibility(next){let changed=false;for(const k of ['skin','model','wireframe'])if(typeof next[k]==='boolean'&&this.visibility[k]!==next[k]){this.visibility[k]=next[k];changed=true;}if(changed)this.layer.invalidateStaticShadows?.();this.apply();if(changed)this.layer.prepareShadowMaterials?.();this.render();return {...this.visibility};}
  apply(){if(this.disposed)return;this.status=[...this.requiredAngles].some(a=>this.failedAngles.has(a))?'error':[...this.requiredAngles].every(a=>this.loadedAngles.has(a))?'ready':'loading';const v=this.visibility;for(const [mesh,r]of this.records){const art=v.skin&&(r.skin?.uniforms?this.loadedAngles.has(r.angle):this.surfaceReady)&&r.skin;mesh.material=art?r.skin:r.original;if(r.skin){r.skin.opacity=r.original.opacity;if(r.skin.uniforms){r.skin.uniforms.art.value=this.atlases.get(r.angle);r.skin.uniforms.alpha.value=r.original.opacity;r.skin.uniforms.glow.value.copy(r.original.emissive||new THREE.Color(0));}}mesh.visible=r.visible&&(v.skin||v.model);}
   // Lines are children of physical meshes, so wire-only needs depth-bearing
   // parents visible with colour writes disabled. Restore flags before each pass.

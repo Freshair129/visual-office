@@ -31,7 +31,7 @@ export class OfficeSheetLayer{
   }finally{for(const [node,visible]of hidden)node.visible=visible;r.autoClear=autoClear;}
  }
 
- setMode(mode){this.mode=mode||'art';this.image.visible=this.mode!=='structure';this.layer.root.dataset.sheetImageVisible=String(this.image.visible);this.render();}
+ setMode(mode){const next=mode||'art';if(this.mode!==next)this.layer.invalidateStaticShadows?.();this.mode=next;this.image.visible=this.mode!=='structure';this.layer.root.dataset.sheetImageVisible=String(this.image.visible);this.render();}
  invalidate(){this.dirty=true;}
  restoreStatic(){for(const [node,state]of this.originalStates){node.renderOrder=state.renderOrder;for(const [m,colorWrite,wireframe]of state.materials){m.colorWrite=colorWrite;if(m.wireframe!==wireframe){m.wireframe=wireframe;m.needsUpdate=true;}}}this.originalStates.clear();}
  dispose(){this.restoreStatic();this.image.removeFromParent();this.image.geometry.dispose();this.image.material.dispose();this.target.dispose();}

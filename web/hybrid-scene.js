@@ -11,6 +11,11 @@ import {resolveOfficeBlueprint} from './office-blueprint-state.js';
 import {usesPaintedSkeleton} from './painted-office-skeleton.js';
 import {fallbackOptionalImage} from './optional-assets.js';
 
+function setStyle(style,key,value){value=String(value);if(style[key]!==value)style[key]=value;}
+function setText(element,value){value=String(value);if(element.textContent!==value)element.textContent=value;}
+function setHidden(element,value){value=!!value;if(element.hidden!==value)element.hidden=value;}
+function setAttribute(element,key,value){value=String(value);if(element.getAttribute(key)!==value)element.setAttribute(key,value);}
+
 // Shared renderer used by editor and applied preview floors.
 export class HybridScene{
   constructor(root,{onSelect,onMove,onUse,onActivate,onDoorToggle,paintedArt=false,editable=false,getFloor,getTasks,onOpenWork,onOpenTask,getObjectWorkspace}={}){
@@ -22,6 +27,7 @@ export class HybridScene{
     this.onDoorToggle=onDoorToggle;
     root.classList.add('hy-scene');
     root.innerHTML='<img class="hy-background" alt="ฉากสำนักงานวาดแบบ Painted 2.5D" draggable="false"><div class="hy-reference-props" aria-hidden="true"></div><div class="hy-objects"></div><p class="hy-image-error" role="status" hidden>ภาพบางชิ้นโหลดไม่ได้ <button type="button">ลองใหม่</button></p>';
+    this.objectElements=new Map();this.objectParts=new Map();
     this.failed=new Set();
     this.alpha=new Map();
     root.querySelector('.hy-image-error button').onclick=()=>root.querySelectorAll('img').forEach(img=>{const src=img.dataset.optionalAssetOriginalSrc||img.getAttribute('src');if(src)img.src=src;});
@@ -129,7 +135,7 @@ export class HybridScene{
   }
   pick(e,fallback){
     if(!Number.isFinite(e.clientX)||!Number.isFinite(e.clientY))return fallback;
-    if(this.modelLayer&&!this.onActivate){const id=this.modelLayer.pick(e.clientX,e.clientY);if(id)return [...this.root.querySelector('.hy-objects').children].find(el=>el.dataset.object===id);}
+    if(this.modelLayer&&!this.onActivate){const id=this.modelLayer.pick(e.clientX,e.clientY);if(id)return this.objectElements.get(id)||null;}
     const elements=[...this.root.querySelectorAll('[data-object]')].sort((a,b)=>Number(b.style.zIndex)-Number(a.style.zIndex));
     for(const el of elements){
       if(el.dataset.renderType==='model'&&!this.onActivate)continue;
@@ -153,28 +159,28 @@ export class HybridScene{
     }
     return null;
   }
-  place(el,o){
+  place(el,o,parts=this.objectParts.get(o.id)){
     if(this.modelLayer&&isOfficeModel(o.kind)&&this.modelLayer.models.has(o.id)){
       this.placeModel(el,this.modelLayer.bounds(this.modelLayer.models.get(o.id)));return;
     }
-    el.style.height='';el.style.aspectRatio='';el.style.transform='';
+    setStyle(el.style,'height','');setStyle(el.style,'aspectRatio','');setStyle(el.style,'transform','');
     if(o.kind==='elevator-door'&&this.room?.background==='office'){
-      el.style.width='6.6%';el.style.height='19%';el.style.left=`${o.x-3.3}%`;el.style.top=`${o.y-17}%`;el.style.transform='skewY(-28deg)';el.style.zIndex='900';return;
+      setStyle(el.style,'width','6.6%');setStyle(el.style,'height','19%');setStyle(el.style,'left',`${o.x-3.3}%`);setStyle(el.style,'top',`${o.y-17}%`);setStyle(el.style,'transform','skewY(-28deg)');setStyle(el.style,'zIndex','900');return;
     }
     if(o.kind==='wayfinding-arrow'){el.dataset.interaction=interactionFor(o).type;el.classList.add('hy-wayfinding-arrow');}
     const width=catalog[o.kind].width*o.scale;
-    el.style.width=`${width}%`;
-    el.style.left=`clamp(${width/2}%, ${o.x}%, ${100-width/2}%)`;
-    el.style.top=`${o.y}%`;
-    el.style.zIndex=String(Math.round(o.y*10));
-    const img=el.querySelector('img'),art=el.querySelector('.hy-sprite-art'),fx={...defaultEffects,...o.effects};
+    setStyle(el.style,'width',`${width}%`);
+    setStyle(el.style,'left',`clamp(${width/2}%, ${o.x}%, ${100-width/2}%)`);
+    setStyle(el.style,'top',`${o.y}%`);
+    setStyle(el.style,'zIndex',String(Math.round(o.y*10)));
+    const img=parts?.img||el.querySelector('img'),art=parts?.art||el.querySelector('.hy-sprite-art'),fx={...defaultEffects,...o.effects};
     const target=el.dataset.renderType==='sprite'?art:img;
-    img.style.transform=o.flip?'scaleX(-1)':'';
-    target.style.opacity=String(fx.opacity);
-    target.style.filter=[fx.shadow?`drop-shadow(0 ${fx.shadow/2}px ${fx.shadow}px #263a4050)`:'',fx.glow?'drop-shadow(0 0 8px #e8b962)':''].filter(Boolean).join(' ');
+    setStyle(img.style,'transform',o.flip?'scaleX(-1)':'');
+    setStyle(target.style,'opacity',fx.opacity);
+    setStyle(target.style,'filter',[fx.shadow?`drop-shadow(0 ${fx.shadow/2}px ${fx.shadow}px #263a4050)`:'',fx.glow?'drop-shadow(0 0 8px #e8b962)':''].filter(Boolean).join(' '));
     el.dataset.hover=fx.hover;el.dataset.interaction=interactionFor(o).type;
   }
-  placeModel(el,bounds){if(!bounds)return;el.style.left=`${bounds.left}%`;el.style.top=`${bounds.top}%`;el.style.width=`${bounds.width}%`;el.style.height=`${bounds.height}%`;el.style.aspectRatio='auto';el.style.transform='none';el.style.zIndex=String(Math.round((bounds.top+bounds.height)*10));}
+  placeModel(el,bounds){if(!bounds)return;setStyle(el.style,'left',`${bounds.left}%`);setStyle(el.style,'top',`${bounds.top}%`);setStyle(el.style,'width',`${bounds.width}%`);setStyle(el.style,'height',`${bounds.height}%`);setStyle(el.style,'aspectRatio','auto');setStyle(el.style,'transform','none');setStyle(el.style,'zIndex',String(Math.round((bounds.top+bounds.height)*10)));}
   activate(id){
     const o=this.room.objects.find(p=>p.id===id);if(!o)return;
     if(this.onActivate?.(id)===true)return;
@@ -235,24 +241,23 @@ export class HybridScene{
     if(!this.room)return;let index=0;
     if(this.modelLayer){
       const poses=this.modelLayer.step(this.elapsed/1000,{staticPose:freeze||(!this.playing&&!this.testing)||!!this.motionPreference?.matches});
-      for(const o of this.room.objects){if(!isOfficeModel(o.kind))continue;const el=[...this.root.querySelector('.hy-objects').children].find(el=>el.dataset.object===o.id);if(!el)continue;
-        const pose=poses?.get(o.id);this.placeModel(el,pose?.bounds||this.modelLayer.bounds(this.modelLayer.models.get(o.id)));const bubble=el.querySelector('.hy-thought');bubble.hidden=(!this.playing&&!this.testing)||!pose;
-        if(pose){el.dataset.activity=pose.action;bubble.textContent=pose.thought;el.setAttribute('aria-label',`${catalog[o.kind].name} · ${pose.thought}`);}
+      for(const o of this.room.objects){if(!isOfficeModel(o.kind))continue;const el=this.objectElements.get(o.id),parts=this.objectParts.get(o.id);if(!el||!parts)continue;
+        const pose=poses?.get(o.id);this.placeModel(el,pose?.bounds||this.modelLayer.bounds(this.modelLayer.models.get(o.id)));setHidden(parts.thought,(!this.playing&&!this.testing)||!pose);
+        if(pose){if(el.dataset.activity!==pose.action)el.dataset.activity=pose.action;setText(parts.thought,pose.thought);setAttribute(el,'aria-label',`${catalog[o.kind].name} · ${pose.thought}`);}
       }
       if(this.testing&&['completed','blocked'].includes(this.modelLayer.testWalk?.status)){const blocked=this.modelLayer.testWalk.status==='blocked';this.testing=false;this.modelLayer.playing=this.playing;this.onTestStatus?.(blocked?'เส้นทางถูกปิดระหว่างทดสอบ · หยุดเดินแล้ว':'เดินครบทุกจุดแล้ว · เส้นทางนี้ผ่านการทดสอบ');this.stopActivity();}
       return;
     }
     for(const o of this.room.objects){
       if(catalog[o.kind].renderType!=='sprite')continue;
-      const el=[...this.root.querySelector('.hy-objects').children].find(el=>el.dataset.object===o.id);if(!el)continue;
-      const bubble=el.querySelector('.hy-thought'),art=el.querySelector('.hy-sprite-art');
-      bubble.hidden=!this.playing;
-      if(!this.playing||this.room.blueprint||this.paintedSkeleton){bubble.hidden=true;delete el.dataset.activity;this.avatarArt(art,catalog[o.kind],o.flip);this.place(el,o);continue;}
+      const el=this.objectElements.get(o.id),parts=this.objectParts.get(o.id);if(!el||!parts)continue;
+      const {thought:bubble,art}=parts;
+      setHidden(bubble,!this.playing);
+      if(!this.playing||this.room.blueprint||this.paintedSkeleton){setHidden(bubble,true);if(el.hasAttribute('data-activity'))delete el.dataset.activity;this.avatarArt(art,catalog[o.kind],o.flip,null,parts.img);this.place(el,o,parts);continue;}
       const override=this.activityModes.get(o.id),pose=sampleOfficeActivity(this.room,o,index++,override?this.elapsed-override.at:this.elapsed,{reduced:this.motionPreference?.matches,mode:override?.mode==='walking'?'idle':override?.mode||'auto',agentState:this.agentStates.find(v=>v.avatarId===o.id)});
-      this.place(el,{...o,...pose});el.dataset.activity=pose.action;
-      const caption=pose.thought;if(bubble.textContent!==caption)bubble.textContent=caption;
-      el.setAttribute('aria-label',`${catalog[o.kind].name} · ${pose.thought}`);
-      this.avatarArt(art,catalog[o.kind],pose.flip,['seated','sitting'].includes(pose.action)?'seated':pose.action==='walking'&&pose.frame?'walk':null);
+      this.place(el,{...o,...pose},parts);if(el.dataset.activity!==pose.action)el.dataset.activity=pose.action;
+      setText(bubble,pose.thought);setAttribute(el,'aria-label',`${catalog[o.kind].name} · ${pose.thought}`);
+      this.avatarArt(art,catalog[o.kind],pose.flip,['seated','sitting'].includes(pose.action)?'seated':pose.action==='walking'&&pose.frame?'walk':null,parts.img);
     }
   }
   startWalkTest(points,onStatus){
@@ -266,13 +271,13 @@ export class HybridScene{
     if(!this.testing&&!this.modelLayer?.testWalk)return;
     this.testing=false;this.onTestStatus=null;this.stopActivity();if(this.room&&this.modelLayer)this.modelLayer.sync(this.room,this.playing);this.syncActivity();
   }
-  avatarArt(art,item,flip,pose=null){
+  avatarArt(art,item,flip,pose=null,img=art.parentElement.querySelector('img')){
     const src=pose?`./assets/office-world/hybrid/characters/avatar-${pose}-12-v1.png`:item.spriteAtlas;
-    const img=art.parentElement.querySelector('img'),missing=img.dataset.optionalAssetFallback==='true'&&img.dataset.optionalAssetOriginalSrc===src;
+    const missing=img.dataset.optionalAssetFallback==='true'&&img.dataset.optionalAssetOriginalSrc===src;
     const image=`url("${missing?img.dataset.optionalAssetPlaceholder:src}")`;if(art.style.backgroundImage!==image)art.style.backgroundImage=image;
     this.setImageSource(img,src);
-    art.style.backgroundSize='400% 300%';art.style.backgroundPosition=`${item.spriteIndex%4*100/3}% ${Math.floor(item.spriteIndex/4)*50}%`;
-    art.style.transform=`translateX(-50%)${flip?' scaleX(-1)':''}`;
+    setStyle(art.style,'backgroundSize','400% 300%');setStyle(art.style,'backgroundPosition',`${item.spriteIndex%4*100/3}% ${Math.floor(item.spriteIndex/4)*50}%`);
+    setStyle(art.style,'transform',`translateX(-50%)${flip?' scaleX(-1)':''}`);
   }
   setImageSource(img,src){
     if(img.dataset.optionalAssetFallback==='true'&&img.dataset.optionalAssetOriginalSrc===src)return;
@@ -321,10 +326,10 @@ export class HybridScene{
     const bg=this.root.querySelector('.hy-background');
     if(isOfficeSheet(room))bg.removeAttribute('src');else this.setImageSource(bg,officeArtSource(room));
     const host=this.root.querySelector('.hy-objects'),keep=new Set(room.objects.map(o=>o.id));
-    host.querySelectorAll('[data-object]').forEach(el=>{if(!keep.has(el.dataset.object)){const img=el.querySelector('img');this.failed.delete(img);el.remove();}});
+    for(const [id,el]of this.objectElements)if(!keep.has(id)){const img=this.objectParts.get(id)?.img;this.failed.delete(img);el.remove();this.objectElements.delete(id);this.objectParts.delete(id);}
     this.root.querySelector('.hy-image-error').hidden=!this.failed.size;
     for(const o of room.objects){
-      let el=[...host.children].find(el=>el.dataset.object===o.id);
+      let el=this.objectElements.get(o.id);
       if(!el){
         el=this.root.ownerDocument.createElement('button');el.type='button';el.className='hy-object';el.dataset.object=o.id;
         const img=this.root.ownerDocument.createElement('img');img.draggable=false;img.alt='';this.watch(img);
@@ -332,6 +337,7 @@ export class HybridScene{
         const label=this.root.ownerDocument.createElement('span');label.className='hy-object-label';
         const thought=this.root.ownerDocument.createElement('span');thought.className='hy-thought';thought.hidden=true;
         el.append(img,art,label,thought);host.append(el);
+        this.objectElements.set(o.id,el);this.objectParts.set(o.id,{img,art,label,thought});
         el.onclick=e=>{
           // Context-owned painted hotspots use image alpha; Studio retains its
           // geometry/depth picker. Transparent foreground art must pass through.
@@ -365,12 +371,13 @@ export class HybridScene{
         };
         el.onpointercancel=()=>this.cancelDrag();el.onlostpointercapture=()=>this.cancelDrag();
       }
+      const parts=this.objectParts.get(o.id);
       el.dataset.kind=o.kind;el.dataset.locked=String(o.locked);
       el.setAttribute('aria-label',`${catalog[o.kind].name}${o.locked?' · ล็อกตำแหน่ง':''}`);
       el.setAttribute('aria-pressed',String(this.editable&&!playing&&selected===o.id));
-      el.querySelector('.hy-object-label').textContent=catalog[o.kind].name;
+      setText(parts.label,catalog[o.kind].name);
       el.classList.toggle('hy-wayfinding-arrow',o.kind==='wayfinding-arrow');
-      const item=catalog[o.kind],img=el.querySelector('img'),art=el.querySelector('.hy-sprite-art');
+      const item=catalog[o.kind],img=parts.img,art=parts.art;
       const sprite=item.renderType==='sprite'&&item.spriteAtlas&&Number.isInteger(item.spriteIndex);
       el.dataset.renderType=sprite?'sprite':'image';
       if(isOfficeSheet(room)){img.hidden=true;art.hidden=true;art.style.backgroundImage='';img.removeAttribute('src');}
@@ -386,12 +393,12 @@ export class HybridScene{
       }
       this.place(el,o);
     }
-    if(this.modelLayer){this.modelLayer.sync(room,playing);for(const o of room.objects)if(isOfficeModel(o.kind)){const el=[...host.children].find(el=>el.dataset.object===o.id);el.dataset.renderType='model';el.querySelector('img').hidden=true;el.querySelector('.hy-sprite-art').hidden=true;}}
+    if(this.modelLayer){this.modelLayer.sync(room,playing);for(const o of room.objects)if(isOfficeModel(o.kind)){const el=this.objectElements.get(o.id),parts=this.objectParts.get(o.id);el.dataset.renderType='model';setHidden(parts.img,true);setHidden(parts.art,true);}}
     this.renderDoors();
     if(this.gridPlacement?.enabled){if(isOfficeSheet(room))this.gridPlacement.sync(room);else this.gridPlacement.setEnabled(false);}
     this.root.classList.toggle('hy-playing',playing);
     this.syncActivity();
   }
   cancelDrag(){this.gridPlacement?.cancel();if(!this.drag)return;const d=this.drag;this.drag=null;if(d.capture.hasPointerCapture?.(d.id))d.capture.releasePointerCapture(d.id);this.modelLayer?.previewMove(d.object,d.start);this.place(d.el,d.start);}
-  dispose(){this.cancelDrag();this.clearCanvasHover?.();this.gridPlacement?.dispose();this.disposed=true;this.stopActivity();this.modelLayer?.dispose();this.taskPopup?.dispose?.();this.root.removeEventListener('pointerdown',this.doorPointer,true);this.root.removeEventListener('click',this.doorPointer,true);this.root.removeEventListener('pointerdown',this.canvasPointerDown,true);this.root.removeEventListener('pointermove',this.canvasPointerMove,true);this.root.removeEventListener('pointerup',this.canvasPointerUp,true);this.root.removeEventListener('pointercancel',this.canvasPointerCancel,true);this.root.removeEventListener('lostpointercapture',this.canvasPointerCancel,true);this.root.removeEventListener('pointerleave',this.canvasPointerLeave,true);this.root.removeEventListener('office-3d-unavailable',this.contextLost);this.root.ownerDocument.removeEventListener('visibilitychange',this.visibilityChanged);this.motionPreference?.removeEventListener?.('change',this.preferenceChanged);this.popup?.remove();this.root.querySelectorAll('img').forEach(img=>{img.onerror=null;img.onload=null;});this.root.replaceChildren();}
+  dispose(){this.cancelDrag();this.clearCanvasHover?.();this.gridPlacement?.dispose();this.disposed=true;this.stopActivity();this.modelLayer?.dispose();this.taskPopup?.dispose?.();this.root.removeEventListener('pointerdown',this.doorPointer,true);this.root.removeEventListener('click',this.doorPointer,true);this.root.removeEventListener('pointerdown',this.canvasPointerDown,true);this.root.removeEventListener('pointermove',this.canvasPointerMove,true);this.root.removeEventListener('pointerup',this.canvasPointerUp,true);this.root.removeEventListener('pointercancel',this.canvasPointerCancel,true);this.root.removeEventListener('lostpointercapture',this.canvasPointerCancel,true);this.root.removeEventListener('pointerleave',this.canvasPointerLeave,true);this.root.removeEventListener('office-3d-unavailable',this.contextLost);this.root.ownerDocument.removeEventListener('visibilitychange',this.visibilityChanged);this.motionPreference?.removeEventListener?.('change',this.preferenceChanged);this.popup?.remove();this.root.querySelectorAll('img').forEach(img=>{img.onerror=null;img.onload=null;});this.objectElements?.clear();this.objectParts?.clear();this.root.replaceChildren();}
 }
