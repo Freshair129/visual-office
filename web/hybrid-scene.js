@@ -40,10 +40,54 @@ export class HybridScene{
     const status=root.ownerDocument.createElement('p');status.className='hy-door-status';status.setAttribute('role','status');status.hidden=true;root.append(status);
     this.doorPointer=e=>{if(this.gridPlacement?.enabled||!this.onDoorToggle||!e.detail&&e.type==='click'||e.target.closest('button:not(.hy-object)'))return;const id=this.modelLayer?.pickDoor(e.clientX,e.clientY);if(id){e.preventDefault();e.stopPropagation();if(e.type==='click')this.toggleDoor(id);}};
     root.addEventListener('pointerdown',this.doorPointer,true);root.addEventListener('click',this.doorPointer,true);
+    this.canvasPointerDown=e=>this.handleCanvasPointerDown(e);this.canvasPointerMove=e=>this.handleCanvasPointerMove(e);this.canvasPointerUp=e=>this.handleCanvasPointerUp(e);this.canvasPointerCancel=e=>this.handleCanvasPointerCancel(e);this.canvasPointerLeave=()=>this.clearCanvasHover();
+    root.addEventListener('pointerdown',this.canvasPointerDown,true);root.addEventListener('pointermove',this.canvasPointerMove,true);root.addEventListener('pointerup',this.canvasPointerUp,true);root.addEventListener('pointercancel',this.canvasPointerCancel,true);root.addEventListener('lostpointercapture',this.canvasPointerCancel,true);root.addEventListener('pointerleave',this.canvasPointerLeave,true);
     this.contextLost=()=>{this.modelLayer?.dispose();this.modelLayer=null;this.modelUnavailable=true;this.render(this.room,this.selected,this.playing);};root.addEventListener('office-3d-unavailable',this.contextLost);
     this.visibilityChanged=()=>this.syncActivity();root.ownerDocument.addEventListener('visibilitychange',this.visibilityChanged);
     this.preferenceChanged=()=>this.syncActivity();this.motionPreference?.addEventListener?.('change',this.preferenceChanged);
   }
+  isCanvasPointer(e){return !!this.modelLayer&&e.target===this.modelLayer.renderer.domElement;}
+  handleCanvasPointerDown(e){
+    if(!this.isCanvasPointer(e)||e.button!==0||!Number.isFinite(e.clientX)||!Number.isFinite(e.clientY))return;
+    if(this.onDoorToggle&&this.modelLayer.pickDoor(e.clientX,e.clientY))return;
+    const target=this.pick(e),current=this.room?.objects.find(object=>object.id===target?.dataset.object);if(!current||this.gridPlacement&&!this.gridPlacement.movable(current))return;
+    e.preventDefault();
+    if(this.editable&&!this.playing){
+      this.onSelect?.(current.id);if(current.locked)return;
+      const pointerId=e.pointerId??1;this.drag={id:pointerId,object:current.id,x:e.clientX,y:e.clientY,start:{...current},el:target,capture:e.target,canvas:true};try{e.target.setPointerCapture?.(pointerId);}catch{}
+      if(this.gridPlacement?.enabled)e.stopPropagation();return;
+    }
+    const pointerId=e.pointerId??1;this.canvasTap={id:pointerId,object:current.id,x:e.clientX,y:e.clientY,capture:e.target};try{e.target.setPointerCapture?.(pointerId);}catch{}
+  }
+  handleCanvasPointerMove(e){
+    const drag=this.drag;
+    if(drag?.canvas&&drag.id===(e.pointerId??1)){
+      const rect=this.root.getBoundingClientRect();if(!rect.width||!rect.height)return;
+      const physical=this.modelLayer&&(!this.modelLayer.painted||/^avatar-/.test(drag.start.kind)),factor=physical?skeletonAlignment(this.room).scale:1;
+      drag.next={...drag.start,x:Math.max(8,Math.min(92,drag.start.x+(e.clientX-drag.x)/rect.width*100/factor)),y:Math.max(18,Math.min(94,drag.start.y+(e.clientY-drag.y)/rect.height*100/factor))};
+      if(this.gridPlacement?.enabled){drag.candidate=this.gridPlacement.preview(drag.object,drag.next);if(drag.candidate.object)this.place(drag.el,drag.candidate.object);}
+      else{this.modelLayer?.previewMove(drag.object,drag.next);this.place(drag.el,drag.next);}return;
+    }
+    if(!this.isCanvasPointer(e))return;
+    const target=this.pick(e),id=target?.dataset.object||null;
+    if(id===this.canvasHover)return;this.clearCanvasHover();this.canvasHover=id;if(id)target.dataset.pointerHover='true';
+  }
+  handleCanvasPointerUp(e){
+    if(this.drag?.canvas&&this.drag.id===(e.pointerId??1)){
+      const drag=this.drag;this.drag=null;try{drag.capture.releasePointerCapture?.(drag.id);}catch{}
+      if(drag.next){
+        if(this.gridPlacement?.enabled){this.gridPlacement.skipClick=true;if(drag.candidate?.ok)this.onMove?.(drag.object,{x:drag.candidate.object.x,y:drag.candidate.object.y,...(drag.candidate.object.rotation!==undefined?{rotation:drag.candidate.object.rotation}:{})});else{this.gridPlacement.cancel();this.place(drag.el,drag.start);}}
+        else this.onMove?.(drag.object,{x:drag.next.x,y:drag.next.y});
+      }return;
+    }
+    const tap=this.canvasTap;if(!tap||tap.id!==(e.pointerId??1))return;this.canvasTap=null;try{tap.capture?.releasePointerCapture?.(tap.id);}catch{}
+    if(Math.hypot(e.clientX-tap.x,e.clientY-tap.y)<8)this.activate(tap.object);
+  }
+  handleCanvasPointerCancel(e){
+    if(this.drag?.canvas&&this.drag.id===(e.pointerId??1)){this.cancelDrag();return;}
+    if(this.canvasTap?.id===(e.pointerId??1))this.canvasTap=null;
+  }
+  clearCanvasHover(){if(!this.canvasHover)return;[...this.root.querySelectorAll('[data-object]')].find(el=>el.dataset.object===this.canvasHover)?.removeAttribute('data-pointer-hover');this.canvasHover=null;}
   setAgentStates(values){
     this.agentStates=(Array.isArray(values)?values:[]).filter(v=>v&&typeof v.avatarId==='string').map(v=>({...v}));
     const note=this.root.querySelector('.hy-activity-hud span');if(note)note.textContent=this.agentStates.some(v=>String(v.source).startsWith('synthetic'))?'สถานะ synthetic · กิจกรรมในฉากจำลอง':this.agentStates.some(v=>v.source)?'สถานะจากข้อมูลที่ผูกไว้ · กิจกรรมในฉากจำลอง':'ยังไม่ผูกสถานะ agent · กิจกรรมในฉากจำลอง';
@@ -349,5 +393,5 @@ export class HybridScene{
     this.syncActivity();
   }
   cancelDrag(){this.gridPlacement?.cancel();if(!this.drag)return;const d=this.drag;this.drag=null;if(d.capture.hasPointerCapture?.(d.id))d.capture.releasePointerCapture(d.id);this.modelLayer?.previewMove(d.object,d.start);this.place(d.el,d.start);}
-  dispose(){this.cancelDrag();this.gridPlacement?.dispose();this.disposed=true;this.stopActivity();this.modelLayer?.dispose();this.taskPopup?.dispose?.();this.root.removeEventListener('pointerdown',this.doorPointer,true);this.root.removeEventListener('click',this.doorPointer,true);this.root.removeEventListener('office-3d-unavailable',this.contextLost);this.root.ownerDocument.removeEventListener('visibilitychange',this.visibilityChanged);this.motionPreference?.removeEventListener?.('change',this.preferenceChanged);this.popup?.remove();this.root.querySelectorAll('img').forEach(img=>{img.onerror=null;img.onload=null;});this.root.replaceChildren();}
+  dispose(){this.cancelDrag();this.clearCanvasHover?.();this.gridPlacement?.dispose();this.disposed=true;this.stopActivity();this.modelLayer?.dispose();this.taskPopup?.dispose?.();this.root.removeEventListener('pointerdown',this.doorPointer,true);this.root.removeEventListener('click',this.doorPointer,true);this.root.removeEventListener('pointerdown',this.canvasPointerDown,true);this.root.removeEventListener('pointermove',this.canvasPointerMove,true);this.root.removeEventListener('pointerup',this.canvasPointerUp,true);this.root.removeEventListener('pointercancel',this.canvasPointerCancel,true);this.root.removeEventListener('lostpointercapture',this.canvasPointerCancel,true);this.root.removeEventListener('pointerleave',this.canvasPointerLeave,true);this.root.removeEventListener('office-3d-unavailable',this.contextLost);this.root.ownerDocument.removeEventListener('visibilitychange',this.visibilityChanged);this.motionPreference?.removeEventListener?.('change',this.preferenceChanged);this.popup?.remove();this.root.querySelectorAll('img').forEach(img=>{img.onerror=null;img.onload=null;});this.root.replaceChildren();}
 }
