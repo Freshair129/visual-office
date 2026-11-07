@@ -142,6 +142,9 @@ export function openFloorTasks(root, {floor = {}, getTasks, onOpenTask, onOpenWo
   const floorKey = typeof floorScope.key === 'string' ? floorScope.key : '';
   const floorLabel = text(floorScope.label, 120) || 'ชั้นนี้';
   const reserved = floorScope.reserved === true;
+  // The board is removed rather than closed, and a removed modal does not hand
+  // focus back on its own, so remember the control that opened it.
+  const opener = document.activeElement && document.activeElement !== document.body ? document.activeElement : null;
   const dialog = document.createElement('dialog');
   dialog.className = 'floor-tasks-dialog';
   dialog.setAttribute('aria-modal', 'true');
@@ -184,7 +187,11 @@ export function openFloorTasks(root, {floor = {}, getTasks, onOpenTask, onOpenWo
     if (disposed) return;
     disposed = true;
     requestNumber++;
+    const focusWasInside = dialog.contains(document.activeElement);
     dialog.remove();
+    const active = document.activeElement;
+    if (opener?.isConnected && typeof opener.focus === 'function'
+      && (focusWasInside || !active || active === document.body)) opener.focus();
   };
   dialog.dispose = dispose;
   close.addEventListener('click', dispose);
