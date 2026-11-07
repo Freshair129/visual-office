@@ -2,11 +2,11 @@
 
 This inventory covers every Git-tracked and nonignored untracked Markdown file plus Markdown-linked structured QA/report/provenance JSON, companion prompts, local/third-party license texts and fixture receipts. Purpose is summarized from the record title or role; status is evidence-context as of 7 November 2026, not an implementation or art-approval claim.
 
-**Inventory rows:** 161 Markdown files and 60 non-Markdown companion records.
+**Inventory rows:** 162 Markdown files and 60 non-Markdown companion records.
 
-**Kind counts:** asset provenance: 15; decision: 5; fixture: 3; guide: 39; license: 11; plan: 55; prompt: 13; record: 56; spec: 24
+**Kind counts:** asset provenance: 15; decision: 5; fixture: 3; guide: 40; license: 11; plan: 55; prompt: 13; record: 56; spec: 24
 
-**Status counts:** current: 57; historical: 155; superseded-by: 4; unknown: 5
+**Status counts:** current: 58; historical: 155; superseded-by: 4; unknown: 5
 
 Inbound links count Markdown link occurrences from all current Markdown sources, including this inventory's links to the listed files. Phase 2 locations below reflect the owner-approved layout applied on 7 November 2026.
 
@@ -98,12 +98,14 @@ CC0 furniture fixtures and authored geometry-reference images remain in Git.
 | --- | --- | --- | --- | --- | ---: | --- |
 | [docs/3D-ART-BRIEF-V0.1.md](3D-ART-BRIEF-V0.1.md) | Visual Office — 3D art brief v0.1 | spec | superseded-by docs/DESIGN-SOURCES.md — current art direction is routed there | Product, system and Studio guides | 5 | docs/3D-ART-BRIEF-V0.1.md |
 | [docs/API-ENDPOINT-AUDIT.md](API-ENDPOINT-AUDIT.md) | Office endpoint and runtime audit — 26 October 2026 | record | historical — dated source audit; re-run before relying on observations | Product, system and Studio guides | 16 | docs/API-ENDPOINT-AUDIT.md |
-| [docs/ARCHITECTURE.md](ARCHITECTURE.md) | Visual Office — architecture and diagram set | guide | current — maintained system guide or bounded proposal | Product, system and Studio guides | 8 | docs/ARCHITECTURE.md |
+| [docs/ARCHITECTURE.md](ARCHITECTURE.md) | Visual Office — architecture and diagram set | guide | current — maintained system guide or bounded proposal | Product, system and Studio guides | 9 | docs/ARCHITECTURE.md |
 | [docs/ART-PRODUCTION-PLAN.md](ART-PRODUCTION-PLAN.md) | Visual Office hybrid art production plan | plan | current — active asset-family checklist and inventory; character approval remains separate | Product, system and Studio guides | 5 | docs/ART-PRODUCTION-PLAN.md |
+| [docs/DATA-MODEL.md](DATA-MODEL.md) | Visual Office code-derived data model | guide | current — source-linked persistence, asset and exchange inventory | Product, system and Studio guides | 3 | docs/DATA-MODEL.md |
+| [docs/ROADMAP-TO-PRODUCTION.md](ROADMAP-TO-PRODUCTION.md) | Visual Office — roadmap to production | plan | proposed — sequences existing gaps; owner acceptance pending | Product, system and Studio guides | 1 | docs/ROADMAP-TO-PRODUCTION.md |
 | [docs/DESIGN-SOURCES.md](DESIGN-SOURCES.md) | Visual Office design sources | decision | current — maintained system guide or bounded proposal | Product, system and Studio guides | 15 | docs/DESIGN-SOURCES.md |
 | [docs/DESIGN-STUDIO.md](DESIGN-STUDIO.md) | Design Studio — ห้องทดลอง 3D ชุดแรก | guide | historical — earlier prototype, comparison or proposal; later guides own current behavior | Product, system and Studio guides | 6 | docs/DESIGN-STUDIO.md |
 | [docs/DOMAIN-OFFICE.md](DOMAIN-OFFICE.md) | Office domain map and connection boundaries | guide | current — maintained system guide or bounded proposal | Product, system and Studio guides | 8 | docs/DOMAIN-OFFICE.md |
-| [docs/EXTERNAL-ASSETS.md](EXTERNAL-ASSETS.md) | External asset storage and RustFS setup | guide | current — public asset-store policy and local commands | Product, system and Studio guides | 4 | docs/EXTERNAL-ASSETS.md |
+| [docs/EXTERNAL-ASSETS.md](EXTERNAL-ASSETS.md) | External asset storage and RustFS setup | guide | current — public asset-store policy and local commands | Product, system and Studio guides | 6 | docs/EXTERNAL-ASSETS.md |
 | [docs/GAME-DESIGN-V0.1.md](GAME-DESIGN-V0.1.md) | Visual Office — Game Design v0.1 | spec | historical — earlier prototype, comparison or proposal; later guides own current behavior | Product, system and Studio guides | 6 | docs/GAME-DESIGN-V0.1.md |
 | [docs/HYBRID-STUDIO.md](HYBRID-STUDIO.md) | Hybrid Design Studio | guide | current — maintained system guide or bounded proposal | Product, system and Studio guides | 11 | docs/HYBRID-STUDIO.md |
 | [docs/NATIVE-STUDIO.md](NATIVE-STUDIO.md) | Original 3D floor editing | guide | current — maintained system guide or bounded proposal | Product, system and Studio guides | 10 | docs/NATIVE-STUDIO.md |
@@ -113,9 +115,9 @@ CC0 furniture fixtures and authored geometry-reference images remain in Git.
 | [docs/STUDIO-STYLES.md](STUDIO-STYLES.md) | Design Studio — three visual styles | guide | historical — earlier prototype, comparison or proposal; later guides own current behavior | Product, system and Studio guides | 5 | docs/STUDIO-STYLES.md |
 | [docs/SYSTEM-GAP-ANALYSIS.md](SYSTEM-GAP-ANALYSIS.md) | Visual Office system gap analysis — 27 October 2026 | record | current — accepted baseline or active functional gap record | Product, system and Studio guides | 13 | docs/SYSTEM-GAP-ANALYSIS.md |
 | [docs/T3-CAPABILITY-INVENTORY.md](T3-CAPABILITY-INVENTORY.md) | T3 Capability Inventory and Zuri Parity Baseline | record | current — maintained system guide or bounded proposal | Product, system and Studio guides | 3 | docs/T3-CAPABILITY-INVENTORY.md |
-| [docs/VISUAL-OFFICE-SRS.md](VISUAL-OFFICE-SRS.md) | Visual Office — Software Requirements Specification | spec | current — maintained system guide or bounded proposal | Product, system and Studio guides | 17 | docs/VISUAL-OFFICE-SRS.md |
+| [docs/VISUAL-OFFICE-SRS.md](VISUAL-OFFICE-SRS.md) | Visual Office — Software Requirements Specification | spec | current — maintained system guide or bounded proposal | Product, system and Studio guides | 20 | docs/VISUAL-OFFICE-SRS.md |
 | [docs/ZURI-OFFICE-EXECUTION-CONTRACT-V1.md](ZURI-OFFICE-EXECUTION-CONTRACT-V1.md) | Zuri Office Execution Contract v1 | spec | current — maintained system guide or bounded proposal | Product, system and Studio guides | 3 | docs/ZURI-OFFICE-EXECUTION-CONTRACT-V1.md |
-| [docs/ZURI-PLATFORM-INTEGRATION-BOUNDARY.md](ZURI-PLATFORM-INTEGRATION-BOUNDARY.md) | Visual Office and Zuri platform integration boundary | guide | current — maintained system guide or bounded proposal | Product, system and Studio guides | 17 | docs/ZURI-PLATFORM-INTEGRATION-BOUNDARY.md |
+| [docs/ZURI-PLATFORM-INTEGRATION-BOUNDARY.md](ZURI-PLATFORM-INTEGRATION-BOUNDARY.md) | Visual Office and Zuri platform integration boundary | guide | current — maintained system guide or bounded proposal | Product, system and Studio guides | 18 | docs/ZURI-PLATFORM-INTEGRATION-BOUNDARY.md |
 
 ## Character art and runtime
 
@@ -237,7 +239,7 @@ CC0 furniture fixtures and authored geometry-reference images remain in Git.
 | [docs/superpowers/plans/historical/2026-10-31-studio-submission-jitter.md](superpowers/plans/historical/2026-10-31-studio-submission-jitter.md) | Studio submission cadence and load draw plan | plan | historical — dated plan/evidence record; family index preserves its limits | Dated implementation plans | 3 | docs/superpowers/plans/historical/2026-10-31-studio-submission-jitter.md |
 | [docs/superpowers/plans/README.md](superpowers/plans/README.md) | Implementation plans index | guide | current — navigation index; it does not assign approval or implementation status | Dated implementation plans | 5 | docs/superpowers/plans/README.md |
 
-| [docs/superpowers/plans/historical/README.md](superpowers/plans/historical/README.md) | Historical implementation plans index | guide | current maintained index | Dated implementation plans | 2 | docs/superpowers/plans/historical/README.md |
+| [docs/superpowers/plans/historical/README.md](superpowers/plans/historical/README.md) | Historical implementation plans index | guide | current maintained index | Dated implementation plans | 3 | docs/superpowers/plans/historical/README.md |
 | [docs/superpowers/plans/review/README.md](superpowers/plans/review/README.md) | Plans awaiting owner disposition index | guide | current maintained index | Dated implementation plans | 2 | docs/superpowers/plans/review/README.md |
 
 ## Dated records indexes

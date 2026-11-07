@@ -11,6 +11,8 @@ second requirements registry. Start at the [repository guide](../README.md).
 | [SRS](VISUAL-OFFICE-SRS.md) | Office requirements and implementation/dependency status; preserve existing VO IDs |
 | [System gap analysis](SYSTEM-GAP-ANALYSIS.md) | 27 October functional audit, priorities, temporary-model baseline and separate local/live acceptance gaps |
 | [Architecture](ARCHITECTURE.md) | Current components, data flow, storage and deployment boundaries; target diagrams are labeled |
+| [Data model](DATA-MODEL.md) | Code-derived browser, Worker, asset, scene and exchange records; fields link to their source owners |
+| [Roadmap to production](ROADMAP-TO-PRODUCTION.md) | Proposed phases A–E from the current local client to a Zuri-served production release; gates, owners and dependencies |
 | [UX flows](OFFICE-UX-FLOWS.md) | Current shell, routes, Lobby/directory and object-to-workspace flows |
 | [Domain/floor mapping](DOMAIN-OFFICE.md) | Static illustrative directory versus the synthetic authorized-domain candidate |
 | [Zuri platform boundary](ZURI-PLATFORM-INTEGRATION-BOUNDARY.md) | Optional web-client target, ownership and contracts still required from Zuri |
