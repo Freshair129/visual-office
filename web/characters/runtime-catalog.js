@@ -1,11 +1,11 @@
-// Temporary presentation assets. These IDs never identify Agents or roles.
+// Owner-approved presentation assets (7 November 2026). IDs never identify Agents or roles.
 const root='./assets/models/characters/';
 export const CHARACTER_APPEARANCES=Object.freeze([
- {id:'staff-a',label:'พนักงาน A · ชั่วคราว',path:root+'staff-a.glb',seatHeight:.41,family:'human'},
- {id:'staff-b',label:'พนักงาน B · ชั่วคราว',path:root+'staff-b.glb',seatHeight:.443,family:'human'},
- {id:'zuri',label:'Zuri · ชั่วคราว',path:root+'candidates/zuri-face-r4.glb',metadata:root+'candidates/zuri-face-r4.json',seatHeight:.41,family:'anime'},
- {id:'wangjai',label:'น้องวางใจ · ชั่วคราว',path:root+'wangjai.glb',seatHeight:.20,family:'robot'},
-].map(v=>Object.freeze({...v,artApproved:false})));
+ {id:'staff-a',label:'พนักงาน A',path:root+'staff-a.glb',seatHeight:.41,family:'human'},
+ {id:'staff-b',label:'พนักงาน B',path:root+'staff-b.glb',seatHeight:.443,family:'human'},
+ {id:'zuri',label:'Zuri',path:root+'candidates/zuri-face-r4.glb',metadata:root+'candidates/zuri-face-r4.json',seatHeight:.41,family:'anime'},
+ {id:'wangjai',label:'น้องวางใจ',path:root+'wangjai.glb',seatHeight:.20,family:'robot'},
+].map(v=>Object.freeze({...v,artApproved:true,artApprovedAt:'2026-11-07'})));
 export const characterAppearance=id=>CHARACTER_APPEARANCES.find(v=>v.id===id)||null;
 // Saved appearance identity is independent of the chosen geometry detail.
 // Keep full-detail sources available to the Lab and historical comparisons.

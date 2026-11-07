@@ -1,11 +1,11 @@
 # Visual Office design sources
 
-**Current temporary characters:** Zuri face revision 4, Wangjai and Staff A/B
-are available for functional use while final art is deferred. See
+**Current approved characters (7 November 2026):** the owner approved Zuri face
+revision 4, Wangjai and Staff A/B originals and LOD1. See
 [runtime scope](game-design/characters/TEMPORARY-RUNTIME.md) and
 [character history and sources](game-design/characters/README.md). Existing
-approved sheets remain identity references; runnable models are not art approval.
-Old Lab-only limits are historical for these four temporary runtime appearances.
+approved sheets remain identity references. Other candidates and review assets
+remain unapproved. Old Lab-only limits are historical for these four appearances.
 
 **Current reconciliation — 26 October 2026:** the default campus/Lobby retain the
 original illustrated assets and logo. The synthetic dynamic-domain view uses
@@ -14,8 +14,8 @@ and the editors remain supported; the green GLB prototype is not the default the
 Building-only Fit/zoom-out now covers the viewport with 25% overscan; floor/editor
 Fit is unchanged. See [runtime audit](API-ENDPOINT-AUDIT.md) and
 [campus framing](superpowers/plans/historical/2026-10-26-campus-overscan.md).
-Current character meshes are temporary usable assets; they have not received final
-visual approval. Older dated refinements below preserve the design history rather
+The four character appearances now have the approval specified above; other
+candidates do not. Older dated refinements below preserve the design history rather
 than authorizing another theme or branding change.
 
 **Latest structural reset — 24 October 2026:** Projects now uses one measured

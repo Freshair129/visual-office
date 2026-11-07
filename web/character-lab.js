@@ -76,7 +76,7 @@ async function load(id,nextVersion='current',preserveView=false){
     setCharacterDownload($('#download'),id,true,version);
     if(isImportedCharacter(id)){
       const meta=candidateMeta.get(id),adapted=isZuriAdaptation(id),name=adapted?(id==='zuri-face-r4'?'Zuri · แก้ใบหน้า':'Zuri · รุ่นก่อนแก้หน้า'):id==='anime'?'Rigged Anime Girl':'Rain';
-      status.textContent=adapted?`${name} · รุ่น ${meta?.revision||1} · ${id==='zuri-face-r4'?'สันจมูก / ปาก / คางแบบ 3D':'เก็บหน้า / ผม / ชุดตามชีต'} · รอตรวจงานภาพ`:`${name} · โมเดลสำเร็จรูปทดลอง · ยังไม่มีคลิปเดิน / นั่ง`;
+      status.textContent=adapted?`${name} · รุ่น ${meta?.revision||1} · ${id==='zuri-face-r4'?'สันจมูก / ปาก / คางแบบ 3D':'เก็บหน้า / ผม / ชุดตามชีต'} · ${id==='zuri-face-r4'?'อนุมัติงานภาพ 7 พฤศจิกายน 2026':'รอตรวจงานภาพ'}`:`${name} · โมเดลสำเร็จรูปทดลอง · ยังไม่มีคลิปเดิน / นั่ง`;
       $('#details').textContent=meta?`${meta.triangles.toLocaleString()} triangles · ${(meta.bytes/1048576).toFixed(2)} MiB · ${meta.skins?'มี skin ใน GLB':'GLB ภาพนิ่ง · rig อยู่ในไฟล์ Blender ต้นฉบับ'} · สูงแสดงผล 1.65 ม. · ${adapted?`${clips.length} คลิปทดลอง · ${characterReviewScope(id)}`:'ยังไม่ปรับเป็น Zuri'}`:'โมเดลทดลอง · ไม่ใช้ในชั้นจริง';
       const credit=$('#candidate-credit');credit.hidden=false;
       credit.append(document.createTextNode(`${meta?.attribution||name} · ${meta?.license||'ดูสิทธิ์ในไฟล์ชุดโมเดล'} · `));

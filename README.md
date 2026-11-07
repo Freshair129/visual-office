@@ -15,7 +15,9 @@ create Zuri records or grants.
 Temporary Zuri, Wangjai and staff models are available in
 `character-lab.html?model=zuri-anime` and the Hybrid floor/Studio appearance
 picker. See [character runtime scope](docs/game-design/characters/TEMPORARY-RUNTIME.md).
-They remain provisional artwork; choosing an appearance never adds an Agent.
+The owner approved Zuri R4, Wangjai and Staff A/B (originals and LOD1) on
+7 November 2026. Other candidates and review assets remain unapproved; choosing
+an appearance never adds an Agent.
 
 ## External assets
 

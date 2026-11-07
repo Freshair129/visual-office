@@ -7,7 +7,7 @@ export function initialCharacterSelection(requested){
 }
 export function characterReviewScope(id){
   const appearance=id==='zuri-face-r4'?'zuri':id==='zuri'||id==='zuri-anime'?null:id;
-  return characterAppearance(appearance)?'ใช้ในชั้นแบบชั่วคราว · งานภาพยังไม่อนุมัติ':'โมเดลเปรียบเทียบ · ไม่ใช้ในชั้นจริง';
+  return characterAppearance(appearance)?'ใช้ในชั้นได้ · อนุมัติงานภาพ 7 พฤศจิกายน 2026':'โมเดลเปรียบเทียบ · งานภาพยังไม่อนุมัติ · ไม่ใช้ในชั้นจริง';
 }
 export const importedCharacterIds=Object.freeze(['anime','rain','zuri-anime','zuri-face-r4']);
 export function isImportedCharacter(id){return importedCharacterIds.includes(id);}
