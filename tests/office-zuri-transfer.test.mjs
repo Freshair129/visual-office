@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {normalizeZuriOrigin,openOfficeTransfer} from '../web/office-zuri-transfer.js';
+import {JSDOM} from 'jsdom';
 
 test('accepts HTTPS origins and loopback HTTP only',()=>{
  assert.equal(normalizeZuriOrigin('https://zuri.example/'),'https://zuri.example');
@@ -31,4 +32,35 @@ test('closing the popup reports an unknown outcome',async()=>{
  const popup={closed:false};const win={location:{origin:'https://office.example'},crypto:{randomUUID:()=> 'nonce-2'},open:()=>popup,addEventListener:()=>{},removeEventListener:()=>{}};
  const transfer=openOfficeTransfer(win,'https://zuri.example',async()=>new Uint8Array([1]),['https://zuri.example']);popup.closed=true;
  await assert.rejects(transfer,/ผลอาจยังไม่แน่ชัด/);
+});
+
+test('hidden popup watcher resumes and reports a closure with the existing unknown outcome',async t=>{
+ t.mock.timers.enable({apis:['setInterval']});
+ const doc=new JSDOM('').window.document;let hidden=false,checks=0;
+ Object.defineProperty(doc,'hidden',{get:()=>hidden});
+ let closed=false;const popup={get closed(){checks++;return closed}};
+ const win={document:doc,location:{origin:'https://office.example'},crypto:{randomUUID:()=> 'nonce'},open:()=>popup,addEventListener:()=>{},removeEventListener:()=>{}};
+ const transfer=openOfficeTransfer(win,'https://zuri.example',async()=>new Uint8Array([1]),['https://zuri.example']);
+ hidden=true;doc.dispatchEvent(new doc.defaultView.Event('visibilitychange'));const before=checks;
+ closed=true;t.mock.timers.tick(10000);assert.equal(checks,before);
+ hidden=false;doc.dispatchEvent(new doc.defaultView.Event('visibilitychange'));
+ await assert.rejects(transfer,/ปิดหน้าต่าง Zuri แล้ว ผลอาจยังไม่แน่ชัด โปรดตรวจ Zuri ก่อนลองใหม่/);
+ const after=checks;t.mock.timers.tick(10000);assert.equal(checks,after);
+});
+
+test('package preparation can finish while hidden and a never-answering popup remains pending',async t=>{
+ t.mock.timers.enable({apis:['setInterval']});
+ const doc=new JSDOM('').window.document;let hidden=false,listener,release,settled=false;
+ Object.defineProperty(doc,'hidden',{get:()=>hidden});
+ const sent=[],popup={closed:false,postMessage:data=>sent.push(data)};
+ const win={document:doc,location:{origin:'https://office.example'},crypto:{randomUUID:()=> 'nonce'},open:()=>popup,addEventListener:(_,fn)=>{listener=fn},removeEventListener:()=>{}};
+ const transfer=openOfficeTransfer(win,'https://zuri.example',()=>new Promise(resolve=>{release=resolve}),['https://zuri.example']);
+ transfer.then(()=>{settled=true},()=>{settled=true});
+ listener({origin:'https://zuri.example',source:popup,data:{type:'office-ready',nonce:'nonce'}});
+ await Promise.resolve();hidden=true;doc.dispatchEvent(new doc.defaultView.Event('visibilitychange'));
+ release(new Uint8Array([1]));await new Promise(resolve=>setImmediate(resolve));
+ assert.equal(sent.length,1);t.mock.timers.tick(60000);assert.equal(settled,false);
+ hidden=false;doc.dispatchEvent(new doc.defaultView.Event('visibilitychange'));t.mock.timers.tick(60000);assert.equal(settled,false);
+ listener({origin:'https://zuri.example',source:popup,data:{type:'office-complete',nonce:'nonce',version:1,count:1}});
+ assert.deepEqual(await transfer,{version:1,count:1});
 });

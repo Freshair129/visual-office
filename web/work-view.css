@@ -53,6 +53,7 @@
 .work-detail{grid-column:1/-1;min-width:0;max-width:1120px;padding:0 0 32px}
 .work-detail-top{display:flex;align-items:center;gap:16px;margin:0 0 18px}
 .work-back{display:inline-flex;align-items:center;justify-content:center;min-height:48px;border:1px solid var(--border-subtle);border-radius:4px;padding:8px 14px;background:var(--bg-surface);color:var(--text-primary);font-size:14px;font-weight:600}
+.work-back,.work-chat-link{border-color:var(--border-strong)}
 .work-back:hover{background:var(--bg-raised)}
 .work-summary-detail{padding-bottom:22px;border-bottom:1px solid var(--border-subtle)}
 .work-summary-detail .work-summary-heading h2{font-size:26px;line-height:36px}

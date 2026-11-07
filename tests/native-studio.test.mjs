@@ -36,6 +36,11 @@ async function setup(t,storage=memory(),initialFloor='projects'){
   t.after(()=>{editor.dispose();dom.window.close();});
   return {editor,dom,storage,visits,root,q:s=>root.querySelector(s)};
 }
+test('Native Studio names its dialogs, symbol controls and file inputs',async t=>{
+  const {root}=await setup(t);
+  for(const dialog of root.querySelectorAll('dialog.ns-discard,dialog.ns-elevator,dialog.ns-file-review')) assert.ok(dialog.getAttribute('aria-label'));
+  for(const control of root.querySelectorAll('[data-camera="out"],[data-camera="in"],[data-ns-nudge],.ns-file,.ns-texture-file')) assert.match(control.getAttribute('aria-label'),/[\u0e00-\u0e7f]/,control.outerHTML);
+});
 test('asset library filters named cards and places a stable GLB asset ID into the selected floor draft',async t=>{
   const {editor:e,q,dom,root,storage}=await setup(t),agents=copy(e.office.agents);
   assert.equal(qAll(root,'.ns-asset-card').length,OFFICE_ASSETS.length);

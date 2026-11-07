@@ -23,5 +23,8 @@ dialog{border:1px solid var(--office-edge);border-radius:24px;background:var(--o
 @media(max-width:390px){.tycoon-dock{width:calc(100vw - 16px)}.tycoon-dock button{min-width:0;flex:1;padding:6px}}
 
 .workspace-notice{max-width:1288px;margin:0 auto 8px;padding:10px 18px;border:1px solid var(--office-edge);border-radius:14px;display:flex;align-items:center;gap:14px;background:var(--brand-tint)}
+.primary-button{color:var(--ink)}
+.secondary-button,.quiet-button,.icon-button,.more-dialog-menu button{border-color:var(--border-strong)}
+input:not([type=checkbox]):not([type=radio]):not([type=file]),select,textarea{border-color:var(--border-strong)}
 .workspace-notice p{font-size:12px;line-height:1.8;margin:0;flex:1}.workspace-notice[data-state=synthetic]{background:#eaf2ff}.workspace-blocked{max-width:800px;margin:40px auto 130px;padding:28px;border:1px solid var(--office-edge);background:var(--office-panel);border-radius:20px}.workspace-blocked p{color:var(--muted);line-height:1.8;font-size:14px}
 @media(max-width:767px){.workspace-notice{margin:0 12px 8px;padding:10px 12px;flex-wrap:wrap}.workspace-notice p{font-size:11px}.workspace-blocked{margin:24px 12px 112px}.conversation-page .chat-page-layout{height:calc(100dvh - 270px)}}

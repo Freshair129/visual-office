@@ -36,6 +36,7 @@
 .result-provenance dd{margin:0;color:var(--text-primary);font-size:12px;line-height:1.6;overflow-wrap:anywhere}
 .result-actions{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 18px}
 .result-actions button,.results-secondary{min-height:44px;padding:9px 12px;border:1px solid var(--border-default);border-radius:4px;background:var(--bg-surface);color:var(--text-primary);font-size:12px;font-weight:600}
+.results-clear,.results-clear-inline,.results-refresh,.result-actions button,.results-secondary{border-color:var(--border-strong)}
 .result-actions .results-download{border-color:var(--action-primary);background:var(--action-primary);color:var(--text-inverse)}
 .result-actions .results-download:hover{background:var(--action-primary-hover)}
 .results-truncated{padding:10px 12px;border-left:3px solid var(--status-warning);background:var(--status-warning-surface);color:var(--text-primary);font-size:12px;line-height:1.6}
