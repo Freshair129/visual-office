@@ -1,5 +1,7 @@
 # Office Tycoon Implementation Plan
 
+Disposition (7 November 2026, lead under the owner's delegation): Delivered through later merged work (Tycoon scene/state/studio/activity modules and tests; OFFICE-MVP-ACCEPTANCE-20261031.md owns accepted scope). The checkboxes were never maintained. Connected work/roster/command scope (ZD3–ZD6) stays open under G5 in SYSTEM-GAP-ANALYSIS.md.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Produce a playable GLB building, Lobby and Projects scene with object interactions, preserve Studio layouts, and admit live Zuri actions only through accepted contracts.

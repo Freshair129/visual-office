@@ -53,3 +53,7 @@ These dated plans retain their sequencing and evidence limits. Location and chec
 - [2026-10-31-resumable-pose-solve](2026-10-31-resumable-pose-solve.md)
 - [2026-10-31-studio-first-draw-trace](2026-10-31-studio-first-draw-trace.md)
 - [2026-10-31-studio-submission-jitter](2026-10-31-studio-submission-jitter.md)
+- [2026-10-23-office-tycoon](2026-10-23-office-tycoon.md) — disposition recorded 7 November 2026
+- [2026-10-24-marketing-dynamic-context](2026-10-24-marketing-dynamic-context.md) — disposition recorded 7 November 2026
+- [2026-10-27-system-gap-closure](2026-10-27-system-gap-closure.md) — disposition recorded 7 November 2026
+- [2026-10-29-department-world-handoff](2026-10-29-department-world-handoff.md) — disposition recorded 7 November 2026
